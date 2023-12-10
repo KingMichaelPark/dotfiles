@@ -1,0 +1,57 @@
+[buildPlans.mikevka]
+family = "Mikevka"
+spacing = "term"
+serifs = "sans"
+noCvSs = true
+exportGlyphNames = false
+
+hintParams = ["-a", "qqq"]
+
+[buildPlans.mikevka.metricOverride]
+leading = 1100
+xHeight = 550
+
+[buildPlans.mikevka.variants.design]
+capital-j = "serifed"
+zero = "diamond-slashed"
+two = "curly-neck"
+three = "flat-top"
+brace = "curly-flat-boundary"
+ampersand = "closed"
+paren = "normal"
+percent = "rings-continuous-slash"
+lig-ltgteq = "slanted"
+lig-neq = "slightly-slanted"
+caret = "low"
+
+[buildPlans.mikevka.variants.italic]
+k = "cursive-serifless"
+
+[buildPlans.mikevka.variants]
+inherits = "ss08"
+
+[buildPlans.mikevka.widths.normal]
+shape = 500
+menu  = 5
+css   = "normal"
+
+[buildPlans.mikevka.weights.regular]
+shape = 425
+menu = 400
+css = 400
+
+[buildPlans.mikevka.weights.semibold]
+shape = 600
+menu = 600
+css = 600
+
+[buildPlans.mikevka.weights.bold]
+shape = 800
+menu = 700
+css = 700
+
+[buildPlans.mikevka.weights.black]
+shape = 900
+menu = 900
+css = 900
+

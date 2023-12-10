@@ -1,0 +1,102 @@
+[sqlfluff]
+templater = jinja
+sql_file_exts=.sql
+max_line_length = 300
+ignore=templating
+dialect=mysql
+
+[sqlfluff:indentation]
+tab_space_size = 4
+indent_unit = space
+
+[sqlfluff:rules]
+allow_scalar = True
+single_table_references = consistent
+unquoted_identifiers_policy = aliases
+
+[sqlfluff:layout:type:comma]
+line_position = leading
+
+
+[sqlfluff:rules:capitalisation.keywords]
+# Keywords
+capitalisation_policy = upper
+# Comma separated list of words to ignore for this rule
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:capitalisation.identifiers]
+# Unquoted identifiers
+extended_capitalisation_policy = consistent
+# Comma separated list of words to ignore for this rule
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:capitalisation.functions]
+# Function names
+extended_capitalisation_policy = consistent
+# Comma separated list of words to ignore for this rule
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:capitalisation.literals]
+# Null & Boolean Literals
+capitalisation_policy = consistent
+# Comma separated list of words to ignore for this rule
+ignore_words = None
+ignore_words_regex = None
+
+
+[sqlfluff:rules:capitalisation.types]
+# Data Types
+extended_capitalisation_policy = consistent
+# Comma separated list of words to ignore for this rule
+ignore_words = None
+ignore_words_regex = None
+
+[sqlfluff:rules:ambiguous.join]
+# Fully qualify JOIN clause
+fully_qualify_join_types = inner
+
+
+[sqlfluff:rules:ambiguous.column_references]
+# GROUP BY/ORDER BY column references
+group_by_and_order_by_style = consistent
+
+
+[sqlfluff:rules:aliasing.table]
+# Aliasing preference for tables
+aliasing = explicit
+
+
+[sqlfluff:rules:aliasing.column]
+# Aliasing preference for columns
+aliasing = explicit
+
+
+[sqlfluff:rules:aliasing.length]
+min_alias_length = 2
+max_alias_length = 200
+
+
+[sqlfluff:rules:aliasing.forbid]
+# Avoid table aliases in from clauses and join conditions.
+# Disabled by default for all dialects unless explicitly enabled.
+# We suggest instead using aliasing.length (AL06) in most cases.
+force_enable = False
+
+[sqlfluff:rules:convention.terminator]
+# Semi-colon formatting approach
+multiline_newline = True
+require_final_semicolon = False
+
+[tool.sqlfluff.templater.jinja]
+apply_dbt_builtins = true
+
+[sqlfluff:templater:jinja:context]
+table_name = table_name
+schema = schema
+schema_name = schema_name
+database_name = database_name
+env = local
+catalog = local

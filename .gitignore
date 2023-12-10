@@ -1,0 +1,8 @@
+*.uuid
+packer_compiled.lua
+*.zwc
+*.DS_STORE
+*.ttf
+*.otf
+lazygit/.config/lazygit/state.yml
+nvim/.config/nvim/lazy-lock.json

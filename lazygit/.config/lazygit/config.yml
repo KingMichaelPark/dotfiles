@@ -1,0 +1,55 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta
+
+customCommands:
+  - key: "B"
+    description: "Commitizen Tag Bump"
+    context: "tags"
+    loadingText: "Tagging ..."
+    command: "cz bump -s --increment {{index .PromptResponses 0}}"
+    prompts:
+      - type: "menu"
+        title: "Semver"
+        options:
+          - value: "PATCH"
+          - value: "MINOR"
+          - value: "MAJOR"
+  - key: "z"
+    command: "git cz c"
+    description: "Commit with Commitizen no sign"
+    context: "files"
+    loadingText: "Opening commitizen commit tool"
+    subprocess: true
+  - key: "Z"
+    command: "git cz c -s"
+    description: "Commit with Commitizen Signed"
+    context: "files"
+    loadingText: "Opening commitizen commit tool"
+    subprocess: true
+  - key: "C"
+    command: "cz ch"
+    description: "Update/Generate Changelog"
+    context: "tags"
+    loadingText: "Updating Changelog"
+
+theme:
+  lightTheme: false
+  activeBorderColor:
+    - "#31748f" # Green
+    - bold
+  inactiveBorderColor:
+    - "#e0def4" # Text
+  optionsTextColor:
+    - "#9ccfd8" # Pine
+  selectedLineBgColor:
+    - "#1f1d2e" # Surface0
+  selectedRangeBgColor:
+    - "#1f1d2e" # Surface0
+  cherryPickedCommitBgColor:
+    - "#9ccfd8" # Foam
+  cherryPickedCommitFgColor:
+    - "#31748f" # Pine
+  unstagedChangesColor:
+    - "#eb6f92" # Love
