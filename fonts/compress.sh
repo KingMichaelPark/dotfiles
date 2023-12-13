@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-tar --zstd -cf "$1.tar.zst" "$1"
+tar -czf "$1.tar.gz" "$1"
