@@ -1,5 +1,6 @@
 return {
     "kylechui/nvim-surround",
-    event = "BufReadPre",
+    version = "*",
+    event = "VeryLazy",
     config = true
 }
