@@ -46,16 +46,10 @@ return {
     event = "InsertEnter",
     opts = function()
         local cmp = require("cmp")
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         -- require("copilot_cmp").setup()
         local defaults = require("cmp.config.default")()
         local luasnip = require("luasnip")
         vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-        -- If you want insert `(` after select function or method item
-        cmp.event:on(
-            'confirm_done',
-            cmp_autopairs.on_confirm_done()
-        )
         return {
             completion = {
                 completeopt = "menu,menuone,noinsert",
