@@ -6,7 +6,7 @@
 Everything is managed via gnu stow. The tl;dr is that relative to the dotfiles
 directory (that you should clone to `~/.dotfiles` it will symlink the directory
 you name up one directory. Different python, node, terraform versions are all
-managed with [rtx](https://github.com/jdxcode/rtx)
+managed with [mise](https://github.com/jdxcode/mise)
 
 For example, zsh/ contains `.zshrc` so to deploy your
 zsh folder using `stow` you simply run
@@ -48,7 +48,7 @@ Creates the symlinks all the way to `~/.config/nvim/*`
 
 ### Install via Brew
 
-Only use the rtx commands if you want python and nodejs on your system.
+Only use the mise commands if you want python and nodejs on your system.
 
 ```zsh
 brew install \
@@ -67,19 +67,19 @@ brew install \
     restic \
     ripgrep \
     rsync \
-    rtx \
+    mise \
     starship \
     stow \
     tmux \
     zoxide
 
 cd ~/.dotfiles
-stow rtx
-rtx install nodejs python
+stow mise
+mise install nodejs python
 ```
 
 To set environmental variables like `direnv`, in your project
-use `rtx env-vars KEY=VALUE` as rtx can replace `direnv` for
+use `mise env-vars KEY=VALUE` as mise can replace `direnv` for
 these environmental variables loading.
 
 ## Different Modules
@@ -107,10 +107,10 @@ Simple tweaks for the [starship.rs](https://starship.rs/) theme for zsh
 
 ### RTX
 
-Using RTX can be done seeing `rtx --help`
+Using RTX can be done seeing `mise --help`
 
 To set your project to automatically activate a virtualenv when switching to it
-create a `.rtx.toml` in your project directory and add.
+create a `.mise.toml` in your project directory and add.
 
 ```toml
 python = {version="latest", virtualenv=".venv"}

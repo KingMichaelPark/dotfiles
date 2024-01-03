@@ -17,5 +17,5 @@ zinit ice as"command" from"gh-r" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
-eval "$(rtx activate zsh)"
+eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"

@@ -14,7 +14,7 @@
 
 ### Feat
 
-- **rtx**: Add rtx as tool version installer and manager
+- **mise**: Add mise as tool version installer and manager
 - **pre-commit-config**: add pre-commit hooks to detect secrets
 - **indent-blankline**: add custom options for indentation
 - **lualine**: fix lualine theme
