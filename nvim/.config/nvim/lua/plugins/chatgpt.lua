@@ -3,7 +3,6 @@ local secret = vim.fn.expand('$HOME/.dotfiles/chatgpt.age')
 
 return {
     "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
     keys = {
         { "<leader>Cc", "<cmd>ChatGPT<CR>",                    desc = "ChatGPT" },
         { "<leader>Ce", "<cmd>ChatGPTEditWithInstruction<CR>", { "n", "v" },    desc = "Edit with instruction" },

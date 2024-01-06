@@ -3,19 +3,18 @@ local secret = vim.fn.expand('$HOME/.dotfiles/chatgpt.age')
 
 return {
     "piersolenski/wtf.nvim",
+    dependencies = {
+        "MunifTanjim/nui.nvim",
+        "KingMichaelPark/age.nvim"
+    },
+    keys = {
+        { "gw", 'lua require("wtf").ai()', desc = "Debug diagnostic with AI" },
+        { "gW", 'require("wtf").search()', desc = "Search diagnostic with DDG" },
+    },
     config = function()
         require("wtf").setup({
             search_engine = "duck_duck_go",
             openai_api_key = require('age').get(secret, identity),
         })
-    end,
-    dependencies = {
-        "MunifTanjim/nui.nvim",
-        "KingMichaelPark/age.nvim"
-    },
-    event = "VeryLazy",
-    keys = {
-        { "gw",           mode = { "n", "x" }, function() require("wtf").ai() end,     desc = "Debug diagnostic with AI", },
-        { mode = { "n" }, "gW",                function() require("wtf").search() end, desc = "Search diagnostic with DDG", },
-    },
+    end
 }
