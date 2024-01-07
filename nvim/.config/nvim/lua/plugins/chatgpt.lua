@@ -17,11 +17,11 @@ return {
 
         require("chatgpt").setup({
             openai_params = {
-                model = "gpt-4-1106-preview", -- "gpt-4-1106-preview",
-                max_tokens = 600              -- 16385,
+                model = "gpt-4",
+                max_tokens = 1600
             },
             openai_edit_params = {
-                model = "gpt-3.5-turbo-1106",
+                model = "gpt-3.5-turbo",
             },
         })
     end,
