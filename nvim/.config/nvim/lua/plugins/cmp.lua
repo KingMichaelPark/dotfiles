@@ -41,6 +41,7 @@ return {
         "hrsh7th/cmp-path",
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
+        'hrsh7th/cmp-cmdline'
         -- "zbirenbaum/copilot-cmp",
     },
     event = "InsertEnter",
@@ -50,6 +51,24 @@ return {
         local defaults = require("cmp.config.default")()
         local luasnip = require("luasnip")
         vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+
+          -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+          cmp.setup.cmdline({ '/', '?' }, {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+              { name = 'buffer' }
+            }
+          })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        })
+      })
         return {
             completion = {
                 completeopt = "menu,menuone,noinsert",
