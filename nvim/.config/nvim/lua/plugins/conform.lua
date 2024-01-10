@@ -1,16 +1,7 @@
 return {
     'stevearc/conform.nvim',
     opts = {},
-    keys = {
-        {
-            "<leader>cF",
-            function()
-                require("conform").format({ formatters = { "injected" } })
-            end,
-            mode = { "n", "v" },
-            desc = "Format Injected Langs",
-        },
-    },
+    event = { "BufNewFile", "BufWritePre" },
     lazy = true,
     config = function()
         require("conform").setup({
@@ -23,9 +14,9 @@ return {
                 jsx = { "biome" },
                 css = { "biome" },
                 scss = { "biome" },
+                sql = { "sqlfluff" },
                 shell = { "shfmt" },
                 terraform = { "terraform_fmt" },
-                -- yaml = { "yamlfmt" }
             },
             format_on_save = {
                 lsp_fallback = true,

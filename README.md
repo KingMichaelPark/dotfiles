@@ -38,6 +38,7 @@ Creates the symlinks all the way to `~/.config/nvim/*`
 - Lazygit
 - Neovim
 - NNN
+- Pnpm
 - Restic
 - Ripgrep
 - Rsync
@@ -62,12 +63,13 @@ brew install \
     git-delta \
     jaq \
     lazygit \
+    mise \
     neovim \
     nnn \
+    pnpm \
     restic \
     ripgrep \
     rsync \
-    mise \
     starship \
     stow \
     tmux \
@@ -105,9 +107,9 @@ My Neovim config with all plugins and settings
 
 Simple tweaks for the [starship.rs](https://starship.rs/) theme for zsh
 
-### RTX
+### Mise
 
-Using RTX can be done seeing `mise --help`
+Using Mise can be done seeing `mise --help`
 
 To set your project to automatically activate a virtualenv when switching to it
 create a `.mise.toml` in your project directory and add.
