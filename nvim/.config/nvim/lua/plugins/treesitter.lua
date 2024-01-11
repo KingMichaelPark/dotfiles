@@ -44,6 +44,7 @@ return {
                 "rst",
                 "rust",
                 "scss",
+                "sql",
                 "terraform",
                 "toml",
                 "tsx",
