@@ -1,5 +1,7 @@
-local on_attach = function(_, opts)
-    vim.bo[opts].omnifunc = 'v:lua.vim.lsp.omnifunc'
+local on_attach = function(client, bufnr) 
+    local opts = { buffer = bufnr }
+    vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
 
     -- Buffer local mappings.
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -13,16 +15,12 @@ local on_attach = function(_, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<leader>p', function() vim.lsp.buf.format { async = true } end, opts)
+    -- vim.keymap.set('n', '<leader>p', function() vim.lsp.buf.format { async = true } end, opts)
 end
 local servers = {
     "biome",
     "pyright",
-    "rust_analyzer",
-    "elixirls",
-    "lua_ls",
     "terraformls",
-    "tsserver"
 }
 
 return {
