@@ -4,7 +4,6 @@ return {
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" }, { "<leader>lz", "<cmd>Lazy<cr>", desc = "Lazy" } },
     opts = {
         ensure_installed = {
-            "biome",
             "ruff",
             "shfmt",
             "yamlfmt"
