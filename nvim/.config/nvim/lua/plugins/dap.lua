@@ -33,7 +33,7 @@ return {
             desc = "DAP Set Breakpoint Condition",
         },
         {
-            "<Leader>lp",
+            "<Leader>Dp",
             "<cmd>lua require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))()<cr>",
             desc = "DAP Set breakpoint log point",
         },

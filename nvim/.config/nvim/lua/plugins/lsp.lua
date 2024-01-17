@@ -1,20 +1,24 @@
-local on_attach = function(client, bufnr) 
+local on_attach = function(_, bufnr)
     local opts = { buffer = bufnr }
     vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
+    local function ad(tbl, desc)
+        tbl["desc"] = desc
+        return tbl
+    end
 
     -- Buffer local mappings.
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, ad(opts, "LSP Declaration"))
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, ad(opts, "LSP Definition"))
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, ad(opts, "LSP Hover"))
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, ad(opts, "LSP Implementation"))
+    vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, ad(opts, "LSP Signature Help"))
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, ad(opts, "LSP Add Workspace Folder"))
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, ad(opts, "LSP Remove Workspace Folder"))
+    vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, ad(opts, "LSP Type Definition"))
+    vim.keymap.set('n', 'gR', vim.lsp.buf.rename, ad(opts, "LSP Buff Rename"))
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, ad(opts, "LSP Code Actions"))
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, ad(opts, "LSP References"))
     -- vim.keymap.set('n', '<leader>p', function() vim.lsp.buf.format { async = true } end, opts)
 end
 local servers = {

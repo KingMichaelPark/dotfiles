@@ -1,12 +1,15 @@
 return {
     "williamboman/mason.nvim",
     build = ":MasonUpdate",
-    keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" }, { "<leader>lz", "<cmd>Lazy<cr>", desc = "Lazy" } },
+    keys = {
+        { "<leader>M", "<cmd>Mason<cr>", desc = "Mason" },
+        { "<leader>L", "<cmd>Lazy<cr>",  desc = "Lazy" }
+    },
     opts = {
         ensure_installed = {
             "ruff",
             "shfmt",
-            "yamlfmt"
+            "yamllint"
         },
     },
     config = function(_, opts)
