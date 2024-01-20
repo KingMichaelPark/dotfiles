@@ -51,24 +51,28 @@ return {
         local defaults = require("cmp.config.default")()
         local luasnip = require("luasnip")
         vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-
-          -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-          cmp.setup.cmdline({ '/', '?' }, {
+        cmp.setup.cmdline('/', {
+            completion = { completeopt = 'menu,menuone,noselect' },
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
-              { name = 'buffer' }
+                { name = 'buffer' }
             }
-          })
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-      cmp.setup.cmdline(':', {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = 'path' }
-        }, {
-          { name = 'cmdline' }
         })
-      })
+        cmp.setup.cmdline(':', {
+            completion = { completeopt = 'menu,menuone,noselect' },
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' }
+            }, {
+                {
+                    name = 'cmdline',
+                    option = {
+                        ignore_cmds = { 'Man', '!' }
+                    }
+                }
+            })
+        })
+
         return {
             completion = {
                 completeopt = "menu,menuone,noinsert",
