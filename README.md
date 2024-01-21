@@ -37,7 +37,7 @@ Creates the symlinks all the way to `~/.config/nvim/*`
 - Lazydocker
 - Lazygit
 - Neovim
-- NNN
+- Yazi
 - Pnpm
 - Restic
 - Ripgrep
@@ -45,6 +45,7 @@ Creates the symlinks all the way to `~/.config/nvim/*`
 - RTX
 - Stow
 - Tmux
+- Yazi
 - Zoxide
 
 ### Install via Brew
@@ -65,7 +66,6 @@ brew install \
     lazygit \
     mise \
     neovim \
-    nnn \
     pnpm \
     restic \
     ripgrep \
@@ -73,6 +73,7 @@ brew install \
     starship \
     stow \
     tmux \
+    yazi \
     zoxide
 
 cd ~/.dotfiles

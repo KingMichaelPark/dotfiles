@@ -19,7 +19,6 @@ A list of tools that are in my config either for linting formatting or navigatio
 To get the full experience you will want to install
 
 - `fzf`
-- `nnn`
 - `lazygit`
 
 The rest of the tools used in neovim are installed via `:Mason` and can be

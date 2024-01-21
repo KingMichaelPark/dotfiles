@@ -43,7 +43,6 @@ export FZF_DEFAULT_OPTS="
 
 # Aliases
 alias cat="bat -p"
-alias jq=jaq
 alias d=nerdctl
 alias k=kubectl
 alias l='eza'
@@ -61,7 +60,7 @@ alias tf=terraform
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias csc="colima start"
+alias y=yazi
 
 # ZSH Settings
 HISTSIZE=20000
