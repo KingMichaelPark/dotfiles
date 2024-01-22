@@ -6,6 +6,7 @@ return {
     color_scheme = "Catppuccin Mocha",
     default_prog = tmux,
     font = wezterm.font({ family = "Mikevka Nerd Font" }),
+    send_composed_key_when_left_alt_is_pressed = true, -- MacOS Fix
     font_size = 18,
     hide_tab_bar_if_only_one_tab = true,
     initial_cols = 180,
