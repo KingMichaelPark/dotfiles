@@ -1,40 +1,42 @@
-local identity = vim.fn.expand('$HOME/.age/identity.txt')
-local secret = vim.fn.expand('$HOME/.dotfiles/chatgpt.age')
-
 return {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
-        vim.env.OPENAI_API_KEY = require('age').get(secret, identity)
-        local wk = require("which-key")
-        wk.register({
-            ["<leader>C"] = {
-                name = "ChatGPT",
-                c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-                e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
-                g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
-                t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
-                k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-                d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
-                a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
-                o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
-                s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
-                f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
-                x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
-                r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
-                l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
-            }
-        })
+        local identity = vim.fn.expand('$HOME/.age/identity.txt')
+        if vim.fn.filereadable(identity) == 1 then
+            local secret = vim.fn.expand('$HOME/.dotfiles/chatgpt.age')
 
-        require("chatgpt").setup({
-            openai_params = {
-                model = "gpt-4",
-                max_tokens = 1600
-            },
-            openai_edit_params = {
-                model = "gpt-3.5-turbo",
-            },
-        })
+            vim.env.OPENAI_API_KEY = require('age').get(secret, identity)
+            local wk = require("which-key")
+            wk.register({
+                ["<leader>C"] = {
+                    name = "ChatGPT",
+                    c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
+                    e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
+                    g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
+                    t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
+                    k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
+                    d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
+                    a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
+                    o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
+                    s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
+                    f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
+                    x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
+                    r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
+                    l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
+                }
+            })
+
+            require("chatgpt").setup({
+                openai_params = {
+                    model = "gpt-4",
+                    max_tokens = 1600
+                },
+                openai_edit_params = {
+                    model = "gpt-3.5-turbo",
+                },
+            })
+        end
     end,
     dependencies = {
         "MunifTanjim/nui.nvim",
