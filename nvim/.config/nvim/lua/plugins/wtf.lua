@@ -8,8 +8,8 @@ return {
         "KingMichaelPark/age.nvim"
     },
     keys = {
-        { "gw", 'lua require("wtf").ai()', desc = "Debug diagnostic with AI" },
-        { "gW", 'require("wtf").search()', desc = "Search diagnostic with DDG" },
+        { "gw", '<cmd>lua require("wtf").ai()<cr>',     desc = "Debug diagnostic with AI" },
+        { "gW", '<cmd>lua require("wtf").search()<cr>', desc = "Search diagnostic with DDG" },
     },
     config = function()
         require("wtf").setup({
