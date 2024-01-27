@@ -1,6 +1,7 @@
 *.uuid
 packer_compiled.lua
 *.zwc
+.zprofile
 *.DS_STORE
 *.ttf
 *.otf
