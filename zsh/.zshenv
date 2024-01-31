@@ -44,6 +44,7 @@ export FZF_DEFAULT_OPTS="
 # Aliases
 alias cat="bat -p"
 alias d=nerdctl
+alias n='nerdctl'
 alias k=kubectl
 alias l='eza'
 alias ls='eza'
@@ -55,12 +56,12 @@ alias lX='la --sort=extension'          # Long, sort extension
 alias ll='l -lbG'                      # Long, file size prefixes, grid, git status
 alias lA='ll -la'                       # Long, all files
 alias lg=lazygit
-alias n='nerdctl'
+alias nerd='nerdctl'
 alias tf=terraform
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias y=yazi
+alias x=xplr
 
 # ZSH Settings
 HISTSIZE=20000

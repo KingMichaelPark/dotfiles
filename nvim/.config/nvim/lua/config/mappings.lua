@@ -29,8 +29,8 @@ map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
 -- Prime
-map({ "v" }, "<S-j>", ":m '>+1<CR>gv=gv", { desc = "Move highlighted lines down" })
-map({ "v" }, "<S-k>", ":m '<-2<CR>gv=gv", { desc = "Move highlighted lines up" })
+map({ "n", "v" }, "<S-j>", ":m '>+1<CR>gv=gv", { desc = "Move highlighted lines down" })
+map({ "n", "v" }, "<S-k>", ":m '<-2<CR>gv=gv", { desc = "Move highlighted lines up" })
 map("n", "J", "mzJ`z", { desc = "Combine line below keep cursor" })
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 map({ "n", "v" }, "<leader>Y", '"+Y', { desc = "Yank to system clipboard" })
