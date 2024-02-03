@@ -16,7 +16,7 @@ g.splitright = true -- Put new windows right of current
 
 opt.backup = false
 opt.completeopt = { "menuone", "noinsert", "noselect" }
-opt.cursorline = true          -- Highlight cursor line
+opt.cursorline = false         -- Highlight cursor line
 opt.expandtab = true           -- Use spaces instead of tabs
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
@@ -27,7 +27,7 @@ opt.inccommand = "nosplit" -- preview incremental substitute
 opt.joinspaces = false     -- No double spaces with join
 opt.lazyredraw = true
 opt.list = true
-opt.listchars = { leadmultispace = "│   ", space = ' ', tab = '  ' }
+-- opt.listchars = { leadmultispace = "│   ", space = ' ', tab = '  ' }
 opt.mouse = "a"
 opt.number = true         -- Show line numbers
 opt.relativenumber = true -- Relative line numbers

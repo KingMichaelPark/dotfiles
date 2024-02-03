@@ -8,17 +8,9 @@ return {
             styles = {                   -- Handles the styles of general hi groups (see `:h highlight-args`):
                 comments = { "italic" }, -- Change the style of comments
                 conditionals = { "italic" },
-                loops = {},
-                functions = {},
                 keywords = { "bold" },
-                strings = {},
-                variables = {},
-                numbers = {},
-                booleans = {},
-                properties = {},
-                types = {},
-                operators = {},
             },
+            transparent_background = true,
             integrations = {
                 alpha = true,
                 cmp = true,
