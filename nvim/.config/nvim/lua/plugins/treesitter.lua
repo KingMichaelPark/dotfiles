@@ -19,6 +19,7 @@ return {
                 "eex",
                 "elixir",
                 "gitcommit",
+                "groovy",
                 "go",
                 "gomod",
                 "gowork",
@@ -122,5 +123,6 @@ return {
                 },
             },
         })
+        vim.treesitter.language.register('groovy', 'Jenkinsfile') -- the someft filetype will use the python parser and queries.
     end,
 }

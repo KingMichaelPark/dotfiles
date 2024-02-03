@@ -10,6 +10,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    group = augroup("filetype_detect"),
+    pattern = { "Jenkinsfile" },
+    callback = function()
+        vim.cmd("set filetype=groovy")
+    end
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    group = augroup("terraform_detect"),
+    pattern = { "*.tfvars" },
+    callback = function()
+        vim.cmd("set filetype=terraform")
+    end
+})
+
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
     group = augroup("resize_splits"),
