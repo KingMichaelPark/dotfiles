@@ -11,12 +11,12 @@ return {
         local modes = {
             "mode",
             fmt = function(str) return str:sub(1, 1) end,
-            color = { bg = colors.surface0, fg = colors.lavender },
+            color = { bg = colors.base, fg = colors.lavender },
             seperator = bubbles
         }
         local filename = {
             "filename",
-            color = { bg = colors.surface0, fg = colors.blue },
+            color = { bg = colors.base, fg = colors.blue },
             separator = bubbles,
             path = 4,
         }
@@ -24,22 +24,22 @@ return {
             "filetype",
             icon_only = true,
             colored = false,
-            color = { bg = colors.surface0, fg = colors.mauve },
+            color = { bg = colors.base, fg = colors.mauve },
             separator = bubbles,
         }
         local branch = {
             "branch",
-            color = { bg = colors.surface0, fg = colors.teal },
+            color = { bg = colors.base, fg = colors.teal },
             separator = bubbles,
         }
         local diff = {
             "diff",
-            color = { bg = colors.surface0, fg = colors.green },
+            color = { bg = colors.base, fg = colors.green },
             separator = bubbles,
         }
         local diagnostics = {
             "diagnostics",
-            color = { bg = colors.surface0, fg = colors.mauve },
+            color = { bg = colors.base, fg = colors.mauve },
             separator = { left = "", right = "" },
         }
         local style = { fg = colors.text, bg = nil }
