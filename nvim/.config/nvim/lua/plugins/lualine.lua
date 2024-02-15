@@ -7,16 +7,16 @@ return {
     },
     config = function()
         local colors = require("catppuccin.palettes.mocha")
-        local bubbles = { left = "", right = "" }
+        local bubbles = { left = "", right = "" }
         local modes = {
             "mode",
             fmt = function(str) return str:sub(1, 1) end,
-            color = { bg = colors.base, fg = colors.lavender },
+            color = { bg = nil, fg = colors.lavender },
             seperator = bubbles
         }
         local filename = {
             "filename",
-            color = { bg = colors.base, fg = colors.blue },
+            color = { bg = nil, fg = colors.blue },
             separator = bubbles,
             path = 4,
         }
@@ -24,23 +24,23 @@ return {
             "filetype",
             icon_only = true,
             colored = false,
-            color = { bg = colors.base, fg = colors.mauve },
+            color = { bg = nil, fg = colors.mauve },
             separator = bubbles,
         }
         local branch = {
             "branch",
-            color = { bg = colors.base, fg = colors.teal },
+            color = { bg = nil, fg = colors.teal },
             separator = bubbles,
         }
         local diff = {
             "diff",
-            color = { bg = colors.base, fg = colors.green },
+            color = { bg = nil, fg = colors.green },
             separator = bubbles,
         }
         local diagnostics = {
             "diagnostics",
-            color = { bg = colors.base, fg = colors.mauve },
-            separator = { left = "", right = "" },
+            color = { bg = nil, fg = colors.mauve },
+            separator = bubbles,
         }
         local style = { fg = colors.text, bg = nil }
         local default = {
@@ -64,7 +64,7 @@ return {
             options = {
                 theme = theme,
                 component_separators = { left = '', right = '' },
-                section_separators = { left = '', right = '' },
+                section_separators = bubbles,
                 always_divide_middle = true,
                 globalstatus = true,
                 disabled_filetypes = { statusline = { "alpha" } },

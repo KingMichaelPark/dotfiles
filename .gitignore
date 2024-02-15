@@ -1,4 +1,6 @@
 *.uuid
+.DS_STORE
+.DS_Store
 packer_compiled.lua
 *.zwc
 .zprofile

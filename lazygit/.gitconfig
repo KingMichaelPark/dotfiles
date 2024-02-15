@@ -8,8 +8,8 @@
     dark = true
     file-decoration-style = none
     file-style = omit
-    hunk-header-style = file line-number syntax
-    line-numbers = true
+    hunk-header-style = ""
+    line-numbers = false
     side-by-side = false
 
 [delta]
