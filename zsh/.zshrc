@@ -17,5 +17,8 @@ zinit ice as"command" from"gh-r" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
 
+# uv
+. "$HOME/.cargo/env"
+
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
