@@ -5,7 +5,8 @@ return {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
-        }
+        },
+        'nvim-telescope/telescope-ui-select.nvim'
     },
     keys = {
         { "<leader>/",  '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = "Buffer search", },
@@ -40,9 +41,11 @@ return {
                 }
             },
             extensions = {
-                "fzf"
-            },
+                "fzf",
+                ["ui-select"] = { require("telescope.themes").get_dropdown {} }
+            }
         })
         telescope.load_extension("fzf")
+        telescope.load_extension("ui-select")
     end,
 }
