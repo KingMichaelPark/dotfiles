@@ -28,11 +28,12 @@ return {
                     args = {
                         "--fix",
                         "-e",
-                        "-n",
                         "--target-version",
                         "py312",
                         "--unfixable",
                         "F401,F841",
+                        "--extend-select",
+                        "ARG,B,C4,DTZ,I,S,UP",
                         "--stdin-filename",
                         "$FILENAME",
                         "-",
