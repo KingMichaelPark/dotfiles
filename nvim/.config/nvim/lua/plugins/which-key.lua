@@ -28,9 +28,6 @@ return {
             ["<leader>m"] = {
                 name = "Harpoon",
             },
-            ["<leader>t"] = {
-                name = "Toggle",
-            },
             ["<leader>x"] = {
                 name = "Quickfix & Loclist",
             },

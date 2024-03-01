@@ -52,11 +52,9 @@ return {
 
         vim.keymap.set("n", "<leader>gg", "<cmd>lua Lazygit_toggle()<CR>",
             { noremap = true, silent = true, desc = "LazyGit" })
-        vim.keymap.set("n", "<leader>tt", "<cmd>lua Norm_toggle()<CR>",
-            { noremap = true, silent = true, desc = "Open Terminal" })
-        vim.keymap.set("v", "<leader>te", "<cmd>lua require('toggleterm').exec(GetVisualSelection(), 5432)<CR>",
+        vim.keymap.set("v", "<leader>tv", "<cmd>lua require('toggleterm').exec(GetVisualSelection(), 5432)<CR>",
             { noremap = true, silent = true, desc = "Send Visual Selection to Term" })
-        vim.keymap.set({ "v", "n" }, "<leader>tE", "<cmd>lua require('toggleterm').exec(BufferToString(), 5432)<CR>",
+        vim.keymap.set({ "v", "n" }, "<leader>tb", "<cmd>lua require('toggleterm').exec(BufferToString(), 5432)<CR>",
             { noremap = true, silent = true, desc = "Send Entire Buffer to Term" })
     end
 
