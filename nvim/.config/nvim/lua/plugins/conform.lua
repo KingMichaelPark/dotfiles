@@ -28,8 +28,6 @@ return {
                     args = {
                         "--fix",
                         "-e",
-                        "--target-version",
-                        "py312",
                         "--unfixable",
                         "F401,F841",
                         "--extend-select",

@@ -9,7 +9,7 @@
     file-decoration-style = none
     file-style = omit
     hunk-header-style = ""
-    line-numbers = false
+    line-numbers = true
     side-by-side = false
 
 [delta]
