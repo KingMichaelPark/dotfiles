@@ -3,7 +3,7 @@ local wezterm = require("wezterm")
 local tmux = { "/opt/homebrew/bin/tmux", "new", "-As", "main" }
 
 return {
-    color_scheme = "Catppuccin Mocha",
+    color_scheme = "carbonfox",
     default_prog = tmux,
     window_background_opacity = 0.95,
     macos_window_background_blur = 40,

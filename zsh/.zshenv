@@ -19,7 +19,7 @@ done
 # Environmental Variables
 # Bat Config
 export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | bat -l man -p'"
-export BAT_THEME="Catpuccinn-mocha" # bat cache --build
+export BAT_THEME="base16" # bat cache --build
 # Config Mac OS
 export XDG_CONFIG_HOME="$HOME/.config"
 

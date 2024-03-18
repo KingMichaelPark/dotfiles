@@ -3,20 +3,20 @@ return {
     lazy = false,
     dependencies = {
         "nvim-tree/nvim-web-devicons",
-        { "catppuccin/nvim", name = "catppuccin" },
+        { "EdenEast/nightfox.nvim" },
     },
     config = function()
-        local colors = require("catppuccin.palettes.mocha")
-        local bubbles = { left = "", right = "" }
+        local colors = require('nightfox.palette').load("carbonfox")
+        local bubbles = { left = " ", right = " " }
         local modes = {
             "mode",
             fmt = function(str) return str:sub(1, 1) end,
-            color = { bg = nil, fg = colors.lavender },
+            color = { bg = nil, fg = colors.magenta.base },
             seperator = bubbles
         }
         local filename = {
             "filename",
-            color = { bg = nil, fg = colors.blue },
+            color = { bg = nil, fg = colors.blue.base },
             separator = bubbles,
             path = 4,
         }
@@ -24,25 +24,25 @@ return {
             "filetype",
             icon_only = true,
             colored = false,
-            color = { bg = nil, fg = colors.mauve },
+            color = { bg = nil, fg = colors.pink.base },
             separator = bubbles,
         }
         local branch = {
             "branch",
-            color = { bg = nil, fg = colors.teal },
+            color = { bg = nil, fg = colors.cyan.base },
             separator = bubbles,
         }
         local diff = {
             "diff",
-            color = { bg = nil, fg = colors.green },
+            color = { bg = nil, fg = colors.green.base },
             separator = bubbles,
         }
         local diagnostics = {
             "diagnostics",
-            color = { bg = nil, fg = colors.mauve },
+            color = { bg = nil, fg = colors.pink.base },
             separator = bubbles,
         }
-        local style = { fg = colors.text, bg = nil }
+        local style = { bg = nil }
         local default = {
             a = style,
             b = style,
