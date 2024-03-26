@@ -123,6 +123,7 @@ return {
                 { name = "luasnip" },
                 { name = "path" },
                 { name = "buffer" },
+                { name = "orgmode" }
             }),
             experimental = {
                 ghost_text = {
