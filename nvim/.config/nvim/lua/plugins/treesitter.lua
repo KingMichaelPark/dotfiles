@@ -37,7 +37,6 @@ return {
                 "make",
                 "markdown",
                 "ninja",
-                "norg",
                 "org",
                 "python",
                 "r",
