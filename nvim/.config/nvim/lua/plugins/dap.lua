@@ -3,24 +3,24 @@ return {
     dependencies = { "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", "theHamsta/nvim-dap-virtual-text", "nvim-neotest/nvim-nio" },
     keys = { -- Keymaps
         {
-            "<F9>",
-            '<cmd>lua require("dap").continue()<cr>',
-            desc = "DAP Continue",
-        },
-        {
-            "<F10>",
-            '<cmd>lua require("dap").step_over()<cr>',
-            desc = "DAP Step Over",
-        },
-        {
-            "<F11>",
+            "<F6>",
             '<cmd>lua require("dap").step_into()<cr>',
             desc = "DAP Step Into",
         },
         {
-            "<F12>",
+            "<F7>",
+            '<cmd>lua require("dap").step_over()<cr>',
+            desc = "DAP Step Over",
+        },
+        {
+            "<F8>",
             '<cmd>lua require("dap").step_out()<cr>',
             desc = "DAP Step Out",
+        },
+        {
+            "<F9>",
+            '<cmd>lua require("dap").step_back()<cr>',
+            desc = "DAP Step Back",
         },
         {
             "<Leader>b",
@@ -49,13 +49,8 @@ return {
         },
         {
             "<Leader>Do",
-            '<cmd>lua require("dapui").open()<cr>',
-            desc = "DAP-UI Open",
-        },
-        {
-            "<Leader>Dc",
-            '<cmd>lua require("dapui").close()<cr>',
-            desc = "DAP-UI Close",
+            '<cmd>lua require("dapui").toggle()<cr>',
+            desc = "DAP-UI Toggle",
         },
         {
             "<leader>Df",

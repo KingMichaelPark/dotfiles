@@ -42,6 +42,8 @@ map({ "n", "v" }, "<leader>Y", '"+Y', { desc = "Yank to system clipboard" })
 map("n", "Q", "<nop>", { desc = "Unbind" })
 
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+map("n", "<C-l>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
+
 
 -- Location and QuickFix
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
