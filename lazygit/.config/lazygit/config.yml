@@ -1,3 +1,4 @@
+---
 git:
   paging:
     colorArg: always
@@ -33,23 +34,26 @@ customCommands:
     description: "Update/Generate Changelog"
     context: "tags"
     loadingText: "Updating Changelog"
-
+gui:
+  authorColors:
+    '*': '#b4befe'
 theme:
-  lightTheme: false
   activeBorderColor:
-    - "#31748f" # Green
+    - '#89b4fa'
     - bold
   inactiveBorderColor:
-    - "#e0def4" # Text
+    - '#a6adc8'
   optionsTextColor:
-    - "#9ccfd8" # Pine
+    - '#89b4fa'
   selectedLineBgColor:
-    - "#1f1d2e" # Surface0
-  selectedRangeBgColor:
-    - "#1f1d2e" # Surface0
+    - '#313244'
   cherryPickedCommitBgColor:
-    - "#9ccfd8" # Foam
+    - '#45475a'
   cherryPickedCommitFgColor:
-    - "#31748f" # Pine
+    - '#89b4fa'
   unstagedChangesColor:
-    - "#eb6f92" # Love
+    - '#f38ba8'
+  defaultFgColor:
+    - '#cdd6f4'
+  searchingActiveBorderColor:
+    - '#f9e2af'
