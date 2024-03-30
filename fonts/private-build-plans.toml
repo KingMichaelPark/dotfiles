@@ -14,8 +14,8 @@ xHeight = 550
 [buildPlans.mikevka.variants.design]
 capital-j = "serifed"
 zero = "diamond-slashed"
-two = "curly-neck"
-three = "flat-top"
+two = "curly-neck-serifless"
+three = "flat-top-serifless"
 brace = "curly-flat-boundary"
 ampersand = "closed"
 paren = "normal"
