@@ -36,7 +36,7 @@ format = "[$duration]($style) "
 style = "flamingo"
 
 [python]
-format = "[$symbol $version ](yellow)[$virtualenv]($style)"
+format = "[$symbol $version ](yellow)[$virtualenv]($style) "
 style = "surface2"
 symbol = " "
 
