@@ -25,28 +25,27 @@ Creates the symlinks all the way to `~/.config/nvim/*`
 
 ## Required Software
 
-- Age
-- Antidote (ZSH)
-- Bat
+- Age (Encryption)
+- Bat (better cat alternative with syntax highlighting)
 - Colima (Docker)
-- Eza
-- FD
-- FZF
-- Git-Delta
-- Jaq (Better JQ)
-- Lazydocker
-- Lazygit
-- Neovim
-- nnn
-- Pnpm
-- Restic
-- Ripgrep
-- Rsync
-- RTX
-- Stow
-- Tmux
-- nnn
-- Zoxide
+- Eza (prettier ls alternative)
+- FD (faster find)
+- FZF (fuzzy find files, commands, anything...)
+- Git-Delta (better git diffs)
+- Jq (json query)
+- Lazygit (git tui)
+- Mise (Manage all programming language versions and env vars)
+- Neovim (text editor)
+- nnn (Terminal file manager)
+- Pnpm (faster node installs)
+- Restic (online backups)
+- Ripgrep (faster grep)
+- Rsync (local backup to external hard drive)
+- Stow (manage dotfile symlinks)
+- Tmux (Shell multiplexer)
+
+- Zoxide (Faster smart cd)
+- Z-init (ZSH plugin manager)
 
 ### Install via Brew
 
@@ -55,17 +54,17 @@ Only use the mise commands if you want python and nodejs on your system.
 ```zsh
 brew install \
     age \
-    antidote \
     bat \
     colima \
     eza \
     fd \
     fzf \
     git-delta \
-    jaq \
+    jq \
     lazygit \
     mise \
     neovim \
+    nnn \
     pnpm \
     restic \
     ripgrep \
@@ -73,7 +72,6 @@ brew install \
     starship \
     stow \
     tmux \
-    nnn \
     zoxide
 
 cd ~/.dotfiles
@@ -94,7 +92,8 @@ these environmental variables loading.
 
 ### [Fonts](./fonts/.local/share/fonts)
 
-- Nerd Font version of [Iosevka](https://typeof.net/Iosevka/) (Jetbrains Mono) Edition
+- Nerd Font Patched version of [Iosevka](https://typeof.net/Iosevka/) and [Pragmata Pro](https://github.com/fabrizioschiavi/pragmatapro) fusion
+  called Mikevka (original... I know)
 
 ### FZF
 
@@ -125,6 +124,7 @@ Tmux settings
 
 ### [Wezterm](./wezterm/.config/wezterm)
 
+Wezterm terminal
 
 ## Questions
 
