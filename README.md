@@ -69,7 +69,6 @@ brew install \
     restic \
     ripgrep \
     rsync \
-    starship \
     stow \
     tmux \
     zoxide
