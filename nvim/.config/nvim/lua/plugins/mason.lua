@@ -7,7 +7,6 @@ return {
     },
     opts = {
         ensure_installed = {
-            "ruff",
             "shfmt",
             "yamllint"
         },

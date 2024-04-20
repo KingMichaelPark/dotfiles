@@ -1,6 +1,7 @@
 local servers = {
     "biome",
     "pyright",
+    "ruff_lsp",
     "terraformls",
 }
 
@@ -54,7 +55,6 @@ return {
         lsp.biome.setup({
             server = opts,
             capabilities = capabilities,
-
         })
         -- Elixir
         lsp.elixirls.setup({
@@ -93,10 +93,43 @@ return {
             },
         })
 
+        -- Python
         lsp.pyright.setup({
             server = opts,
             capabilities = capabilities,
+            settings = {
+                pyright = {
+                    -- Using Ruff's import organizer
+                    disableOrganizeImports = true,
+                },
+                python = {
+                    analysis = {
+                        -- Ignore all files for analysis to
+                        -- exclusively use Ruff for linting
+                        ignore = { '*' },
+                    },
+                }
+            }
         })
+
+        lsp.ruff_lsp.setup {
+            on_attach = function(client, _)
+                client.server_capabilities.hoverProvider = false
+            end,
+            init_options = {
+                settings = {
+                    -- Any extra CLI arguments for `ruff` go here.
+                    args = {
+                        "--fix",
+                        "--extend-select",
+                        "A,ARG,B,C4,DTZ,FBT,FURB,G,I,N,PT,S,UP",
+                        "--unfixable",
+                        "F401,F841",
+                    },
+
+                }
+            }
+        }
 
         lsp.terraformls.setup({
             filetypes = { "terraform", "hcl" },
