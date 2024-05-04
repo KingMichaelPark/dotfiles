@@ -16,16 +16,16 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
         virtual_text = {
-            spacing = 4,
+            spacing = 2,
             source = "if_many",
-            prefix = "icons",
         },
         severity_sort = true,
         inlay_hints = {
-            enabled = false,
+            enabled = vim.fn.has('nvim-0.10') == 1,
         }
     },
     config = function(_, opts)
+        vim.diagnostic.config(opts)
         local lsp = require("lspconfig")
         require("mason-lspconfig").setup({ ensure_installed = servers })
         local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -53,19 +53,16 @@ return {
         })
 
         lsp.biome.setup({
-            server = opts,
             capabilities = capabilities,
         })
         -- Elixir
         lsp.elixirls.setup({
-            server = opts,
             capabilities = capabilities,
             cmd = { "/Users/mike/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
         })
 
         -- Lua
         lsp.lua_ls.setup({
-            server = opts,
             capabilities = capabilities,
             settings = {
                 Lua = {
@@ -95,18 +92,22 @@ return {
 
         -- Python
         lsp.pyright.setup({
-            server = opts,
             capabilities = capabilities,
             settings = {
                 pyright = {
                     -- Using Ruff's import organizer
                     disableOrganizeImports = true,
+                    disableTaggedHints = true,
                 },
                 python = {
                     analysis = {
                         -- Ignore all files for analysis to
                         -- exclusively use Ruff for linting
                         ignore = { '*' },
+                        diagnosticSeverityOverrides = {
+                            -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
+                            reportUnusedImport = "none"
+                        },
                     },
                 }
             }
@@ -132,13 +133,11 @@ return {
         }
 
         lsp.terraformls.setup({
+            capabilities = capabilities,
             filetypes = { "terraform", "hcl" },
-            server = opts,
-            capabilities = capabilities
         })
 
         lsp.tsserver.setup({
-            server = opts,
             capabilities = capabilities,
         })
     end
