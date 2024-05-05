@@ -5,6 +5,26 @@ local servers = {
     "terraformls",
 }
 
+local function inlay_hints(buf, value)
+    local ih = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
+    if type(ih) == "function" then
+        ih(buf, value)
+    elseif type(ih) == "table" and ih.enable then
+        if value == nil then
+            value = not ih.is_enabled(buf)
+        end
+        ih.enable(value, { bufnr = buf })
+    end
+end
+
+
+local function prefix()
+    if vim.fn.has('nvim-0.10') == 1 then
+        return "icons"
+    else
+        return "󰻃 "
+    end
+end
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -14,15 +34,23 @@ return {
         "nvim-telescope/telescope.nvim"
     },
     event = { "BufReadPre", "BufNewFile" },
+    -- Diagnostic Options
     opts = {
+        update_in_insert = false,
         virtual_text = {
-            spacing = 2,
+            spacing = 4,
             source = "if_many",
+            prefix = prefix(),
         },
         severity_sort = true,
-        inlay_hints = {
-            enabled = vim.fn.has('nvim-0.10') == 1,
-        }
+        signs = {
+            text = {
+                [vim.diagnostic.severity.ERROR] = " ",
+                [vim.diagnostic.severity.WARN]  = "󰗖 ",
+                [vim.diagnostic.severity.HINT]  = "󰘥 ",
+                [vim.diagnostic.severity.INFO]  = "󰋽 ",
+            },
+        },
     },
     config = function(_, opts)
         vim.diagnostic.config(opts)
@@ -38,6 +66,8 @@ return {
                 local map = function(keys, func, desc)
                     vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
                 end
+
+                inlay_hints(event.buf, vim.fn.has('nvim-0.10') == 1)
 
                 map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
                 map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')

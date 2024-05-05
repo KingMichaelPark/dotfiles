@@ -1,23 +1,3 @@
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "TelescopeResults",
-    callback = function(ctx)
-        vim.api.nvim_buf_call(ctx.buf, function()
-            vim.fn.matchadd("TelescopeParent", "\t\t.*$")
-            vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
-        end)
-    end,
-})
-
-local function filenameFirst(_, path)
-    local tail = vim.fs.basename(path)
-    local parent = vim.fs.dirname(path)
-    if parent == "." then
-        return tail
-    end
-    return string.format("%s\t\t%s", tail, parent)
-end
-
-
 return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -47,22 +27,29 @@ return {
         local telescope = require("telescope")
         telescope.setup({
             defaults = {
+                layout_strategy = 'flex',
+                layout_config = { height = 0.9, prompt_position = 'bottom', width = .9 },
                 prompt_prefix = "▶",
                 selection_caret = "▸",
+                mappings = {
+                    i = {
+                        ["<esc>"] = require('telescope.actions').close
+                    }
+                },
             },
             pickers = {
                 live_grep = {
                     additional_args = { "--hidden" },
                     glob_pattern = { "!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock,**/.venv/*}" },
-                    path_display = filenameFirst,
+                    path_display = { "filename_first" },
                 },
                 find_files = {
                     file_ignore_patterns = { 'node_modules', '.git', '.venv' },
                     hidden = true,
-                    path_display = filenameFirst,
+                    path_display = { "filename_first" },
                 },
                 git_files = {
-                    path_display = filenameFirst,
+                    path_display = { "filename_first" },
                 }
             },
             extensions = {
