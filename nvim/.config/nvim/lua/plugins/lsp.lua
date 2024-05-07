@@ -20,7 +20,7 @@ end
 
 local function prefix()
     if vim.fn.has('nvim-0.10') == 1 then
-        return "icons"
+        return ""
     else
         return "󰻃 "
     end
