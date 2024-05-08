@@ -2,5 +2,7 @@ return {
     "echasnovski/mini.nvim",
     version = "*",
     event = "VeryLazy",
-    config = true
+    config = function()
+        require('mini.surround').setup()
+    end
 }
