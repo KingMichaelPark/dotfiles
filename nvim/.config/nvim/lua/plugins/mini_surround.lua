@@ -1,5 +1,5 @@
 return {
-    "kylechui/nvim-surround",
+    "echasnovski/mini.nvim",
     version = "*",
     event = "VeryLazy",
     config = true
