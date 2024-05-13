@@ -1,12 +1,13 @@
 return {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
+    enabled = true,
     config = function()
-        local identity = vim.fn.expand('$HOME/.age/identity.txt')
+        local identity = vim.fn.expand('$HOME/.config/sops/age/keys.txt')
         if vim.fn.filereadable(identity) == 1 then
-            local secret = vim.fn.expand('$HOME/.dotfiles/chatgpt.age')
+            local secret = vim.fn.expand('$HOME/.dotfiles/access.json')
 
-            vim.env.OPENAI_API_KEY = require('age').get(secret, identity)
+            vim.env.OPENAI_API_KEY = require('age').from_sops(secret)["OPENAI"]
             local wk = require("which-key")
             wk.register({
                 ["<leader>C"] = {
