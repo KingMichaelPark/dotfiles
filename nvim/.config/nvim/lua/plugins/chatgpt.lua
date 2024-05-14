@@ -30,11 +30,12 @@ return {
 
             require("chatgpt").setup({
                 openai_params = {
-                    model = "gpt-4",
-                    max_tokens = 1600
+                    model = "gpt-4o",
+                    max_tokens = 4096
                 },
                 openai_edit_params = {
                     model = "gpt-3.5-turbo",
+                    max_tokens = 4096
                 },
             })
         end
