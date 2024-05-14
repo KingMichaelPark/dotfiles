@@ -91,34 +91,34 @@ return {
             cmd = { "/Users/mike/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
         })
 
-        -- Lua
-        lsp.lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-                Lua = {
-                    runtime = {
-                        version = 'LuaJIT',
-                    },
-                    diagnostics = {
-                        globals = { 'vim' },
-                    },
-                    workspace = {
-                        library = vim.api.nvim_get_runtime_file("", true),
-                        checkThirdParty = false
-                    },
-                    telemetry = {
-                        enable = false,
-                    },
-                    format = {
-                        enable = true,
-                        defaultConfig = {
-                            indent_style = "space",
-                            indent_size = "2",
-                        }
-                    },
-                },
-            },
-        })
+        -- -- Lua
+        -- lsp.lua_ls.setup({
+        --     capabilities = capabilities,
+        --     settings = {
+        --         Lua = {
+        --             runtime = {
+        --                 version = 'LuaJIT',
+        --             },
+        --             diagnostics = {
+        --                 globals = { 'vim' },
+        --             },
+        --             workspace = {
+        --                 library = vim.api.nvim_get_runtime_file("", true),
+        --                 checkThirdParty = false
+        --             },
+        --             telemetry = {
+        --                 enable = false,
+        --             },
+        --             format = {
+        --                 enable = true,
+        --                 defaultConfig = {
+        --                     indent_style = "space",
+        --                     indent_size = "2",
+        --                 }
+        --             },
+        --         },
+        --     },
+        -- })
 
         -- Python
         lsp.pyright.setup({

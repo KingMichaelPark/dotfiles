@@ -1,32 +1,21 @@
 return {
     "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
     enabled = true,
+    keys = {
+        { "<leader>Cc", '<cmd>ChatGPT<cr>', desc = "ChatGPT", },
+        { "<leader>Ce", { "n", "v" }, '<cmd>ChatGPTEditWithInstruction<cr>', desc = "ChatGPT" },
+        { "<leader>Cd",{ "n", "v" }, "<cmd>ChatGPTRun docstring<CR>", desc="Docstring"  },
+        { "<leader>Ct",{ "n", "v" }, "<cmd>ChatGPTRun add_tests<CR>", desc="Add Tests"  },
+        { "<leader>Co",{ "n", "v" }, "<cmd>ChatGPTRun optimize_code<CR>", desc="Optimize code"  },
+        { "<leader>Cs",{ "n", "v" }, "<cmd>ChatGPTRun summarize<CR>", desc="Optimize code"  },
+        { "<leader>Cx",{ "n", "v" }, "<cmd>ChatGPTRun explain_code<CR>", desc="Explain code"  },
+        { "<leader>Cf",{ "n", "v" }, "<cmd>ChatGPTRun fix_bugs<CR>", desc="Fix bugs"  },
+    },
     config = function()
         local identity = vim.fn.expand('$HOME/.config/sops/age/keys.txt')
         if vim.fn.filereadable(identity) == 1 then
             local secret = vim.fn.expand('$HOME/.dotfiles/access.json')
-
             vim.env.OPENAI_API_KEY = require('age').from_sops(secret)["OPENAI"]
-            local wk = require("which-key")
-            wk.register({
-                ["<leader>C"] = {
-                    name = "ChatGPT",
-                    c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
-                    e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
-                    g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
-                    t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
-                    k = { "<cmd>ChatGPTRun keywords<CR>", "Keywords", mode = { "n", "v" } },
-                    d = { "<cmd>ChatGPTRun docstring<CR>", "Docstring", mode = { "n", "v" } },
-                    a = { "<cmd>ChatGPTRun add_tests<CR>", "Add Tests", mode = { "n", "v" } },
-                    o = { "<cmd>ChatGPTRun optimize_code<CR>", "Optimize Code", mode = { "n", "v" } },
-                    s = { "<cmd>ChatGPTRun summarize<CR>", "Summarize", mode = { "n", "v" } },
-                    f = { "<cmd>ChatGPTRun fix_bugs<CR>", "Fix Bugs", mode = { "n", "v" } },
-                    x = { "<cmd>ChatGPTRun explain_code<CR>", "Explain Code", mode = { "n", "v" } },
-                    r = { "<cmd>ChatGPTRun roxygen_edit<CR>", "Roxygen Edit", mode = { "n", "v" } },
-                    l = { "<cmd>ChatGPTRun code_readability_analysis<CR>", "Code Readability Analysis", mode = { "n", "v" } },
-                }
-            })
 
             require("chatgpt").setup({
                 openai_params = {
@@ -43,8 +32,7 @@ return {
     dependencies = {
         "MunifTanjim/nui.nvim",
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
-        "KingMichaelPark/age.nvim",
-        "folke/which-key.nvim"
+        {"nvim-telescope/telescope.nvim", lazy = true},
+        { "KingMichaelPark/age.nvim", lazy = true },
     }
 }

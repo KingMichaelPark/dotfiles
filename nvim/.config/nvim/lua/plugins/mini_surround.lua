@@ -1,7 +1,7 @@
 return {
-    "echasnovski/mini.nvim",
+    "echasnovski/mini.surround",
     version = "*",
-    event = "VeryLazy",
+    event = {"BufNewFile", "BufEnter" },
     opts = {
         mappings = {
           add = 'csa', -- Add surrounding in Normal and Visual modes
@@ -11,7 +11,7 @@ return {
           highlight = 'csh', -- Highlight surrounding
           replace = 'csr', -- Replace surrounding
           update_n_lines = 'csn', -- Update `n_lines`
-  
+
           suffix_last = 'l', -- Suffix to search with "prev" method
           suffix_next = 'n', -- Suffix to search with "next" method
         },

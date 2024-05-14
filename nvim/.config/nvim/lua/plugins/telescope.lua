@@ -5,8 +5,10 @@ return {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
+            lazy=true,
         },
-        'nvim-telescope/telescope-ui-select.nvim'
+        {'nvim-telescope/telescope-ui-select.nvim', lazy=true}
+
     },
     keys = {
         { "<leader>/",  '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = "Buffer search", },
