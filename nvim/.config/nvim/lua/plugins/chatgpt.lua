@@ -2,14 +2,14 @@ return {
     "jackMort/ChatGPT.nvim",
     enabled = true,
     keys = {
-        { "<leader>Cc", '<cmd>ChatGPT<cr>', desc = "ChatGPT", },
-        { "<leader>Ce", { "n", "v" }, '<cmd>ChatGPTEditWithInstruction<cr>', desc = "ChatGPT" },
-        { "<leader>Cd",{ "n", "v" }, "<cmd>ChatGPTRun docstring<CR>", desc="Docstring"  },
-        { "<leader>Ct",{ "n", "v" }, "<cmd>ChatGPTRun add_tests<CR>", desc="Add Tests"  },
-        { "<leader>Co",{ "n", "v" }, "<cmd>ChatGPTRun optimize_code<CR>", desc="Optimize code"  },
-        { "<leader>Cs",{ "n", "v" }, "<cmd>ChatGPTRun summarize<CR>", desc="Optimize code"  },
-        { "<leader>Cx",{ "n", "v" }, "<cmd>ChatGPTRun explain_code<CR>", desc="Explain code"  },
-        { "<leader>Cf",{ "n", "v" }, "<cmd>ChatGPTRun fix_bugs<CR>", desc="Fix bugs"  },
+        { "<leader>Cc", '<cmd>ChatGPT<cr>',                    desc = "ChatGPT", },
+        { "<leader>Ce", '<cmd>ChatGPTEditWithInstruction<cr>', { "n", "v" },     desc = "ChatGPT" },
+        { "<leader>Cd", "<cmd>ChatGPTRun docstring<CR>",       { "n", "v" },     desc = "Docstring" },
+        { "<leader>Ct", "<cmd>ChatGPTRun add_tests<CR>",       { "n", "v" },     desc = "Add Tests" },
+        { "<leader>Co", "<cmd>ChatGPTRun optimize_code<CR>",   { "n", "v" },     desc = "Optimize code" },
+        { "<leader>Cs", "<cmd>ChatGPTRun summarize<CR>",       { "n", "v" },     desc = "Optimize code" },
+        { "<leader>Cx", "<cmd>ChatGPTRun explain_code<CR>",    { "n", "v" },     desc = "Explain code" },
+        { "<leader>Cf", "<cmd>ChatGPTRun fix_bugs<CR>",        { "n", "v" },     desc = "Fix bugs" },
     },
     config = function()
         local identity = vim.fn.expand('$HOME/.config/sops/age/keys.txt')
@@ -32,7 +32,7 @@ return {
     dependencies = {
         "MunifTanjim/nui.nvim",
         "nvim-lua/plenary.nvim",
-        {"nvim-telescope/telescope.nvim", lazy = true},
-        { "KingMichaelPark/age.nvim", lazy = true },
+        { "nvim-telescope/telescope.nvim", lazy = true },
+        { "KingMichaelPark/age.nvim",      lazy = true },
     }
 }

@@ -1,5 +1,8 @@
 # My Dotfiles
 
+<img width="1462" alt="image" src="https://github.com/KingMichaelPark/dotfiles/assets/64011084/ad1fe827-c0a0-4211-a0cf-3a5ca74fc9ba">
+
+
 ![Github tag (latest by SemVer)](https://img.shields.io/github/v/tag/kingmichaelpark/dotfiles?style=flat-square)
 ![Mastodon Follow](https://img.shields.io/mastodon/follow/109638370673707754?domain=https%3A%2F%2Ffosstodon.org&style=social)
 
