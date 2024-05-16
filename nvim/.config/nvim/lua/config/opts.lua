@@ -18,6 +18,7 @@ g.splitright = true -- Put new windows right of current
 opt.backup = false
 opt.breakindent = true
 opt.completeopt = { "menuone", "noinsert", "noselect" }
+opt.conceallevel = 2
 opt.cursorline = false         -- Highlight cursor line
 opt.expandtab = true           -- Use spaces instead of tabs
 opt.formatoptions = "jcroqlnt" -- tcqj

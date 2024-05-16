@@ -5,19 +5,6 @@ local servers = {
     "terraformls",
 }
 
-local function inlay_hints(buf, value)
-    local ih = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
-    if type(ih) == "function" then
-        ih(buf, value)
-    elseif type(ih) == "table" and ih.enable then
-        if value == nil then
-            value = not ih.is_enabled(buf)
-        end
-        ih.enable(value, { bufnr = buf })
-    end
-end
-
-
 local function prefix()
     if vim.fn.has('nvim-0.10') == 1 then
         return ""
@@ -25,6 +12,7 @@ local function prefix()
         return "󰻃 "
     end
 end
+
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -67,17 +55,16 @@ return {
                     vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
                 end
 
-                inlay_hints(event.buf, vim.fn.has('nvim-0.10') == 1)
-
                 map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
                 map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
                 map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
                 map('gT', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
                 map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
                 map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+                map('<leader>h', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end,
+                    'Inlay [H]ints')
                 map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
                 map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-                map('K', vim.lsp.buf.hover, 'Hover Documentation')
                 map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
             end
         })

@@ -34,8 +34,8 @@ map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
 -- Prime
-map({ "n", "v" }, "<S-j>", ":m '>+1<CR>gv=gv", { desc = "Move highlighted lines down" })
-map({ "n", "v" }, "<S-k>", ":m '<-2<CR>gv=gv", { desc = "Move highlighted lines up" })
+map({ "n", "v" }, "<C-j>", ":m '>+1<CR>gv=gv", { desc = "Move highlighted lines down" })
+map({ "n", "v" }, "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move highlighted lines up" })
 map("n", "J", "mzJ`z", { desc = "Combine line below keep cursor" })
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 map({ "n", "v" }, "<leader>Y", '"+Y', { desc = "Yank to system clipboard" })
@@ -49,9 +49,9 @@ map("n", "<C-l>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
+
+
 map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
-
-
 -- diagnostic
 local diagnostic_goto = function(next, severity)
     local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
@@ -61,8 +61,6 @@ local diagnostic_goto = function(next, severity)
     end
 end
 map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
-map("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
 map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })

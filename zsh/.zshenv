@@ -10,9 +10,11 @@ pathmunge () {
 }
 
 ### Add custom paths
-paths_to_append=("$HOME/.local/bin" "/opt/homebrew/bin" "$HOME/.cargo/bin")
+paths_to_append=("$HOME/.local/bin" "/opt/homebrew/bin" "$HOME/.cargo/bin" "/Library/PostgreSQL/16/bin")
 for p in "${paths_to_append[@]}"; do
-    pathmunge "$p"
+    if [ -d "$p" ]; then
+        pathmunge "$p"
+    fi
 done
 
 

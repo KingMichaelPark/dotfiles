@@ -1,9 +1,16 @@
 local wezterm = require("wezterm")
 
+local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+custom.background = "#181825"
+custom.cursor_bg = "#cdd6f4"
+
 local tmux = { "/opt/homebrew/bin/tmux", "new", "-As", "main" }
 
 return {
-    color_scheme = "Catppuccin Mocha",
+    color_schemes = {
+        ["Mikeppuccin"] = custom,
+    },
+    color_scheme = "Mikeppuccin",
     default_prog = tmux,
     window_background_opacity = 0.95,
     macos_window_background_blur = 40,
