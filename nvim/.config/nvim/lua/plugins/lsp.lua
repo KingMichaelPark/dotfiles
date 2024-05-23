@@ -1,7 +1,7 @@
 local servers = {
     "biome",
     "pyright",
-    "ruff_lsp",
+    "ruff",
     "terraformls",
 }
 
@@ -130,15 +130,13 @@ return {
             }
         })
 
-        lsp.ruff_lsp.setup {
+        lsp.ruff.setup {
             on_attach = function(client, _)
                 client.server_capabilities.hoverProvider = false
             end,
             init_options = {
                 settings = {
-                    -- Any extra CLI arguments for `ruff` go here.
                     args = {
-                        "--fix",
                         "--extend-select",
                         "A,ARG,B,C4,DTZ,FBT,FURB,G,I,N,PT,S,UP",
                         "--unfixable",
