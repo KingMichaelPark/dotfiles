@@ -1,9 +1,5 @@
-local api = vim.api
 local g = vim.g
 local opt = vim.opt
-
-api.nvim_set_option("spell", false)
-api.nvim_set_option("hidden", true)
 
 g.autoformat = true
 g.background = "dark"
@@ -30,7 +26,6 @@ opt.inccommand = "split" -- preview incremental substitute
 opt.joinspaces = false   -- No double spaces with join
 opt.lazyredraw = true
 opt.list = true
--- opt.listchars = { leadmultispace = "│   ", space = ' ', tab = '  ' }
 opt.mouse = "a"
 opt.number = true         -- Show line numbers
 opt.relativenumber = true -- Relative line numbers
@@ -44,6 +39,7 @@ opt.smartcase = true   -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.smd = false
 opt.softtabstop = 4
+opt.spell = false
 opt.splitbelow = true    -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true    -- Put new windows right of current

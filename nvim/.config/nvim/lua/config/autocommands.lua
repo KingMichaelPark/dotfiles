@@ -94,3 +94,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         vim.fn.setpos(".", save_cursor)
     end,
 })
+
+-- Set SQL Comments
+vim.api.nvim_create_autocmd("FileType", {
+    group = augroup("commentstring"),
+    pattern = { "*.sql" },
+    callback = function()
+        vim.opt.commentstring = "-- %s"
+    end,
+    desc = "Change commentstring for SQL files",
+})
