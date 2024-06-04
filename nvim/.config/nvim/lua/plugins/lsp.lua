@@ -78,6 +78,10 @@ return {
             cmd = { "/Users/mike/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
         })
 
+        lsp.gopls.setup({
+            capabilities = capabilities,
+        })
+
         -- Lua
         lsp.lua_ls.setup({
             capabilities = capabilities,
