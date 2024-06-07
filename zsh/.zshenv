@@ -28,6 +28,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # NNN Config
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+export NNN_PLUG='p:preview-tui;d:diffs;t:nmount;v:imgview'
 
 export SUDO_EDITOR=nvim
 export EDITOR=nvim
