@@ -12,3 +12,4 @@ colima/.colima/ssh_config
 lazygit/.config/lazygit/state.yml
 nvim/.config/nvim/lazy-lock.json
 nnn/.config/nnn/.lastd
+*backblaze.age.json

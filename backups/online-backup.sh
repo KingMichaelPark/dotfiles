@@ -1,25 +1,27 @@
 #!/bin/bash
 
 # Backup script
-# Deps: age restic passage
+# Deps: restic sops
 
 set -e
 
+RESTIC_PASSPHRASE_COMMAND="sops -d --extract '[\"restic_passphrase\"]' $HOME/.dotfiles/backups/backblaze.age.json"
+BUCKET=$(sops -d --extract '["b2_bucket_name"]' "$HOME/.dotfiles/backups/backblaze.age.json")
+ID=$(sops -d --extract '["b2_account_id"]' "$HOME/.dotfiles/backups/backblaze.age.json")
+KEY=$(sops -d --extract '["b2_application_key"]' "$HOME/.dotfiles/backups/backblaze.age.json")
+
 # construct the b2 URL from secrets & the hostname
 destination_url() {
-  BUCKET="$(passage b2_bucket_name)"
   SUBDIR="/restic/$(whoami)"
 
   printf "b2:${BUCKET}:${SUBDIR}\n"
 }
 
 run_restic() {
-  KEY_ID=$(passage b2_account_id)
-  KEY_SECRET=$(passage b2_application_key)
 
-  B2_ACCOUNT_ID="$KEY_ID" B2_ACCOUNT_KEY="$KEY_SECRET" restic \
+  B2_ACCOUNT_ID="$ID" B2_ACCOUNT_KEY="$KEY" restic \
     --repo $(destination_url) \
-    --password-command "passage restic_passphrase" \
+    --password-command "$RESTIC_PASSPHRASE_COMMAND" \
     "$@"
 }
 
