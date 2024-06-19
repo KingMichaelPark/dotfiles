@@ -6,7 +6,7 @@ map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "<C-t>", "<cmd>tabnew<cr>", { desc = "Prev tab" })
+map("n", "<C-t>", "<cmd>tabnew<cr>", { desc = "New tab" })
 map("n", "[t", "<cmd>tabprevious<cr>", { desc = "Prev tab" })
 map("n", "]t", "<cmd>tabnext<cr>", { desc = "Next tab" })
 
