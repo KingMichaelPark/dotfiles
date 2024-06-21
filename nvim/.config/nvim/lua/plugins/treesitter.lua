@@ -14,7 +14,6 @@ return {
                 "bash",
                 "comment",
                 "css",
-                "csv",
                 "diff",
                 "dockerfile",
                 "elixir",
