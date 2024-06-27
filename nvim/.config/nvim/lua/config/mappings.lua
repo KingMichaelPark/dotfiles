@@ -13,6 +13,10 @@ map("n", "]t", "<cmd>tabnext<cr>", { desc = "Next tab" })
 map({ "v", "n" }, "<C-w>/", "<cmd>vsplit<cr>", { desc = "Split vertical" })
 map({ "v", "n" }, "<C-w>-", "<cmd>split<cr>", { desc = "Split horizontal" })
 
+-- Insert empty line
+map("n", "<leader>o", "<cmd>normal o<cr><esc>", { silent = true, desc = "Insert empty line below" })
+map("n", "<leader>O", "<cmd>normal O<cr><esc>", { silent = true, desc = "Insert empty line above" })
+
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

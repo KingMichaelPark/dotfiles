@@ -3,7 +3,6 @@ local kind_icons = {
     Color = "󰏘",
     Constant = "󰏿",
     Constructor = "",
-    Copilot = "",
     Enum = "",
     EnumMember = "",
     Event = "",
@@ -42,12 +41,10 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
         'hrsh7th/cmp-cmdline'
-        -- "zbirenbaum/copilot-cmp",
     },
     event = "InsertEnter",
     opts = function()
         local cmp = require("cmp")
-        -- require("copilot_cmp").setup()
         local defaults = require("cmp.config.default")()
         local luasnip = require("luasnip")
         vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
