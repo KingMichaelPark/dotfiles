@@ -1,6 +1,6 @@
 return {
     "brenoprata10/nvim-highlight-colors",
-    enabled = false,
+    enabled = true,
     config = function()
         require("nvim-highlight-colors").setup {
             ---Render style
