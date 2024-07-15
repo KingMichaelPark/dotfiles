@@ -1,36 +1,17 @@
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function()
-        local wk = require("which-key")
-        wk.register({
-            ["<leader>D"] = {
-                name = "DAP Debug",
-            },
-            ["<leader>f"] = {
-                name = "Telescope",
-            },
-            ["<leader>g"] = {
-                name = "Git",
-            },
-            ["<leader>d"] = {
-                name = "DiffView",
-            },
-            ["<leader>c"] = {
-                name = "LSP Code Actions",
-            },
-            ["<leader>w"] = {
-                name = "LSP Workspace",
-            },
-            ["<leader>s"] = {
-                name = "Spectre",
-            },
-            ["<leader>m"] = {
-                name = "Harpoon",
-            },
-            ["<leader>x"] = {
-                name = "Quickfix & Loclist",
-            },
-        })
-    end,
+    opts = {
+        preset = "modern",
+        icons = { rules = false }
+    },
+    keys = {
+        {
+            "<leader>?",
+            function()
+                require("which-key").show({ global = false })
+            end,
+            desc = "Buffer Local Keymaps (which-key)",
+        },
+    },
 }
