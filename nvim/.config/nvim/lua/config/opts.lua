@@ -1,7 +1,6 @@
 local g = vim.g
 local opt = vim.opt
 
-g.autoformat = true
 g.background = "dark"
 g.catppuccin_flavour = "mocha"
 g.completion_matching_strategy_list = { "exact", "substring", "fuzzy" }
