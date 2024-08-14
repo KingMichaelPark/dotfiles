@@ -5,9 +5,9 @@ return {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build = "make",
-            lazy=true,
+            lazy = true,
         },
-        {'nvim-telescope/telescope-ui-select.nvim', lazy=true}
+        { 'nvim-telescope/telescope-ui-select.nvim', lazy = true }
 
     },
     keys = {
@@ -25,8 +25,9 @@ return {
         { "<leader>fs", '<cmd>Telescope grep_string<cr>',               desc = "Grep String", },
         { "<leader>ft", '<cmd>Telescope treesitter<cr>',                desc = "Treesitter", },
     },
-    config = function()
+    config = function(opts)
         local telescope = require("telescope")
+        local previewers = require("telescope.previewers")
         telescope.setup({
             defaults = {
                 layout_strategy = 'flex',
@@ -44,14 +45,17 @@ return {
                     additional_args = { "--hidden" },
                     glob_pattern = { "!{**/.git/*,**/node_modules/*,**/package-lock.json,**/yarn.lock,**/.venv/*}" },
                     path_display = { "filename_first" },
+                    previewer = previewers.vimgrep.new(opts)
                 },
                 find_files = {
                     file_ignore_patterns = { 'node_modules', '.git', '.venv' },
                     hidden = true,
                     path_display = { "filename_first" },
+                    previewer = previewers.cat.new(opts)
                 },
                 git_files = {
                     path_display = { "filename_first" },
+                    previewer = previewers.cat.new(opts)
                 }
             },
             extensions = {
