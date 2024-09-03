@@ -1,4 +1,5 @@
--- Mike's Neovim Config:
+-- Mike's Neovim Config
+
 require("config.opts")
 require("config.mappings")
 require("config.autocommands")

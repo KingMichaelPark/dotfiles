@@ -36,6 +36,21 @@ customCommands:
     loadingText: "Updating Changelog"
 
 gui:
+
+  spinner:
+    # The frames of the spinner animation.
+    frames:
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+  nerdFontsVersion: ""
+
+  # Status panel view.
+  statusPanelView: allBranchesLog
+  showBottomLine: false
   authorColors:
     '*': '#b4befe'
   theme:
