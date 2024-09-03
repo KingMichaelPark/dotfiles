@@ -21,7 +21,7 @@ done
 # Environmental Variables
 # Bat Config
 export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | bat -l man -p'"
-export BAT_THEME="Catpuccinn-mocha" # bat cache --build
+export BAT_THEME="Catppuccin Mocha" # bat cache --build
 # Config Mac OS
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -39,9 +39,10 @@ export VISUAL=nvim
 export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="
-    --color=bg+:#1e1e2e,bg:,spinner:#f5e0dc,hl:#f38ba8 \
-    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#b4befe \
-    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+    --color=bg+:#1e1e2e,bg:,spinner:#f5e0dc,hl:#f38ba8
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
+    --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8
+    --color=selected-bg:#45475a --multi
     --reverse --info=hidden"
 
 # Aliases
