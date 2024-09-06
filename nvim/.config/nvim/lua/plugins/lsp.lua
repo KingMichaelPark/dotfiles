@@ -156,7 +156,7 @@ return {
             filetypes = { "terraform", "hcl" },
         })
 
-        lsp.tsserver.setup({
+        lsp.ts_ls.setup({
             capabilities = capabilities,
         })
     end
