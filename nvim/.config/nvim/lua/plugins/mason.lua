@@ -1,6 +1,7 @@
 return {
-    "williamboman/mason.nvim",
+    "KingMichaelPark/mason.nvim",
     build = ":MasonUpdate",
+    branch = "feat/add-uv-as-pypi-source",
     keys = {
         { "<leader>M", "<cmd>Mason<cr>", desc = "Mason" },
         { "<leader>L", "<cmd>Lazy<cr>",  desc = "Lazy" }

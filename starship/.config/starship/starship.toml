@@ -4,9 +4,9 @@ format = '$all'
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
-success_symbol = "[(green) ❯](sapphire)"
-error_symbol = "[(red) ❯](sapphire)"
-vimcmd_symbol = "[ ❮](pink)" # For use with zsh-vi-mode
+success_symbol = "[(green)❯](sapphire)"
+error_symbol = "[(red)❯](sapphire)"
+vimcmd_symbol = "[❮](pink)" # For use with zsh-vi-mode
 
 [git_branch]
 format = "[$branch]($style)"
