@@ -1,20 +1,21 @@
 palette = "catppuccin_mocha"
 
 format = '$all'
-
-[directory]
-style = "blue"
-read_only = " 󰌾"
-
+# Starship modules
 [character]
-success_symbol = "[❯](lavender)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+# Note the use of Catppuccin color 'peach'
+success_symbol = "[(green) ❯](sapphire)"
+error_symbol = "[(red) ❯](sapphire)"
+vimcmd_symbol = "[ ❮](pink)" # For use with zsh-vi-mode
 
 [git_branch]
 format = "[$branch]($style)"
-style = "surface2"
 symbol = " "
+style = "bold surface2"
+
+[directory]
+truncation_length = 4
+style = "bold lavender"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](mauve) ($ahead_behind$stashed)]($style)"
