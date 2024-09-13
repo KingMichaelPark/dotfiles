@@ -7,6 +7,9 @@ exportGlyphNames = false
 
 hintParams = ["-a", "qqq"]
 
+[buildPlans.mikevka.ligations]
+  inherits = "dlig"
+
 [buildPlans.mikevka.metricOverride]
 leading = 1100
 xHeight = 550
