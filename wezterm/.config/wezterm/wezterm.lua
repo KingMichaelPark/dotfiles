@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 
 custom.background = "#191724"
-custom.cursor_bg = "#cdd6f4"
+custom.cursor_bg = "#bac2de"
 
 config.leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
@@ -22,7 +22,7 @@ config.keys = {
     { mods = 'LEADER', key = 'n',          action = wezterm.action.ActivateTabRelative(1) },
     { mods = 'LEADER', key = 'x',          action = wezterm.action.CloseCurrentPane { confirm = false }, },
     { mods = 'LEADER', key = 'X',          action = wezterm.action.CloseCurrentTab { confirm = false }, },
-    { mods = 'LEADER', key = 't',          action = wezterm.action.SpawnTab 'CurrentPaneDomain', },
+    { mods = 'LEADER', key = 'c',          action = wezterm.action.SpawnTab 'CurrentPaneDomain', },
     {
         mods = 'LEADER',
         key = '!',
