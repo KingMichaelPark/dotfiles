@@ -1,6 +1,6 @@
 return {
     "jackMort/ChatGPT.nvim",
-    enabled = true,
+    enabled = false,
     keys = {
         { "<leader>Cc", '<cmd>ChatGPT<cr>',                    desc = "ChatGPT", },
         { "<leader>Ca", '<cmd>ChatGPTActAs<cr>',               desc = "ChatGPT Act As", },
