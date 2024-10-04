@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+local sessioniser = require("sessioniser")
 
 custom.background = "#14121d"
 custom.cursor_bg = "#bac2de"
@@ -22,7 +23,10 @@ config.keys = {
     { mods = 'LEADER', key = 'n',          action = wezterm.action.ActivateTabRelative(1) },
     { mods = 'LEADER', key = 'x',          action = wezterm.action.CloseCurrentPane { confirm = false }, },
     { mods = 'LEADER', key = 'X',          action = wezterm.action.CloseCurrentTab { confirm = false }, },
-    { mods = 'LEADER', key = 'c',          action = wezterm.action.SpawnTab 'CurrentPaneDomain', },
+    { mods = 'LEADER', key = 'C',          action = wezterm.action.SpawnTab 'CurrentPaneDomain', },
+    { mods = "LEADER", key = "s",          action = wezterm.action_callback(sessioniser.toggle), },
+    { mods = 'LEADER', key = ']',          action = wezterm.action.SwitchWorkspaceRelative(1) },
+    { mods = 'LEADER', key = '[',          action = wezterm.action.SwitchWorkspaceRelative(-1) },
     {
         mods = 'LEADER',
         key = '!',
