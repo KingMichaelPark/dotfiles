@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 
-custom.background = "#191724"
+custom.background = "#14121d"
 custom.cursor_bg = "#bac2de"
 
 config.leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 }
