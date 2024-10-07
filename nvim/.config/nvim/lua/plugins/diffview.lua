@@ -23,8 +23,13 @@ return {
         },
         {
             "<leader>dh",
-            "<cmd>DiffviewFileHistory<cr>",
+            "<cmd>DiffviewFileHistory %<cr>",
             desc = "Diffview File History"
+        },
+        {
+            "<leader>dH",
+            "<cmd>DiffviewFileHistory<cr>",
+            desc = "Diffview Entire File History"
         }
     },
     dependencies = {
