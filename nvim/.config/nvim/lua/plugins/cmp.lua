@@ -129,9 +129,9 @@ return {
             },
             sorting = defaults.sorting,
             formatting = {
-                fields = { "menu", "abbr", "kind" },
+                fields = { "kind", "abbr" },
                 format = function(entry, item)
-                    item.kind = string.format('%s %s', kind_icons[item.kind], item.kind)
+                    item.kind = string.format('%s ', kind_icons[item.kind])
                     local menu_icon = {
                         nvim_lsp = "󰅬 ",
                         luasnip = " ",
