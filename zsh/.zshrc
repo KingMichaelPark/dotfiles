@@ -8,6 +8,7 @@ autoload -Uz compinit; compinit
 
 # Plugins
 zinit light Aloxaf/fzf-tab
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 

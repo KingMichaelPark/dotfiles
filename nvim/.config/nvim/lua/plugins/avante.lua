@@ -3,7 +3,19 @@ return {
     event = "VeryLazy",
     lazy = true,
     version = false,
-    opts = {
+    keys = {
+        {
+            "<leader>ad",
+            function() require("avante.api").edit("Add docstrings to this selected code") end,
+            mode = "v",
+            desc = "Avante add docstrings"
+        },
+        {
+            "<leader>at",
+            function() require("avante.api").ask("Show me some good unit tests for this code.") end,
+            mode = "v",
+            desc = "Avante add tests"
+        },
     },
     build = "make",
     dependencies = {

@@ -23,6 +23,7 @@ opt.hidden = true
 opt.ignorecase = true    -- Ignore case
 opt.inccommand = "split" -- preview incremental substitute
 opt.joinspaces = false   -- No double spaces with join
+opt.laststatus = 3
 opt.lazyredraw = true
 opt.list = true
 opt.mouse = "a"
