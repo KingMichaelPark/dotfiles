@@ -1,10 +1,10 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+local theme = wezterm.plugin.require('https://github.com/neapsix/wezterm').moon
 local sessioniser = require("sessioniser")
 
-custom.background = "#14121d"
-custom.cursor_bg = "#bac2de"
+colors = theme.colors()
+colors.background = "#14121d"
 
 config.leader = { key = 'b', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
@@ -46,19 +46,16 @@ for i = 1, 9 do
     })
 end
 
-config.color_scheme = "Mikeppuccin"
-config.color_schemes = {
-    ["Mikeppuccin"] = custom,
-}
 config.font = wezterm.font({ family = "Mikevka Nerd Font" })
 config.font_size = 18
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 180
 config.initial_rows = 45
 config.line_height = 1.2
+config.colors = colors
+config.window_frame = theme.window_frame()
 config.macos_window_background_blur = 40
 config.send_composed_key_when_left_alt_is_pressed = true -- MacOS Fix
-config.use_fancy_tab_bar = false
 config.warn_about_missing_glyphs = false
 config.window_background_opacity = 0.94
 config.window_close_confirmation = 'NeverPrompt'

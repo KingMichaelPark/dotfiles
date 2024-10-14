@@ -52,26 +52,26 @@ gui:
   statusPanelView: allBranchesLog
   showBottomLine: false
   authorColors:
-    '*': '#b4befe'
+    '*': '#c4a7e7'
   theme:
     activeBorderColor:
-      - '#89b4fa'
+      - '#908caa'
       - bold
     inactiveBorderColor:
-      - '#a6adc8'
+      - '#6e6a86'
     optionsTextColor:
-      - '#89b4fa'
+      - '#908caa'
     selectedLineBgColor:
-      - '#313244'
+      - '#2a283e'
     selectedRangeBgColor:
-      - '#313244'
+      - '#56526e'
     cherryPickedCommitBgColor:
-      - '#45475a'
+      - '#44415a'
     cherryPickedCommitFgColor:
-      - '#89b4fa'
+      - '#9ccfd8'
     unstagedChangesColor:
-      - '#f38ba8'
+      - '#ea9a97'
     defaultFgColor:
-      - '#cdd6f4'
+      - '#e0def4'
     searchingActiveBorderColor:
-      - '#f9e2af'
+      - '#f6c177'

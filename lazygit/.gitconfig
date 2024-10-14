@@ -1,5 +1,5 @@
 [include]
-    path = ~/.config/lazygit/catppuccin.gitconfig
+    path = ~/.config/lazygit/lazygit-theme.gitconfig
 
 [core]
     pager = delta
@@ -17,7 +17,7 @@
     navigate = true    # use n and N to move between diff sections
     true-color = "always"
     pager = "never"
-    features = CatppuccinMocha
+    features = RosePine
 
 [merge]
     conflictstyle = diff3
