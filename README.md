@@ -26,39 +26,21 @@ stow nvim
 
 Creates the symlinks all the way to `~/.config/nvim/*`
 
-## Required Software
+## Essential Software
 
-- Age (Encryption)
-- Bat (better cat alternative with syntax highlighting)
-- Colima (Docker)
-- Eza (prettier ls alternative)
-- FD (faster find)
-- FZF (fuzzy find files, commands, anything...)
-- Git-Delta (better git diffs)
-- Jq (json query)
-- Lazygit (git tui)
-- Mise (Manage all programming language versions and env vars)
-- Neovim (text editor)
-- nnn (Terminal file manager)
-- Pnpm (faster node installs)
-- Restic (online backups)
-- Ripgrep (faster grep)
-- Rsync (local backup to external hard drive)
-- Stow (manage dotfile symlinks)
-- Tmux (Shell multiplexer)
-
-- Zoxide (Faster smart cd)
-- Z-init (ZSH plugin manager)
+This is a list of software I use all the time and wouldn't be as productive
+without it, feel free to pick and choose what you like.
 
 ### Install via Brew
 
-Only use the mise commands if you want python and nodejs on your system.
-
-```zsh
+```bash
 brew install \
     age \
+    argon2 \
     bat \
-    colima \
+    bottom \
+    duckdb \
+    entr \
     eza \
     fd \
     fzf \
@@ -68,22 +50,43 @@ brew install \
     mise \
     neovim \
     nnn \
-    pnpm \
+    pandoc \
     restic \
     ripgrep \
-    rsync \
+    sops \
     stow \
-    tmux \
+    stylua \
+    uv \
     zoxide
 
-cd ~/.dotfiles
-stow mise
-mise install nodejs python
+brew install --cask wezterm
 ```
+# Descriptions
 
-To set environmental variables like `direnv`, in your project
-use `mise env-vars KEY=VALUE` as mise can replace `direnv` for
-these environmental variables loading.
+ - **age**: Simple, modern, secure file encryption
+ - **argon2**: Password hashing library and CLI utility
+ - **bat**: Clone of cat(1) with syntax highlighting and Git integration
+ - **bottom**: Yet another cross-platform graphical process/system monitor
+ - **duckdb**: Embeddable SQL OLAP Database Management System
+ - **entr**: Run arbitrary commands when files change
+ - **eza**: Modern, maintained replacement for ls
+ - **fd**: Simple, fast and user-friendly alternative to find
+ - **fzf**: Command-line fuzzy finder written in Go
+ - **git-delta**: Syntax-highlighting pager for git and diff output
+ - **jq**: Lightweight and flexible command-line JSON processor
+ - **lazygit**: Simple terminal UI for git commands
+ - **mise**: Polyglot runtime manager (asdf rust clone)
+ - **neovim**: Ambitious Vim-fork focused on extensibility and agility
+ - **nnn**: Tiny, lightning fast, feature-packed file manager
+ - **pandoc**: Swiss-army knife of markup format conversion
+ - **restic**: Back-up utility with snapshots and backups
+ - **ripgrep**: Search tool like grep and The Silver Searcher
+ - **sops**: Editor of encrypted files
+ - **stow**: Organize software neatly under a single directory tree (e.g. /usr/local)
+ - **stylua**: Opinionated Lua code formatter
+ - **uv**: Extremely fast Python package installer and resolver, written in Rust
+ - **wezterm**: The best terminal & multiplexer written in Rust
+ - **zoxide**: Shell extension to navigate your filesystem faster
 
 ## Different Modules
 
