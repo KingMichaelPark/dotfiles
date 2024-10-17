@@ -18,7 +18,6 @@ return {
     dependencies = {
         "mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp",
         "nvim-telescope/telescope.nvim"
     },
     event = { "BufReadPre", "BufNewFile" },
@@ -45,8 +44,6 @@ return {
         local lsp = require("lspconfig")
         require("mason-lspconfig").setup({ ensure_installed = servers })
         local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
 
         vim.api.nvim_create_autocmd('LspAttach', {
             group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
