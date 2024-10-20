@@ -7,6 +7,9 @@ return {
         { "<leader>L", "<cmd>Lazy<cr>",  desc = "Lazy" }
     },
     opts = {
+        pip = {
+            use_uv = true
+        },
         ensure_installed = {
             "shfmt",
             "yamllint"
