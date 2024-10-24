@@ -6,7 +6,10 @@ return {
     keys = {
         {
             "<leader>ad",
-            function() require("avante.api").edit("Add docstrings to this selected code") end,
+            function()
+                require("avante.api").ask(
+                    "Add docstrings to this selected code, if it is python code, use google style docstrings with Args, Returns, etc...")
+            end,
             mode = "v",
             desc = "Avante add docstrings"
         },
@@ -36,7 +39,7 @@ return {
                 auto_suggestions_provider = "gemini", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
                 claude = {
                     endpoint = "https://api.anthropic.com",
-                    model = "claude-3-5-sonnet-20240620",
+                    model = "claude-3-5-sonnet-latest",
                     temperature = 0,
                     max_tokens = 4096,
                 },
