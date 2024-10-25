@@ -1,11 +1,14 @@
 return {
-    "williamboman/mason.nvim",
+    "KingMichaelPark/mason.nvim",
     build = ":MasonUpdate",
     keys = {
         { "<leader>M", "<cmd>Mason<cr>", desc = "Mason" },
         { "<leader>L", "<cmd>Lazy<cr>",  desc = "Lazy" }
     },
     opts = {
+        pip = {
+            use_uv = true
+        },
         ensure_installed = {
             "shfmt",
             "yamllint"

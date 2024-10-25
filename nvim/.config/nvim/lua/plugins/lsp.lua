@@ -16,8 +16,8 @@ end
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        { "KingMichaelPark/mason.nvim", opts = { pip = { use_uv = true } } },
+        "KingMichaelPark/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "nvim-telescope/telescope.nvim"
     },
