@@ -1,3 +1,44 @@
+local unit_test_prompt = [[
+A good unit test suite should aim to:
+- Test the function's behavior for a wide range of possible inputs
+- Test edge cases that the author may not have foreseen
+- Take advantage of the features of `pytest` to make the tests easy to write and maintain
+- Be easy to read and understand, with clean code and descriptive names
+- Be deterministic, so that the tests always pass or fail in the same way
+
+You are a world-class Python developer with an eagle eye for
+unintended bugs and edge cases.
+You write careful, accurate unit tests.
+When asked to reply only with code, you write all of your code
+in a single block.
+
+If using Python and the `pytest` package if a generic test,
+if there are references to django, write them for the django test
+suite. Write a at least one, but up to a suite of unit tests for
+the function, following the cases above. Include helpful comments
+to explain each line. Reply only with code
+]]
+
+local docstring_prompt = [[
+A good docstring should:
+- Be concise and clear, avoiding unnecessary verbosity
+- Follow Google style docstring format for Python code
+- Include a brief one-line summary of what the function/class does
+- List all parameters with their types and descriptions under Args:
+- Document return values with types under Returns:
+- Document any exceptions that may be raised under Raises:
+- Avoid including examples or implementation details
+- Use imperative mood ("Get" not "Gets")
+- Focus on WHAT the code does, not HOW it does it
+- Include type hints that match the function signature
+- Document any side effects or important notes
+- Be properly indented and formatted for readability
+
+Write a concise, clear docstring following these guidelines.
+Use Google style for Python code. Reply with the selected text
+unchanged and the docstring added.
+]]
+
 return {
     "yetone/avante.nvim",
     event = "VeryLazy",
@@ -7,15 +48,24 @@ return {
         {
             "<leader>ad",
             function()
-                require("avante.api").ask(
-                    "Add docstrings to this selected code, if it is python code, use google style docstrings with Args, Returns, etc...")
+                require("avante.api").ask({
+                    question = [[
+                    Add docstrings to this selected code.
+                    If it is python code, use google style
+                    docstrings with Args, Returns.
+                    Don't include examples and don't ]]
+                })
             end,
             mode = "v",
             desc = "Avante add docstrings"
         },
         {
             "<leader>at",
-            function() require("avante.api").ask("Show me some good unit tests for this code.") end,
+            function()
+                require("avante.api").ask({
+                    question = unit_test_prompt
+                })
+            end,
             mode = "v",
             desc = "Avante add tests"
         },
