@@ -55,7 +55,7 @@ gui:
     '*': '#c4a7e7'
   theme:
     activeBorderColor:
-      - '#908caa'
+      - '#ebbcba'
       - bold
     inactiveBorderColor:
       - '#6e6a86'
