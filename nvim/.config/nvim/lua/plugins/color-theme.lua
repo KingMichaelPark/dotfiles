@@ -1,30 +1,37 @@
 return {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
-        require("rose-pine").setup({
-            variant = "moon",      -- auto, main, moon, or dawn
-            dark_variant = "moon", -- main, moon, or dawn
-            dim_inactive_windows = false,
-            extend_background_behind_borders = true,
-
-            enable = {
-                terminal = true,
-                legacy_highlights = false, -- Improve compatibility for previous versions of Neovim
-                migrations = true,         -- Handle deprecated options automatically
-            },
-
+        require("catppuccin").setup({
+            flavour = "mocha",
+            transparent_background = true,
+            term_colors = false,
             styles = {
-                bold = true,
-                italic = true,
-                transparency = true,
+                comments = { "italic" },
+                keywords = { "bold" },
+                types = { "italic" },
             },
-
-
+            color_overrides = {},
+            custom_highlights = {},
+            default_integrations = true,
+            integrations = {
+                -- blink_cmp = true,
+                cmp = true,
+                dadbod_ui = true,
+                diffview = true,
+                gitsigns = true,
+                harpoon = true,
+                mason = true,
+                nvim_surround = true,
+                nvimtree = false,
+                leap = true,
+                treesitter = true,
+                notify = false,
+                which_key = true,
+            },
         })
 
-        -- setup must be called before loading
-        vim.cmd.colorscheme "rose-pine"
-    end
+        vim.cmd.colorscheme("catppuccin")
+    end,
 }

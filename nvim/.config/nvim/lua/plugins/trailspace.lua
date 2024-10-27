@@ -1,8 +1,8 @@
 return {
-    'echasnovski/mini.trailspace',
+    "echasnovski/mini.trailspace",
     event = "BufWritePre",
-    version = '*',
+    version = "*",
     config = function(_, opts)
-        require('mini.trailspace').setup(opts)
-    end
+        require("mini.trailspace").setup(opts)
+    end,
 }

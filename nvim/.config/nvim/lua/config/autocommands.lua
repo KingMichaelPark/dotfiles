@@ -3,9 +3,9 @@ local function augroup(name)
 end
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = 'Highlight when yanking (copying) text',
-    group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
     callback = function()
         vim.highlight.on_yank()
     end,
@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "Jenkinsfile" },
     callback = function()
         vim.cmd("set filetype=groovy")
-    end
+    end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "*.tfvars" },
     callback = function()
         vim.cmd("set filetype=terraform")
-    end
+    end,
 })
 
 -- resize splits if window got resized
@@ -84,7 +84,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end,
 })
 
-
 -- Trim trailing whitespace
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*" },
@@ -109,6 +108,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     group = augroup("format_on_save"),
     -- buffer = bufnr,
     callback = function()
-        vim.lsp.buf.format { filter = function(client) return client.name ~= "tsserver" end, async = false }
+        vim.lsp.buf.format({
+            filter = function(client)
+                return client.name ~= "tsserver"
+            end,
+            async = false,
+        })
     end,
 })

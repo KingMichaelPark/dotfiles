@@ -1,27 +1,27 @@
 return {
-    'nvim-pack/nvim-spectre',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "nvim-pack/nvim-spectre",
+    dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
         {
-            '<leader>S',
+            "<leader>S",
             '<cmd>lua require("spectre").toggle()<CR>',
-            desc = "Toggle Spectre"
+            desc = "Toggle Spectre",
         },
         {
-            '<leader>sw',
+            "<leader>sw",
             '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-            desc = "Search current word"
+            desc = "Search current word",
         },
         {
-            '<leader>sw',
+            "<leader>sw",
             '<esc><cmd>lua require("spectre").open_visual()<CR>',
             "v",
-            desc = "Search current word"
+            desc = "Search current word",
         },
         {
-            '<leader>sp',
+            "<leader>sp",
             '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
-            desc = "Search on current file"
-        }
-    }
+            desc = "Search on current file",
+        },
+    },
 }

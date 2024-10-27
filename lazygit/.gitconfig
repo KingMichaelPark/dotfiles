@@ -17,7 +17,7 @@
     navigate = true    # use n and N to move between diff sections
     true-color = "always"
     pager = "never"
-    features = RosePine
+    features = CatppuccinMocha
 
 [merge]
     conflictstyle = diff3

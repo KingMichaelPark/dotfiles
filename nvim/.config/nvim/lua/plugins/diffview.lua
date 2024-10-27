@@ -4,36 +4,36 @@ return {
         {
             "<leader>do",
             "<cmd>DiffviewOpen<cr>",
-            desc = "DiffViewOpen"
+            desc = "DiffViewOpen",
         },
         {
             "<leader>dc",
             "<cmd>tabclose<cr>",
-            desc = "DiffViewClose"
+            desc = "DiffViewClose",
         },
         {
             "<leader>de",
             "<cmd>DiffviewToggleFiles<cr>",
-            desc = "DiffviewToggleFiles"
+            desc = "DiffviewToggleFiles",
         },
         {
             "<leader>dr",
             "<cmd>DiffviewRefresh<cr>",
-            desc = "Diffview Refresh"
+            desc = "Diffview Refresh",
         },
         {
             "<leader>dh",
             "<cmd>DiffviewFileHistory %<cr>",
-            desc = "Diffview File History"
+            desc = "Diffview File History",
         },
         {
             "<leader>dH",
             "<cmd>DiffviewFileHistory<cr>",
-            desc = "Diffview Entire File History"
-        }
+            desc = "Diffview Entire File History",
+        },
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
-        'nvim-tree/nvim-web-devicons'
-    }
+        "nvim-tree/nvim-web-devicons",
+    },
 }

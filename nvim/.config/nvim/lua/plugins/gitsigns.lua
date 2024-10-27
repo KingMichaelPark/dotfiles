@@ -3,12 +3,12 @@ return {
     event = "BufReadPre",
     opts = {
         signs = {
-            add          = { text = '│' },
-            change       = { text = '│' },
-            delete       = { text = '_' },
-            topdelete    = { text = '‾' },
-            changedelete = { text = '~' },
-            untracked    = { text = '┆' },
+            add = { text = "│" },
+            change = { text = "│" },
+            delete = { text = "_" },
+            topdelete = { text = "‾" },
+            changedelete = { text = "~" },
+            untracked = { text = "┆" },
         },
         on_attach = function(buffer)
             local gs = package.loaded.gitsigns
@@ -30,7 +30,7 @@ return {
             map("n", "<leader>gB", function()
                 gs.blame_line({ full = true })
             end, "Blame Line")
-            map('n', '<leader>tb', gs.toggle_current_line_blame, "Toggle Current Line Blame")
+            map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle Current Line Blame")
             map("n", "<leader>gd", gs.diffthis, "Diff This")
             map("n", "<leader>gD", function()
                 gs.diffthis("~")

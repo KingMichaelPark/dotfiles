@@ -40,7 +40,7 @@ return {
         "hrsh7th/cmp-path",
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
-        'hrsh7th/cmp-cmdline'
+        "hrsh7th/cmp-cmdline",
     },
     event = "InsertEnter",
     opts = function()
@@ -48,32 +48,32 @@ return {
         local defaults = require("cmp.config.default")()
         local luasnip = require("luasnip")
         vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-        cmp.setup.cmdline('/', {
-            completion = { completeopt = 'menu,menuone,noselect' },
+        cmp.setup.cmdline("/", {
+            completion = { completeopt = "menu,menuone,noselect" },
             mapping = cmp.mapping.preset.cmdline(),
             sources = {
-                { name = 'buffer' }
-            }
+                { name = "buffer" },
+            },
         })
-        cmp.setup.cmdline(':', {
-            completion = { completeopt = 'menu,menuone,noselect' },
+        cmp.setup.cmdline(":", {
+            completion = { completeopt = "menu,menuone,noselect" },
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
-                { name = 'path' }
+                { name = "path" },
             }, {
                 {
-                    name = 'cmdline',
+                    name = "cmdline",
                     option = {
-                        ignore_cmds = { 'Man', '!' }
-                    }
-                }
-            })
+                        ignore_cmds = { "Man", "!" },
+                    },
+                },
+            }),
         })
 
         return {
             completion = {
                 completeopt = "menu,menuone,noinsert",
-                keyword_length = 3
+                keyword_length = 3,
             },
             snippet = {
                 expand = function(args)
@@ -120,7 +120,7 @@ return {
                 { name = "luasnip" },
                 { name = "path" },
                 { name = "buffer" },
-                { name = "orgmode" }
+                { name = "orgmode" },
             }),
             experimental = {
                 ghost_text = {
@@ -131,7 +131,7 @@ return {
             formatting = {
                 fields = { "kind", "abbr" },
                 format = function(entry, item)
-                    item.kind = string.format('%s ', kind_icons[item.kind])
+                    item.kind = string.format("%s ", kind_icons[item.kind])
                     local menu_icon = {
                         nvim_lsp = "󰅬 ",
                         luasnip = " ",
@@ -141,8 +141,8 @@ return {
                     }
                     item.menu = menu_icon[entry.source.name]
                     return item
-                end
-            }
+                end,
+            },
         }
-    end
+    end,
 }

@@ -6,10 +6,8 @@ local function split(word)
     return lines
 end
 
-
 local splashes = {
-    split(
-        string.format([[
+    split(string.format([[
              ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓
              ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒
             ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░
@@ -20,7 +18,8 @@ local splashes = {
                ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░
                      ░    ░  ░    ░ ░        ░   ░         ░
                                             ░                  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-]])) }
+]])),
+}
 
 -- Dashboard
 local function alpha_options()

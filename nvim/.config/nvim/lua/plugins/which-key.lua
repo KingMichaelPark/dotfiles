@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     opts = {
         preset = "modern",
-        icons = { rules = false }
+        icons = { rules = false },
     },
     keys = {
         {

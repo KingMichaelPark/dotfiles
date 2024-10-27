@@ -1,14 +1,17 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "nvim-treesitter/nvim-treesitter-context", "nvim-treesitter/nvim-treesitter-textobjects",
-        "nvim-treesitter/nvim-treesitter-refactor" },
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-context",
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/nvim-treesitter-refactor",
+    },
     build = ":TSUpdate",
     event = "BufReadPost",
     config = function()
-        require("treesitter-context").setup {
+        require("treesitter-context").setup({
             max_lines = 1,
-            line_numbers = false
-        }
+            line_numbers = false,
+        })
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "bash",
@@ -129,6 +132,6 @@ return {
                 },
             },
         })
-        vim.treesitter.language.register('groovy', 'Jenkinsfile') -- the someft filetype will use the python parser and queries.
+        vim.treesitter.language.register("groovy", "Jenkinsfile") -- the someft filetype will use the python parser and queries.
     end,
 }

@@ -6,7 +6,7 @@ local servers = {
 }
 
 local function prefix()
-    if vim.fn.has('nvim-0.10') == 1 then
+    if vim.fn.has("nvim-0.10") == 1 then
         return ""
     else
         return "󰻃 "
@@ -19,7 +19,7 @@ return {
         { "KingMichaelPark/mason.nvim", opts = { pip = { use_uv = true } } },
         "KingMichaelPark/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
-        "nvim-telescope/telescope.nvim"
+        "nvim-telescope/telescope.nvim",
     },
     event = { "BufReadPre", "BufNewFile" },
     -- Diagnostic Options
@@ -34,9 +34,9 @@ return {
         signs = {
             text = {
                 [vim.diagnostic.severity.ERROR] = " ",
-                [vim.diagnostic.severity.WARN]  = "󰗖 ",
-                [vim.diagnostic.severity.HINT]  = "󰘥 ",
-                [vim.diagnostic.severity.INFO]  = "󰋽 ",
+                [vim.diagnostic.severity.WARN] = "󰗖 ",
+                [vim.diagnostic.severity.HINT] = "󰘥 ",
+                [vim.diagnostic.severity.INFO] = "󰋽 ",
             },
         },
     },
@@ -45,28 +45,28 @@ return {
         local lsp = require("lspconfig")
         require("mason-lspconfig").setup({ ensure_installed = servers })
         local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+        capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-
-        vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
             callback = function(event)
                 local map = function(keys, func, desc)
-                    vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+                    vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
                 end
 
-                map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-                map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-                map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-                map('gT', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-                map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-                map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-                map('<leader>h', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end,
-                    'Inlay [H]ints')
-                map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-                map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-                map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-            end
+                map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+                map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+                map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+                map("gT", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+                map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+                map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+                map("<leader>h", function()
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+                end, "Inlay [H]ints")
+                map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+                map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+                map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+            end,
         })
 
         lsp.biome.setup({
@@ -88,14 +88,14 @@ return {
             settings = {
                 Lua = {
                     runtime = {
-                        version = 'LuaJIT',
+                        version = "LuaJIT",
                     },
                     diagnostics = {
-                        globals = { 'vim' },
+                        globals = { "vim" },
                     },
                     workspace = {
                         library = vim.api.nvim_get_runtime_file("", true),
-                        checkThirdParty = false
+                        checkThirdParty = false,
                     },
                     telemetry = {
                         enable = false,
@@ -104,12 +104,12 @@ return {
                         enable = true,
                         defaultConfig = {
                             indent_style = "space",
-                            indent_size = "2",
+                            indent_width = "1",
                         },
                     },
                     hint = {
-                        enable = true
-                    }
+                        enable = true,
+                    },
                 },
             },
         })
@@ -127,17 +127,17 @@ return {
                     analysis = {
                         -- Ignore all files for analysis to
                         -- exclusively use Ruff for linting
-                        ignore = { '*' },
+                        ignore = { "*" },
                         diagnosticSeverityOverrides = {
                             -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
-                            reportUnusedImport = "none"
+                            reportUnusedImport = "none",
                         },
                     },
-                }
-            }
+                },
+            },
         })
 
-        lsp.ruff.setup {
+        lsp.ruff.setup({
             on_attach = function(client, _)
                 client.server_capabilities.hoverProvider = false
             end,
@@ -149,10 +149,9 @@ return {
                         "--unfixable",
                         "F401,F841",
                     },
-
-                }
-            }
-        }
+                },
+            },
+        })
 
         lsp.terraformls.setup({
             capabilities = capabilities,
@@ -162,5 +161,5 @@ return {
         lsp.ts_ls.setup({
             capabilities = capabilities,
         })
-    end
+    end,
 }

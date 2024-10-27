@@ -12,6 +12,8 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 
+fast-theme -q XDG:catppuccin-mocha
+
 # Starship
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \

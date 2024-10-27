@@ -1,6 +1,11 @@
 return {
     "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap", "mfussenegger/nvim-dap-python", "theHamsta/nvim-dap-virtual-text", "nvim-neotest/nvim-nio" },
+    dependencies = {
+        "mfussenegger/nvim-dap",
+        "mfussenegger/nvim-dap-python",
+        "theHamsta/nvim-dap-virtual-text",
+        "nvim-neotest/nvim-nio",
+    },
     keys = { -- Keymaps
         {
             "<F6>",
