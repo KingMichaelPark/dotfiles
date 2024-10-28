@@ -47,6 +47,8 @@ export FZF_DEFAULT_OPTS="
 
 # Aliases
 alias cat="bat -p"
+alias d="docker"
+alias dc="docker-compose"
 alias d=nerdctl
 alias n='nerdctl'
 alias k=kubectl
@@ -65,7 +67,6 @@ alias tf=terraform
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
-alias x=xplr
 
 # ZSH Settings
 HISTSIZE=20000

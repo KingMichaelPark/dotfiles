@@ -11,9 +11,7 @@ return {
             direction = "float",
             float_opts = {
                 border = "curved",
-                width = function()
-                    return math.ceil(vim.api.nvim_win_get_width(vim.api.nvim_get_current_win()) * 0.95)
-                end,
+                width = function() return math.ceil(vim.api.nvim_win_get_width(vim.api.nvim_get_current_win()) * 0.95) end,
                 height = function()
                     return math.ceil(vim.api.nvim_win_get_height(vim.api.nvim_get_current_win()) * 0.95)
                 end,
@@ -25,9 +23,7 @@ return {
             end,
         })
 
-        function Lazygit_toggle()
-            lazygit:toggle()
-        end
+        function Lazygit_toggle() lazygit:toggle() end
 
         local norm = Terminal:new({
             dir = "git_dir",
@@ -35,13 +31,9 @@ return {
             count = 5432,
         })
 
-        function Lazygit_toggle()
-            lazygit:toggle()
-        end
+        function Lazygit_toggle() lazygit:toggle() end
 
-        function Norm_toggle()
-            norm:toggle()
-        end
+        function Norm_toggle() norm:toggle() end
 
         function GetVisualSelection()
             -- Note that this makes no effort to preserve this register

@@ -52,6 +52,4 @@ opt.updatetime = 200 -- Delay before swap file is saved
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.wrap = false -- Disable line wrap
 
-if vim.fn.has("nvim-0.10") == 1 then
-    opt.smoothscroll = true
-end
+if vim.fn.has("nvim-0.10") == 1 then opt.smoothscroll = true end

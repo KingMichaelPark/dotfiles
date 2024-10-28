@@ -1,30 +1,22 @@
-local function augroup(name)
-    return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
-end
+local function augroup(name) return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true }) end
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking (copying) text",
     group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+    callback = function() vim.highlight.on_yank() end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     group = augroup("filetype_detect"),
     pattern = { "Jenkinsfile" },
-    callback = function()
-        vim.cmd("set filetype=groovy")
-    end,
+    callback = function() vim.cmd("set filetype=groovy") end,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     group = augroup("terraform_detect"),
     pattern = { "*.tfvars" },
-    callback = function()
-        vim.cmd("set filetype=terraform")
-    end,
+    callback = function() vim.cmd("set filetype=terraform") end,
 })
 
 -- resize splits if window got resized
@@ -76,9 +68,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     group = augroup("auto_create_dir"),
     callback = function(event)
-        if event.match:match("^%w%w+://") then
-            return
-        end
+        if event.match:match("^%w%w+://") then return end
         local file = vim.loop.fs_realpath(event.match) or event.match
         vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
     end,
@@ -98,9 +88,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd("FileType", {
     group = augroup("commentstring"),
     pattern = { "*.sql" },
-    callback = function()
-        vim.opt.commentstring = "-- %s"
-    end,
+    callback = function() vim.opt.commentstring = "-- %s" end,
     desc = "Change commentstring for SQL files",
 })
 
@@ -109,9 +97,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     -- buffer = bufnr,
     callback = function()
         vim.lsp.buf.format({
-            filter = function(client)
-                return client.name ~= "tsserver"
-            end,
+            filter = function(client) return client.name ~= "tsserver" end,
             async = false,
         })
     end,

@@ -11,16 +11,12 @@ return {
     keys = {
         {
             "]c",
-            function()
-                require("todo-comments").jump_next()
-            end,
+            function() require("todo-comments").jump_next() end,
             desc = "Next todo comment",
         },
         {
             "[c",
-            function()
-                require("todo-comments").jump_prev()
-            end,
+            function() require("todo-comments").jump_prev() end,
             desc = "Previous todo comment",
         },
         { "<leader>cq", "<cmd>TodoQuickFix<cr>", desc = "Todo QuickFix" },
