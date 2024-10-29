@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-tar -xf "$1"
+tar --zstd -xf "$1"
