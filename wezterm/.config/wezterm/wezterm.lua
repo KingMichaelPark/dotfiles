@@ -50,7 +50,7 @@ config.font_size = 18
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 180
 config.initial_rows = 45
-config.line_height = 1.25
+config.line_height = 1.2
 config.color_schemes = {
     ["Mikeppuccin"] = colors,
 }
