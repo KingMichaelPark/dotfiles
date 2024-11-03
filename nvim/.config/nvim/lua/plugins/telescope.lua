@@ -8,6 +8,7 @@ return {
             lazy = true,
         },
         { "nvim-telescope/telescope-ui-select.nvim", lazy = true },
+        {"nvim-telescope/telescope-live-grep-args.nvim"}
     },
     keys = {
         { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer search" },
@@ -17,6 +18,7 @@ return {
         { "<C-p>", "<cmd>Telescope git_files<cr>", desc = "Git files" },
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
         { "<leader>fj", "<cmd>Telescope command_history<cr>", desc = "History" },
+        {"<leader>fa", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc="Live_grep with args"},
         { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
         { "<leader>fl", "<cmd>Telescope lsp_references<cr>", desc = "Lsp References" },
         { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Old files" },
@@ -63,5 +65,6 @@ return {
         })
         telescope.load_extension("fzf")
         telescope.load_extension("ui-select")
+        telescope.load_extension("live_grep_args")
     end,
 }

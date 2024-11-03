@@ -1,5 +1,6 @@
 local g = vim.g
 local opt = vim.opt
+vim.api.nvim_command("set noshowcmd")
 
 g.background = "dark"
 g.completion_matching_strategy_list = { "exact", "substring", "fuzzy" }
@@ -53,3 +54,4 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.wrap = false -- Disable line wrap
 
 if vim.fn.has("nvim-0.10") == 1 then opt.smoothscroll = true end
+
