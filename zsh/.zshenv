@@ -60,11 +60,11 @@ alias lX='la --sort=extension'          # Long, sort extension
 alias ll='l -lbG'                      # Long, file size prefixes, grid, git status
 alias lA='ll -la'                       # Long, all files
 alias lg=lazygit
-alias nerd='nerdctl'
 alias tf=terraform
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias y="yazi"
 
 # ZSH Settings
 HISTSIZE=20000

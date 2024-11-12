@@ -50,7 +50,6 @@ config.font_size = 18
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 180
 config.initial_rows = 45
-config.line_height = 1.2
 config.color_schemes = {
     ["Mikeppuccin"] = colors,
 }
@@ -58,7 +57,7 @@ config.color_scheme = "Mikeppuccin"
 config.macos_window_background_blur = 50
 config.send_composed_key_when_left_alt_is_pressed = true -- MacOS Fix
 config.warn_about_missing_glyphs = false
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.95
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_padding = {
