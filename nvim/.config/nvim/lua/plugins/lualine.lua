@@ -16,7 +16,7 @@ return {
             },
             sections = {
                 lualine_a = { "mode" },
-                lualine_b = { "filename" },
+                lualine_b = { "%f" },
                 lualine_c = {},
                 lualine_x = {},
                 lualine_y = { "branch", "diff", "diagnostics" },
