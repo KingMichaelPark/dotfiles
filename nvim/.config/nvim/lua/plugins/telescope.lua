@@ -7,11 +7,11 @@ return {
         {"nvim-telescope/telescope-live-grep-args.nvim"}
     },
     keys = {
-        { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Git files" },
+        { "<C-p>", "<cmd>Telescope git_files<cr>", desc = "Git files" },
         { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer search" },
         { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
         { "<leader>fc", "<cmd>Telescope git_commits<cr>", desc = "Commits" },
-        { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find All Files" },
+        { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find All Files" },
         { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
         { "<leader>fj", "<cmd>Telescope command_history<cr>", desc = "History" },
         { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
