@@ -102,10 +102,10 @@ return {
                         enable = false,
                     },
                     format = {
-                        enable = false,
+                        enable = true,
                         defaultConfig = {
                             indent_style = "space",
-                            indent_width = "1",
+                            indent_width = 1,
                         },
                     },
                     hint = {
