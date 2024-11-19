@@ -19,7 +19,7 @@ return {
         { "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Old files" },
         { "<leader>fr", "<cmd>Telescope live_grep<cr>", desc = "Ripgrep" },
         { "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "Grep String" },
-        {"<leader>fa", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", desc="Live_grep with args"},
+        {"<leader>fa", "<cmd>require('telescope').extensions.live_grep_args.live_grep_args()<cr>", desc="Live_grep with args"},
     },
     config = function(opts)
         local telescope = require("telescope")
