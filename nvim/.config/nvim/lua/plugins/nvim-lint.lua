@@ -4,8 +4,10 @@ return {
     config = function()
         local lint = require("lint")
         lint.linters_by_ft = {
-            yaml = { "yamllint" },
-            yml = { "yamllint" },
+            terraform = { 'tflint', 'trivy', },
+            tf = { 'tflint', 'trivy', },
+            yaml = { "actionlint", "yamllint" },
+            yml = { "actionlint", "yamllint" },
         }
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
             callback = function() lint.try_lint() end,
