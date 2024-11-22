@@ -122,13 +122,13 @@ return {
                 pyright = {
                     -- Using Ruff's import organizer
                     disableOrganizeImports = true,
-                    disableTaggedHints = true,
+                    disableTaggedHints = false,
                 },
                 python = {
                     analysis = {
                         -- Ignore all files for analysis to
                         -- exclusively use Ruff for linting
-                        ignore = { "*" },
+                        ignore = {},
                         diagnosticSeverityOverrides = {
                             -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
                             reportUnusedImport = "none",
@@ -144,7 +144,7 @@ return {
                 settings = {
                     args = {
                         "--extend-select",
-                        "A,ARG,B,C4,DTZ,FBT,FURB,G,I,N,PT,S,UP",
+                        "A,ARG,B,C4,DTZ,F,FBT,FURB,G,I,N,PT,S,UP",
                         "--unfixable",
                         "F401,F841",
                     },
