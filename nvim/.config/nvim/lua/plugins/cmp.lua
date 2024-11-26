@@ -2,48 +2,23 @@ return {
     "saghen/blink.cmp",
     version = "0.*",
     opts_extend = { "sources.completion.enabled_providers" },
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
     event = "InsertEnter",
-
+    dependencies = 'rafamadriz/friendly-snippets',
     opts = {
-      fuzzy = {
-        prebuilt_binaries = {
-          download = true,
-          force_version = "v0.5.0",
+        keymap = {
+            preset = "super-tab",
         },
-      },
-      highlight = {
-        use_nvim_cmp_as_default = false,
-      },
-      nerd_font_variant = "mono",
-      windows = {
-        autocomplete = {
-          draw = "reversed",
+        sources = {
+            completion = {
+                enabled_providers = { 'lsp', 'buffer', 'path', 'snippets' },
+            },
         },
-        documentation = {
-          auto_show = true,
+        windows = {
+            autocomplete = {
+                draw = {
+                    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+                },
+            },
         },
-        ghost_text = {
-          enabled = true,
-        },
-      },
-
-      -- experimental auto-brackets support
-      accept = { auto_brackets = { enabled = true } },
-
-      -- experimental signature help support
-      -- trigger = { signature_help = { enabled = true } }
-      sources = {
-        completion = {
-          -- remember to enable your providers here
-          enabled_providers = { "lsp", "path", "snippets", "buffer" },
-        },
-      },
-
-      keymap = {
-        preset = "super-tab",
-      },
     },
-  }
+}

@@ -2,10 +2,10 @@
 family = "Mikevka"
 spacing = "term"
 serifs = "sans"
-noCvSs = true
-exportGlyphNames = false
+noCvSs = false
+exportGlyphNames = true
 
-hintParams = ["-a", "qqq"]
+# hintParams = ["-a", "qqq"]
 
 [buildPlans.mikevka.ligations]
   inherits = "dlig"
@@ -13,25 +13,17 @@ hintParams = ["-a", "qqq"]
 [buildPlans.mikevka.metricOverride]
 leading = 1100
 xHeight = 550
-
-[buildPlans.mikevka.variants.design]
-capital-j = "serifed"
-zero = "diamond-slashed"
-two = "curly-neck-serifless"
-three = "flat-top-serifless"
-brace = "curly-flat-boundary"
-ampersand = "closed"
-paren = "normal"
-percent = "rings-continuous-slash"
-lig-ltgteq = "slanted"
-lig-neq = "slightly-slanted"
-caret = "low"
-
-[buildPlans.mikevka.variants.italic]
-k = "cursive-serifless"
+periodSize = 'blend(weight, [425, default_periodSize * 1.2], [800, default_periodSize * 1.1])'
 
 [buildPlans.mikevka.variants]
 inherits = "ss08"
+
+[buildPlans.mikevka.variants.design]
+percent = "rings-continuous-slash"
+
+[buildPlans.mikevka.variants.italic]
+k = "cursive-serifless"
+percent = "rings-continuous-slash"
 
 [buildPlans.mikevka.widths.normal]
 shape = 500
