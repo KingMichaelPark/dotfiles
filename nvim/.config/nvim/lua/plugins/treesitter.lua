@@ -8,11 +8,15 @@ return {
     build = ":TSUpdate",
     event = "BufReadPost",
     config = function()
+        local configs = require("nvim-treesitter.configs")
         require("treesitter-context").setup({
             max_lines = 1,
             line_numbers = false,
         })
-        require("nvim-treesitter.configs").setup({
+        configs.setup({
+            ignore_install = {},
+            modules = {},
+            auto_install = true,
             ensure_installed = {
                 "bash",
                 "comment",
@@ -57,9 +61,9 @@ return {
                 "vimdoc",
                 "yaml",
             },
-            highlight = {
-                enable = true,
-            },
+            highlight = { enable = true, additional_vim_regex_highlighting = false },
+            indent = { enable = false },
+            sync_install = true,
             incremental_selection = {
                 enable = true,
                 keymaps = {
@@ -68,9 +72,6 @@ return {
                     scope_incremental = "grc",
                     node_decremental = "grm",
                 },
-            },
-            indent = {
-                enable = false,
             },
             textobjects = {
                 select = {

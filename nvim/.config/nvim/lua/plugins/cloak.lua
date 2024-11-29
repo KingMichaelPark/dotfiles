@@ -1,8 +1,9 @@
 return {
     "laytan/cloak.nvim",
-    event = "VeryLazy",
     keys = {
-        { "<leader>st", "<cmd>:CloakToggle<cr>", desc = "[s]ecret [t]oggle" }
+        { "<leader>ct", "<cmd>:CloakToggle<cr>",  desc = "[c]loak [t]oggle" },
+        { "<leader>ce", "<cmd>:CloakEnable<cr>",  desc = "[c]loak [e]nable" },
+        { "<leader>cd", "<cmd>:CloakDisable<cr>", desc = "[c]loak [d]isable" }
     },
     config = function()
         require("cloak").setup({

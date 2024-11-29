@@ -10,16 +10,16 @@ return {
     config = true,
     keys = {
         {
-            "]c",
+            "]T",
             function() require("todo-comments").jump_next() end,
-            desc = "Next todo comment",
+            desc = "Next [T]odo comment",
         },
         {
-            "[c",
+            "[T",
             function() require("todo-comments").jump_prev() end,
-            desc = "Previous todo comment",
+            desc = "Previous [T]odo comment",
         },
-        { "<leader>cq", "<cmd>TodoQuickFix<cr>", desc = "Todo QuickFix" },
-        { "<leader>ct", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
+        { "<leader>Tq", "<cmd>TodoQuickFix<cr>",  desc = "[T]odo [q]uickFix" },
+        { "<leader>fT", "<cmd>TodoTelescope<cr>", desc = "[f]ind [T]odo with Telescope" },
     },
 }
