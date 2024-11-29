@@ -49,6 +49,7 @@ brew install \
     lazygit \
     mise \
     neovim \
+    nnn \
     pandoc \
     restic \
     ripgrep \
@@ -56,7 +57,6 @@ brew install \
     stow \
     stylua \
     uv \
-    yazi \
     zoxide
 
 brew install --cask wezterm
@@ -77,6 +77,7 @@ brew install --cask wezterm
  - **lazygit**: Simple terminal UI for git commands
  - **mise**: Polyglot runtime manager (asdf rust clone)
  - **neovim**: Ambitious Vim-fork focused on extensibility and agility
+ - **nnn**: Minimal terminal file manager
  - **pandoc**: Swiss-army knife of markup format conversion
  - **restic**: Back-up utility with snapshots and backups
  - **ripgrep**: Search tool like grep and The Silver Searcher
@@ -85,7 +86,6 @@ brew install --cask wezterm
  - **stylua**: Opinionated Lua code formatter
  - **uv**: Extremely fast Python package installer and resolver, written in Rust
  - **wezterm**: The best terminal & multiplexer written in Rust
- - **yazi**: Tiny, lightning fast, feature-packed file manager
  - **zoxide**: Shell extension to navigate your filesystem faster
 
 ## Different Modules
