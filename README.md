@@ -39,6 +39,11 @@ brew install \
     argon2 \
     bat \
     bottom \
+    colima \
+    docker \
+    docker-compose \
+    docker-buildx \
+    docker-credential-helper \
     duckdb \
     entr \
     eza \
@@ -67,6 +72,8 @@ brew install --cask wezterm
  - **argon2**: Password hashing library and CLI utility
  - **bat**: Clone of cat(1) with syntax highlighting and Git integration
  - **bottom**: Yet another cross-platform graphical process/system monitor
+ - **colima**: Docker cli free OSS
+ - **docker**: Docker and it's related plugins/extensions
  - **duckdb**: Embeddable SQL OLAP Database Management System
  - **entr**: Run arbitrary commands when files change
  - **eza**: Modern, maintained replacement for ls
