@@ -13,3 +13,6 @@ lazygit/.config/lazygit/state.yml
 nvim/.config/nvim/lazy-lock.json
 nnn/.config/nnn/.lastd
 *backblaze.age.json
+colima/.config/colima/_lima
+colima/.config/colima/_lima/*
+colima/.config/colima/ssh_config

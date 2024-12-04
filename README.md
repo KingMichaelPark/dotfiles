@@ -1,6 +1,6 @@
 # My Dotfiles
 
-<img width="1462" alt="image" src="https://github.com/KingMichaelPark/dotfiles/assets/64011084/ad1fe827-c0a0-4211-a0cf-3a5ca74fc9ba">
+<img width="1768" alt="image" src="./dash.png">
 
 
 ![Github tag (latest by SemVer)](https://img.shields.io/github/v/tag/kingmichaelpark/dotfiles?style=flat-square)
