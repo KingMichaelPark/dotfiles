@@ -47,10 +47,10 @@ return {
         capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
         vim.api.nvim_create_autocmd("LspAttach", {
-            group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
-            callback = function(event)
+            group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+            callback = function(args)
                 local map = function(keys, func, desc)
-                    vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+                    vim.keymap.set("n", keys, func, { buffer = args.buf, desc = "LSP: " .. desc })
                 end
 
                 map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
@@ -67,6 +67,22 @@ return {
                 map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
                 map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                 map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+                local client = vim.lsp.get_client_by_id(args.data.client_id)
+                if not client then return end
+                if client.supports_method("textDocument/formatting") then
+                    vim.api.nvim_create_autocmd("BufWritePre", {
+                        group = vim.api.nvim_create_augroup("format-on-save", { clear = true }),
+                        buffer = args.buf,
+                        callback = function(_)
+                            vim.lsp.buf.format({
+                                id = client.id,
+                                filter = function(lsp_) return lsp_.name ~= "tsserver" end,
+                                async = false,
+                            })
+                        end
+                    })
+                end
             end,
         })
 

@@ -91,14 +91,3 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function() vim.opt.commentstring = "-- %s" end,
     desc = "Change commentstring for SQL files",
 })
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = augroup("format_on_save"),
-    -- buffer = bufnr,
-    callback = function()
-        vim.lsp.buf.format({
-            filter = function(client) return client.name ~= "tsserver" end,
-            async = false,
-        })
-    end,
-})
