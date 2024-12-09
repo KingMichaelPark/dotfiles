@@ -6,3 +6,6 @@ email = "mike@mhpark.me"
 sign-all = true
 backend = "ssh"
 key = "~/.ssh/id_ed25519.pub"
+
+[ui]
+default-command = "log"
