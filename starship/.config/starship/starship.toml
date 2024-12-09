@@ -160,9 +160,6 @@ stashed = "≡"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
-[git_commit]
-disabled = true
-
 ## Language Specifics
 
 [aws]
@@ -329,29 +326,3 @@ symbol = " "
 
 [gradle]
 symbol = " "
-
-[custom.jj]
-command = '''
-jj log -r@ -n1 --ignore-working-copy --no-graph --color always  -T '
-  separate(" ",
-    bookmarks.map(|x| if(
-        x.name().substr(0, 10).starts_with(x.name()),
-        x.name().substr(0, 10),
-        x.name().substr(0, 9) ++ "…")
-      ).join(" ")
-    ),
-    if(conflict, "conflict"),
-    if(divergent, "divergent"),
-    if(hidden, "hidden"),
-  )
-'
-'''
-when = "jj root"
-symbol = " "
-
-[custom.jjstate]
-when = "jj root"
-style = "lavender"
-command = '''
-jj log -r@ -n1 --no-graph -T "" --stat | tail -n1 | sd "(\d+) files? changed, (\d+) insertions?\(\+\), (\d+) deletions?\(-\)" ' ~${1} +${2} -${3}' | sd " 0." ""
-'''
