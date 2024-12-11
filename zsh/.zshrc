@@ -24,5 +24,6 @@ zinit ice as"command" from"gh-r" \
 zinit light starship/starship
 
 source <(fzf --zsh)
+source <(jj util completion zsh)
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"

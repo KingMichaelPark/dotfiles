@@ -51,6 +51,7 @@ brew install \
     fzf \
     git-delta \
     jq \
+    jj \
     lazygit \
     mise \
     neovim \
@@ -81,6 +82,7 @@ brew install --cask wezterm
  - **fzf**: Command-line fuzzy finder written in Go
  - **git-delta**: Syntax-highlighting pager for git and diff output
  - **jq**: Lightweight and flexible command-line JSON processor
+ - **jj**: VCS alternative to git but also git compatible
  - **lazygit**: Simple terminal UI for git commands
  - **mise**: Polyglot runtime manager (asdf rust clone)
  - **neovim**: Ambitious Vim-fork focused on extensibility and agility
