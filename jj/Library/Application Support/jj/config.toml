@@ -11,6 +11,10 @@ email = "mike@mhpark.me"
 
 [ui]
 default-command = "log"
+pager = "delta"
 
 [git]
 auto-local-bookmark = true
+
+[ui.diff]
+format = "git"
