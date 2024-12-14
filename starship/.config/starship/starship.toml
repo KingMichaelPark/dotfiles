@@ -33,8 +33,6 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
-
-
 [cmd_duration]
 format = "[$duration]($style) "
 style = "rosewater"
@@ -49,12 +47,10 @@ style = "blue"
 read_only = " 󰌾"
 
 [git_branch]
-disabled = true
 format = "[$branch]($style)"
 style = "surface2"
 
 [git_status]
-disabled = true
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
 conflicted = "​"
@@ -66,51 +62,49 @@ deleted = "​"
 stashed = "≡"
 
 [git_state]
-disabled = true
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
 
 [git_commit]
-disabled = true
 
-[custom.jj]
-command = '''
-jj log -r@ -n1 --ignore-working-copy --no-graph --color always  -T '
-  separate(" ",
-    bookmarks.map(|x| if(
-        x.name().substr(0, 10).starts_with(x.name()),
-        x.name().substr(0, 10),
-        x.name().substr(0, 9) ++ "…")
-      ).join(" "),
-    tags.map(|x| if(
-        x.name().substr(0, 10).starts_with(x.name()),
-        x.name().substr(0, 10),
-        x.name().substr(0, 9) ++ "…")
-      ).join(" "),
-    surround("\"","\"",
-      if(
-         description.first_line().substr(0, 24).starts_with(description.first_line()),
-         description.first_line().substr(0, 24),
-         description.first_line().substr(0, 23) ++ "…"
-      )
-    ),
-    if(conflict, "conflict"),
-    if(divergent, "divergent"),
-    if(hidden, "hidden"),
-  )
-'
-'''
-when = "jj root"
-symbol = " "
-style = "lavender"
-
-[custom.jjstate]
-when = "jj root"
-command = '''
-jj log -r@ -n1 --no-graph -T "" --stat | tail -n1 | sd "(\d+) files? changed, (\d+) insertions?\(\+\), (\d+) deletions?\(-\)" ' ${1}⁼ ${2}⁺ ${3}⁻' | sd " 0." ""
-'''
-style = "lavender"
-
+# [custom.jj]
+# command = '''
+# jj log -r@ -n1 --ignore-working-copy --no-graph --color always  -T '
+#   separate(" ",
+#     bookmarks.map(|x| if(
+#         x.name().substr(0, 10).starts_with(x.name()),
+#         x.name().substr(0, 10),
+#         x.name().substr(0, 9) ++ "…")
+#       ).join(" "),
+#     tags.map(|x| if(
+#         x.name().substr(0, 10).starts_with(x.name()),
+#         x.name().substr(0, 10),
+#         x.name().substr(0, 9) ++ "…")
+#       ).join(" "),
+#     surround("\"","\"",
+#       if(
+#          description.first_line().substr(0, 24).starts_with(description.first_line()),
+#          description.first_line().substr(0, 24),
+#          description.first_line().substr(0, 23) ++ "…"
+#       )
+#     ),
+#     if(conflict, "conflict"),
+#     if(divergent, "divergent"),
+#     if(hidden, "hidden"),
+#   )
+# '
+# '''
+# when = "jj root"
+# symbol = " "
+# style = "lavender"
+#
+# [custom.jjstate]
+# when = "jj root"
+# command = '''
+# jj log -r@ -n1 --no-graph -T "" --stat | tail -n1 | sd "(\d+) files? changed, (\d+) insertions?\(\+\), (\d+) deletions?\(-\)" ' ${1}⁼ ${2}⁺ ${3}⁻' | sd " 0." ""
+# '''
+# style = "lavender"
+#
 ## Language Specifics
 
 [aws]
