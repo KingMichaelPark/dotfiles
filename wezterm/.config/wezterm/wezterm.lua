@@ -45,7 +45,7 @@ for i = 1, 9 do
     })
 end
 
-config.font = wezterm.font({ family = "Mikevka Nerd Font" })
+config.font = wezterm.font({ family = "Mikevka Nerd Font Mono" })
 config.font_size = 18
 config.hide_tab_bar_if_only_one_tab = true
 config.initial_cols = 180
