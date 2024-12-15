@@ -38,6 +38,7 @@ opt.signcolumn = "yes" -- Show sign column
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.smd = false
+opt.smoothscroll = true
 opt.softtabstop = 4
 opt.spell = false
 opt.splitbelow = true -- Put new windows below current
@@ -52,6 +53,4 @@ opt.undofile = true
 opt.updatetime = 200 -- Delay before swap file is saved
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.wrap = false -- Disable line wrap
-
-if vim.fn.has("nvim-0.10") == 1 then opt.smoothscroll = true end
 
