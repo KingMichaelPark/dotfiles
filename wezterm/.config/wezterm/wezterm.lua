@@ -24,7 +24,8 @@ config.keys = {
     { mods = "LEADER", key = "x",          action = wezterm.action.CloseCurrentPane({ confirm = false }) },
     { mods = "LEADER", key = "X",          action = wezterm.action.CloseCurrentTab({ confirm = false }) },
     { mods = "LEADER", key = "C",          action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-    { mods = "LEADER", key = "s",          action = wezterm.action_callback(sessioniser.toggle) },
+    { mods = "LEADER", key = "s",          action = wezterm.action_callback(sessioniser.search) },
+    { mods = "LEADER", key = "p",          action = wezterm.action_callback(sessioniser.list) },
     { mods = "LEADER", key = "]",          action = wezterm.action.SwitchWorkspaceRelative(1) },
     { mods = "LEADER", key = "[",          action = wezterm.action.SwitchWorkspaceRelative(-1) },
     {
@@ -45,6 +46,7 @@ for i = 1, 9 do
     })
 end
 
+config.use_fancy_tab_bar = false
 config.font = wezterm.font({ family = "Mikevka Nerd Font" })
 config.font_size = 18
 config.hide_tab_bar_if_only_one_tab = true

@@ -6,7 +6,44 @@ local M = {}
 local fd = "/opt/homebrew/bin/fd"
 local dirs = os.getenv("HOME") .. "/Projects"
 
-M.toggle = function(window, pane)
+M.list = function(window, pane)
+    local mux = wezterm.mux
+    local workspaces = {}
+
+    for _, workspace in ipairs(mux.get_workspace_names()) do
+        table.insert(workspaces, { label = workspace, id = workspace })
+    end
+
+    if #workspaces == 0 then
+        wezterm.log_info("No workspaces found")
+        return
+    end
+
+    window:perform_action(
+        act.InputSelector({
+            action = wezterm.action_callback(function(win, _, id, label)
+                if not id and not label then
+                    wezterm.log_info("Cancelled")
+                else
+                    wezterm.log_info("Switching to workspace: " .. label)
+                    win:perform_action(
+                        act.SwitchToWorkspace({
+                            name = id,
+                        }),
+                        pane
+                    )
+                end
+            end),
+            fuzzy = true,
+            title = "Select workspace ",
+            fuzzy_description = "Select workspace ",
+            choices = workspaces,
+        }),
+        pane
+    )
+end
+
+M.search = function(window, pane)
     local projects = {}
     local home = os.getenv("HOME") .. "/"
 
@@ -70,7 +107,8 @@ M.toggle = function(window, pane)
                 end
             end),
             fuzzy = true,
-            title = "Select project",
+            title = "Search/Create workspace 󰆤",
+            fuzzy_description = "Search/Create workspace 󰆤",
             choices = projects,
         }),
         pane
