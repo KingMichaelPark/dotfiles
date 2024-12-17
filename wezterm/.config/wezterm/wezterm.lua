@@ -4,7 +4,7 @@ local colors = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
 
 local sessioniser = require("sessioniser")
 
-colors.background = "#11111b"
+colors.background = "#131313"
 
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {

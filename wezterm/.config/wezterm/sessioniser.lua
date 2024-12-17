@@ -35,8 +35,8 @@ M.list = function(window, pane)
                 end
             end),
             fuzzy = true,
-            title = "Select workspace ",
-            fuzzy_description = "Select workspace ",
+            title = "Select workspace   ",
+            fuzzy_description = "Select workspace   ",
             choices = workspaces,
         }),
         pane
@@ -107,8 +107,8 @@ M.search = function(window, pane)
                 end
             end),
             fuzzy = true,
-            title = "Search/Create workspace 󰆤",
-            fuzzy_description = "Search/Create workspace 󰆤",
+            title = "Search/Create workspace 󰆤  ",
+            fuzzy_description = "Search/Create workspace 󰆤  ",
             choices = projects,
         }),
         pane
