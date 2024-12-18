@@ -74,8 +74,8 @@ return {
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
         "nvim-lua/plenary.nvim",
-        { "stevearc/dressing.nvim", lazy = true },
-        { "MunifTanjim/nui.nvim", lazy = true },
+        { "stevearc/dressing.nvim",   lazy = true },
+        { "MunifTanjim/nui.nvim",     lazy = true },
         { "KingMichaelPark/age.nvim", lazy = true },
     },
     config = function()
@@ -85,11 +85,12 @@ return {
             vim.env.ANTHROPIC_API_KEY = require("age").from_sops(secret)["ANTHROPIC"]
 
             require("avante").setup({
-                provider = "claude", -- Recommend using Claude
+                provider = "claude",                  -- Recommend using Claude
                 auto_suggestions_provider = "gemini", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
                 claude = {
                     endpoint = "https://api.anthropic.com",
-                    model = "claude-3-5-sonnet-latest",
+                    -- model = "claude-3-5-sonnet-20241022",
+                    model = "claude-3-5-haiku-20241022",
                     temperature = 0,
                     max_tokens = 4096,
                 },
