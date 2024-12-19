@@ -12,6 +12,11 @@ return {
                     ["ctrl-q"] = "select-all+accept",
                 },
             },
+            previewers = {
+                builtin = {
+                    syntax_limit_b = 1024 * 100, -- 100KB
+                },
+            },
         })
         fzf.register_ui_select()
     end,
