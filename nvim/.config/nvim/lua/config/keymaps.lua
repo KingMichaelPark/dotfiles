@@ -78,7 +78,8 @@ local diagnostic_goto = function(next, severity)
     return function()
         local diagnostics = vim.diagnostic.get(0, { severity = severity })
         if #diagnostics == 0 then
-            local severity_word = severity and (severity == vim.diagnostic.severity.ERROR and "error" or "warning") or "diagnostic"
+            local severity_word = severity and (severity == vim.diagnostic.severity.ERROR and "error" or "warning") or
+            "diagnostic"
             vim.notify("No more " .. severity_word .. "s to jump to", vim.log.levels.INFO)
             return
         end
