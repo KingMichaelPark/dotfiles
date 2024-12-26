@@ -38,7 +38,7 @@ export VISUAL=nvim
 export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="
-  --color=bg+:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+  --color=bg+:#2b2b2b,spinner:#f5e0dc,hl:#f38ba8 \
   --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#cba6f7 \
   --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
   --multi --reverse --info=hidden"
@@ -55,7 +55,7 @@ alias lC='la --sort=changed'            # Long, sort changed
 alias lM='la --sort=modified'           # Long, sort modified
 alias lS='la --sort=size'               # Long, sort size
 alias lX='la --sort=extension'          # Long, sort extension
-alias ll='l -lbG'                      # Long, file size prefixes, grid, git status
+alias ll='l -lbG'                       # Long, file size prefixes, grid, git status
 alias lA='ll -la'                       # Long, all files
 alias lg=lazygit
 alias tf=terraform
