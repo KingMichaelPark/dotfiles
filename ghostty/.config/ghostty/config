@@ -4,9 +4,12 @@ background-blur-radius = 20
 background-opacity = 0.95
 copy-on-select = clipboard
 font-family = "Mikevka Nerd Font"
-font-size = 17
+font-size = 18
 macos-option-as-alt = "left"
+mouse-hide-while-typing = true
 theme = "catppuccin-mocha"
+window-height = 50
+window-width = 150
 
 # Keybinds
 keybind = ctrl+b>t=new_tab
@@ -21,6 +24,7 @@ keybind = ctrl+b>6=goto_tab:6
 keybind = ctrl+b>7=goto_tab:7
 keybind = ctrl+b>8=goto_tab:8
 keybind = ctrl+b>9=goto_tab:9
+keybind = ctrl+b>r=reload_config
 
 # Splits
 keybind = ctrl+b>/=new_split:auto
