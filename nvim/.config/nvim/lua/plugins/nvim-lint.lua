@@ -2,7 +2,6 @@ return {
     'mfussenegger/nvim-lint',
     event = "VeryLazy",
     config = function()
-        local lint = require("lint")
         require('lint').linters_by_ft = {
             terraform = { 'trivy', 'tflint' },
         }

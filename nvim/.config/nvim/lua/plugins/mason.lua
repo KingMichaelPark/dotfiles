@@ -1,12 +1,8 @@
 return {
     "KingMichaelPark/mason.nvim",
     build = ":MasonUpdate",
-    lazy = false,
+    lazy = true,
     priority = 1000,
-    keys = {
-        { "<leader>M", "<cmd>Mason<cr>", desc = "Mason" },
-        { "<leader>L", "<cmd>Lazy<cr>",  desc = "Lazy" },
-    },
     opts = {
         pip = {
             use_uv = true,

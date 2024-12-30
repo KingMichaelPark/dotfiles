@@ -2,16 +2,18 @@ return {
     "nvim-lualine/lualine.nvim",
     config = function()
         local custom = require("lualine.themes.catppuccin-mocha")
-        local modes = {"insert", "normal", "command", "visual", "replace", "terminal", "inactive"}
+        local modes = { "insert", "normal", "command", "visual", "replace", "terminal", "inactive" }
         for _, mode in ipairs(modes) do
             custom[mode].b.bg = "NONE"
+            custom[mode].a.fg = custom[mode].a.bg
+            custom[mode].a.bg = "NONE"
         end
 
         -- Change the background of lualine_c section for normal mode
         require("lualine").setup({
             options = {
                 theme = custom,
-                component_separators = { left = "", right = "",  },
+                component_separators = { left = "", right = "", },
                 section_separators = { left = "", right = "" }
             },
             sections = {
