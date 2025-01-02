@@ -1,7 +1,7 @@
 return {
     "KingMichaelPark/mason.nvim",
     build = ":MasonUpdate",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     opts = {
         pip = {
