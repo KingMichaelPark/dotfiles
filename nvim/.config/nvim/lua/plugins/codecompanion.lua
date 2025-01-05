@@ -40,68 +40,37 @@ unchanged and the docstring added.
 ]]
 
 return {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = true,
-    version = false,
-    keys = {
-        {
-            "<leader>ad",
-            function()
-                require("avante.api").ask({
-                    question = [[
-                    Add docstrings to this selected code.
-                    If it is python code, use google style
-                    docstrings with Args, Returns.
-                    Don't include examples and don't ]],
-                })
-            end,
-            mode = "v",
-            desc = "Avante add docstrings",
-        },
-        {
-            "<leader>at",
-            function()
-                require("avante.api").ask({
-                    question = unit_test_prompt,
-                })
-            end,
-            mode = "v",
-            desc = "Avante add tests",
-        },
-    },
-    build = "make",
+    "olimorris/codecompanion.nvim",
     dependencies = {
-        "nvim-treesitter/nvim-treesitter",
         "nvim-lua/plenary.nvim",
-        { "stevearc/dressing.nvim",   lazy = true },
-        { "MunifTanjim/nui.nvim",     lazy = true },
+        "nvim-treesitter/nvim-treesitter",
         { "KingMichaelPark/age.nvim", lazy = true },
     },
     config = function()
         local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")
         if vim.fn.filereadable(identity) == 1 then
             local secret = vim.fn.expand("$HOME/.dotfiles/access.json")
-            vim.env.ANTHROPIC_API_KEY = require("age").from_sops(secret)["ANTHROPIC"]
-
-            require("avante").setup({
-                provider = "claude",                  -- Recommend using Claude
-                auto_suggestions_provider = "gemini", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
-                claude = {
-                    endpoint = "https://api.anthropic.com",
-                    -- model = "claude-3-5-sonnet-20241022",
-                    model = "claude-3-5-sonnet-20241022",
-                    temperature = 0,
-                    max_tokens = 4096,
+            require("codecompanion").setup({
+                adapters = {
+                    anthropic = function()
+                        return require("codecompanion.adapters").extend("anthropic", {
+                            env = {
+                                api_key = require("age").from_sops(secret)["ANTHROPIC"]
+                            },
+                        })
+                    end,
                 },
-                behaviour = {
-                    auto_suggestions = false, -- Experimental stage
-                    auto_set_highlight_group = true,
-                    auto_set_keymaps = true,
-                    auto_apply_diff_after_generation = false,
-                    support_paste_from_clipboard = false,
-                },
-                hints = { enabled = false },
+                strategies = {
+                    chat = {
+                        adapter = "anthropic",
+                    },
+                    inline = {
+                        adapter = "anthropic",
+                    },
+                    cmd = {
+                        adapter = "anthropic",
+                    }
+                }
             })
         end
     end,

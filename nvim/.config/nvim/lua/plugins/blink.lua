@@ -5,6 +5,15 @@ return {
     opts_extend = { "sources.default" },
     dependencies = 'rafamadriz/friendly-snippets',
     opts = {
+        sources = {
+            default = { "lsp", "path", "buffer", "codecompanion" },
+            providers = {
+                codecompanion = {
+                    name = "CodeCompanion",
+                    module = "codecompanion.providers.completion.blink",
+                },
+            }
+        },
         keymap = { preset = 'super-tab' },
         completion = {
             list = {
