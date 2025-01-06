@@ -46,6 +46,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         { "KingMichaelPark/age.nvim", lazy = true },
     },
+
     config = function()
         local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")
         if vim.fn.filereadable(identity) == 1 then
@@ -70,8 +71,115 @@ return {
                     cmd = {
                         adapter = "anthropic",
                     }
+                },
+                prompt_library = {
+                    ["Add Doctrings"] = {
+                        strategy = "chat",
+                        description = "Add docstrings",
+                        opts = {
+                            mapping = "<leader>ad",
+                            modes = { "v" },
+                            short_name = "add_docstrings",
+                            auto_submit = true,
+                            stop_context_insertion = true,
+                            user_prompt = false,
+                        },
+                        prompts = {
+                            {
+                                role = "system",
+                                content = function(context)
+                                    return "I want you to act as a senior "
+                                        .. context.filetype
+                                        .. " developer. I will ask you specific questions and I want you to return concise results and codeblock examples."
+                                end,
+                            },
+                            {
+                                role = "user",
+                                content = function(context)
+                                    local text = require("codecompanion.helpers.actions").get_code(context.start_line,
+                                        context.end_line)
+
+                                    return "I have the following code:\n\n```" ..
+                                        context.filetype .. "\n" .. text .. "\n```\n\n" .. docstring_prompt
+                                end,
+                                opts = {
+                                    contains_code = true,
+                                }
+                            },
+
+                        },
+                    },
+                    ["Add Tests"] = {
+                        strategy = "chat",
+                        description = "Add tests",
+                        opts = {
+                            mapping = "<leader>at",
+                            modes = { "v" },
+                            short_name = "add_tests",
+                            auto_submit = true,
+                            stop_context_insertion = true,
+                            user_prompt = false,
+                        },
+                        prompts = {
+                            {
+                                role = "system",
+                                content = function(context)
+                                    return "I want you to act as a senior "
+                                        .. context.filetype
+                                        .. " developer. I will ask you specific questions and I want you to return concise results and codeblock examples."
+                                end,
+                            },
+                            {
+                                role = "user",
+                                content = function(context)
+                                    local text = require("codecompanion.helpers.actions").get_code(context.start_line,
+                                        context.end_line)
+
+                                    return "I have the following code:\n\n```" ..
+                                        context.filetype .. "\n" .. text .. "\n```\n\n" .. unit_test_prompt
+                                end,
+                                opts = {
+                                    contains_code = true,
+                                }
+                            }
+                        },
+                    }
+                },
+                keymaps = {
+                    codeblock = {
+                        modes = {
+                            n = "ga",
+                        },
+                        index = 7,
+                        callback = "keymaps.codeblock",
+                        description = "Insert Codeblock",
+                    },
                 }
             })
+            vim.keymap.set(
+                { "n" },
+                "<leader>ac",
+                "<cmd>CodeCompanionChat Toggle<cr>",
+                { desc = "[a]i [c]odeCompanion" }
+            )
+            vim.keymap.set(
+                { "n", "v" },
+                "<leader>aa",
+                "<cmd>CodeCompanionActions<cr>",
+                { desc = "[a]i [a]ctions" }
+            )
+            vim.keymap.set(
+                { "v" },
+                "<leader>ad",
+                "<cmd>CodeCompanion /add_docstrings<cr>",
+                { desc = "[a]i [d]ocstrings" }
+            )
+            vim.keymap.set(
+                { "v" },
+                "<leader>at",
+                "<cmd>CodeCompanion /add_tests<cr>",
+                { desc = "[a]i [t]ests" }
+            )
         end
     end,
 }
