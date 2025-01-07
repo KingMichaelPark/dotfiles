@@ -74,7 +74,7 @@ return {
                 },
                 prompt_library = {
                     ["Add Doctrings"] = {
-                        strategy = "chat",
+                        strategy = "inline",
                         description = "Add docstrings",
                         opts = {
                             mapping = "<leader>ad",
@@ -110,7 +110,7 @@ return {
                         },
                     },
                     ["Add Tests"] = {
-                        strategy = "chat",
+                        strategy = "inline",
                         description = "Add tests",
                         opts = {
                             mapping = "<leader>at",
@@ -145,19 +145,9 @@ return {
                         },
                     }
                 },
-                keymaps = {
-                    codeblock = {
-                        modes = {
-                            n = "ga",
-                        },
-                        index = 7,
-                        callback = "keymaps.codeblock",
-                        description = "Insert Codeblock",
-                    },
-                }
             })
             vim.keymap.set(
-                { "n" },
+                { "n", "v" },
                 "<leader>ac",
                 "<cmd>CodeCompanionChat Toggle<cr>",
                 { desc = "[a]i [c]odeCompanion" }
@@ -180,6 +170,10 @@ return {
                 "<cmd>CodeCompanion /add_tests<cr>",
                 { desc = "[a]i [t]ests" }
             )
+
+
+            -- Expand 'cc' into 'CodeCompanion' in the command line
+            vim.cmd([[cab cc CodeCompanion]])
         end
     end,
 }
