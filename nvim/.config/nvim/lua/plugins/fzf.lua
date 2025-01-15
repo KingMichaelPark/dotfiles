@@ -24,13 +24,13 @@ return {
         fzf.register_ui_select()
     end,
     keys = {
-        { "<C-p>",      "<cmd>lua require('fzf-lua').files()<cr>",                                   desc = "Find files" },
+        { "<C-p>",      "<cmd>lua require('fzf-lua').git_files()<cr>",                               desc = "Find files" },
         { "<leader>/",  "<cmd>lua require('fzf-lua').lgrep_curbuf()<cr>",                            desc = "Buffer search" },
         { "<leader>fR", "<cmd>lua require('fzf-lua').live_grep_glob()<cr>",                          desc = "Ripgrep w/ Glob" },
         { "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>",                                 desc = "Buffers" },
         { "<leader>fc", "<cmd>lua require('fzf-lua').git_commits()<cr>",                             desc = "Commits" },
         { "<leader>fd", "<cmd>lua require('fzf-lua').diagnostics_document()<cr>",                    desc = "Diagnostics" },
-        { "<leader>fg", "<cmd>lua require('fzf-lua').git_files()<cr>",                               desc = "Find Git Files" },
+        { "<leader>ff", "<cmd>lua require('fzf-lua').files()<cr>",                                   desc = "Find Git Files" },
         { "<leader>fh", "<cmd>lua require('fzf-lua').helptags()<cr>",                                desc = "Help" },
         { "<leader>fj", "<cmd>lua require('fzf-lua').command_history()<cr>",                         desc = "History" },
         { "<leader>fk", "<cmd>lua require('fzf-lua').keymaps()<cr>",                                 desc = "Keymaps" },
