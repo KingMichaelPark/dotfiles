@@ -33,6 +33,7 @@ return {
                 },
             },
         },
+        lazygit = {},
         picker = {
             formatters = {
                 file = {
@@ -72,5 +73,7 @@ return {
         { "gI",              function() Snacks.picker.lsp_implementations() end,                          desc = "Goto Implementation" },
         { "gy",              function() Snacks.picker.lsp_type_definitions() end,                         desc = "Goto T[y]pe Definition" },
         { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                                  desc = "LSP Symbols" },
+        -- Lazygit
+        { "<leader>gg",      function() Snacks.lazygit.open() end,                                        desc = "Lazygit" },
     },
 }
