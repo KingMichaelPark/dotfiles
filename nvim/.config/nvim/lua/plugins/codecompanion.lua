@@ -148,15 +148,15 @@ return {
             })
             vim.keymap.set(
                 { "n", "v" },
-                "<leader>ac",
-                "<cmd>CodeCompanionChat Toggle<cr>",
-                { desc = "[a]i [c]odeCompanion" }
+                "<leader>aa",
+                "<cmd>CodeCompanion",
+                { desc = "[a]i [a]odeCompanion" }
             )
             vim.keymap.set(
                 { "n", "v" },
-                "<leader>aa",
+                "<leader>ac",
                 "<cmd>CodeCompanionActions<cr>",
-                { desc = "[a]i [a]ctions" }
+                { desc = "[a]i a[c]tions" }
             )
             vim.keymap.set(
                 { "v" },

@@ -33,7 +33,13 @@ return {
                 },
             },
         },
-        lazygit = {},
+        lazygit = {
+            config = {
+                gui = {
+                    nerdFontsVersion = "",
+                },
+            },
+        },
         picker = {
             formatters = {
                 file = {
