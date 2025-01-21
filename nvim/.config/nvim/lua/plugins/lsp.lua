@@ -1,6 +1,6 @@
 local servers = {
     "biome",
-    "pyright",
+    "basedpyright",
     "ruff",
     "terraformls",
 }
@@ -138,12 +138,17 @@ return {
         })
 
         -- Python
-        lsp.pyright.setup({
+        lsp.basedpyright.setup({
             capabilities = capabilities,
             settings = {
-                pyright = {
-                    -- Using Ruff's import organizer
+                basedpyright = {
                     disableOrganizeImports = true,
+                    analysis = {
+                        autoSearchPaths = true,
+                        diagnosticMode = "openFilesOnly",
+                        useLibraryCodeForTypes = true,
+                        typeCheckingMode = "basic"
+                    }
                 },
                 python = {
                     analysis = {
