@@ -149,7 +149,7 @@ return {
             vim.keymap.set(
                 { "n", "v" },
                 "<leader>aa",
-                "<cmd>CodeCompanion",
+                "<cmd>CodeCompanion<cr>",
                 { desc = "[a]i [a]odeCompanion" }
             )
             vim.keymap.set(
