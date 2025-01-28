@@ -9,7 +9,7 @@ exportGlyphNames = true
 inherits = "ss08"
 
 [buildPlans.Park.variants.design]
-zero = "slashed"
+zero = "oval-slashed-split"
 capital-m = "hanging-serifless"
 e = "flat-crossbar"
 g = "single-storey-serifless"
@@ -39,7 +39,7 @@ menu = 300
 css = 300
 
 [buildPlans.Park.weights.Regular]
-shape = 400
+shape = 425
 menu = 400
 css = 400
 
@@ -54,7 +54,7 @@ menu = 600
 css = 600
 
 [buildPlans.Park.weights.Bold]
-shape = 700
+shape = 800
 menu = 700
 css = 700
 

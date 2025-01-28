@@ -48,21 +48,12 @@ alias cat="bat -p"
 alias d="docker"
 alias dc="docker-compose"
 alias k=kubectl
-alias l='eza'
 alias ls='eza'
-alias la='l -a'                         # Short, all files
-alias lC='la --sort=changed'            # Long, sort changed
-alias lM='la --sort=modified'           # Long, sort modified
-alias lS='la --sort=size'               # Long, sort size
-alias lX='la --sort=extension'          # Long, sort extension
-alias ll='l -lbG'                       # Long, file size prefixes, grid, git status
-alias lA='ll -la'                       # Long, all files
 alias lg=lazygit
+alias ld=lazydocker
 alias tf=terraform
 alias v="nvim"
-alias vi="nvim"
 alias vim="nvim"
-alias y="yazi"
 alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
 
 # ZSH Settings
