@@ -6,13 +6,7 @@ return {
     dependencies = 'rafamadriz/friendly-snippets',
     opts = {
         sources = {
-            default = { "lsp", "path", "buffer", "codecompanion" },
-            providers = {
-                codecompanion = {
-                    name = "CodeCompanion",
-                    module = "codecompanion.providers.completion.blink",
-                },
-            }
+            default = { "lsp", "path", "buffer", },
         },
         keymap = { preset = 'super-tab' },
         completion = {
