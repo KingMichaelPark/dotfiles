@@ -38,55 +38,48 @@ Write a concise, clear docstring following these guidelines.
 Use Google style for Python code. Reply with the selected text
 unchanged and the docstring added.
 ]]
-
+-- { "KingMichaelPark/age.nvim", lazy = true }
+--         local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")
+--         if vim.fn.filereadable(identity) == 1 then
+--             local secret = vim.fn.expand("$HOME/.dotfiles/access.json")
+--             vim.env["ANTHROPIC_API_KEY"] = require("age").from_sops(secret)["ANTHROPIC"]
+--
 return {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
-    version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
-    build = "make",
+    "olimorris/codecompanion.nvim",
+
+
     dependencies = {
-        "stevearc/dressing.nvim",
         "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-        { "KingMichaelPark/age.nvim", lazy = true },
-    },
-    keys = {
-        {
-            "<leader>ad",
-            function()
-                require("avante.api").ask({
-                    question = docstring_prompt,
-                })
-            end,
-            mode = "v",
-            desc = "Avante add docstrings",
-        },
-        {
-            "<leader>at",
-            function()
-                require("avante.api").ask({
-                    question = unit_test_prompt,
-                })
-            end,
-            mode = "v",
-            desc = "Avante add tests",
-        },
+        "nvim-treesitter/nvim-treesitter",
+        { "KingMichaelPark/age.nvim", lazy = true }
     },
     config = function()
         local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")
         if vim.fn.filereadable(identity) == 1 then
             local secret = vim.fn.expand("$HOME/.dotfiles/access.json")
             vim.env["ANTHROPIC_API_KEY"] = require("age").from_sops(secret)["ANTHROPIC"]
-            require("avante").setup({
-                provider = "claude",
-                auto_suggestions_provider = "claude",
-                hints = { enabled = true },
-                file_selector = {
-                    provider = "native",
-                    provider_opts = {},
-                }
-            })
         end
+        require("codecompanion").setup({
+            strategies = {
+                chat = {
+                    adapter = "anthropic",
+                },
+                inline = {
+                    adapter = "anthropic",
+                },
+            },
+        })
+        vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>",
+            { noremap = true, silent = true })
+        vim.keymap.set({ "v" }, "<leader>at", string.format("<cmd>CodeCompanion %s<cr>", unit_test_prompt),
+            { noremap = true, silent = true })
+        vim.keymap.set({ "v" }, "<leader>ad", string.format("<cmd>CodeCompanion %s<cr>", docstring_prompt),
+            { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>",
+            { noremap = true, silent = true })
+        vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+
+        -- Expand 'cc' into 'CodeCompanion' in the command line
+        vim.cmd([[cab cc CodeCompanion]])
     end
 }
