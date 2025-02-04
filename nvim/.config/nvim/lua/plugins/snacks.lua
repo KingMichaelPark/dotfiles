@@ -49,12 +49,12 @@ return {
         },
     },
     keys = {
-        { "<leader>fb", function() Snacks.picker.buffers() end,                desc = "Buffers" },
-        { "<leader>:",  function() Snacks.picker.command_history() end,        desc = "Command History" },
-        { "<leader>fb", function() Snacks.picker.buffers() end,                desc = "Buffers" },
-        { "<leader>ff", function() Snacks.picker.files({ hidden = true }) end, desc = "Find Files" },
+        { "<leader>fb",       function() Snacks.picker.buffers() end,                desc = "Buffers" },
+        { "<leader>:",        function() Snacks.picker.command_history() end,        desc = "Command History" },
+        { "<leader>fb",       function() Snacks.picker.buffers() end,                desc = "Buffers" },
+        { "<leader><leader>", function() Snacks.picker.files({ hidden = true }) end, desc = "Find Files" },
         {
-            "<leader><space>",
+            "<leader>fg",
             function()
                 local ok, _ = pcall(function()
                     Snacks.picker.git_files({ hidden = true, untracked = true })
