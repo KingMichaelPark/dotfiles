@@ -15,6 +15,7 @@ pager = "delta"
 
 [git]
 auto-local-bookmark = true
+subprocess=true
 
 [ui.diff]
 format = "git"
