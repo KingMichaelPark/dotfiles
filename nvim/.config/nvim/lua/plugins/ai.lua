@@ -55,17 +55,38 @@ return {
     },
     config = function()
         local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")
+        local gemini_key
+        local anthropic_key
         if vim.fn.filereadable(identity) == 1 then
             local secret = vim.fn.expand("$HOME/.dotfiles/access.json")
-            vim.env["ANTHROPIC_API_KEY"] = require("age").from_sops(secret)["ANTHROPIC"]
+            anthropic_key = require("age").from_sops(secret)["ANTHROPIC"]
+            gemini_key = require("age").from_sops(secret)["GOOGLE"]
         end
         require("codecompanion").setup({
+            adapters = {
+                gemini = function()
+                    return require("codecompanion.adapters").extend("gemini", {
+                        env = {
+                            api_key = gemini_key,
+                            model = "gemini-2.0-flash-lite-preview-02-05",
+                            -- model = "gemini-2.0-flash-001",
+                        },
+                    })
+                end,
+                anthropic = function()
+                    return require("codecompanion.adapters").extend("anthropic ", {
+                        env = {
+                            api_key = anthropic_key,
+                        },
+                    })
+                end,
+            },
             strategies = {
                 chat = {
-                    adapter = "anthropic",
+                    adapter = "gemini",
                 },
                 inline = {
-                    adapter = "anthropic",
+                    adapter = "gemini",
                 },
             },
         })
