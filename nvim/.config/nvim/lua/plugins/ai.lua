@@ -68,8 +68,8 @@ return {
                     return require("codecompanion.adapters").extend("gemini", {
                         env = {
                             api_key = gemini_key,
-                            model = "gemini-2.0-flash-lite-preview-02-05",
-                            -- model = "gemini-2.0-flash-001",
+                            -- model = "gemini-2.0-flash-lite-preview-02-05",
+                            model = "gemini-2.0-flash-001",
                         },
                     })
                 end,
@@ -90,14 +90,16 @@ return {
                 },
             },
         })
+        vim.keymap.set({ "n", "v" }, "<leader>ai", "<cmd>CodeCompanion<cr>",
+            { noremap = true, silent = true, desc = "Inline AI" })
         vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>",
             { noremap = true, silent = true })
-        vim.keymap.set({ "v" }, "<leader>at", string.format("<cmd>CodeCompanion %s<cr>", unit_test_prompt),
-            { noremap = true, silent = true })
-        vim.keymap.set({ "v" }, "<leader>ad", string.format("<cmd>CodeCompanion %s<cr>", docstring_prompt),
-            { noremap = true, silent = true })
-        vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>",
-            { noremap = true, silent = true })
+        vim.keymap.set("v", "<leader>at", string.format("<cmd>CodeCompanion %s<cr>", unit_test_prompt),
+            { noremap = true, silent = true, desc = "Add unit tests" })
+        vim.keymap.set("v", "<leader>ad", string.format("<cmd>CodeCompanion %s<cr>", docstring_prompt),
+            { noremap = true, silent = true, desc = "Add docstrings" })
+        vim.keymap.set("n", "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>",
+            { desc = "Toggle CodeCompanionChat", noremap = true, silent = true })
         vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 
         -- Expand 'cc' into 'CodeCompanion' in the command line
