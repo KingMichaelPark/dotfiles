@@ -26,3 +26,5 @@ zinit light starship/starship
 source <(fzf --zsh)
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
+source <(COMPLETE=zsh jj)
+
