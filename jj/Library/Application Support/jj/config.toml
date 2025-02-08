@@ -12,10 +12,15 @@ email = "mike@mhpark.me"
 [ui]
 default-command = "log"
 pager = "delta"
+editor = "nvim"
 
 [git]
-auto-local-bookmark = true
 subprocess=true
+sign-on-push = true
 
 [ui.diff]
 format = "git"
+tool = "delta"
+
+[revset-aliases]
+"immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
