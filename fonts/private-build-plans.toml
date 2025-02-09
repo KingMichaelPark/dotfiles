@@ -5,73 +5,62 @@ serifs = "sans"
 noCvSs = false
 exportGlyphNames = true
 
-[buildPlans.Park.variants]
-inherits = "ss08"
+  [buildPlans.Park.variants]
+  inherits = "ss08"
 
-[buildPlans.Park.variants.design]
-zero = "oval-slashed-split"
-capital-m = "hanging-serifless"
-e = "flat-crossbar"
-g = "single-storey-serifless"
-i = "hooky"
-m = "serifless"
-n = "straight-serifless"
-y = "straight-serifless"
-underscore = "high"
-caret = "high"
-ascii-grave = "straight"
-brace = "curly"
-guillemet = "straight"
-number-sign = "slanted"
-percent = "rings-continuous-slash"
-lig-neq = "more-slanted"
-lig-equal-chain = "without-notch"
-lig-hyphen-chain = "without-notch"
-lig-plus-chain = "with-notch"
-lig-double-arrow-bar = "without-notch"
+    [buildPlans.Park.variants.design]
+    six = "open-contour"
+    seven = "curly-serifless"
+    eight = "crossing-asymmetric"
+    nine = "straight-bar"
+    zero = "oval-dotted"
+    capital-g = "toothless-rounded-serifless-hooked"
+    capital-r = "curly-serifless"
+    capital-w = "curly-serifless"
+    capital-x = "curly-serifless"
+    capital-y = "curly-serifless"
+    a = "double-storey-serifed"
+    f = "serifless"
+    g = "double-storey-open"
+    h = "tailed-serifless"
+    i = "serifed-flat-tailed"
+    k = "straight-bottom-right-serifed"
+    q = "top-cut-tailed-serifless"
+    r = "serifless"
+    u = "tailed-serifless"
+    y = "curly-turn-serifless"
+    z = "curly-serifless"
+    asterisk = "penta-mid"
+    brace = "curly"
+    ampersand = "closed"
+    decorative-angle-brackets = "middle"
+    lig-neq = "slightly-slanted"
+    lig-equal-chain = "without-notch"
+    lig-plus-chain = "without-notch"
+    lig-double-arrow-bar = "without-notch"
 
-[buildPlans.Park.ligations]
-inherits = "dlig"
-
-[buildPlans.Park.weights.Light]
-shape = 300
-menu = 300
-css = 300
+  [buildPlans.Park.ligations]
+  inherits = "dlig"
 
 [buildPlans.Park.weights.Regular]
-shape = 425
+shape = 400
 menu = 400
 css = 400
 
-[buildPlans.Park.weights.Medium]
-shape = 500
-menu = 500
-css = 500
-
-[buildPlans.Park.weights.SemiBold]
-shape = 600
-menu = 600
-css = 600
-
 [buildPlans.Park.weights.Bold]
-shape = 800
+shape = 700
 menu = 700
 css = 700
-
-[buildPlans.Park.weights.ExtraBold]
-shape = 800
-menu = 800
-css = 800
-
-[buildPlans.Park.weights.Heavy]
-shape = 900
-menu = 900
-css = 900
 
 [buildPlans.Park.widths.Normal]
 shape = 500
 menu = 5
 css = "normal"
+
+[buildPlans.Park.widths.SemiExtended]
+shape = 548
+menu = 6
+css = "semi-expanded"
 
 [buildPlans.Park.slopes.Upright]
 angle = 0
@@ -84,4 +73,3 @@ angle = 9.4
 shape = "italic"
 menu = "italic"
 css = "italic"
-
