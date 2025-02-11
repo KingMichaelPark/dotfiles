@@ -33,5 +33,4 @@ zinit light atuinsh/atuin
 
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
-source <(COMPLETE=zsh jj)
 
