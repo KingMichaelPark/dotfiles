@@ -1,5 +1,5 @@
 # Appearance
-background = "#111111"
+background = "#08080d"
 background-blur-radius = 20
 background-opacity = 0.95
 copy-on-select = clipboard
