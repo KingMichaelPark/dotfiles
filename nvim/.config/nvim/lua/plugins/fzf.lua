@@ -34,5 +34,18 @@ return {
         { "gy",         function() require('fzf-lua').lsp_type_definitions() end,              desc = "Goto T[y]pe Definition" },
         { "<leader>fs", function() require('fzf-lua').lsp_document_symbols() end,              desc = "LSP Symbols" },
     },
-    opts = {}
+    opts = {
+        file_ignore_patterns = {
+            "node_modules/",
+            ".venv/",
+            "dist/",
+            ".next/",
+            ".git/",
+            "build/",
+            "target/",
+            "package-lock.json",
+            "pnpm-lock.yaml",
+            "yarn.lock",
+        },
+    }
 }

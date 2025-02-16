@@ -40,12 +40,15 @@ gui:
   spinner:
     # The frames of the spinner animation.
     frames:
-      - ''
-      - ''
-      - ''
-      - ''
-      - ''
-      - ''
+      - '⣷'
+      - '⣯'
+      - '⣟'
+      - '⡿'
+      - '⢿'
+      - '⣻'
+      - '⣽'
+      - '⣾'
+
   nerdFontsVersion: ""
 
   # Status panel view.
@@ -53,24 +56,24 @@ gui:
   showBottomLine: false
   theme:
     activeBorderColor:
-      - '#89b4fa'
+      - '#7E9CD8'
       - bold
     inactiveBorderColor:
       - '#7f849c'
     optionsTextColor:
-      - '#89b4fa'
+      - '#7E9CD8'
     selectedLineBgColor:
-      - '#1e1e2e'
+      - '#1D1C19'
     cherryPickedCommitBgColor:
-      - '#1e1e2e'
+      - '#43242B'
     cherryPickedCommitFgColor:
-      - '#b4befe'
+      - '#c5c9c5'
     unstagedChangesColor:
-      - '#f38ba8'
+      - '#c4746e'
     defaultFgColor:
-      - '#cdd6f4'
+      - '#c5c9c5'
     searchingActiveBorderColor:
-      - '#89dceb'
+      - '#8ea4a2'
 
   authorColors:
-    '*': '#b4befe'
+    '*': '#a292a3'

@@ -1,5 +1,5 @@
 # Appearance
-background = "#08080d"
+background = "#000"
 background-blur-radius = 20
 background-opacity = 0.95
 copy-on-select = clipboard
@@ -7,8 +7,8 @@ font-family = "Park Nerd Font"
 font-size = 18
 macos-option-as-alt = "left"
 mouse-hide-while-typing = true
-macos-titlebar-style = tabs
-theme = "catppuccin-mocha"
+macos-titlebar-style = "transparent"
+theme = "Kanagawa Dragon"
 window-height = 50
 window-width = 150
 

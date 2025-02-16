@@ -21,7 +21,7 @@ done
 # Environmental Variables
 # Bat Config
 export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | bat -l man -p'"
-export BAT_THEME="Catppuccin Mocha" # bat cache --build
+export BAT_THEME="base16" # bat cache --build
 # Config Mac OS
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -38,11 +38,10 @@ export VISUAL=nvim
 export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_R_COMMAND=""
-export FZF_DEFAULT_OPTS="
-  --color=bg+:#111111,spinner:#f5e0dc,hl:#f38ba8 \
-  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#cba6f7 \
-  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-  --multi --reverse --info=hidden"
+export FZF_DEFAULT_OPTS="--multi --reverse --info=hidden \
+    --color=bg+:#181616,spinner:#f5e0dc,hl:#7E9CD8 \
+    --color=fg:#c5c9c5,header:#D27E99,info:#957FB8,pointer:#957FB8 \
+    --color=marker:#f5e0dc,fg+:#c5c9c5,prompt:#957FB8,hl+:#7E9CD8"
 
 export HOMEBREW_NO_ENV_HINTS=1
 
