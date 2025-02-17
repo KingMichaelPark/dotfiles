@@ -24,13 +24,7 @@ zinit ice as"command" from"gh-r" \
 zinit light starship/starship
 
 source <(fzf --zsh)
-
-# Atuin
-zinit ice as"command" from"gh-r" bpick"atuin-*.tar.gz" mv"atuin*/atuin -> atuin" \
-    atclone"./atuin init zsh > init.zsh; ./atuin gen-completions --shell zsh > _atuin" \
-    atpull"%atclone" src"init.zsh"
-zinit light atuinsh/atuin
-
+eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 

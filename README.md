@@ -37,6 +37,7 @@ without it, feel free to pick and choose what you like.
 brew install \
     age \
     argon2 \
+    atuin \
     bat \
     bottom \
     colima \
