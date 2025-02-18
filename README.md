@@ -53,6 +53,7 @@ brew install \
     git-delta \
     jq \
     jj \
+    lazydocker \
     lazygit \
     mise \
     neovim \
@@ -62,11 +63,10 @@ brew install \
     ripgrep \
     sops \
     stow \
-    stylua \
     uv \
     zoxide
 
-brew install --cask wezterm
+brew install --cask ghostty
 ```
 # Descriptions
 
@@ -81,9 +81,11 @@ brew install --cask wezterm
  - **eza**: Modern, maintained replacement for ls
  - **fd**: Simple, fast and user-friendly alternative to find
  - **fzf**: Command-line fuzzy finder written in Go
+ - **ghostty**: Current terminal emulator
  - **git-delta**: Syntax-highlighting pager for git and diff output
  - **jq**: Lightweight and flexible command-line JSON processor
  - **jj**: VCS alternative to git but also git compatible
+ - **lazydocker**: Simple terminal UI for docker commands
  - **lazygit**: Simple terminal UI for git commands
  - **mise**: Polyglot runtime manager (asdf rust clone)
  - **neovim**: Ambitious Vim-fork focused on extensibility and agility
@@ -95,7 +97,6 @@ brew install --cask wezterm
  - **stow**: Organize software neatly under a single directory tree (e.g. /usr/local)
  - **stylua**: Opinionated Lua code formatter
  - **uv**: Extremely fast Python package installer and resolver, written in Rust
- - **wezterm**: The best terminal & multiplexer written in Rust
  - **zoxide**: Shell extension to navigate your filesystem faster
 
 ## Different Modules

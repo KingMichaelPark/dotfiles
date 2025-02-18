@@ -1,7 +1,7 @@
 # Appearance
 background = "#000"
 background-blur-radius = 20
-background-opacity = 0.95
+background-opacity = 0.90
 copy-on-select = clipboard
 font-family = "Park Nerd Font"
 font-size = 18
