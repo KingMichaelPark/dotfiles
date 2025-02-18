@@ -47,5 +47,7 @@ return {
             "pnpm-lock.yaml",
             "yarn.lock",
         },
+        keymap = {
+            fzf = { ["ctrl-q"] = "select-all+accept" } }
     }
 }
