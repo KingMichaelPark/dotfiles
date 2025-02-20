@@ -2,6 +2,7 @@ return {
     "folke/snacks.nvim",
     lazy = false,
     priority = 1000,
+    keys = { { "<leader>z", function() Snacks.toggle.zen():toggle() end, desc = "Toggle Zen Mode" } },
     opts = {
         dashboard = {
             preset = {
@@ -33,5 +34,7 @@ return {
                 },
             },
         },
+        toggle = {},
+        zen = {}
     },
 }
