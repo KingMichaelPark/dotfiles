@@ -24,7 +24,6 @@ zinit ice as"command" from"gh-r" \
 zinit light starship/starship
 
 source <(fzf --zsh)
-eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 
