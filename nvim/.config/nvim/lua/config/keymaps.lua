@@ -1,6 +1,9 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 
+map("n", "<C-c>", "<cmd>qa<cr>", { desc = "Quit" })
+map("n", "<C-s>", "<cmd>w<cr>", { desc = "Write/Save" })
+
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
@@ -79,7 +82,7 @@ local diagnostic_goto = function(next, severity)
         local diagnostics = vim.diagnostic.get(0, { severity = severity })
         if #diagnostics == 0 then
             local severity_word = severity and (severity == vim.diagnostic.severity.ERROR and "error" or "warning") or
-            "diagnostic"
+                "diagnostic"
             vim.notify("No more " .. severity_word .. "s to jump to", vim.log.levels.INFO)
             return
         end
