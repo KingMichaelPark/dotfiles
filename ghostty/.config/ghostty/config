@@ -9,7 +9,7 @@ freetype-load-flags = "no-hinting,no-autohint,no-force-autohint"
 macos-option-as-alt = "left"
 mouse-hide-while-typing = true
 macos-titlebar-style = "tabs"
-theme = "Kanagawa Dragon"
+theme = "catppuccin-mocha"
 window-height = 50
 window-width = 150
 

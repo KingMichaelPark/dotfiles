@@ -1,5 +1,6 @@
 return {
     "rebelot/kanagawa.nvim",
+    enabled = false,
     priority = 1000,
     build = ":KanagawaCompile",
     config = function()
