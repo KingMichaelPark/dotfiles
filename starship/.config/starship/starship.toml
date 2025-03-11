@@ -1,37 +1,13 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Sets user-defined palette
+# Palettes must be defined _after_ this line
+palette = "catppuccin_mocha"
+
 [cmd_duration]
-format = "[$duration]($style) "
-
-[character]
-success_symbol = "[❱](purple)"
-error_symbol = "[❱](red)"
-vimcmd_symbol = "[❰](green)"
-
-[directory]
-style = "blue"
-read_only = " 󰌾"
-
-[git_branch]
-format = "[$branch]($style)"
-style = "gray"
-
-[git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
-
-[git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
-
+format = '[$duration]($style) '
+style = 'bold surface2'
 
 [aws]
 symbol = "  "
@@ -42,6 +18,9 @@ symbol = " "
 [c]
 symbol = " "
 
+[cmake]
+symbol = " "
+
 [conda]
 symbol = " "
 
@@ -50,6 +29,11 @@ symbol = " "
 
 [dart]
 symbol = " "
+
+[directory]
+read_only = " 󰌾"
+style = "bold lavender"
+truncation_length = 4
 
 [docker_context]
 symbol = " "
@@ -65,6 +49,49 @@ symbol = " "
 
 [fossil_branch]
 symbol = " "
+
+[git_branch]
+style = "bold green"
+format = '[$symbol$branch(:$remote_branch)]($style) '
+symbol = " "
+
+[git_commit]
+tag_symbol = '  '
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+# This branch has merge conflicts.
+conflicted = "="
+# The format of ahead.
+ahead = "⇡"
+# The format of behind.
+behind = "⇣"
+# The format of diverged.
+diverged = "⇕"
+# The format of up_to_date.
+up_to_date = ""
+# The format of untracked.
+untracked = "?"
+# The format of stashed.
+stashed = "$"
+# The format of modified.
+modified = "!"
+# The format of staged.
+staged = "+"
+# The format of renamed.
+renamed = "»"
+# The format of deleted.
+deleted = "✘"
+# The format of typechanged.
+typechanged = ""
+# The style for the module.
+style = "bold teal"
+# Ignore changes to submodules.
+ignore_submodules = false
+# Disables the git_status module.
+disabled = false
+# Use this (Linux) path to a Windows Starship executable to render git_status when on Windows paths in WSL.
+windows_starship = ""
 
 [golang]
 symbol = " "
@@ -122,6 +149,7 @@ Amazon = " "
 Android = " "
 Arch = " "
 Artix = " "
+CachyOS = " "
 CentOS = " "
 Debian = " "
 DragonFly = " "
@@ -143,6 +171,7 @@ MidnightBSD = " "
 Mint = " "
 NetBSD = " "
 NixOS = " "
+Nobara = " "
 OpenBSD = "󰈺 "
 openSUSE = " "
 OracleLinux = "󰌷 "
@@ -174,8 +203,6 @@ symbol = " "
 
 [python]
 symbol = " "
-format = "${symbol} [$virtualenv]($style) ${version} "
-style = "mauve"
 
 [rlang]
 symbol = "󰟔 "
@@ -197,3 +224,38 @@ symbol = " "
 
 [gradle]
 symbol = " "
+
+# Starship modules
+[character]
+success_symbol = "[(blue)❯](sky)"
+error_symbol = "[(red) ❯](sky)"
+vimcmd_symbol = "[❮](pink)" # For use with zsh-vi-mode
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
