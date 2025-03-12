@@ -6,7 +6,13 @@ return {
     dependencies = 'rafamadriz/friendly-snippets',
     opts = {
         sources = {
-            default = { "lsp", "path", "buffer", },
+            default = { "lsp", "path", "snippets", "buffer", },
+            per_filetype = {
+                sql = { 'snippets', 'dadbod', 'buffer' },
+            },
+            providers = {
+                dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+            },
         },
         keymap = { preset = 'super-tab' },
         completion = {
