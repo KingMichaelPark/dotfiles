@@ -35,18 +35,6 @@ return {
         { "<leader>fs", function() require('fzf-lua').lsp_document_symbols() end,              desc = "LSP Symbols" },
     },
     opts = {
-        file_ignore_patterns = {
-            "node_modules/",
-            ".venv/",
-            "dist/",
-            ".next/",
-            ".git/",
-            "build/",
-            "target/",
-            "package-lock.json",
-            "pnpm-lock.yaml",
-            "yarn.lock",
-        },
         keymap = {
             fzf = { ["ctrl-q"] = "select-all+accept" } }
     }
