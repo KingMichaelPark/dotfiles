@@ -2,7 +2,7 @@
 git:
   paging:
     colorArg: always
-    pager: delta --paging=never --hyperlinks --line-numbers
+    pager: delta --paging=never --diff-so-fancy
 
 customCommands:
   - key: "B"
