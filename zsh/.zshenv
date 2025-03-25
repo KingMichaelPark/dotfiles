@@ -82,3 +82,10 @@ setopt SHARE_HISTORY # Cause all terminals to share the same history 'session'.
 # Starship
 export STARSHIP_LOG="error"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
+goto_project() {
+  cd "$(fd . ~/Projects -d 2 -t d | fzf)"
+  zle reset-prompt
+}
+zle -N goto_project
+bindkey '^f' goto_project
