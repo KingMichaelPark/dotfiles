@@ -7,8 +7,6 @@ map("n", "<C-s>", "<cmd>w<cr>", { desc = "Write/Save" })
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "<C-t>", "<cmd>tabnew<cr>", { desc = "New tab" })
 map("n", "[t", "<cmd>tabprevious<cr>", { desc = "Prev tab" })
 map("n", "]t", "<cmd>tabnext<cr>", { desc = "Next tab" })
@@ -16,25 +14,11 @@ map("n", "]t", "<cmd>tabnext<cr>", { desc = "Next tab" })
 map({ "v", "n" }, "<C-w>/", "<cmd>vsplit<cr>", { desc = "Split vertical" })
 map({ "v", "n" }, "<C-w>-", "<cmd>split<cr>", { desc = "Split horizontal" })
 
--- Insert empty line
-map("n", "<leader>o", "<cmd>normal o<cr><esc>", { silent = true, desc = "Insert empty line below" })
-map("n", "<leader>O", "<cmd>normal O<cr><esc>", { silent = true, desc = "Insert empty line above" })
-
 -- better up/down
-map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
--- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
-map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
 
 -- Paste sensibily
 map("v", "<leader>p", '"_dp', opts)
@@ -64,15 +48,6 @@ map("n", "[q", function()
     end
     vim.cmd.cprev()
 end, { desc = "Previous quickfix" })
-
-map("n", "]q", function()
-    local qf_list = vim.fn.getqflist()
-    if #qf_list == 0 then
-        vim.notify("No quickfix items to navigate", vim.log.levels.INFO)
-        return
-    end
-    vim.cmd.cnext()
-end, { desc = "Next quickfix" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)

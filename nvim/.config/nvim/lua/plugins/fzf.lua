@@ -18,14 +18,14 @@ return {
         { "<leader>gc", function() require('fzf-lua').git_commits() end,                       desc = "Git Commits" },
         -- Grep
         { "<leader>/",  function() require('fzf-lua').lines() end,                             desc = "Buffer Lines" },
-        { "<leader>rg", function() require('fzf-lua').live_grep_glob({ hidden = true }) end,   desc = "Grep Glob" },
+        { "<leader>fR", function() require('fzf-lua').live_grep_glob({ hidden = true }) end,   desc = "Grep Glob" },
         { "<leader>fr", function() require('fzf-lua').live_grep_native({ hidden = true }) end, desc = "Grep Performant" },
         { "<leader>fw", function() require('fzf-lua').grep_cWORD({ hidden = true }) end,       desc = "Visual selection or word", mode = { "n", "x" } },
         -- search
         { "<leader>fc", function() require('fzf-lua').commands() end,                          desc = "Commands" },
         { "<leader>fk", function() require('fzf-lua').keymaps() end,                           desc = "Keymaps" },
         { "<leader>fl", function() require('fzf-lua').loclist() end,                           desc = "Location List" },
-        { "<leader>fm", function() require('fzf-lua').man() end,                               desc = "Man Pages" },
+        { "<leader>fm", function() require('fzf-lua').manpages() end,                          desc = "Man Pages" },
         { "<leader>fq", function() require('fzf-lua').qflist() end,                            desc = "Quickfix List" },
         -- LSP
         { "gd",         function() require('fzf-lua').lsp_definitions() end,                   desc = "Goto Definition" },

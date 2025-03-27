@@ -35,6 +35,11 @@ return {
         signature = {
             enabled = true,
         },
-    }
-
+    },
+    config = function(_, opts)
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        local blink = require('blink.cmp')
+        capabilities = blink.get_lsp_capabilities(capabilities)
+        blink.setup(opts)
+    end
 }
