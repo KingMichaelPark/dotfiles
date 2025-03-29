@@ -15,10 +15,8 @@ map({ "v", "n" }, "<C-w>/", "<cmd>vsplit<cr>", { desc = "Split vertical" })
 map({ "v", "n" }, "<C-w>-", "<cmd>split<cr>", { desc = "Split horizontal" })
 
 -- better up/down
-map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
-map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, noremap = true })
-map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
-map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, noremap = true })
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true, noremap = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true, noremap = true })
 
 -- Paste sensibily
 map("v", "<leader>p", '"_dp', opts)
