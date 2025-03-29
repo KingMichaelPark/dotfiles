@@ -6,38 +6,32 @@ noCvSs = false
 exportGlyphNames = true
 
   [buildPlans.Park.variants]
-  inherits = "ss08"
+  inherits = "ss04"
 
     [buildPlans.Park.variants.design]
-    six = "open-contour"
-    seven = "curly-serifless"
-    eight = "crossing-asymmetric"
-    nine = "straight-bar"
-    zero = "oval-dotted"
-    capital-g = "toothless-rounded-serifless-hooked"
-    capital-r = "curly-serifless"
-    capital-w = "curly-serifless"
-    capital-x = "curly-serifless"
-    capital-y = "curly-serifless"
     a = "double-storey-serifless"
-    f = "serifless"
-    g = "double-storey"
-    h = "straight-serifless"
-    i = "serifless"
-    k = "curly-serifless"
-    q = "top-cut-tailed-serifless"
-    r = "serifless"
+    e = "flat-crossbar"
+    f = "flat-hook-serifless"
+    i = "hooky"
+    m = "serifless"
+    n = "straight-serifless"
+    q = "straight-serifless"
     u = "toothless-rounded-serifless"
-    y = "curly-serifless"
-    z = "curly-serifless"
-    asterisk = "penta-mid"
-    brace = "curly"
-    ampersand = "closed"
-    decorative-angle-brackets = "middle"
-    lig-neq = "slightly-slanted"
+    lig-ltgteq = "slanted"
     lig-equal-chain = "without-notch"
-    lig-plus-chain = "without-notch"
-    lig-double-arrow-bar = "without-notch"
+
+    [buildPlans.Park.variants.italic]
+    a = "single-storey-serifless"
+    e = "flat-crossbar"
+    f = "flat-hook-serifless"
+    i = "serifed-flat-tailed"
+    k = "cursive-serifless"
+    m = "earless-rounded-double-arch-serifless"
+    n = "earless-rounded-straight-serifless"
+    q = "straight-serifless"
+    u = "toothless-rounded-serifless"
+    lig-ltgteq = "slanted"
+    lig-equal-chain = "without-notch"
 
   [buildPlans.Park.ligations]
   inherits = "dlig"
@@ -56,11 +50,6 @@ css = 700
 shape = 500
 menu = 5
 css = "normal"
-
-[buildPlans.Park.widths.SemiExtended]
-shape = 548
-menu = 6
-css = "semi-expanded"
 
 [buildPlans.Park.slopes.Upright]
 angle = 0
