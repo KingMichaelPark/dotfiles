@@ -2,7 +2,7 @@
 git:
   paging:
     colorArg: always
-    pager: delta --paging=never --diff-so-fancy
+    pager:  delta --paging=never
 
 customCommands:
   - key: "B"

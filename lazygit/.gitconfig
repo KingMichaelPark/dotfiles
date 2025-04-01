@@ -3,17 +3,15 @@
     editor = nvim
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --diff-so-fancy
 
 [delta]
     dark = true
-    file-decoration-style = none
-    file-style = omit
     line-numbers = true
-    side-by-side = false
     navigate = true    # use n and N to move between diff sections
+    pager = "bat"
+    side-by-side = true
     true-color = "always"
-    pager = "never"
 
 [merge]
     conflictstyle = zdiff3
@@ -28,9 +26,12 @@
 
 [pull]
     rebase = false
+
 [gpg "ssh"]
     allowedSignersFile = ~/.ssh/allowed_signers
+
 [gpg]
     format = ssh
+
 [commit]
     gpgsign = true
