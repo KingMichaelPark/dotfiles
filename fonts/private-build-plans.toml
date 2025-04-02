@@ -9,11 +9,12 @@ exportGlyphNames = true
   inherits = "ss08"
 
     [buildPlans.Park.variants.design]
-    six = "open-contour"
+    three = "two-arcs"
+    six = "straight-bar"
     seven = "curly-serifless"
     eight = "crossing-asymmetric"
     nine = "straight-bar"
-    zero = "oval-dotted"
+    zero = "oval-tall-slashed"
     capital-g = "toothless-rounded-serifless-hooked"
     capital-r = "curly-serifless"
     capital-w = "curly-serifless"
@@ -27,17 +28,101 @@ exportGlyphNames = true
     k = "curly-serifless"
     q = "top-cut-tailed-serifless"
     r = "serifless"
-    u = "toothless-rounded-serifless"
+    u = "toothless-corner-serifless"
     y = "curly-serifless"
     z = "curly-serifless"
     asterisk = "penta-mid"
-    brace = "curly"
-    ampersand = "closed"
+    paren = "normal"
+    brace = "straight"
+    guillemet = "straight"
+    number-sign = "upright"
+    ampersand = "upper-open"
+    percent = "rings-continuous-slash"
     decorative-angle-brackets = "middle"
     lig-neq = "slightly-slanted"
     lig-equal-chain = "without-notch"
+    lig-hyphen-chain = "without-notch"
     lig-plus-chain = "without-notch"
     lig-double-arrow-bar = "without-notch"
+    lig-single-arrow-bar = "without-notch"
+
+    [buildPlans.Park.variants.italic]
+    six = "straight-bar"
+    seven = "curly-serifless"
+    eight = "crossing-asymmetric"
+    nine = "straight-bar"
+    zero = "oval-tall-slashed"
+    capital-g = "toothless-rounded-serifless-hooked"
+    capital-r = "curly-serifless"
+    capital-w = "curly-serifless"
+    capital-x = "curly-serifless"
+    capital-y = "curly-serifless"
+    a = "double-storey-serifed"
+    d = "toothed-serifless"
+    f = "tailed"
+    g = "double-storey"
+    h = "straight-serifless"
+    i = "serifless"
+    k = "cursive-serifless"
+    l = "serifed-flat-tailed"
+    q = "top-cut-tailed-serifless"
+    r = "serifless"
+    u = "tailed-serifless"
+    x = "curly-serifless"
+    y = "curly-turn-serifless"
+    z = "curly-serifless"
+    asterisk = "penta-high"
+    paren = "normal"
+    brace = "straight"
+    guillemet = "straight"
+    number-sign = "upright"
+    ampersand = "upper-open"
+    percent = "rings-continuous-slash"
+    decorative-angle-brackets = "middle"
+    lig-neq = "slightly-slanted"
+    lig-equal-chain = "without-notch"
+    lig-hyphen-chain = "without-notch"
+    lig-plus-chain = "without-notch"
+    lig-double-arrow-bar = "without-notch"
+    lig-single-arrow-bar = "without-notch"
+
+    [buildPlans.Park.variants.oblique]
+    three = "two-arcs"
+    six = "straight-bar"
+    seven = "curly-serifless"
+    eight = "crossing-asymmetric"
+    nine = "straight-bar"
+    zero = "oval-tall-slashed"
+    capital-g = "toothless-rounded-serifless-hooked"
+    capital-r = "curly-serifless"
+    capital-w = "curly-serifless"
+    capital-x = "curly-serifless"
+    capital-y = "curly-serifless"
+    a = "double-storey-serifless"
+    f = "serifless"
+    g = "double-storey"
+    h = "straight-serifless"
+    i = "serifless"
+    k = "curly-serifless"
+    q = "top-cut-tailed-serifless"
+    r = "serifless"
+    u = "toothless-corner-serifless"
+    y = "curly-serifless"
+    z = "curly-serifless"
+    asterisk = "penta-mid"
+    paren = "normal"
+    brace = "straight"
+    guillemet = "straight"
+    number-sign = "upright"
+    ampersand = "upper-open"
+    percent = "rings-continuous-slash"
+    decorative-angle-brackets = "middle"
+    lig-neq = "slightly-slanted"
+    lig-equal-chain = "without-notch"
+    lig-hyphen-chain = "without-notch"
+    lig-plus-chain = "without-notch"
+    lig-double-arrow-bar = "without-notch"
+    lig-single-arrow-bar = "without-notch"
 
   [buildPlans.Park.ligations]
   inherits = "dlig"
@@ -46,6 +131,11 @@ exportGlyphNames = true
 shape = 400
 menu = 400
 css = 400
+
+[buildPlans.Park.weights.Medium]
+shape = 500
+menu = 500
+css = 500
 
 [buildPlans.Park.weights.Bold]
 shape = 700
@@ -56,11 +146,6 @@ css = 700
 shape = 500
 menu = 5
 css = "normal"
-
-[buildPlans.Park.widths.SemiExtended]
-shape = 548
-menu = 6
-css = "semi-expanded"
 
 [buildPlans.Park.slopes.Upright]
 angle = 0
