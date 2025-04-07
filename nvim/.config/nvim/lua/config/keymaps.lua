@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
+local smart_close = require("config.smart-close")
 
-map("n", "<C-c>", "<cmd>qa<cr>", { desc = "Quit" })
 map("n", "<C-s>", "<cmd>w<cr>", { desc = "Write/Save" })
 
 -- buffers
@@ -67,3 +67,5 @@ map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
 map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
+
+map("n", "C-c", smart_close.smart_buffer_close, { desc = "Smart close" })
