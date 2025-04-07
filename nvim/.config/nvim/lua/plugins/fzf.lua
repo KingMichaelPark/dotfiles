@@ -3,11 +3,11 @@ return {
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
-        { "<leader>fb",       function() require('fzf-lua').buffers() end,                desc = "Buffers" },
-        { "<leader>:",        function() require('fzf-lua').command_history() end,        desc = "Command History" },
-        { "<leader><leader>", function() require('fzf-lua').files({ hidden = true }) end, desc = "Find Files" },
+        { "<leader>fb", function() require('fzf-lua').buffers() end,                desc = "Buffers" },
+        { "<leader>:",  function() require('fzf-lua').command_history() end,        desc = "Command History" },
+        { "<leader>ff", function() require('fzf-lua').files({ hidden = true }) end, desc = "Find Files" },
         {
-            "<leader>fg",
+            "<leader><space>",
             function()
                 require('fzf-lua').git_files({ hidden = true, untracked = true })
             end,
