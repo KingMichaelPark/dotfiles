@@ -1,0 +1,55 @@
+lastupdatecheck: 0
+recentrepos:
+    - /Users/mike/.dotfiles
+    - /Users/mike/Projects/engie/nova
+    - /Users/mike/Projects/oxford/pathogena-admin-app
+    - /Users/mike/Projects/engie/ambleside_lambda
+    - /Users/mike/Projects/oxford/pathogena-admin-api
+    - /Users/mike/Projects/oxford/pathogena-portal
+    - /Users/mike/Projects/oxford/pathogena-permissions-api
+    - /Users/mike/Projects/oxford/pathogena-credits-api
+    - /Users/mike/Projects/oxford/pathogena-upload-api
+    - /Users/mike/Projects/oxford/pathogena-releases
+    - /Users/mike/Projects/oxford/pathogena-helm-apps
+    - /Users/mike/Projects/oxford/pathogena-tf
+    - /Users/mike/Projects/oxford/pathogena-admin-app/test-utils
+    - /Users/mike/Projects/engie/DBT-ES
+    - /Users/mike/Projects/oxford/pathogena-helm-nextflow
+    - /Users/mike/Projects/hippo/hippo-data-techtask
+    - /Users/mike/Projects/oxford/pathogena-relatedness-delete-job
+    - /Users/mike/Projects/engie/ambleside_email_ingestion
+    - /Users/mike/Projects/oxford/toolbox
+    - /Users/mike/Projects/engie/ambleside_glue
+    - /Users/mike/Projects/oxford/pathogena-platform-setup
+    - /Users/mike/Projects/oxford/pathogena-portal-db-migrations
+    - /Users/mike/Projects/oxford/pathogena-poller
+    - /Users/mike/Projects/oxford/pathogena-db-migrations
+    - /Users/mike/Projects/oxford/pathogena-data-patch
+    - /Users/mike/Projects/oxford/pathogena-admin-ui
+    - /Users/mike/Projects/oxford/pathogena-website
+    - /Users/mike/Projects/oxford/pathogena-client
+    - /Users/mike/Projects/engie/ambleside_api
+    - /Users/mike/Projects/personal/website
+    - /Users/mike/Projects/engie/ambleside-uat
+    - /Users/mike/Projects/personal/concur
+    - /Users/mike/Projects/play/FN5
+    - /Users/mike/.local/share/zinit/plugins/Aloxaf---fzf-tab
+    - /Users/mike/.local/share/nvim/lazy/age.nvim
+    - /Users/mike/Projects/engie/ambleside_lambda/
+    - /Users/mike/Projects/engie/ambleside_dbt
+    - /Users/mike/Projects/engie/ambleside_glue/
+    - /Users/mike/Projects/engie/DBT-ES/
+    - /Users/mike/Projects/engie/ambleside_dbt/
+startuppopupversion: 5
+lastversion: 0.48.0
+customcommandshistory:
+    - git stash pop
+    - q!
+hidecommandlog: true
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always

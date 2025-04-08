@@ -51,15 +51,16 @@ vim.diagnostic.config({
 
 local lsps = get_lua_filenames_without_extension()
 
-local capabilities = {
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
+capabilities = vim.tbl_deep_extend('force', capabilities, {
     textDocument = {
         foldingRange = {
             dynamicRegistration = false,
             lineFoldingOnly = true
         }
     }
-}
-capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+})
 
 vim.lsp.config('*', {
     root_markers = { '.git' },

@@ -16,6 +16,7 @@ return {
         },
         keymap = { preset = 'super-tab' },
         completion = {
+            -- documentation = { auto_show = true },
             list = {
                 max_items = 100,
             },
@@ -28,6 +29,7 @@ return {
             -- Displays a preview of the selected item on the current line
             ghost_text = {
                 enabled = true,
+                show_with_menu = true,
             },
         },
 
