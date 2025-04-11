@@ -60,6 +60,14 @@ return {
             vim.fn.setenv("GEMINI_API_KEY", gemini_key)
         end
         require("codecompanion").setup({
+            strategies = {
+                chat = {
+                    adapter = "gemini",
+                },
+                inline = {
+                    adapter = "gemini",
+                },
+            },
             adapters = {
                 gemini = function()
                     return require("codecompanion.adapters").extend("gemini", {
@@ -83,22 +91,13 @@ return {
                     opts = {
                         mapping = "<leader>ad",
                         modes = { "v" },
-                        short_name = "add_docstrings",
+                        short_name = "add_docs",
                         is_slash_command = true,
                         auto_submit = true,
                         stop_context_insertion = true,
                         user_prompt = true,
                     },
                     prompts = {
-                        {
-                            role = "system",
-                            content = function(context)
-                                return "I want you to act as a senior "
-                                    .. context.filetype
-                                    ..
-                                    " developer. I want you to use best modern practices, be concise and return only what is necessary to fulfill the task"
-                            end,
-                        },
                         {
                             role = "user",
                             content = function(context)
@@ -122,18 +121,9 @@ return {
                         modes = { "v" },
                         short_name = "add_tests",
                         is_slash_command = true,
-                        auto_submit = true,
+                        auto_submit = false,
                         stop_context_insertion = true,
                         user_prompt = true,
-                    },
-                    {
-                        role = "system",
-                        content = function(context)
-                            return "I want you to act as a senior "
-                                .. context.filetype
-                                ..
-                                " developer. I want you to use best modern practices in testing, be concise and return only what is necessary to fulfill the task"
-                        end,
                     },
                     {
                         role = "user",
@@ -150,19 +140,16 @@ return {
                     },
                 },
             },
-            strategies = {
-                chat = {
-                    adapter = "gemini",
-                },
-                inline = {
-                    adapter = "gemini",
-                },
-            },
+
         })
         vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
         vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>",
             { noremap = true, silent = true })
         vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+        vim.keymap.set("v", "<leader>ad", function() require("codecompanion").prompt("add_docs") end,
+            { desc = "Add docstrings", noremap = true, silent = true })
+        vim.keymap.set("v", "<leader>at", function() require("codecompanion").prompt("add_tests") end,
+            { desc = "Add tests", noremap = true, silent = true })
 
         vim.cmd([[cab cc CodeCompanion]])
     end
