@@ -2,11 +2,11 @@ local unit_test_prompt = [[
 A good unit test suite should aim to:
 - Test the function's behavior for a wide range of possible inputs
 - Test edge cases that the author may not have foreseen
-- Take advantage of the features of `pytest` to make the tests easy to write and maintain
+- Take advantage of the modern features to make the tests easy to write and maintain
 - Be easy to read and understand, with clean code and descriptive names
 - Be deterministic, so that the tests always pass or fail in the same way
 
-You are a world-class Python developer with an eagle eye for
+You are a world-class software developer with an eagle eye for
 unintended bugs and edge cases.
 You write careful, accurate unit tests.
 When asked to reply only with code, you write all of your code
@@ -52,8 +52,12 @@ return {
         local anthropic_key
         if vim.fn.filereadable(identity) == 1 then
             local secret = vim.fn.expand("$HOME/.dotfiles/access.json")
+
             anthropic_key = require("age").from_sops(secret)["ANTHROPIC"]
+            vim.fn.setenv("ANTHROPIC_API_KEY", anthropic_key)
+
             gemini_key = require("age").from_sops(secret)["GOOGLE"]
+            vim.fn.setenv("GEMINI_API_KEY", gemini_key)
         end
         require("codecompanion").setup({
             adapters = {
@@ -61,8 +65,6 @@ return {
                     return require("codecompanion.adapters").extend("gemini", {
                         env = {
                             api_key = gemini_key,
-                            -- model = "gemini-2.0-flash-lite-preview-02-05",
-                            model = "gemini-2.0-flash-001",
                         },
                     })
                 end,
@@ -75,44 +77,9 @@ return {
                 end,
             },
             prompt_library = {
-                ["Code Expert"] = {
-                    strategy = "chat",
-                    description = "Get some special advice from an LLM",
-                    opts = {
-                        mapping = "<LocalLeader>ah",
-                        modes = { "v" },
-                        short_name = "expert",
-                        auto_submit = true,
-                        stop_context_insertion = true,
-                        user_prompt = true,
-                    },
-                    prompts = {
-                        {
-                            role = "system",
-                            content = function(context)
-                                return "I want you to act as a senior "
-                                    .. context.filetype
-                                    .. " developer. I will ask you specific questions and I want you to return concise explanations and codeblock examples."
-                            end,
-                        },
-                        {
-                            role = "user",
-                            content = function(context)
-                                local text = require("codecompanion.helpers.actions").get_code(context.start_line,
-                                    context.end_line)
-
-                                return "I have the following code:\n\n```" ..
-                                    context.filetype .. "\n" .. text .. "\n```\n\n"
-                            end,
-                            opts = {
-                                contains_code = true,
-                            }
-                        },
-                    },
-                },
                 ["Add Docstrings"] = {
                     strategy = "inline",
-                    description = "Get some special advice from an LLM",
+                    description = "Add Docstrings",
                     opts = {
                         mapping = "<leader>ad",
                         modes = { "v" },
@@ -128,7 +95,8 @@ return {
                             content = function(context)
                                 return "I want you to act as a senior "
                                     .. context.filetype
-                                    .. " developer. I will ask you specific questions and I want you to return concise explanations and codeblock examples."
+                                    ..
+                                    " developer. I want you to use best modern practices, be concise and return only what is necessary to fulfill the task"
                             end,
                         },
                         {
@@ -144,6 +112,41 @@ return {
                                 contains_code = true,
                             }
                         },
+                    }
+                },
+                ["Generate Unit Tests"] = {
+                    strategy = "chat",
+                    description = "Create unit tests",
+                    opts = {
+                        mapping = "<leader>at",
+                        modes = { "v" },
+                        short_name = "add_tests",
+                        is_slash_command = true,
+                        auto_submit = true,
+                        stop_context_insertion = true,
+                        user_prompt = true,
+                    },
+                    {
+                        role = "system",
+                        content = function(context)
+                            return "I want you to act as a senior "
+                                .. context.filetype
+                                ..
+                                " developer. I want you to use best modern practices in testing, be concise and return only what is necessary to fulfill the task"
+                        end,
+                    },
+                    {
+                        role = "user",
+                        content = function(context)
+                            local text = require("codecompanion.helpers.actions").get_code(context.start_line,
+                                context.end_line)
+
+                            return "I have the following code:\n\n```" ..
+                                context.filetype .. "\n" .. text .. "\n```\n\n" .. unit_test_prompt
+                        end,
+                        opts = {
+                            contains_code = true,
+                        }
                     },
                 },
             },
@@ -158,10 +161,6 @@ return {
         })
         vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
         vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>",
-            { noremap = true, silent = true })
-        vim.keymap.set({ "v" }, "<leader>ae", "<cmd>CodeCompanion /explain<cr>",
-            { noremap = true, silent = true })
-        vim.keymap.set({ "v" }, "<leader>ad", "<cmd>CodeCompanion /add_docstrings<cr>",
             { noremap = true, silent = true })
         vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 
