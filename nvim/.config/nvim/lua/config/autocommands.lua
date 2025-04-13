@@ -97,7 +97,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
         local map = function(keys, func, desc)
-            vim.keymap.set("n", keys, func, { buffer =ev.buf, desc = "LSP: " .. desc })
+            vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
         end
 
 
@@ -106,7 +106,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         if not client then
             return
         else
-
             if client:supports_method('textDocument/completion') then
                 vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
             end
@@ -115,12 +114,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 -- Disable hover in favor of Pyright
                 client.server_capabilities.hoverProvider = false
             end
-            if client.supports_method("textDocument/formatting") then
-                local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-                vim.api.nvim_clear_autocmds({ group = augroup, buffer =ev.buf })
+
+            local default_cond = client:supports_method("textDocument/formatting") and client.name ~= "ts_ls"
+            local biome_cond = client.name == "biome"
+
+            if default_cond or biome_cond then
+                local group = augroup("LspFormatting")
+                vim.api.nvim_clear_autocmds({ group = group, buffer = ev.buf })
                 vim.api.nvim_create_autocmd("BufWritePre", {
-                    group = augroup,
-                    buffer = bufnr,
+                    group = group,
+                    buffer = ev.buf,
                     callback = function()
                         vim.lsp.buf.format()
                     end,

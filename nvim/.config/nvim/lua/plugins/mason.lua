@@ -7,10 +7,7 @@ return {
         pip = {
             use_uv = true,
         },
-        ensure_installed = {
-            "shfmt",
-            "yamllint",
-        },
+        ensure_installed = {},
     },
     config = function(_, opts)
         require("mason").setup(opts)

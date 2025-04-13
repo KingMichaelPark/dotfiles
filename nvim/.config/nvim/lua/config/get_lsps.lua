@@ -67,4 +67,8 @@ vim.lsp.config('*', {
     capabilities = capabilities
 })
 
+for _, lsp in ipairs(lsps) do
+    vim.lsp.enable(lsp)
+end
+
 return lsps
