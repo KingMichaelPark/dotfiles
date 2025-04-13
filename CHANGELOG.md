@@ -1,4 +1,165 @@
-## 1.4.0
+## 2.0.0 (2025-04-13)
+
+### Feat
+
+- update lsp config to be more automatic
+- grug-far
+- tidy
+- fzf.lua to snacks
+- add sample of font as an image
+- update theme for delta and git
+- add smart close keymap
+- update font to latest with minor character tweaks
+- lazygit config
+- switch to builtin lsp agent config
+- update blink to 1.0
+- add shortcut go to project as ctrl+f
+- update lazygit style to diffsofancy
+- add some aliases
+- add dat dadbod shuffle
+- update starship theme
+- add new mapping for saving and quitting
+- update style of tabs
+- update to different access token
+- remove atuin
+- update font family to be a bit easier on the eyes
+- finally get codecompanion working nicely
+- update formatting for highlight-colors
+- update atuin settings
+- switch to kanagawa theme!
+- update to fzf lua and lazygit instead
+- remove jj
+- update config for atuin
+- add atuin for shell history
+- update font family to final tweaks
+- add more settings for jj
+- update zsh with autocomplete for jj
+- update models to use gemini as it's cheaper
+
+### Fix
+
+- codecompanion
+- gemini setup for API keys
+- shortcut for git_files and files
+- move git config to git instead of lazygit
+- Park -> Hunter && fix keymap for neovim quit
+- update default file picker to git picker
+- mappings for lsp error messages
+- update the fzf.lua ignore patterns
+- make terminal ever so slightly blue black
+- jj config
+- rev to cat
+- lualine show relative path
+- mapping for send to quickfix
+- colors for background
+- invert the UI
+- mappings for AI
+- tidy starship info
+
+## 1.9.0 (2025-02-06)
+
+### Feat
+
+- slight tweaks
+- update ai plugin to use codecompanion
+- revert codecompanion
+- update font 0 character
+- switch to basedpyright for more features
+- remove unnecessary plugin
+- let's try snacks out for fuzzy picking
+- add updated custom font as Park Nerd Font
+- add highlight colors back in
+- update config
+- lazygit config
+- add some more mappings for code comapnion
+- add mappings for code companion
+- switch to codecompanion
+- add config for ghostty avante and cleanup lualine
+- update config to fit a larger screen and add reload config option
+- add ghostty config
+- update blink config
+- sane defaults for previewer in fzf
+- update docs to use fzf.lua and latest anthropic
+- background less blue
+- wezterm sessioniser update
+- update blink config to actually work correctly
+- stick to git for now
+- add delta as jj pager
+- update default email address
+- add jj config
+- add jj config
+- update lazy mapping
+- add colima config and dashboard
+- add colima config
+- update readme
+- update treesitter config
+- Bump Mikevka to latest Iosevka version
+- fix cmp and update font config
+- update mappings to have better error message handling
+- pure
+- add full path to lualine
+- remove unused plugins
+- add alias for yazi and set line height in wezterm
+- cmp using blink
+- Update font family to latest release and set correct line height
+
+### Fix
+
+- add a wrapper around the git repo call
+- codecompanion command
+- mappings
+- picker shortcuts in snacks.nvim
+- Park ' character
+- delta diff colors
+- grep options to include hidden files
+- lsp config setup for pyright and ruff
+- update buf formatting logic
+- lsp
+- remove duplicate linter config
+- fzf completion
+- telescope mappings
+- update telescope options
+- remove aliases
+- zinit shortcut
+- lualine formatting
+- cloak
+- line height
+- tidy up file formatting and remove nnn plugins
+
+## 1.6.0 (2024-10-27)
+
+### Feat
+
+- tidy, format and update everything to Catppuccin
+- use uv for python package resolution
+- delete .cz.yaml
+- don't need to source control colima
+- add rose-pine theme for autumn vibes
+- add avante custom prompts
+- update cmp appearance
+
+### Fix
+
+- avante quality prompts
+- lazygit highlighting
+- add settings for my PR for mason to use uv
+- diffview mappings
+
+## 1.5.0 (2024-10-04)
+
+### Feat
+
+- add wezterm sessioniser and keymaps
+- add avante to use anthropic instead of openai
+- add more treesitter text objects
+- use uv via my fork for mason.nvim
+
+### Fix
+
+- make background slightly darker
+- add additional ligatures to font
+
+## 1.4.0 (2024-09-11)
 
 ### Feat
 
@@ -15,6 +176,8 @@
 - switch to ruff server from ruff_lsp
 - Add colorhints
 - Update to neovim 0.10.0 features
+- switch to mini surround
+- update config to optimise python and js files
 
 ### Fix
 
@@ -36,16 +199,6 @@
 - remove comment inlays until required
 - sql comments in neovim 0.10.0
 - update gitignore
-
-## 1.3.0 (2024-05-15)
-
-### Feat
-
-- switch to mini surround
-- update config to optimise python and js files
-
-### Fix
-
 - lazy load all the things!
 - update token length
 - update access for chatgpt
