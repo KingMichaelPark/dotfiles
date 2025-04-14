@@ -116,9 +116,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
             end
 
             local default_cond = client:supports_method("textDocument/formatting") and client.name ~= "ts_ls"
-            local biome_cond = client.name == "biome"
 
-            if default_cond or biome_cond then
+            if default_cond then
                 local group = augroup("LspFormatting")
                 vim.api.nvim_clear_autocmds({ group = group, buffer = ev.buf })
                 vim.api.nvim_create_autocmd("BufWritePre", {

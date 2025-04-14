@@ -2,6 +2,7 @@ local function get_filename(path)
     -- Find the last occurrence of the path separator.
     local separator = package.config:sub(1, 1) -- Get OS specific path separator
     local pos = string.find(path, separator, nil, true)
+    local last_pos = pos
     while pos do
         last_pos = pos
         pos = string.find(path, separator, pos + 1, true)
