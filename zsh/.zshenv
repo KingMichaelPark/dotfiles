@@ -23,6 +23,7 @@ done
 export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | bat -l man -p'"
 export BAT_THEME="Catppuccin Mocha" # bat cache --build
 # Config Mac OS
+export EZA_CONFIG_DIR="$HOME/.config/eza"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # NNN Config
