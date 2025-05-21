@@ -74,6 +74,11 @@ return {
                         env = {
                             api_key = gemini_key,
                         },
+                        schema = {
+                            model = {
+                                default = "gemini-2.5-flash-preview-05-20",
+                            }
+                        }
                     })
                 end,
                 anthropic = function()
