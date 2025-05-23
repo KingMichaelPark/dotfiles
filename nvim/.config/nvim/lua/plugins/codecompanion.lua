@@ -62,14 +62,14 @@ return {
         require("codecompanion").setup({
             strategies = {
                 chat = {
-                    adapter = "gemini",
+                    adapter = "gemini_flash",
                 },
                 inline = {
-                    adapter = "gemini",
+                    adapter = "gemini_flash",
                 },
             },
             adapters = {
-                gemini = function()
+                gemini_flash = function()
                     return require("codecompanion.adapters").extend("gemini", {
                         env = {
                             api_key = gemini_key,
@@ -77,6 +77,18 @@ return {
                         schema = {
                             model = {
                                 default = "gemini-2.5-flash-preview-05-20",
+                            }
+                        }
+                    })
+                end,
+                gemini_pro = function()
+                    return require("codecompanion.adapters").extend("gemini", {
+                        env = {
+                            api_key = gemini_key,
+                        },
+                        schema = {
+                            model = {
+                                default = "gemini-2.5-pro-preview-05-06",
                             }
                         }
                     })
