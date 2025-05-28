@@ -1,9 +1,7 @@
----
 git:
   paging:
     colorArg: always
-    pager:  delta --paging=never
-
+    pager: delta --paging=never
 customCommands:
   - key: "B"
     description: "Commitizen Tag Bump"
@@ -22,58 +20,53 @@ customCommands:
     description: "Commit with Commitizen no sign"
     context: "files"
     loadingText: "Opening commitizen commit tool"
-    subprocess: true
+    output: terminal
   - key: "Z"
     command: "git cz c -s"
     description: "Commit with Commitizen Signed"
     context: "files"
     loadingText: "Opening commitizen commit tool"
-    subprocess: true
+    output: terminal
   - key: "C"
     command: "cz ch"
     description: "Update/Generate Changelog"
     context: "tags"
     loadingText: "Updating Changelog"
-
 gui:
-
   spinner:
     # The frames of the spinner animation.
     frames:
-      - '⣷'
-      - '⣯'
-      - '⣟'
-      - '⡿'
-      - '⢿'
-      - '⣻'
-      - '⣽'
-      - '⣾'
-
+      - "⣷"
+      - "⣯"
+      - "⣟"
+      - "⡿"
+      - "⢿"
+      - "⣻"
+      - "⣽"
+      - "⣾"
   nerdFontsVersion: ""
-
   # Status panel view.
   statusPanelView: allBranchesLog
   showBottomLine: false
   theme:
     activeBorderColor:
-      - '#89b4fa'
+      - "#89b4fa"
       - bold
     inactiveBorderColor:
-      - '#585b70'
+      - "#585b70"
     optionsTextColor:
-      - '#a6adc8'
+      - "#a6adc8"
     selectedLineBgColor:
-      - '#181825'
+      - "#181825"
     cherryPickedCommitBgColor:
-      - '#1e1e2e'
+      - "#1e1e2e"
     cherryPickedCommitFgColor:
-      - '#7f849c'
+      - "#7f849c"
     unstagedChangesColor:
-      - '#eba0ac'
+      - "#eba0ac"
     defaultFgColor:
-      - '#cdd6f4'
+      - "#cdd6f4"
     searchingActiveBorderColor:
-      - '#94e2d5'
-
+      - "#94e2d5"
   authorColors:
-    '*': '#b4befe'
+    "*": "#b4befe"

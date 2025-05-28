@@ -49,7 +49,7 @@ end, { desc = "Previous quickfix" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
-    local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+    local go = next and vim.diagnostic.get_next or vim.diagnostic.get_prev
     severity = severity and vim.diagnostic.severity[severity] or nil
     return function()
         local diagnostics = vim.diagnostic.get(0, { severity = severity })
