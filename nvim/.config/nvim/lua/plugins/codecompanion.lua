@@ -1,3 +1,10 @@
+local function prompt_codecompanion_gemini()
+    local query = vim.fn.input("Query: ")
+    if query ~= "" then
+        vim.cmd("CodeCompanion gemini " .. query)
+    end
+end
+
 local unit_test_prompt = [[
 A good unit test suite should aim to:
 - Test the function's behavior for a wide range of possible inputs
@@ -39,6 +46,7 @@ Use Google style for Python code. Reply with the selected text
 unchanged and the docstring added.
 ]]
 
+
 return {
     "olimorris/codecompanion.nvim",
     dependencies = {
@@ -62,41 +70,27 @@ return {
         require("codecompanion").setup({
             strategies = {
                 chat = {
-                    adapter = "gemini_flash",
+                    adapter = "gemini",
                 },
                 inline = {
-                    adapter = "gemini_flash",
+                    adapter = "gemini",
                 },
+                cmd = {
+                    adapter = "gemini",
+                }
             },
             adapters = {
-                gemini_flash = function()
-                    return require("codecompanion.adapters").extend("gemini", {
-                        env = {
-                            api_key = gemini_key,
-                        },
-                        schema = {
-                            model = {
-                                default = "gemini-2.5-flash-preview-05-20",
-                            }
-                        }
-                    })
-                end,
-                gemini_pro = function()
-                    return require("codecompanion.adapters").extend("gemini", {
-                        env = {
-                            api_key = gemini_key,
-                        },
-                        schema = {
-                            model = {
-                                default = "gemini-2.5-pro-preview-05-06",
-                            }
-                        }
-                    })
-                end,
                 anthropic = function()
-                    return require("codecompanion.adapters").extend("anthropic ", {
+                    return require("codecompanion.adapters").extend("anthropic", {
                         env = {
                             api_key = anthropic_key,
+                        },
+                    })
+                end,
+                gemini = function()
+                    return require("codecompanion.adapters").extend("gemini", {
+                        env = {
+                            api_key = gemini_key,
                         },
                     })
                 end,
@@ -159,6 +153,9 @@ return {
             },
 
         })
+
+        vim.keymap.set({ "v" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true, expr = true })
+        vim.keymap.set({ "n" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true })
         vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
         vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>",
             { noremap = true, silent = true })
@@ -168,6 +165,7 @@ return {
         vim.keymap.set("v", "<leader>at", function() require("codecompanion").prompt("add_tests") end,
             { desc = "Add tests", noremap = true, silent = true })
 
+        -- hello world
         vim.cmd([[cab cc CodeCompanion]])
     end
 }

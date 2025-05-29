@@ -69,6 +69,12 @@ vim.lsp.config('*', {
 })
 
 for _, lsp in ipairs(lsps) do
+    if lsp == 'biome' then
+        vim.lsp.config(lsp, {
+            cmd = { 'biome', 'lsp-proxy', '--config-path', vim.fn.expand('~/.dotfiles/biome.jsonc') },
+        })
+    end
+
     vim.lsp.enable(lsp)
 end
 
