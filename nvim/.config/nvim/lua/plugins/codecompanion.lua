@@ -5,46 +5,14 @@ local function prompt_codecompanion_gemini()
     end
 end
 
-local unit_test_prompt = [[
-A good unit test suite should aim to:
-- Test the function's behavior for a wide range of possible inputs
-- Test edge cases that the author may not have foreseen
-- Take advantage of the modern features to make the tests easy to write and maintain
-- Be easy to read and understand, with clean code and descriptive names
-- Be deterministic, so that the tests always pass or fail in the same way
 
-You are a world-class software developer with an eagle eye for
-unintended bugs and edge cases.
-You write careful, accurate unit tests.
-When asked to reply only with code, you write all of your code
-in a single block.
-
-If using Python and the `pytest` package if a generic test,
-if there are references to django, write them for the django test
-suite. Write a at least one, but up to a suite of unit tests for
-the function, following the cases above. Include helpful comments
-to explain each line. Reply only with code
-]]
-
-local docstring_prompt = [[
-A good docstring should:
-- Be concise and clear, avoiding unnecessary verbosity
-- Follow Google style docstring format for Python code
-- Include a brief one-line summary of what the function/class does
-- List all parameters with their types and descriptions under Args:
-- Document return values with types under Returns:
-- Document any exceptions that may be raised under Raises:
-- Avoid including examples or implementation details
-- Use imperative mood ("Get" not "Gets")
-- Focus on WHAT the code does, not HOW it does it
-- Include type hints that match the function signature
-- Document any side effects or important notes
-- Be properly indented and formatted for readability
-
-Write a concise, clear docstring following these guidelines.
-Use Google style for Python code. Reply with the selected text
-unchanged and the docstring added.
-]]
+local function read_file(path)
+    local file = io.open(path, "rb") -- r read mode and b binary mode
+    if not file then return nil end
+    local content = file:read "*a"   -- *a or *all reads the whole file
+    file:close()
+    return content
+end
 
 
 return {
@@ -115,6 +83,8 @@ return {
                                 local text = require("codecompanion.helpers.actions").get_code(context.start_line,
                                     context.end_line)
 
+                                local docstring_prompt = read_file(vim.fn.expand(
+                                    "$HOME/.config/nvim/prompts/docstring.txt"))
                                 return "I have the following code:\n\n```" ..
                                     context.filetype .. "\n" .. text .. "\n```\n\n" .. docstring_prompt
                             end,
@@ -136,20 +106,55 @@ return {
                         stop_context_insertion = true,
                         user_prompt = true,
                     },
-                    {
-                        role = "user",
-                        content = function(context)
-                            local text = require("codecompanion.helpers.actions").get_code(context.start_line,
-                                context.end_line)
+                    prompts = {
+                        {
+                            role = "user",
+                            content = function(context)
+                                local text = require("codecompanion.helpers.actions").get_code(context.start_line,
+                                    context.end_line)
 
-                            return "I have the following code:\n\n```" ..
-                                context.filetype .. "\n" .. text .. "\n```\n\n" .. unit_test_prompt
-                        end,
-                        opts = {
-                            contains_code = true,
-                        }
-                    },
+                                local unit_test_prompt = read_file(vim.fn.expand(
+                                    "$HOME/.config/nvim/prompts/unit-test.txt"))
+                                local full_prompt = "I have the following code:\n\n```" ..
+                                    context.filetype .. "\n" .. text .. "\n```\n\n" .. unit_test_prompt
+
+                                return full_prompt
+                            end,
+                            opts = {
+                                contains_code = true,
+                            }
+                        },
+                    }
                 },
+                ["Generate PRD"] = {
+                    strategy = "chat",
+                    description = "Create project requirements doc",
+                    opts = {
+                        mapping = "<leader>ar",
+                        modes = { "v" },
+                        short_name = "add_prd",
+                        is_slash_command = true,
+                        auto_submit = false,
+                        stop_context_insertion = true,
+                        user_prompt = true,
+                    },
+                    prompts = {
+                        {
+                            role = "user",
+                            content = function(context)
+                                local text = require("codecompanion.helpers.actions").get_code(context.start_line,
+                                    context.end_line)
+
+                                local prd = read_file(vim.fn.expand(
+                                    "$HOME/.config/nvim/prompts/project-requirements-doc.txt"))
+                                return prd .. "\n" .. text
+                            end,
+                            opts = {
+                                contains_code = false,
+                            }
+                        },
+                    },
+                }
             },
 
         })
@@ -164,8 +169,9 @@ return {
             { desc = "Add docstrings", noremap = true, silent = true })
         vim.keymap.set("v", "<leader>at", function() require("codecompanion").prompt("add_tests") end,
             { desc = "Add tests", noremap = true, silent = true })
+        vim.keymap.set("v", "<leader>ar", function() require("codecompanion").prompt("add_prd") end,
+            { desc = "Add Project Requiremnts Doc", noremap = true, silent = true })
 
-        -- hello world
         vim.cmd([[cab cc CodeCompanion]])
     end
 }
