@@ -229,7 +229,7 @@ symbol = " "
 [character]
 success_symbol = "[(blue)❯](sky)"
 error_symbol = "[(red) ❯](sky)"
-vimcmd_symbol = "[❮](pink)" # For use with zsh-vi-mode
+vimcmd_symbol = "[❮](pink)"       # For use with zsh-vi-mode
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -258,4 +258,3 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
-
