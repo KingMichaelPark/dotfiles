@@ -1,24 +1,14 @@
 return {
     'MagicDuck/grug-far.nvim',
-    keys = {
-        {
-            "<leader>r",
-            '<cmd>GrugFar<cr>',
-            desc = "Replace",
-        },
-        {
-            "<leader>R",
-            '<cmd>GrugFarWithin<cr>',
-            desc = "Replace Within",
-        },
-
-    },
     config = function()
-        require('grug-far').setup({
-            -- options, see Configuration section below
-            -- there are no required options atm
-            -- engine = 'ripgrep' is default, but 'astgrep' or 'astgrep-rules' can
-            -- be specified
-        });
+        require('grug-far').setup({});
+
+        vim.keymap.set("n", "<leader>R", function() require('grug-far').open() end, { desc = "Replace" })
+        vim.keymap.set("n", "<leader>r",
+            function() require('grug-far').open({ prefills = { paths = vim.fn.expand("%") } }) end,
+            { desc = "Replace" })
+        vim.keymap.set("v", "<leader>r", function()
+            require('grug-far').open({ visualSelectionUsage = 'operate-within-range' })
+        end, { desc = "Replacer Within" })
     end
 }
