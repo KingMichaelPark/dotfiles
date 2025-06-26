@@ -1,11 +1,13 @@
 return {
     "rcarriga/nvim-dap-ui",
     dependencies = {
-        "mfussenegger/nvim-dap",
-        "mfussenegger/nvim-dap-python",
-        "theHamsta/nvim-dap-virtual-text",
-        "nvim-neotest/nvim-nio",
+        { "mfussenegger/nvim-dap",           event = "VeryLazy" },
+        { "mfussenegger/nvim-dap-python",    event = "VeryLazy" },
+        { "theHamsta/nvim-dap-virtual-text", event = "VeryLazy" },
+        { "nvim-neotest/nvim-nio",           event = "VeryLazy" },
+        { "folke/lazydev.nvim",              event = "VeryLazy" }
     },
+    event = "VeryLazy",
     keys = { -- Keymaps
         {
             "<F6>",
@@ -79,10 +81,13 @@ return {
         local dap = require("dap")
         local dapy = require("dap-python")
         dapui.setup()
+        require("lazydev").setup({
+            library = { "nvim-dap-ui" },
+        })
         require("nvim-dap-virtual-text").setup()
 
         -- Adaptors
-        dapy.setup("python")
+        dapy.setup("uv")
 
         dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
         dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
