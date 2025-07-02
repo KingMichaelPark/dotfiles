@@ -1,175 +1,52 @@
-# Hunter Mono
-[buildPlans.hunter-mono]
-family = "Hunter Mono"    # Font menu family name
-spacing = "term"                # Optional; Values: `normal`, `quasi-proportional`, `quasi-proportional-extension-only`, `term`, `fontconfig-mono`, or `fixed`
-serifs = "sans"                  # Optional; Values: `sans` or `slab`
-export-glyph-names = false       # Set this to true for ligature support in Kitty (increased file size)
+[buildPlans.HunterMono]
+family = "Hunter Mono"
+spacing = "term"
+serifs = "sans"
+noCvSs = false
+exportGlyphNames = false
 
-[buildPlans.hunter-mono.ligations]
-inherits = "dlig"
+  [buildPlans.HunterMono.variants]
+  inherits = "ss01"
 
-[buildPlans.hunter-mono.variants.design]
-cv03 = 3    # 3 with double arc
-cv05 = 1    # 5 with arched middle part and no serifs
-cv07 = 1    # 7 with straight stem and no serifs
-cv08 = 3    # 8 with asymmetric crossing middle part
-cv10 = 4    # 0 full body with forward slash
-cv11 = 1    # A cap straight with no serifs
-cv12 = 1    # B cap symmetric with no serifs
-cv13 = 1    # C cap serifless
-cv14 = 6    # D cap curly with top and bottom serif
-cv15 = 1    # E cap serifless
-cv16 = 1    # F cap serifless
-cv17 = 2    # G cap with toothed body, inward hook terminal, and no top serif
-cv18 = 1    # H cap serifless
-cv19 = 2    # I cap with long serifs
-cv20 = 2    # J cap with top serif and curly hook
-cv21 = 6    # K cap curly with no serifs
-cv22 = 1    # L cap serifless
-cv23 = 7    # M cap with short middle leg and slanted sides
-cv24 = 1    # N cap symmetric with no serifs
-cv25 = 1    # P cap straight with no serifs
-cv26 = 4    # Q cap with tail crossing the ring
-cv27 = 1    # R cap straight with no serifs
-cv28 = 1    # S cap serifless
-cv29 = 1    # T cap serifless
-cv30 = 12   # U cap rounded bottom with no serifs
-cv31 = 1    # V cap straight with no serifs
-cv32 = 1    # W cap straight with short middle part and no serifs
-cv33 = 1    # X cap straight with no serifs
-cv34 = 1    # Y cap straight with no serifs
-cv35 = 1    # Z cap straight with no serifs
-cv38 = 1    # c serifless
-cv43 = 1    # h straight with no serifs
-cv44 = 10   # i with top serif, curly base, and flat tail
-cv45 = 6    # j with top serif, curly base, and flat tail
-cv47 = 14   # l with top serif, curly base, and flat tail
-cv52 = 9    # r hookless body shape with no serifs
-cv53 = 1    # s serifless
-cv54 = 7    # t with crossbar, curly base, and flat tail
-cv56 = 1    # v straight with no serifs
-cv57 = 1    # w straight with short middle top
-cv58 = 1    # x straight with no serifs
-cv59 = 16   # y open "u" top with no serifs and flat tail
-cv60 = 1    # z straight with no serifs
-cv61 = 4    # ß (eszet) cap with flat top and serifs
-cv62 = 25   # ſ (long S) with curly top and bottom bases and flat tails
-cv63 = 38   # ß (eszet) with ligature of long S (cv62) and s, containing terminal tail
-cv64 = 1    # ð (eth) with straight bar
-cv65 = 4    # Þ (thorn cap) asymmetric with no serifs
-cv66 = 1    # þ (thorn) asymmetric with no serifs
-cv67 = 12   # α (greek alpha) earless corner with curly tail
-cv68 = 2    # β (greek beta) with no bottom hook
-cv69 = 1    # Γ (greek gamma cap) straight with no serifs
-cv70 = 3    # γ (greek gamma) with asymmetric curly shape
-cv71 = 1    # Δ (greek delta cap) straight with no serifs
-cv72 = 1    # δ (greek delta) with rounded top
-VXAA = 1    # η (greek heta) with no serifs
-cv73 = 1    # θ (greek theta) wide with oval shape
-cv74 = 8    # ι (greek iota) with top serif, curly base, and flat tail
-VXAB = 1    # κ (greek kappa) straight
-cv75 = 1    # Λ (greek lambda cap) straight
-cv76 = 2    # λ (greek lambda) straight with flat top
-cv77 = 8    # μ (greek me) toothless with rounded corner and no serifs
-cv78 = 1    # ν (greek ne) straight with no serifs
-cv79 = 2    # ξ (greek xe) with flat top
-cv80 = 1    # π (greek pe) straight with extended flat top
-cv81 = 4    # τ (greek taf) with top serifs, curly base, and flat tail
-cv82 = 1    # υ (greek ypsilon) straight with no serifs
-cv83 = 2    # φ (greek phe) with open side and no stem
-cv84 = 1    # χ (greek he) straight with no serifs
-cv85 = 3    # ψ (greek pse) straight with no serifs and no stem
-VDAA = 2    # square dots over i and j
-VDAB = 2    # square dots in diacritics like ä
-VDAC = 2    # square dots in punctuation marks
-VDAD = 2    # square dots in braille
-VSAA = 2    # ~ lower placement
-VSAB = 3    # * with five points and low placement
-VSAC = 2    # _ right below the baseline
-VSAD = 2    # ^ at medium placement
-VSAE = 1    # ` as a short, straight, diagonal line
-VSAF = 1    # ' as a short, straight, vertical line
-VSAG = 1    # ( with a normal contour
-VSAH = 2    # { curly
-VSAI = 1    # « straight
-VSAJ = 1    # # column straight
-VSAK = 2    # & et open top
-VSAL = 2    # @ three-fold, tall height
-VSAM = 3    # $ strike through
-VSAN = 3    # ¢ strike through
-VSAO = 1    # % percent dots
-VSAP = 2    # | bar force upright
-VSAQ = 1    # ? smooth
-VSAS = 8    # micro sign same as cv77
-VLAA = 1    # ≥ greater or equal sign with straight bottom lines
-VLAB = 2    # ≠ not equal sign with slightly slanted bar
-VLAC = 1    # equality ligation with notch in the middle
-VLAD = 1    # hyphen minus ligation with notch in the middle
-VLAE = 1    # plus plus ligation with notch in the middle
-VLAF = 1    # bars in double arrow ligation with notch in the middle
-VLAG = 1    # bar in single arrow ligation with notch in the middle
+    [buildPlans.HunterMono.variants.design]
+    four = "closed-serifless"
+    zero = "dotted"
+    capital-b = "standard-serifless"
+    capital-g = "toothless-corner-serifless-hooked"
+    a = "double-storey-serifless"
+    f = "flat-hook-serifless"
+    g = "single-storey-top-cut"
+    i = "serifed-flat-tailed"
+    l = "serifed-flat-tailed"
+    t = "bent-hook-short-neck"
+    lig-ltgteq = "slanted"
 
-[buildPlans.hunter-mono.variants.regular]
-cv36 = 4    # a double storey with a toothless corner
-cv37 = 6    # b toothless corner and with no serifs
-cv39 = 7    # d toothless corner and with no serifs
-cv40 = 1    # e straight
-cv41 = 12   # f with serifless bottom at baseline, flat top, and crossbar at the x-height
-cv42 = 11   # g single storey with flat hook and earless cornered top
-cv46 = 6    # k curly with no serifs
-cv48 = 20   # m earless double arch short middle leg
-cv49 = 8    # n earless straight
-cv50 = 4    # p earless with cornered top
-cv51 = 13   # q earless with cornered top
-cv55 = 8    # u with toothless shape and cornered bottom with no serifs
-cv01 = 3    # 1 with bottom serif and short top serif
-cv02 = 1    # 2 with straight neck and no serifs
-cv04 = 5    # 4 with semi-open contour and no serifs
-cv06 = 3    # 6 with straight bar
-cv09 = 3    # 9 with straight bar
+  [buildPlans.HunterMono.ligations]
+  inherits = "dlig"
 
-[buildPlans.hunter-mono.variants.italic]
-cv36 = 1    # a double storey straight
-cv37 = 1    # b straight with no serifs
-cv39 = 1    # d straight with no serifs
-cv40 = 2    # e curly
-cv41 = 16   # f with serifless extended bottom, flat top, and crossbar at the x-height
-cv42 = 8    # g single storey straight top and flat hook
-cv46 = 1    # k straight with no serifs
-cv48 = 8    # m straight short middle leg
-cv49 = 1    # n straight with no serifs
-cv50 = 1    # p straight with no serifs
-cv51 = 1    # q straight with no serifs
-cv55 = 1    # u straight with no serifs
-cv01 = 2    # 1 with top hook and no bottom serif
-cv02 = 3    # 2 with curly neck and no serifs
-cv04 = 1    # 4 with closed contour and crossing bar
-cv06 = 1    # 6 with closed contour
-cv09 = 1    # 9 with closed contour
-
-[buildPlans.hunter-mono.weights.regular]
+[buildPlans.HunterMono.weights.Regular]
 shape = 400
-menu  = 400
-css   = 400
+menu = 400
+css = 400
 
-[buildPlans.hunter-mono.weights.bold]
+[buildPlans.HunterMono.weights.Bold]
 shape = 700
-menu  = 700
-css   = 700
+menu = 700
+css = 700
 
-[buildPlans.hunter-mono.slopes.upright]
+[buildPlans.HunterMono.widths.Normal]
+shape = 500
+menu = 5
+css = "normal"
+
+[buildPlans.HunterMono.slopes.Upright]
 angle = 0
 shape = "upright"
-menu  = "upright"
-css   = "normal"
+menu = "upright"
+css = "normal"
 
-[buildPlans.hunter-mono.slopes.italic]
+[buildPlans.HunterMono.slopes.Italic]
 angle = 9.4
 shape = "italic"
-menu  = "italic"
-css   = "italic"
-
-[buildPlans.hunter-mono.widths.normal]
-shape = 500
-menu  = 5
-css   = "normal"
+menu = "italic"
+css = "italic"
