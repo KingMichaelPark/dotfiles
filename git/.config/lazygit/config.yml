@@ -36,14 +36,20 @@ gui:
   spinner:
     # The frames of the spinner animation.
     frames:
-      - "⣷"
-      - "⣯"
-      - "⣟"
-      - "⡿"
-      - "⢿"
-      - "⣻"
-      - "⣽"
-      - "⣾"
+      - "▉"
+      - "▊"
+      - "▋"
+      - "▌"
+      - "▍"
+      - "▎"
+      - "▏"
+      - "▎"
+      - "▍"
+      - "▌"
+      - "▋"
+      - "▊"
+      - "▉"
+
   nerdFontsVersion: ""
   # Status panel view.
   statusPanelView: allBranchesLog
@@ -57,7 +63,7 @@ gui:
     optionsTextColor:
       - "#a6adc8"
     selectedLineBgColor:
-      - "#181825"
+      - "#313244"
     cherryPickedCommitBgColor:
       - "#1e1e2e"
     cherryPickedCommitFgColor:
