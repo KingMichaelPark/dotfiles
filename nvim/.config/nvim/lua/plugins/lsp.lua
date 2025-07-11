@@ -6,6 +6,9 @@ return {
     },
     priority = 1000,
     build = ":MasonUpdate",
+    keys = {
+        { "<leader>P", ":Mason<CR>", desc = "Open Mason" },
+    },
     config = function()
         require("mason").setup({
             pip = {
