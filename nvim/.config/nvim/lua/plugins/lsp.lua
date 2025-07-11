@@ -6,9 +6,7 @@ return {
     },
     priority = 1000,
     build = ":MasonUpdate",
-    keys = {
-        { "<leader>P", ":Mason<CR>", desc = "Open Mason" },
-    },
+
     config = function()
         require("mason").setup({
             pip = {
@@ -18,5 +16,6 @@ return {
         require("mason-lspconfig").setup {
             ensure_installed = { "basedpyright", "ruff", "lua_ls" },
         }
+        vim.keymap.set("n", "<leader>P", ":Mason<CR>", { desc = "Open Mason", noremap = true, silent = true })
     end
 }
