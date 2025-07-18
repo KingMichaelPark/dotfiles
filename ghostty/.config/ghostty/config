@@ -5,7 +5,6 @@ background-opacity = 0.90
 copy-on-select = clipboard
 font-family = "HunterMono Nerd Font"
 font-size = 18
-freetype-load-flags = "no-hinting,no-autohint,no-force-autohint"
 macos-option-as-alt = "left"
 mouse-hide-while-typing = true
 macos-titlebar-style = "tabs"
