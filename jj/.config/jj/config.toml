@@ -19,6 +19,3 @@ diff-foramter = ":git"
 subprocess = true
 sign-on-push = true
 
-
-[revset-aliases]
-"immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
