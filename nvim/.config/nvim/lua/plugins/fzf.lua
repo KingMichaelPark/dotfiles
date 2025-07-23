@@ -46,6 +46,11 @@ return {
         { "gy",         function() require('fzf-lua').lsp_type_definitions() end,                          desc = "Goto T[y]pe Definition" },
     },
     opts = {
-        defaults = { formatter = "path.filename_first" }
+        defaults = { formatter = { "path.filename_first", 2 } },
+        keymap = {
+            fzf = {
+                ['ctrl-q'] = 'select-all+accept',
+            },
+        },
     }
 }
