@@ -19,7 +19,7 @@ return {
         { "<leader>/",       function() require('fzf-lua').lines() end,                                         desc = "Buffer Lines" },
         { "<leader>fr",      function() require('fzf-lua').live_grep_native({ hidden = true }) end,             desc = "Grep Native" },
         { "<leader>fR",      function() require('fzf-lua').live_grep_glob({ hidden = true }) end,               desc = "Grep Glob" },
-        { "<leader>fw",      function() require('fzf-lua').grep_word() end,                                     desc = "Visual selection or word", mode = { "n", "x" } },
+        { "<leader>fw",      function() require('fzf-lua').grep_cWORD() end,                                    desc = "Visual selection or word", mode = { "n", "x" } },
         -- search
         { '<leader>s/',      function() require('fzf-lua').search_history() end,                                desc = "Search History" },
         { "<leader>sb",      function() require('fzf-lua').lines() end,                                         desc = "Buffer Lines" },
