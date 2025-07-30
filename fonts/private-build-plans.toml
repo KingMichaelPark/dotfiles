@@ -1,55 +1,81 @@
-[buildPlans.huntermono]
+[buildPlans.HunterMono]
 family = "Hunter Mono"
 spacing = "term"
 serifs = "sans"
-noCvSs = true
-exportGlyphNames = true
+noCvSs = false
+exportGlyphNames = false
 
-hintParams = ["-a", "qqq"]
+[buildPlans.HunterMono.variants]
+inherits = "ss08"
 
-    [buildPlans.huntermono.widths.normal]
-    shape = 500
-    menu  = 5
-    css   = "normal"
+[buildPlans.HunterMono.variants.design]
+zero = "oval-tall-reverse-slashed"
+capital-a = "curly-serifless"
+capital-m = "hanging-serifless"
+capital-n = "asymmetric-serifless"
+a = "double-storey-serifless"
+f = "serifless"
+g = "single-storey-serifless"
+i = "hooky"
+l = "serifed-flat-tailed"
+q = "tailed-serifless"
+y = "curly-turn-serifless"
+caret = "medium"
+at = "threefold"
+dollar = "open"
+percent = "rings-continuous-slash"
+question = "smooth"
+lig-neq = "slightly-slanted"
+lig-equal-chain = "without-notch"
+lig-hyphen-chain = "without-notch"
+lig-plus-chain = "without-notch"
+lig-double-arrow-bar = "without-notch"
+lig-single-arrow-bar = "without-notch"
 
-    [buildPlans.huntermono.metricOverride]
-    leading = 1100
-    xHeight = 550
+[buildPlans.HunterMono.variants.italic]
+zero = "oval-tall-reverse-slashed"
+capital-a = "curly-serifless"
+capital-m = "hanging-serifless"
+capital-n = "asymmetric-serifless"
+a = "single-storey-serifless"
+f = "serifless"
+g = "single-storey-serifless"
+k = "curly-serifless"
+q = "tailed-serifless"
+y = "curly-turn-serifless"
+lig-neq = "slightly-slanted"
+lig-equal-chain = "without-notch"
+lig-hyphen-chain = "without-notch"
+lig-plus-chain = "without-notch"
+lig-double-arrow-bar = "without-notch"
+lig-single-arrow-bar = "without-notch"
 
-    [buildPlans.huntermono.ligations]
-    inherits="dlig"
-    enables = [
-        "eqslasheq",
-        "kern-dotty",
-        "kern-bars",
-        "llggeq",
-         "--fast-chaining--"
-    ]
-    disables = ["slash-asterisk"]
+[buildPlans.HunterMono.ligations]
+inherits = "dlig"
 
-    [buildPlans.huntermono.variants]
-    inherits = "ss08"
+[buildPlans.HunterMono.weights.Bold]
+shape = 700
+menu = 700
+css = 700
 
-    [buildPlans.huntermono.weights.regular]
-    shape = 425
-    menu = 400
-    css = 400
+[buildPlans.HunterMono.weights.Regular]
+shape = 400
+menu = 400
+css = 400
 
-    [buildPlans.huntermono.weights.semibold]
-    shape = 600
-    menu = 600
-    css = 600
+[buildPlans.HunterMono.widths.Normal]
+shape = 500
+menu = 5
+css = "normal"
 
-    [buildPlans.huntermono.weights.bold]
-    shape = 800
-    menu = 700
-    css = 700
+[buildPlans.HunterMono.slopes.Upright]
+angle = 0
+shape = "upright"
+menu = "upright"
+css = "normal"
 
-    [buildPlans.huntermono.weights.black]
-    shape = 900
-    menu = 900
-    css = 900
-
-    [buildPlans.huntermono.slopes]
-    upright = "default.Upright"
-    italic = "default.Italic"
+[buildPlans.HunterMono.slopes.Italic]
+angle = 9.4
+shape = "italic"
+menu = "italic"
+css = "italic"
