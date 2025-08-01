@@ -2,7 +2,6 @@
 
 <img width="1768" alt="image" src="./dash.png">
 
-
 ![Github tag (latest by SemVer)](https://img.shields.io/github/v/tag/kingmichaelpark/dotfiles?style=flat-square)
 ![Mastodon Follow](https://img.shields.io/mastodon/follow/109638370673707754?domain=https%3A%2F%2Ffosstodon.org&style=social)
 
@@ -67,36 +66,37 @@ brew install \
 
 brew install --cask ghostty
 ```
+
 # Descriptions
 
- - **age**: Simple, modern, secure file encryption
- - **argon2**: Password hashing library and CLI utility
- - **bat**: Clone of cat(1) with syntax highlighting and Git integration
- - **bottom**: Yet another cross-platform graphical process/system monitor
- - **colima**: Docker cli free OSS
- - **docker**: Docker and it's related plugins/extensions
- - **duckdb**: Embeddable SQL OLAP Database Management System
- - **entr**: Run arbitrary commands when files change
- - **eza**: Modern, maintained replacement for ls
- - **fd**: Simple, fast and user-friendly alternative to find
- - **fzf**: Command-line fuzzy finder written in Go
- - **ghostty**: Current terminal emulator
- - **git-delta**: Syntax-highlighting pager for git and diff output
- - **jq**: Lightweight and flexible command-line JSON processor
- - **jj**: VCS alternative to git but also git compatible
- - **lazydocker**: Simple terminal UI for docker commands
- - **lazygit**: Simple terminal UI for git commands
- - **mise**: Polyglot runtime manager (asdf rust clone)
- - **neovim**: Ambitious Vim-fork focused on extensibility and agility
- - **nnn**: Minimal terminal file manager
- - **pandoc**: Swiss-army knife of markup format conversion
- - **restic**: Back-up utility with snapshots and backups
- - **ripgrep**: Search tool like grep and The Silver Searcher
- - **sops**: Editor of encrypted files
- - **stow**: Organize software neatly under a single directory tree (e.g. /usr/local)
- - **stylua**: Opinionated Lua code formatter
- - **uv**: Extremely fast Python package installer and resolver, written in Rust
- - **zoxide**: Shell extension to navigate your filesystem faster
+- **age**: Simple, modern, secure file encryption
+- **argon2**: Password hashing library and CLI utility
+- **bat**: Clone of cat(1) with syntax highlighting and Git integration
+- **bottom**: Yet another cross-platform graphical process/system monitor
+- **colima**: Docker cli free OSS
+- **docker**: Docker and it's related plugins/extensions
+- **duckdb**: Embeddable SQL OLAP Database Management System
+- **entr**: Run arbitrary commands when files change
+- **eza**: Modern, maintained replacement for ls
+- **fd**: Simple, fast and user-friendly alternative to find
+- **fzf**: Command-line fuzzy finder written in Go
+- **ghostty**: Current terminal emulator
+- **git-delta**: Syntax-highlighting pager for git and diff output
+- **jq**: Lightweight and flexible command-line JSON processor
+- **jj**: VCS alternative to git but also git compatible
+- **lazydocker**: Simple terminal UI for docker commands
+- **lazygit**: Simple terminal UI for git commands
+- **mise**: Polyglot runtime manager (asdf rust clone)
+- **neovim**: Ambitious Vim-fork focused on extensibility and agility
+- **nnn**: Minimal terminal file manager
+- **pandoc**: Swiss-army knife of markup format conversion
+- **restic**: Back-up utility with snapshots and backups
+- **ripgrep**: Search tool like grep and The Silver Searcher
+- **sops**: Editor of encrypted files
+- **stow**: Organize software neatly under a single directory tree (e.g. /usr/local)
+- **stylua**: Opinionated Lua code formatter
+- **uv**: Extremely fast Python package installer and resolver, written in Rust
+- **zoxide**: Shell extension to navigate your filesystem faster
 
 ## Different Modules
 
