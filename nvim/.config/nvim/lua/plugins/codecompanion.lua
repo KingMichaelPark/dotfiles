@@ -48,13 +48,13 @@ return {
         require("codecompanion").setup({
             strategies = {
                 chat = {
-                    adapter = "gemini",
+                    adapter = "anthropic",
                 },
                 inline = {
-                    adapter = "gemini",
+                    adapter = "anthropic",
                 },
                 cmd = {
-                    adapter = "gemini",
+                    adapter = "anthropic",
                 }
             },
             adapters = {
