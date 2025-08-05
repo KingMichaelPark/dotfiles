@@ -38,6 +38,12 @@ return {
     },
     opts = {
         defaults = { formatter = { "path.filename_first", 2 } },
+        winopts = {
+            -- border argument passthrough to nvim_open_win()
+            border   = "rounded",
+            -- Backdrop opacity, 0 is fully opaque, 100 is fully transparent (i.e. disabled)
+            backdrop = 100
+        },
         keymap = {
             fzf = {
                 ['ctrl-q'] = 'select-all+accept',

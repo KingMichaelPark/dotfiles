@@ -45,16 +45,17 @@ return {
             gemini_key = require("age").from_sops(secret)["GOOGLE"]
             vim.fn.setenv("GEMINI_API_KEY", gemini_key)
         end
+        local adapter = "gemini"
         require("codecompanion").setup({
             strategies = {
                 chat = {
-                    adapter = "anthropic",
+                    adapter = adapter,
                 },
                 inline = {
-                    adapter = "anthropic",
+                    adapter = adapter,
                 },
                 cmd = {
-                    adapter = "anthropic",
+                    adapter = adapter,
                 }
             },
             adapters = {
