@@ -62,7 +62,7 @@ alias tf=terraform
 alias v="nvim"
 alias vim="nvim"
 alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
-alias ai="sops exec-env ~/.dotfiles/access.json \"aider --model gemini\""
+alias ai="sops exec-env ~/.dotfiles/access.json \"gemini\""
 
 # ZSH Settings
 HISTSIZE=20000

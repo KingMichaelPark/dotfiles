@@ -21,16 +21,16 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
         { "KingMichaelPark/age.nvim", lazy = true },
-        {
-            "echasnovski/mini.diff",
-            config = function()
-                local diff = require("mini.diff")
-                diff.setup({
-                    -- Disabled by default
-                    source = diff.gen_source.none(),
-                })
-            end,
-        },
+        -- {
+        --     "echasnovski/mini.diff",
+        --     config = function()
+        --         local diff = require("mini.diff")
+        --         diff.setup({
+        --             -- Disabled by default
+        --             source = diff.gen_source.none(),
+        --         })
+        --     end,
+        -- },
     },
     config = function()
         local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")

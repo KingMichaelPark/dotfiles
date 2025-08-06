@@ -3,9 +3,30 @@ return {
     event = "BufReadPre",
     config = function()
         require('gitsigns').setup {
-            on_attach = function(bufnr)
+            signs               = {
+                add          = { text = '┃' },
+                change       = { text = '┃' },
+                delete       = { text = '_' },
+                topdelete    = { text = '‾' },
+                changedelete = { text = '~' },
+                untracked    = { text = '┆' },
+            },
+            signs_staged        = {
+                add          = { text = '┃' },
+                change       = { text = '┃' },
+                delete       = { text = '_' },
+                topdelete    = { text = '‾' },
+                changedelete = { text = '~' },
+                untracked    = { text = '┆' },
+            },
+            signs_staged_enable = true,
+            signcolumn          = true,  -- Toggle with `:Gitsigns toggle_signs`
+            numhl               = true,  -- Toggle with `:Gitsigns toggle_numhl`
+            linehl              = false, -- Toggle with `:Gitsigns toggle_linehl`
+            word_diff           = false, -- Toggle with `:Gitsigns toggle_word_diff`
+            on_attach           = function(bufnr)
                 local gitsigns = require('gitsigns')
-
+                -- This is a chan
                 local function map(mode, l, r, opts)
                     opts = opts or {}
                     opts.buffer = bufnr
@@ -43,14 +64,14 @@ return {
 
                 map('n', '<leader>gS', gitsigns.stage_buffer, { desc = "Stage Buffer" })
                 map('n', '<leader>gR', gitsigns.reset_buffer, { desc = "Reset Buffer" })
-                map('n', '<leader>gp', gitsigns.preview_hunk, { desc = "Preview Hunk" })
-                map('n', '<leader>gi', gitsigns.preview_hunk_inline, { desc = "Preview Hunk Inline" })
                 map('n', '<leader>gb', function() gitsigns.blame() end, { desc = "Blame Current Line" })
                 map('n', '<leader>gQ', function() gitsigns.setqflist('all') end, { desc = "Set QFL Hunks (All)" })
                 map('n', '<leader>gq', gitsigns.setqflist, { desc = "Set QFL Hunks (Buffer)" })
 
                 -- Toggles
                 map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = "Toggle Line Blame" })
+                map('n', '<leader>tp', gitsigns.preview_hunk, { desc = "Toggle Preview" })
+                map('n', '<leader>td', gitsigns.preview_hunk_inline, { desc = "Toggle Deleted Inline" })
                 map('n', '<leader>tw', gitsigns.toggle_word_diff, { desc = "Toggle Word Diff" })
 
                 -- Text object
