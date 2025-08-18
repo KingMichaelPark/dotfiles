@@ -13,6 +13,7 @@ autoload -Uz compinit; compinit
 zinit light Aloxaf/fzf-tab
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 zinit light zdharma-continuum/fast-syntax-highlighting
+fast-theme XDG:catppuccin-mocha -q
 zinit light zsh-users/zsh-autosuggestions
 
 # fast-theme -t base16
