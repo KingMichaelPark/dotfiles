@@ -10,6 +10,11 @@ return {
             formatters_by_ft = {
                 -- Conform will run the first available formatter
                 html = { "prettierd" },
+                js = { "prettierd" },
+                jsx = { "prettierd" },
+                tsx = { "prettierd" },
+                svelte = { "prettierd" },
+                ts = { "prettierd" },
                 markdown = { "prettierd" },
                 yaml = { "prettierd" },
             },
