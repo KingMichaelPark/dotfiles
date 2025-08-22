@@ -15,6 +15,6 @@ return {
             end
 
         require('leap').opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
-        require('leap.user').set_repeat_keys('<enter>', '<backspace>')
+        require('leap.user').set_repeat_keys('<tab>', '<s-tab>')
     end,
 }
