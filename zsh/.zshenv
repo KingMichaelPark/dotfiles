@@ -84,6 +84,7 @@ setopt SHARE_HISTORY # Cause all terminals to share the same history 'session'.
 # Starship
 export STARSHIP_LOG="error"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export BIOME_CONFIG_PATH="$HOME/.dotfiles/biome.jsonc"
 
 goto_project() {
   cd "$(fd . ~/Projects -d 2 -t d | fzf)"
