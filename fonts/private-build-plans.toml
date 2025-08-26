@@ -9,18 +9,24 @@ exportGlyphNames = false
 inherits = "ss08"
 
 [buildPlans.HunterMono.variants.design]
-zero = "oval-tall-reverse-slashed"
+zero = "oval-tall-slashed"
 capital-a = "curly-serifless"
 capital-m = "hanging-serifless"
 capital-n = "asymmetric-serifless"
+capital-q = "curly-tailed"
+capital-y = "curly-serifless"
 a = "double-storey-serifless"
 f = "serifless"
 g = "single-storey-serifless"
-i = "hooky"
+i = "serifless"
+j = "serifless"
+k = "curly-serifless"
 l = "serifed-flat-tailed"
 q = "tailed-serifless"
 y = "curly-turn-serifless"
+cyrl-a = "single-storey-serifless"
 caret = "medium"
+number-sign = "upright"
 at = "threefold"
 dollar = "open"
 percent = "rings-continuous-slash"
@@ -40,7 +46,7 @@ capital-n = "asymmetric-serifless"
 a = "single-storey-serifless"
 f = "serifless"
 g = "single-storey-serifless"
-k = "curly-serifless"
+k = "cursive-serifless"
 q = "tailed-serifless"
 y = "curly-turn-serifless"
 lig-neq = "slightly-slanted"
@@ -53,15 +59,15 @@ lig-single-arrow-bar = "without-notch"
 [buildPlans.HunterMono.ligations]
 inherits = "dlig"
 
-[buildPlans.HunterMono.weights.Bold]
-shape = 700
-menu = 700
-css = 700
-
 [buildPlans.HunterMono.weights.Regular]
 shape = 400
 menu = 400
 css = 400
+
+[buildPlans.HunterMono.weights.Bold]
+shape = 700
+menu = 700
+css = 700
 
 [buildPlans.HunterMono.widths.Normal]
 shape = 500
