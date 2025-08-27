@@ -2,7 +2,7 @@ return {
     "nvim-lualine/lualine.nvim",
     config = function()
         local custom = require("lualine.themes.catppuccin-mocha")
-        local modes = { "insert", "normal", "command", "visual", "replace", "inactive" }
+        local modes = { "insert", "normal", "command", "visual", "replace", "terminal", "inactive" }
         for _, mode in ipairs(modes) do
             custom[mode].a.bg = "NONE"
             custom[mode].b.bg = "NONE"

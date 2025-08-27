@@ -49,25 +49,27 @@ return {
                 }
             },
             adapters = {
-                anthropic = function()
-                    return require("codecompanion.adapters").extend("anthropic", {
-                        env = {
-                            api_key = anthropic_key,
-                        },
-                    })
-                end,
-                gemini = function()
-                    return require("codecompanion.adapters").extend("gemini", {
-                        schema = {
-                            model = {
-                                default = "gemini-2.5-flash"
-                            }
-                        },
-                        env = {
-                            api_key = gemini_key,
-                        },
-                    })
-                end,
+                http = {
+                    anthropic = function()
+                        return require("codecompanion.adapters").extend("anthropic", {
+                            env = {
+                                api_key = anthropic_key,
+                            },
+                        })
+                    end,
+                    gemini = function()
+                        return require("codecompanion.adapters").extend("gemini", {
+                            schema = {
+                                model = {
+                                    default = "gemini-2.5-flash"
+                                }
+                            },
+                            env = {
+                                api_key = gemini_key,
+                            },
+                        })
+                    end,
+                }
             },
             display = {
                 diff = {

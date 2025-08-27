@@ -24,7 +24,7 @@ return {
                 tsx                = { "biome" },
                 typescript         = { "biome" },
                 typescriptreact    = { "biome" },
-                yaml               = { "yamlfmt" },
+                -- yaml               = { "yamlfmt" },
             },
         })
     end
