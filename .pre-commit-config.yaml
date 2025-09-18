@@ -1,0 +1,20 @@
+---
+repos:
+  - hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: detect-private-key
+      - id: check-merge-conflict
+      - id: check-docstring-first
+    repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.2.2
+    hooks:
+      - id: commitizen
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v0.20.0
+    hooks:
+      - id: stylua-system # or stylua-system / stylua-github

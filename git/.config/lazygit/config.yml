@@ -1,0 +1,78 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never
+customCommands:
+  - key: "B"
+    description: "Commitizen Tag Bump"
+    context: "tags"
+    loadingText: "Tagging ..."
+    command: "cz bump -s --increment {{index .PromptResponses 0}}"
+    prompts:
+      - type: "menu"
+        title: "Semver"
+        options:
+          - value: "PATCH"
+          - value: "MINOR"
+          - value: "MAJOR"
+  - key: "z"
+    command: "git cz c"
+    description: "Commit with Commitizen no sign"
+    context: "files"
+    loadingText: "Opening commitizen commit tool"
+    output: terminal
+  - key: "Z"
+    command: "git cz c -s"
+    description: "Commit with Commitizen Signed"
+    context: "files"
+    loadingText: "Opening commitizen commit tool"
+    output: terminal
+  - key: "C"
+    command: "cz ch"
+    description: "Update/Generate Changelog"
+    context: "tags"
+    loadingText: "Updating Changelog"
+gui:
+  spinner:
+    # The frames of the spinner animation.
+    frames:
+      - "▉"
+      - "▊"
+      - "▋"
+      - "▌"
+      - "▍"
+      - "▎"
+      - "▏"
+      - "▎"
+      - "▍"
+      - "▌"
+      - "▋"
+      - "▊"
+      - "▉"
+
+  nerdFontsVersion: ""
+  # Status panel view.
+  statusPanelView: allBranchesLog
+  showBottomLine: false
+  theme:
+    activeBorderColor:
+      - "#89b4fa"
+      - bold
+    inactiveBorderColor:
+      - "#585b70"
+    optionsTextColor:
+      - "#a6adc8"
+    selectedLineBgColor:
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#1e1e2e"
+    cherryPickedCommitFgColor:
+      - "#7f849c"
+    unstagedChangesColor:
+      - "#eba0ac"
+    defaultFgColor:
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#94e2d5"
+  authorColors:
+    "*": "#b4befe"
