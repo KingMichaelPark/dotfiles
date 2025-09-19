@@ -48,6 +48,7 @@ brew install \
     eza \
     fd \
     fzf \
+    ghostty \
     git-delta \
     jq \
     jj \
@@ -134,11 +135,7 @@ create a `.mise.toml` in your project directory and add.
 python = {version="latest", virtualenv=".venv"}
 ```
 
-### [Tmux](./tmux/)
-
-Tmux settings
-
-### [Wezterm](./wezterm/.config/wezterm)
+### [Ghostty 👻](./ghostty/.config/ghostty)
 
 Wezterm terminal
 
