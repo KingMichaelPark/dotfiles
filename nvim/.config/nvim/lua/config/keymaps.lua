@@ -38,14 +38,6 @@ map("n", "<C-l>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
 -- Location and QuickFix
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
-map("n", "[q", function()
-    local qf_list = vim.fn.getqflist()
-    if #qf_list == 0 then
-        vim.notify("No quickfix items to navigate", vim.log.levels.INFO)
-        return
-    end
-    vim.cmd.cprev()
-end, { desc = "Previous quickfix" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
