@@ -50,6 +50,7 @@ brew install \
     fzf \
     ghostty \
     git-delta \
+    hurl \
     jq \
     jj \
     lazydocker \
@@ -81,6 +82,7 @@ brew install --cask ghostty
 - **eza**: Modern, maintained replacement for ls
 - **fd**: Simple, fast and user-friendly alternative to find
 - **fzf**: Command-line fuzzy finder written in Go
+- **hurl**: HTTP Tool
 - **ghostty**: Current terminal emulator
 - **git-delta**: Syntax-highlighting pager for git and diff output
 - **jq**: Lightweight and flexible command-line JSON processor
