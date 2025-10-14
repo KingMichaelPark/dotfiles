@@ -14,9 +14,12 @@ return {
         },
         keymap = { preset = 'super-tab' },
         completion = {
-            -- documentation = { auto_show = true },
+            documentation = {
+                auto_show = true,
+                auto_show_delay_ms = 500
+            },
             list = {
-                max_items = 100,
+                max_items = 25,
             },
             menu = {
                 draw = {
