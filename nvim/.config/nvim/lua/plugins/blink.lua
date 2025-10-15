@@ -12,6 +12,9 @@ return {
                 codecompanion = { "codecompanion" },
             },
         },
+        appearance = {
+            nerd_font_variant = 'normal'
+        },
         keymap = { preset = 'super-tab' },
         completion = {
             documentation = {
@@ -23,9 +26,13 @@ return {
             },
             menu = {
                 draw = {
-                    treesitter = { 'lsp' },
-                    columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
-                },
+                    padding = { 0, 1 }, -- padding only on right side
+                    components = {
+                        kind_icon = {
+                            text = function(ctx) return ' ' .. ctx.kind_icon .. ctx.icon_gap .. ' ' end
+                        }
+                    }
+                }
             },
             -- Displays a preview of the selected item on the current line
             ghost_text = {

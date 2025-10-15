@@ -14,7 +14,7 @@ return {
             },
         })
         require("mason-lspconfig").setup {
-            ensure_installed = { "lua_ls", "ruff", "ty" },
+            ensure_installed = { "lua_ls", "ruff" },
         }
         vim.keymap.set("n", "<leader>P", ":Mason<CR>", { desc = "Open Mason", noremap = true, silent = true })
     end
