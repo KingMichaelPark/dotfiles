@@ -60,7 +60,7 @@ symbol = " "
 [git_branch]
 style = "bold mauve"
 format = '[$symbol$branch(:$remote_branch)]($style) '
-symbol = " "
+symbol = " "
 
 [git_commit]
 tag_symbol = '  '
