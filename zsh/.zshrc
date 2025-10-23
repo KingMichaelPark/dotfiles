@@ -27,4 +27,4 @@ zinit light starship/starship
 source <(fzf --zsh)
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
