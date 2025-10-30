@@ -45,17 +45,6 @@ return {
             vim.fn.setenv("GEMINI_API_KEY", gemini_key)
         end
         require("codecompanion").setup({
-            strategies = {
-                chat = {
-                    adapter = "gemini_cli",
-                },
-                inline = {
-                    adapter = "gemini",
-                },
-                cmd = {
-                    adapter = "gemini",
-                }
-            },
             adapters = {
                 acp = {
                     gemini_cli = function()
@@ -67,11 +56,11 @@ return {
                                 },
                             },
                             defaults = {
-                                timeout = 20000,                -- 20 seconds
-                                auth_method = "gemini-api-key", -- "oauth-personal"|"gemini-api-key"|"vertex-ai"
+                                timeout = 20000,
+                                auth_method = "gemini-api-key",
                             },
                             env = {
-                                GEMINI_API_KEY = gemini_key
+                                GEMINI_API_KEY = "GEMINI_API_KEY"
                             },
                         })
                     end,
@@ -80,13 +69,28 @@ return {
                     gemini = function()
                         return require("codecompanion.adapters").extend("gemini", {
                             env = {
-                                api_key = gemini_key
+                                GEMINI_API_KEY = "GEMINI_API_KEY"
                             },
                         })
                     end,
                 },
             },
+            strategies = {
+                chat = {
+                    adapter = "gemini_cli",
+                },
+                inline = {
+                    adapter = "gemini",
+                },
+                cmd = {
+                    adapter = "gemini",
+                }
+            },
             display = {
+                action_palette = {
+                    provider = "fzf_lua",
+
+                },
                 diff = {
                     enabled = true,
                     close_chat_at = 240, -- Close an open chat buffer if the total columns of your display are less than...
@@ -133,23 +137,28 @@ return {
                         modes = { "v" },
                         short_name = "add_tests",
                         is_slash_command = true,
-                        auto_submit = false,
+                        auto_submit = true,
                         stop_context_insertion = true,
                         user_prompt = true,
                     },
                     prompts = {
                         {
+                            role = "system",
+                            content = function(context)
+                                local unit_test_prompt = read_file(vim.fn.expand(
+                                    "$HOME/.config/nvim/prompts/unit-test.txt"))
+                                return "I want you to act as a senior "
+                                    .. context.filetype
+                                    .. " developer specializing in testing. " .. unit_test_prompt
+                            end,
+                        },
+                        {
                             role = "user",
                             content = function(context)
                                 local text = require("codecompanion.helpers.actions").get_code(context.start_line,
                                     context.end_line)
-
-                                local unit_test_prompt = read_file(vim.fn.expand(
-                                    "$HOME/.config/nvim/prompts/unit-test.txt"))
-                                local full_prompt = "I have the following code:\n\n```" ..
-                                    context.filetype .. "\n" .. text .. "\n```\n\n" .. unit_test_prompt
-
-                                return full_prompt
+                                return "I have the following code:\n\n```" ..
+                                    context.filetype .. "\n" .. text .. "\n```\n\n"
                             end,
                             opts = {
                                 contains_code = true,
