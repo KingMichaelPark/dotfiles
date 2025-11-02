@@ -1,0 +1,8 @@
+[ui]
+theme = "catppuccin-mocha"
+
+[preview]
+revision_command = ["show", "--color", "always", "--config", "ui.diff-formatter=delta", "-r", "$change_id"]
+oplog_command = ["op", "show", "$operation_id", "--color", "always"]
+file_command = ["diff", "--color", "always", "--config", "ui.diff-formatter=delta", "-r", "$change_id", "$file"]
+

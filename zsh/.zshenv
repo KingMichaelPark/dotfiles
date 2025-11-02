@@ -49,21 +49,21 @@ export FZF_DEFAULT_OPTS="--multi --reverse --info=hidden \
 export HOMEBREW_NO_ENV_HINTS=1
 
 # Aliases
+alias ai="sops exec-env ~/.dotfiles/access.json \"gemini\""
 alias cat="bat -p"
 alias d="docker"
 alias dc="docker-compose"
-alias k=kubectl
+alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
 alias j=just
-alias ls='eza'
-alias lg=lazygit
+alias k=kubectl
 alias ld=lazydocker
+alias lg=lazygit
+# alias lj=jjui
+alias ls='eza'
 alias n='nnn'
 alias tf=terraform
 alias v="nvim"
 alias vim="nvim"
-alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
-alias ai="sops exec-env ~/.dotfiles/access.json \"gemini\""
-
 # ZSH Settings
 HISTSIZE=20000
 SAVEHIST=10000

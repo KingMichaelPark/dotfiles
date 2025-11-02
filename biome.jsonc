@@ -13,8 +13,7 @@
   },
   "html": {
     "formatter": {
-      "enabled": true,
-      "indentWidth": 2
+      "enabled": true
     }
   }
 }
