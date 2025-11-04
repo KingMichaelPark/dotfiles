@@ -1,7 +1,7 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never
 customCommands:
   - key: "B"
     description: "Commitizen Tag Bump"
@@ -49,7 +49,6 @@ gui:
       - "▋"
       - "▊"
       - "▉"
-
   nerdFontsVersion: ""
   # Status panel view.
   statusPanelView: allBranchesLog
