@@ -71,5 +71,10 @@ return {
             silent = true,
             desc = "Toggle jjui (Jujutsu)"
         })
+        vim.keymap.set("n", "<leader>gg", "<cmd>lua _G.toggle_jjui()<CR>", {
+            noremap = true,
+            silent = true,
+            desc = "Toggle jjui (Jujutsu)"
+        })
     end,
 }

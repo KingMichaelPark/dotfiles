@@ -33,7 +33,7 @@ hostname: colima
 kubernetes:
   # Enable kubernetes.
   # Default: false
-  enabled: false
+  enabled: true
   
   # Kubernetes version to use.
   # This needs to exactly match a k3s version https://github.com/k3s-io/k3s/releases

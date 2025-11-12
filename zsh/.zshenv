@@ -57,8 +57,8 @@ alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bol
 alias j=just
 alias k=kubectl
 alias ld=lazydocker
-alias lg=lazygit
-# alias lj=jjui
+alias lg=jjui
+alias lj=jjui
 alias ls='eza'
 alias n='nnn'
 alias tf=terraform
