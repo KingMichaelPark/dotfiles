@@ -92,3 +92,10 @@ goto_project() {
 }
 zle -N goto_project
 bindkey '^f' goto_project
+
+## Project Specific Helpers
+if [ -d "$HOME/Projects/oxford/toolbox/zsh_helpers" ]; then
+    for file in $HOME/Projects/oxford/toolbox/zsh_helpers/*.zsh; do
+        source $file;
+    done;
+fi
