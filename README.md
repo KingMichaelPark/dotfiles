@@ -86,7 +86,7 @@ brew install --cask ghostty
 - **ghostty**: Current terminal emulator
 - **git-delta**: Syntax-highlighting pager for git and diff output
 - **jq**: Lightweight and flexible command-line JSON processor
-- **jj**: VCS alternative to git but also git compatible
+- **jj**: VCS alternative to git but also git compatible (Jujutsu)
 - **lazydocker**: Simple terminal UI for docker commands
 - **lazygit**: Simple terminal UI for git commands
 - **mise**: Polyglot runtime manager (asdf rust clone)
