@@ -63,6 +63,7 @@ brew install \
     ripgrep \
     sops \
     stow \
+    typst \
     uv \
     zoxide
 
@@ -98,6 +99,7 @@ brew install --cask ghostty
 - **sops**: Editor of encrypted files
 - **stow**: Organize software neatly under a single directory tree (e.g. /usr/local)
 - **stylua**: Opinionated Lua code formatter
+- **typst**: LaTeX / Word alternative
 - **uv**: Extremely fast Python package installer and resolver, written in Rust
 - **zoxide**: Shell extension to navigate your filesystem faster
 

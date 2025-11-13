@@ -6,3 +6,6 @@ revision_command = ["show", "--color", "always", "--config", "ui.diff-formatter=
 oplog_command = ["op", "show", "$operation_id", "--color", "always"]
 file_command = ["diff", "--color", "always", "--config", "ui.diff-formatter=delta", "-r", "$change_id", "$file"]
 
+[revisions]
+revset = "present(@) | ancestors(immutable().., 10) | present(trunk())"               # overrides jj's revsets.log
+

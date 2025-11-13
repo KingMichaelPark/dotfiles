@@ -51,6 +51,7 @@ return {
                 "ssh_config",
                 "sql",
                 "terraform",
+                "typst",
                 "toml",
                 "tsx",
                 "typescript",
