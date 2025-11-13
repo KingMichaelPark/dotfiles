@@ -13,9 +13,9 @@ email = "me@mhpark.me"
 
 [ui]
 default-command = ["log"]
-pager = "delta"
+diff-formatter = ":git"
 editor = "nvim"
-diff-formatter = ["bash", "-c", "delta --width $width $left $right || true"]
+pager = "delta"
 
 [git]
 subprocess = true

@@ -183,6 +183,9 @@ symbol = " "
 [swift]
 symbol = " "
 
+[typst]
+symbol = "󰴓 "
+
 [zig]
 symbol = " "
 
