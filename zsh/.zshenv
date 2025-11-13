@@ -12,7 +12,7 @@ pathmunge () {
 ### Add custom paths
 paths_to_append=("$HOME/.local/bin" "/opt/homebrew/bin" "$HOME/.cargo/bin")
 for p in "${paths_to_append[@]}"; do
-    if [ -d "$p" ]; then
+    if [ -d        "$p" ]; then
         pathmunge "$p"
     fi
 done
