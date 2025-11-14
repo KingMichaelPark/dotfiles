@@ -57,7 +57,6 @@ brew install \
     lazygit \
     mise \
     neovim \
-    nnn \
     pandoc \
     restic \
     ripgrep \
@@ -65,6 +64,7 @@ brew install \
     stow \
     typst \
     uv \
+    yazi \
     zoxide
 
 brew install --cask ghostty
@@ -92,7 +92,6 @@ brew install --cask ghostty
 - **lazygit**: Simple terminal UI for git commands
 - **mise**: Polyglot runtime manager (asdf rust clone)
 - **neovim**: Ambitious Vim-fork focused on extensibility and agility
-- **nnn**: Minimal terminal file manager
 - **pandoc**: Swiss-army knife of markup format conversion
 - **restic**: Back-up utility with snapshots and backups
 - **ripgrep**: Search tool like grep and The Silver Searcher
@@ -101,6 +100,7 @@ brew install --cask ghostty
 - **stylua**: Opinionated Lua code formatter
 - **typst**: LaTeX / Word alternative
 - **uv**: Extremely fast Python package installer and resolver, written in Rust
+- **yazi**: TUI file manager
 - **zoxide**: Shell extension to navigate your filesystem faster
 
 ## Different Modules

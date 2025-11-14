@@ -16,6 +16,7 @@ default-command = ["log"]
 diff-formatter = ":git"
 editor = "nvim"
 pager = "delta"
+conflict-marker-style = "git"
 
 [git]
 subprocess = true

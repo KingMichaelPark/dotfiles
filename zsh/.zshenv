@@ -57,13 +57,14 @@ alias gitlog="git log --graph --abbrev-commit --decorate --format=format:'%C(bol
 alias j=just
 alias k=kubectl
 alias ld=lazydocker
-alias lg=jjui
-alias lj=jjui
+alias lg=lazygit
+alias ll=jjui
 alias ls='eza'
 alias n='nnn'
 alias tf=terraform
 alias v="nvim"
 alias vim="nvim"
+alias y="yazi"
 # ZSH Settings
 HISTSIZE=20000
 SAVEHIST=10000
@@ -92,6 +93,15 @@ goto_project() {
 }
 zle -N goto_project
 bindkey '^f' goto_project
+
+# Yazi
+function yy() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+}
 
 ## Project Specific Helpers
 if [ -d "$HOME/Projects/oxford/toolbox/zsh_helpers" ]; then
