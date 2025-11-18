@@ -17,6 +17,8 @@ for p in "${paths_to_append[@]}"; do
     fi
 done
 
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
 
 # Environmental Variables
 # Bat Config
@@ -25,6 +27,8 @@ export BAT_THEME="Catppuccin Mocha" # bat cache --build
 # Config Mac OS
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 export XDG_CONFIG_HOME="$HOME/.config"
+export LS_COLORS=$(cat "$HOME/.dotfiles/catppuccin.colors")
+
 
 # NNN Config
 export NNN_FIFO=/tmp/nnn.fifo
