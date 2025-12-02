@@ -36,19 +36,19 @@ gui:
   spinner:
     # The frames of the spinner animation.
     frames:
-      - "▉"
-      - "▊"
-      - "▋"
-      - "▌"
-      - "▍"
-      - "▎"
-      - "▏"
-      - "▎"
-      - "▍"
-      - "▌"
-      - "▋"
-      - "▊"
-      - "▉"
+      - "🞌"
+      - "🞵"
+      - "🞶"
+      - "🞷"
+      - "🞸"
+      - "🞹"
+      - "🞺"
+      - "🞹"
+      - "🞸"
+      - "🞷"
+      - "🞶"
+      - "🞵"
+      - "🞌"
   nerdFontsVersion: ""
   # Status panel view.
   statusPanelView: allBranchesLog

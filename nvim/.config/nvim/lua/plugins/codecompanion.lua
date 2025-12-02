@@ -49,18 +49,11 @@ return {
                 acp = {
                     gemini_cli = function()
                         return require("codecompanion.adapters").extend("gemini_cli", {
-                            commands = {
-                                default = {
-                                    "gemini",
-                                    "--experimental-acp",
-                                },
-                            },
                             defaults = {
-                                timeout = 20000,
                                 auth_method = "gemini-api-key",
                             },
                             env = {
-                                GEMINI_API_KEY = "GEMINI_API_KEY"
+                                api_key = "GEMINI_API_KEY",
                             },
                         })
                     end,
@@ -68,8 +61,11 @@ return {
                 http = {
                     gemini = function()
                         return require("codecompanion.adapters").extend("gemini", {
+                            defaults = {
+                                auth_method = "gemini-api-key",
+                            },
                             env = {
-                                GEMINI_API_KEY = "GEMINI_API_KEY"
+                                api_key = "GEMINI_API_KEY"
                             },
                         })
                     end,

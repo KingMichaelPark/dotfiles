@@ -15,24 +15,24 @@ return {
         -- git
         { "<leader>gl",      function() require('fzf-lua').git_log() end,                                       desc = "Git Log" },
         { "<leader>gL",      function() require('fzf-lua').git_log_line() end,                                  desc = "Git Log Line" },
-        -- jj
+
         {
             "<leader>fa",
             function()
                 -- The action handler to open the selected file
-                local jj_diff_edit_action = function(selected, _)
+                local diff_edit_action = function(selected, _)
                     local filepath = selected[1]
                     vim.cmd("edit " .. vim.fn.fnameescape(filepath))
                 end
 
-                require('fzf-lua').fzf_exec("jj diff -T 'path ++ \"\\n\"'", {
+                require('fzf-lua').fzf_exec("git status --porcelain | cut -c 4-", {
                     prompt = "󰜘 > ",
                     file_icons = true,
                     -- Use the 'builtin' previewer for Neovim's floating window
                     previewer = "builtin",
                     -- Add the action to open the file on <CR>
                     actions = {
-                        ['default'] = jj_diff_edit_action,
+                        ['default'] = diff_edit_action,
                     },
                     formatter = { "path.filename_first", 2 },
                 })
