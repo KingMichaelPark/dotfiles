@@ -45,6 +45,7 @@ return {
             vim.fn.setenv("GEMINI_API_KEY", gemini_key)
         end
         require("codecompanion").setup({
+            ignore_warnings = true,
             adapters = {
                 acp = {
                     gemini_cli = function()
