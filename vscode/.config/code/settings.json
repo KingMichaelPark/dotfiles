@@ -1,0 +1,56 @@
+{
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "editor.fontFamily": "HunterMono Nerd Font",
+  "editor.codeLensFontFamily": "HunterMono Nerd Font",
+  "editor.inlayHints.fontFamily": "HunterMono Nerd Font",
+  "editor.inlineSuggest.fontFamily": "HunterMono Nerd Font",
+  "debug.console.fontFamily": "HunterMono Nerd Font",
+  "scm.inputFontFamily": "HunterMono Nerd Font",
+  "terminal.integrated.fontFamily": "HunterMono Nerd Font",
+  "notebook.markup.fontFamily": "HunterMono Nerd Font",
+  "chat.editor.fontFamily": "HunterMono Nerd Font",
+  "chat.fontFamily": "HunterMono Nerd Font",
+  "terminal.integrated.fontLigatures.enabled": true,
+  "editor.fontSize": 16,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": true,
+  "editor.formatOnSave": true,
+  "ruff.organizeImports": true,
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonl]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsx]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[ts]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[tsx]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}
