@@ -28,8 +28,8 @@ return {
     "olimorris/codecompanion.nvim",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
-        { "KingMichaelPark/age.nvim", lazy = true },
+        { "nvim-treesitter/nvim-treesitter", branch = "main" },
+        { "KingMichaelPark/age.nvim",        lazy = true },
     },
     config = function()
         local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")
