@@ -97,12 +97,12 @@ return {
             },
             prompt_library = {
                 ["Add Docstrings"] = {
-                    strategy = "inline",
+                    interaction = "inline",
                     description = "Add Docstrings",
                     opts = {
                         mapping = "<leader>ad",
                         modes = { "v" },
-                        short_name = "add_docs",
+                        alias = "add_docs",
                         is_slash_command = true,
                         auto_submit = true,
                         stop_context_insertion = true,
@@ -127,12 +127,12 @@ return {
                     }
                 },
                 ["Generate Unit Tests"] = {
-                    strategy = "chat",
+                    interaction = "chat",
                     description = "Create unit tests",
                     opts = {
                         mapping = "<leader>at",
                         modes = { "v" },
-                        short_name = "add_tests",
+                        alias = "add_tests",
                         is_slash_command = true,
                         auto_submit = true,
                         stop_context_insertion = true,
@@ -164,12 +164,12 @@ return {
                     }
                 },
                 ["Generate PRD"] = {
-                    strategy = "chat",
+                    interaction = "chat",
                     description = "Create project requirements doc",
                     opts = {
                         mapping = "<leader>ar",
                         modes = { "v" },
-                        short_name = "add_prd",
+                        alias = "add_prd",
                         is_slash_command = true,
                         auto_submit = false,
                         stop_context_insertion = true,
