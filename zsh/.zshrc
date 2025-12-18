@@ -16,13 +16,17 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 fast-theme XDG:catppuccin-mocha -q
 zinit light zsh-users/zsh-autosuggestions
 
-# fast-theme -t base16
 
 # Starship
 zinit ice as"command" from"gh-r" \
           atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
           atpull"%atclone" src"init.zsh"
 zinit light starship/starship
+
+
+zstyle ':fzf-tab:complete:*' fzf-bindings 'shift-tab:toggle'
+zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:*' continuous-trigger '`'
 
 source <(fzf --zsh)
 # source <(jj util completion zsh)

@@ -19,6 +19,7 @@ Use the following guidelines for generating docstrings for the selected code:
 <guidelines>
 
 A good docstring should:
+
 - Be concise and clear, avoiding unnecessary verbosity
 - Follow Google style docstring format if the selected code is Python code
 - Include a brief one-line summary of what the function/class does
@@ -42,10 +43,11 @@ Otherwise use best practice for the language in question.
 
 ## user
 
+I'm working in buffer ${context.bufnr}.
+
 Add docstrings for the selected code.
-Do not change the code itself.
+Do not change the code itself, just add documentation
 
 ```${context.filetype}
 ${context.code}
 ```
-

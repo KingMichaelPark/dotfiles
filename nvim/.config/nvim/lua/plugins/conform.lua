@@ -18,6 +18,7 @@ return {
                 json               = { "biome" },
                 jsonc              = { "biome" },
                 jsx                = { "biome" },
+                markdown           = { "prettierd" },
                 scss               = { "biome" },
                 tsx                = { "biome" },
                 typescript         = { "biome" },
