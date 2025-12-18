@@ -1,3 +1,19 @@
+---
+name: Tests
+interaction: inline
+description: Explain how code works
+opts:
+  alias: add_tests
+  auto_submit: true
+  modes:
+    - v
+  placement: add
+  stop_context_insertion: true
+  user_prompt: false
+---
+
+## system
+
 For the code... Use the following guidelines for generating a unittest for the selected text:
 
 <guidelines>
@@ -44,3 +60,13 @@ explain the purpose of each test case and significant steps within the test.
 Reply only with code.
 
 </guidelines>
+
+## user
+
+Add unit tests for the selected code.
+Do not change the code itself.
+
+```${context.filetype}
+${context.code}
+```
+

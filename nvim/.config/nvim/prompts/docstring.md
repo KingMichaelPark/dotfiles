@@ -1,3 +1,19 @@
+---
+name: Docstrings
+interaction: inline
+description: Explain how code works
+opts:
+  alias: add_docs
+  auto_submit: true
+  modes:
+    - v
+  placement: replace
+  stop_context_insertion: true
+  user_prompt: false
+---
+
+## system
+
 Use the following guidelines for generating docstrings for the selected code:
 
 <guidelines>
@@ -23,3 +39,13 @@ unchanged and the docstring added.
 Otherwise use best practice for the language in question.
 
 </guidelines>
+
+## user
+
+Add docstrings for the selected code.
+Do not change the code itself.
+
+```${context.filetype}
+${context.code}
+```
+

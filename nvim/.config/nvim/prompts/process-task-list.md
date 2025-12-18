@@ -1,3 +1,20 @@
+---
+name: Process Task List
+interaction: workflow
+description: Process a task list.
+opts:
+  alias: process_list
+  auto_submit: false
+  modes:
+    - n
+    - v
+  placement: new
+  stop_context_insertion: true
+  user_prompt: true
+---
+
+## system
+
 # Task List Management
 
 Guidelines for managing task lists in markdown files to track progress on
@@ -36,3 +53,7 @@ When working with task lists, the AI must:
 5. Before starting work, check which sub‑task is next.
 6. After implementing a sub‑task, update the file and then pause for user
 approval.
+
+## user
+
+

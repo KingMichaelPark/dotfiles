@@ -56,6 +56,7 @@ return {
                             env = {
                                 api_key = "GEMINI_API_KEY",
                             },
+
                         })
                     end,
                 },
@@ -68,11 +69,16 @@ return {
                             env = {
                                 api_key = "GEMINI_API_KEY"
                             },
+                            schema = {
+                                model = {
+                                    default = "gemini-3-flash-preview"
+                                }
+                            }
                         })
                     end,
                 },
             },
-            strategies = {
+            interactions = {
                 chat = {
                     adapter = "gemini_cli",
                 },
@@ -96,102 +102,12 @@ return {
                 },
             },
             prompt_library = {
-                ["Add Docstrings"] = {
-                    interaction = "inline",
-                    description = "Add Docstrings",
-                    opts = {
-                        mapping = "<leader>ad",
-                        modes = { "v" },
-                        alias = "add_docs",
-                        is_slash_command = true,
-                        auto_submit = true,
-                        stop_context_insertion = true,
-                        user_prompt = true,
-                    },
-                    prompts = {
-                        {
-                            role = "user",
-                            content = function(context)
-                                local text = require("codecompanion.helpers.actions").get_code(context.start_line,
-                                    context.end_line)
-
-                                local docstring_prompt = read_file(vim.fn.expand(
-                                    "$HOME/.config/nvim/prompts/docstring.txt"))
-                                return "I have the following code:\n\n```" ..
-                                    context.filetype .. "\n" .. text .. "\n```\n\n" .. docstring_prompt
-                            end,
-                            opts = {
-                                contains_code = true,
-                            }
-                        },
+                markdown = {
+                    dirs = {
+                        -- vim.fn.getcwd() .. "/.prompts", -- Can be relative
+                        "~/.dotfiles/nvim/.config/nvim/prompts", -- Or absolute paths
                     }
                 },
-                ["Generate Unit Tests"] = {
-                    interaction = "chat",
-                    description = "Create unit tests",
-                    opts = {
-                        mapping = "<leader>at",
-                        modes = { "v" },
-                        alias = "add_tests",
-                        is_slash_command = true,
-                        auto_submit = true,
-                        stop_context_insertion = true,
-                        user_prompt = true,
-                    },
-                    prompts = {
-                        {
-                            role = "system",
-                            content = function(context)
-                                local unit_test_prompt = read_file(vim.fn.expand(
-                                    "$HOME/.config/nvim/prompts/unit-test.txt"))
-                                return "I want you to act as a senior "
-                                    .. context.filetype
-                                    .. " developer specializing in testing. " .. unit_test_prompt
-                            end,
-                        },
-                        {
-                            role = "user",
-                            content = function(context)
-                                local text = require("codecompanion.helpers.actions").get_code(context.start_line,
-                                    context.end_line)
-                                return "I have the following code:\n\n```" ..
-                                    context.filetype .. "\n" .. text .. "\n```\n\n"
-                            end,
-                            opts = {
-                                contains_code = true,
-                            }
-                        },
-                    }
-                },
-                ["Generate PRD"] = {
-                    interaction = "chat",
-                    description = "Create project requirements doc",
-                    opts = {
-                        mapping = "<leader>ar",
-                        modes = { "v" },
-                        alias = "add_prd",
-                        is_slash_command = true,
-                        auto_submit = false,
-                        stop_context_insertion = true,
-                        user_prompt = true,
-                    },
-                    prompts = {
-                        {
-                            role = "user",
-                            content = function(context)
-                                local text = require("codecompanion.helpers.actions").get_code(context.start_line,
-                                    context.end_line)
-
-                                local prd = read_file(vim.fn.expand(
-                                    "$HOME/.config/nvim/prompts/project-requirements-doc.txt"))
-                                return prd .. "\n" .. text
-                            end,
-                            opts = {
-                                contains_code = false,
-                            }
-                        },
-                    },
-                }
             },
 
         })
@@ -206,8 +122,6 @@ return {
             { desc = "Add docstrings", noremap = true, silent = true })
         vim.keymap.set("v", "<leader>at", function() require("codecompanion").prompt("add_tests") end,
             { desc = "Add tests", noremap = true, silent = true })
-        vim.keymap.set("v", "<leader>ar", function() require("codecompanion").prompt("add_prd") end,
-            { desc = "Add Project Requiremnts Doc", noremap = true, silent = true })
 
         vim.cmd([[cab cc CodeCompanion]])
     end
