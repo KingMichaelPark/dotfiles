@@ -1,11 +1,10 @@
 [ui]
 theme = "catppuccin-mocha"
 
-[preview]
-revision_command = ["show", "--color", "always", "--config", "ui.diff-formatter=delta", "-r", "$change_id"]
-oplog_command = ["op", "show", "$operation_id", "--color", "always"]
-file_command = ["diff", "--color", "always", "--config", "ui.diff-formatter=delta", "-r", "$change_id", "$file"]
-
 [revisions]
 revset = "present(@) | ancestors(immutable().., 10) | present(trunk())"               # overrides jj's revsets.log
 
+[preview]
+file_command = ["diff", "--color", "always", "-r", "$change_id", "$file", "--config", "ui.diff-formatter=delta-catppuccin-mocha"]
+oplog_command = ["op", "show", "$operation_id", "--color", "always"]
+revision_command = ["show", "--color", "always", "-r", "$change_id", "--config", "ui.diff-formatter=delta-catppuccin-mocha"]

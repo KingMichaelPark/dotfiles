@@ -28,7 +28,7 @@
         bold yellow => syntax "#6b635b"
     # Should match the name of the bat theme
     syntax-theme = Catppuccin Mocha
-
+    side-by-side = false
 
 [core]
     pager = delta
@@ -40,6 +40,7 @@
     navigate = true  # use n and N to move between diff sections
     dark = true      # or light = true, or omit for auto-detection
     features = catppuccin-mocha
+    line-numbers = true
 
 [merge]
     conflictstyle = zdiff3

@@ -57,37 +57,6 @@ cm = ["commit", "-m"]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 
-[fix.tools.biome]
-command = ["biome", "check", "--stdin-file-path=$path", "--write"]
-# run with npx:
-#   command = ["npx", "@biomejs/biome", "check", "--stdin-file-path=$path", "--write"]
-# run from node_modules:
-#   command = ["$root/node_modules/.bin/biome", "check", "--stdin-file-path=$path", "--write"]
-
-patterns = [
-    "glob:'**/*.js'",
-    "glob:'**/*.jsx'",
-    "glob:'**/*.ts'",
-    "glob:'**/*.tsx'",
-    "glob:'**/*.json'",
-    ]
-
-[fix.tools.gofmt]
-patterns = ["glob:'**/*.go'"]
-command = ["gofmt"]
-
-# [fix.tools.gofumpt]
-# patterns = ["glob:'**/*.go'"]
-# command = ["gofumpt"]
-
-[fix.tools.ruff]
-command = ["ruff", "-", "--stdin-filename=$path"]
-patterns = ["glob:'**/*.py'"]
-
-[fix.tools.shfmt]
-command = ["shfmt", "--filename=$path"]
-patterns = ["glob:'**/*.sh'"]
-
-[fix.tools.terraform]
-command = ["terraform", "fmt", "-"]
-patterns = ["glob:'**/*.tf'"]
+[merge-tools.delta-catppuccin-mocha]
+program = "delta"
+diff-args = ["--width", "$width", "--features", "catppuccin-mocha", "$left", "$right"]
