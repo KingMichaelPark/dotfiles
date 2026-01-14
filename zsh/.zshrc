@@ -29,7 +29,7 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:*' continuous-trigger '`'
 
 source <(fzf --zsh)
-# source <(jj util completion zsh)
+source <(jj util completion zsh)
 
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
