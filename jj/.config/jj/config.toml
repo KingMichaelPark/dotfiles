@@ -17,6 +17,7 @@ diff-formatter = ":git"
 editor = "nvim"
 pager = "delta"
 conflict-marker-style = "git"
+diff-editor = ["nvim", "-c", "CodeDiff", "merge", "$left", "$right"]
 
 [git]
 subprocess = true
@@ -60,3 +61,4 @@ cm = ["commit", "-m"]
 [merge-tools.delta-catppuccin-mocha]
 program = "delta"
 diff-args = ["--width", "$width", "--features", "catppuccin-mocha", "$left", "$right"]
+diff-expected-exit-codes = [0, 1]
