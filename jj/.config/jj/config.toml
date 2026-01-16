@@ -12,7 +12,7 @@ name = "Michael Park"
 email = "me@mhpark.me"
 
 [ui]
-default-command = ["log"]
+default-command = "log-recent"
 diff-formatter = ":git"
 editor = "nvim"
 pager = "delta"
@@ -24,39 +24,20 @@ subprocess = true
 sign-on-push = true
 
 [aliases]
+log-recent = [ "log", "-r", "default() & recent()" ]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 init = ["git", "init", "--colocate"]
-ps = ["util", "exec", "--", "bash", "-c", """
-set -e
-
-# Check if current commit has both description and changes
-has_description=$(jj log -r @ --no-graph --color never -T 'description' | grep -q . && echo "yes" || echo "no")
-# Use 'empty' template keyword to check if commit has changes
-has_changes=$(jj log -r @ --no-graph --color never -T 'empty' | grep -q "false" && echo "yes" || echo "no")
-
-if [ "$has_description" = "yes" ] && [ "$has_changes" = "yes" ]; then
-    echo "Current commit has description and changes, creating new commit..."
-    jj new
-fi
-
-# Get the bookmark from the parent commit directly
-bookmark=$(jj log -r 'ancestors(@) & bookmarks()' -n 1 --no-graph --color never -T 'bookmarks' | sed 's/\\*$//' | tr -d ' ')
-
-if [ -z "$bookmark" ]; then
-    echo "No bookmark found on parent commit"
-    exit 1
-fi
-
-echo "Moving bookmark '$bookmark' to parent commit and pushing..."
-jj bookmark set "$bookmark" -r @-
-jj git fetch
-jj git push --bookmark "$bookmark" --allow-new
-"""]
 cm = ["commit", "-m"]
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
+"default()" = """
+coalesce(trunk(),root())::present(@) | ancestors(visible_heads() & recent(), 5)
+"""
+"recent()" = """
+committer_date(after:"1 month ago")
+"""
 
 [merge-tools.delta-catppuccin-mocha]
 program = "delta"
