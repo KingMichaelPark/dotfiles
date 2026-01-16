@@ -12,7 +12,7 @@ name = "Michael Park"
 email = "me@mhpark.me"
 
 [ui]
-default-command = "log-recent"
+default-command = "log"
 diff-formatter = ":git"
 editor = "nvim"
 pager = "delta"
