@@ -38,7 +38,7 @@ return {
         end
 
         -- Refresh the info on relevant events
-        vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'DirChanged' }, {
+        vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained' }, {
             callback = update_jj_status
         })
 
