@@ -1,20 +1,25 @@
 {
+  "formatter": {
+    "formatWithErrors": true,
+    "indentStyle": "space"
+  },
+  "javascript": {
     "formatter": {
-        "formatWithErrors": true,
-        "indentStyle": "space",
-        "indentWidth": 4
-    },
-    "javascript": {
-        "formatter": {
-            "quoteStyle": "single",
-            "indentStyle": "space",
-            "indentWidth": 4,
-            "semicolons": "asNeeded"
-        }
-    },
-    "html": {
-        "formatter": {
-            "enabled": true
-        }
+      "quoteStyle": "single",
+      "indentStyle": "space",
+      "indentWidth": 4,
+      "semicolons": "asNeeded"
     }
+  },
+  "json": {
+    "formatter": {
+      "indentStyle": "space",
+      "indentWidth": 2
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true
+    }
+  }
 }
