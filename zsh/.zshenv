@@ -53,7 +53,7 @@ export FZF_DEFAULT_OPTS="--multi --reverse --info=hidden \
 export HOMEBREW_NO_ENV_HINTS=1
 
 # Aliases
-alias ai="opencode"
+alias ai="sops exec-env ~/.dotfiles/access.json \"gemini\""
 alias cat="bat -p"
 alias d="docker"
 alias dc="docker-compose"

@@ -57,7 +57,6 @@ brew install \
     lazygit \
     mise \
     neovim \
-    opencode \
     pandoc \
     tree-sitter \
     tree-sitter-cli \
@@ -95,7 +94,6 @@ brew install --cask ghostty
 - **lazygit**: Simple terminal UI for git commands
 - **mise**: Polyglot runtime manager (asdf rust clone)
 - **neovim**: Ambitious Vim-fork focused on extensibility and agility
-- **opencode**: AI cli tool
 - **pandoc**: Swiss-army knife of markup format conversion
 - **tree-sitter**: Syntax tree based highlighing for neovim
 - **tree-sitter-cli**: Install parsers for tree sitter
