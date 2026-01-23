@@ -30,6 +30,7 @@ init = ["git", "init", "--colocate"]
 cm = ["commit", "-m"]
 gf = ["git", "fetch"]
 gp = ["git", "push"]
+rebase-trunk = ["rebase", "-r", "::@ ~ ::trunk()", "-d", "trunk()"]
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
