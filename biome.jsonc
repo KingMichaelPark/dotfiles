@@ -5,10 +5,7 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single",
-      "indentStyle": "space",
-      "indentWidth": 4,
-      "semicolons": "asNeeded"
+      "enabled": false
     }
   },
   "json": {

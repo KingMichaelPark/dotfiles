@@ -6,7 +6,7 @@ return {
     dependencies = 'rafamadriz/friendly-snippets',
     opts = {
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", },
+            default = { "lsp", "buffer", "snippets", "path", },
             per_filetype = {
                 sql = { 'snippets', 'buffer' },
                 codecompanion = { "codecompanion" },
@@ -44,6 +44,10 @@ return {
         -- Experimental signature help support
         signature = {
             enabled = true,
+        },
+        cmdline = {
+            keymap = { preset = 'inherit' },
+            completion = { menu = { auto_show = true } },
         },
     },
     config = function(_, opts)
