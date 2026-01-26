@@ -8,22 +8,6 @@ local function prompt_codecompanion_gemini()
 end
 
 
--- Reads the entire content of a file.
----
---- Attempts to open and read a file at the given path.
----
----@param path string The path to the file to read.
----@return string|nil The full content of the file as a string if successful,
----                    or `nil` if the file cannot be opened.
-local function read_file(path)
-    local file = io.open(path, "rb") -- r read mode and b binary mode
-    if not file then return nil end
-    local content = file:read "*a"   -- *a or *all reads the whole file
-    file:close()
-    return content
-end
-
-
 return {
     "olimorris/codecompanion.nvim",
     dependencies = {
