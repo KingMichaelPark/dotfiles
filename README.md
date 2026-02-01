@@ -57,6 +57,7 @@ brew install \
     lazygit \
     mise \
     neovim \
+    prek \
     pandoc \
     tree-sitter \
     tree-sitter-cli \
@@ -95,6 +96,7 @@ brew install --cask ghostty
 - **mise**: Polyglot runtime manager (asdf rust clone)
 - **neovim**: Ambitious Vim-fork focused on extensibility and agility
 - **pandoc**: Swiss-army knife of markup format conversion
+- **prek**: Pre-commit tool written in rust
 - **tree-sitter**: Syntax tree based highlighing for neovim
 - **tree-sitter-cli**: Install parsers for tree sitter
 - **restic**: Back-up utility with snapshots and backups
