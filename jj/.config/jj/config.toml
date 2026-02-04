@@ -31,6 +31,22 @@ cm = ["commit", "-m"]
 gf = ["git", "fetch"]
 gp = ["git", "push"]
 rebase-trunk = ["rebase", "-r", "::@ ~ ::trunk()", "-d", "trunk()"]
+bt = ["util", "exec", "--", 'sh', '-euc', '''
+  B=$(jj bookmark list --all -T 'name ++ "\n"' | sort | uniq | fzf)
+  if [ -n "$B" ]; then
+    jj b track --remote=origin "$B" > /dev/null 2>&1
+    echo "Tracking: $B"
+    jj b l --tracked
+  fi
+''' ]
+but = ["util", "exec", "--", 'sh', '-euc', '''
+  B=$(jj b l --tracked -T 'name ++ "\n"' | sort | uniq | fzf)
+  if [ -n "$B" ]; then
+    jj b untrack --remote=origin "$B" > /dev/null 2>&1
+    echo "Untracked: $B"
+    jj b l --tracked
+  fi
+''' ]
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
