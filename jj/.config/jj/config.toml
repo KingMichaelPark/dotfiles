@@ -39,11 +39,19 @@ bt = ["util", "exec", "--", 'sh', '-euc', '''
     jj b l --tracked
   fi
 ''' ]
-but = ["util", "exec", "--", 'sh', '-euc', '''
+bu = ["util", "exec", "--", 'sh', '-euc', '''
   B=$(jj b l --tracked -T 'name ++ "\n"' | sort | uniq | fzf)
   if [ -n "$B" ]; then
     jj b untrack --remote=origin "$B" > /dev/null 2>&1
     echo "Untracked: $B"
+    jj b l --tracked
+  fi
+''' ]
+bf = ["util", "exec", "--", 'sh', '-euc', '''
+  B=$(jj b l --tracked -T 'name ++ "\n"' | sort | uniq | fzf)
+  if [ -n "$B" ]; then
+    jj b forget "$B" > /dev/null 2>&1
+    echo "Forgot: $B"
     jj b l --tracked
   fi
 ''' ]
