@@ -50,12 +50,22 @@ return {
             ts.install(parser)
         end
 
+        -- Not every treesitter parser is the same as the filetype detected
+        -- So the patterns need to be registered more cleverly
+        local patterns = {}
+        for _, parser in ipairs(parsers) do
+            local parser_patterns = vim.treesitter.language.get_filetypes(parser)
+            for _, pp in pairs(parser_patterns) do
+                table.insert(patterns, pp)
+            end
+        end
+
         vim.treesitter.language.register("groovy", "Jenkinsfile")
         vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         vim.wo[0][0].foldmethod = 'expr'
 
         vim.api.nvim_create_autocmd('FileType', {
-            pattern = parsers,
+            pattern = patterns,
             callback = function()
                 vim.treesitter.start()
             end,
