@@ -1,11 +1,16 @@
 --- Prompts the user for a query and sends it to the CodeCompanion gemini command.
 --- If the query is not empty, it executes the Neovim command 'CodeCompanion gemini <query>'.
+--- Prompts the user for a query and sends it to the CodeCompanion gemini command.
 local function prompt_codecompanion_gemini()
-    local query = vim.fn.input("Query: ")
-    if query ~= "" then
-        vim.cmd("CodeCompanion gemini " .. query)
-    end
+    vim.ui.input({ prompt = "Query: " }, function(input)
+        if not input or input == "" then
+            return
+        end
+
+        vim.cmd(string.format("CodeCompanion gemini %s", input))
+    end)
 end
+
 
 
 return {
@@ -99,9 +104,12 @@ return {
         vim.keymap.set({ "v" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true, expr = true })
         vim.keymap.set({ "n" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true })
         vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
-        vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>",
+        vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat adapter=gemini Toggle<cr>",
             { noremap = true, silent = true })
-        vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v" }, "<leader>aA", "<cmd>CodeCompanionChat adapter=gemini_cli Toggle<cr>",
+            { noremap = true, silent = true })
+        vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat adapter=gemini Add<cr>", { noremap = true, silent = true })
+        vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat adapter=gemini_cli Add<cr>", { noremap = true, silent = true })
         vim.keymap.set("v", "<leader>ad", function() require("codecompanion").prompt("add_docs") end,
             { desc = "Add docstrings", noremap = true, silent = true })
         vim.keymap.set("v", "<leader>at", function() require("codecompanion").prompt("add_tests") end,
