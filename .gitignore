@@ -12,6 +12,9 @@ fonts/maple-font
 
 *backblaze.age.json
 
+jj/.config/jj/repos
+jj/.config/jj/repos/*
+
 .zprofile
 colima/.colima/_lima/*
 colima/.colima/ssh_config
