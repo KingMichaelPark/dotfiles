@@ -113,15 +113,20 @@ return {
             },
             -- Conflict mode keymaps (only active in merge conflict views)
             conflict = {
-                accept_incoming = "<leader>cl", -- Accept incoming (theirs/left) change
-                accept_current = "<leader>cr",  -- Accept current (ours/right) change
-                accept_both = "<leader>cb",     -- Accept both changes (incoming first)
-                discard = "<leader>cx",         -- Discard both, keep base
-                next_conflict = "]x",           -- Jump to next conflict
-                prev_conflict = "[x",           -- Jump to previous conflict
+                accept_incoming = "<leader>cl",     -- Accept incoming (theirs/left) change
+                accept_current = "<leader>cr",      -- Accept current (ours/right) change
+                accept_both = "<leader>cb",         -- Accept both changes (incoming first)
+                discard = "<leader>cx",             -- Discard both, keep base
+                -- Accept all (whole file) - uppercase versions like diffview
+                accept_all_incoming = "<leader>cL", -- Accept ALL incoming changes
+                accept_all_current = "<leader>cR",  -- Accept ALL current changes
+                accept_all_both = "<leader>cB",     -- Accept ALL both changes
+                discard_all = "<leader>cX",         -- Discard ALL, reset to base
+                next_conflict = "]x",               -- Jump to next conflict
+                prev_conflict = "[x",               -- Jump to previous conflict
                 -- Vimdiff-style numbered diffget (from result buffer)
-                diffget_incoming = "2do",       -- Get hunk from incoming (left/theirs) buffer
-                diffget_current = "3do",        -- Get hunk from current (right/ours) buffer
+                diffget_incoming = "2do",           -- Get hunk from incoming (left/theirs) buffer
+                diffget_current = "3do",            -- Get hunk from current (right/ours) buffer
             },
         }
     },
