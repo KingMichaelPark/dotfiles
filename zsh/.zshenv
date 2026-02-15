@@ -1,20 +1,19 @@
-# Append Paths
-pathmunge () {
-        if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)" ; then
-           if [ "$2" = "after" ] ; then
-              PATH="$PATH:$1"
-           else
-              PATH="$1:$PATH"
-           fi
-        fi
+# Ensure path entries remain unique
+typeset -U path PATH
+
+# Improved pathmunge using native Zsh array manipulation
+pathmunge() {
+    [[ -d "$1" ]] || return
+    if [[ "$2" == "after" ]]; then
+        path+=("$1")
+    else
+        path=("$1" $path)
+    fi
 }
 
 ### Add custom paths
-paths_to_append=("$HOME/.local/bin" "/opt/homebrew/bin" "$HOME/.cargo/bin")
-for p in "${paths_to_append[@]}"; do
-    if [ -d        "$p" ]; then
-        pathmunge "$p"
-    fi
+for p in "$HOME/.local/bin" "/opt/homebrew/bin" "$HOME/.cargo/bin"; do
+    pathmunge "$p"
 done
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)

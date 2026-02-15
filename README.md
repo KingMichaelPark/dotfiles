@@ -47,6 +47,7 @@ brew install \
     fd \
     fzf \
     ghostty \
+    git \
     git-delta \
     hurl \
     jq \
@@ -86,6 +87,7 @@ brew install --cask ghostty
 - **fzf**: Command-line fuzzy finder written in Go
 - **hurl**: HTTP Tool
 - **ghostty**: Current terminal emulator
+- **git**: The apple system git is way too old
 - **git-delta**: Syntax-highlighting pager for git and diff output
 - **jq**: Lightweight and flexible command-line JSON processor
 - **jj**: VCS alternative to git but also git compatible (Jujutsu)
