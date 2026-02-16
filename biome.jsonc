@@ -1,22 +1,22 @@
 {
   "formatter": {
     "formatWithErrors": true,
-    "indentStyle": "space"
+    "indentStyle": "space",
   },
   "javascript": {
     "formatter": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "json": {
     "formatter": {
       "indentStyle": "space",
-      "indentWidth": 2
-    }
+      "indentWidth": 4,
+    },
   },
   "html": {
     "formatter": {
-      "enabled": true
-    }
-  }
+      "enabled": true,
+    },
+  },
 }
