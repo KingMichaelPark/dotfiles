@@ -67,6 +67,14 @@ alias v="nvim"
 alias vim="nvim"
 alias y="yazi"
 
+
+function record_session_() {
+  local filename="$(date +'%Y-%m-%d-%H-%M')"
+  asciinema rec "$filename.cast"
+  agg "$filename.cast" "$filename.gif"
+}
+alias rec='record_session'
+
 # ZSH Settings
 HISTSIZE=20000
 SAVEHIST=10000

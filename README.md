@@ -33,7 +33,9 @@ without it, feel free to pick and choose what you like.
 ```bash
 brew install \
     age \
+    agg \
     argon2 \
+    asciinema \
     bat \
     bottom \
     colima \
@@ -75,7 +77,9 @@ brew install --cask ghostty
 # Descriptions
 
 - **age**: Simple, modern, secure file encryption
+- **agg**: Convert asciinema recordings to gif
 - **argon2**: Password hashing library and CLI utility
+- **asciinema**: Terminal recording tool
 - **bat**: Clone of cat(1) with syntax highlighting and Git integration
 - **bottom**: Yet another cross-platform graphical process/system monitor
 - **colima**: Docker cli free OSS
