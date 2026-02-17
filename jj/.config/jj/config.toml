@@ -17,7 +17,7 @@ diff-formatter = ":git"
 editor = "nvim"
 pager = "delta"
 conflict-marker-style = "git"
-diff-editor = ["nvim", "-c", "CodeDiff", "merge", "$left", "$right"]
+# diff-editor = ["nvim", "-c", "CodeDiff", "merge", "$left", "$right"]
 
 [git]
 subprocess = true
