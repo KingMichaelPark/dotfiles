@@ -23,12 +23,8 @@ return {
     config = function()
         local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")
         local gemini_key
-        local anthropic_key
         if vim.fn.filereadable(identity) == 1 then
             local secret = vim.fn.expand("$HOME/.dotfiles/access.json")
-
-            anthropic_key = require("age").from_sops(secret)["ANTHROPIC"]
-            vim.fn.setenv("ANTHROPIC_API_KEY", anthropic_key)
 
             gemini_key = require("age").from_sops(secret)["GOOGLE"]
             vim.fn.setenv("GEMINI_API_KEY", gemini_key)

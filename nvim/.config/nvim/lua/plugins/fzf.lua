@@ -9,8 +9,8 @@ return {
         -- find
         { "<leader>fc",      function() require('fzf-lua').files({ cwd = vim.fn.stdpath("config") }) end,       desc = "Find Config File" },
         { "<leader>ff",      function() require('fzf-lua').files({ hidden = true, args = {} }) end,             desc = "Find Files" },
-        { "<leader>fg",      function() require('fzf-lua').git_files({ untracked = false, hidden = true }) end, desc = "Find Git Files" },
-        { "<leader><space>", function() require('fzf-lua').files({ hidden = true, args = {} }) end,             desc = "Find Files" },
+        { "<leader><space>", function() require('fzf-lua').git_files({ untracked = false, hidden = true }) end, desc = "Find Git Files" },
+        { "<c-p>",           function() require('fzf-lua').files({ hidden = true, args = {} }) end,             desc = "Find Files" },
         { "<leader>fp",      function() require('fzf-lua').projects() end,                                      desc = "Projects" },
         -- git
         { "<leader>gl",      function() require('fzf-lua').git_log() end,                                       desc = "Git Log" },
