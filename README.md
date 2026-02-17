@@ -1,8 +1,7 @@
 # My Dotfiles
 
-![Github tag (latest by SemVer)](https://img.shields.io/github/v/tag/kingmichaelpark/dotfiles?style=flat-square)
 ![Mastodon Follow](https://img.shields.io/mastodon/follow/109638370673707754?domain=https%3A%2F%2Ffosstodon.org&style=social)
-[![Bluesky Follow](https://img.shields.io/bluesky/follow/mhpark.me?style=social)](https://bsky.app/profile/mhpark.me)
+![Bluesky Follow](https://img.shields.io/bluesky/followers/mhpark.me)
 
 Dotfiles are managed via `gnu stow`. From `~/.dotfiles`, `stow <dir>` symlinks
 its contents to the parent directory. Tooling (Python, Node, etc.) is managed
@@ -81,4 +80,4 @@ I also have a narrow build of [Maple Mono](https://github.com/subframe7536/maple
 
 ## Questions
 
-If you have any questions send me a message at [Mastodon]("https://fosstodon.org/@mdawg") or [Bluesky]("https://bsky.app/profile/mhpark.me")
+If you have any questions send me a message at [Mastodon](https://fosstodon.org/@mdawg) or [Bluesky](https://bsky.app/profile/mhpark.me)
