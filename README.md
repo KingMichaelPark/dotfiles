@@ -27,6 +27,7 @@ without it, feel free to pick and choose what you like.
 | [**agg**](https://github.com/asciinema/agg)                       | Convert asciinema recordings to gif                                      |
 | [**argon2**](https://github.com/P-H-C/phc-winner-argon2)          | Password hashing library and CLI utility                                 |
 | [**asciinema**](https://github.com/asciinema/asciinema)           | Terminal recording tool                                                  |
+| [**atuin**](https://github.com/atuinsh/atuin)                     | Magical shell history                                                    |
 | [**bat**](https://github.com/sharkdp/bat)                         | Clone of cat(1) with syntax highlighting and Git integration             |
 | [**bottom**](https://github.com/ClementTsang/bottom)              | Yet another cross-platform graphical process/system monitor              |
 | [**colima**](https://github.com/abiosoft/colima)                  | Docker cli free OSS                                                      |
@@ -40,7 +41,7 @@ without it, feel free to pick and choose what you like.
 | [**ghostty**](https://github.com/ghostty-org/ghostty)             | Current terminal emulator                                                |
 | [**git**](https://github.com/git/git)                             | The apple system git is way too old                                      |
 | [**git-delta**](https://github.com/dandavison/delta)              | Syntax-highlighting pager for git and diff output                        |
-| [**hurl**](https://github.com/Orange-OpenSource/hurl)             | HTTP Tool                                                                |
+| [**httpie**](https://github.com/httpie/cli)                       | HTTP Tool                                                                |
 | [**jq**](https://github.com/jqlang/jq)                            | Lightweight and flexible command-line JSON processor                     |
 | [**jj**](https://github.com/martinvonz/jj)                        | VCS alternative to git but also git compatible (Jujutsu)                 |
 | [**jjui**](https://github.com/idursun/jjui)                       | TUI for Jujutsu                                                          |
@@ -48,13 +49,14 @@ without it, feel free to pick and choose what you like.
 | [**lazygit**](https://github.com/jesseduffield/lazygit)           | Simple terminal UI for git commands                                      |
 | [**mise**](https://github.com/jdx/mise)                           | Polyglot runtime manager (asdf rust clone)                               |
 | [**neovim**](https://github.com/neovim/neovim)                    | Ambitious Vim-fork focused on extensibility and agility                  |
-| [**pandoc**](https://github.com/jgm/pandoc)                       | Swiss-army knife of markup format conversion                             |
+| [**pandoc**](https://github.com/jgm/pandoc)                       | Swiss-army knife of markup format conversion (mostly markdown to jira)   |
 | [**prek**](https://github.com/j178/prek)                          | Pre-commit tool written in rust                                          |
 | [**tree-sitter**](https://github.com/tree-sitter/tree-sitter)     | Syntax tree based highlighting for neovim                                |
 | [**tree-sitter-cli**](https://github.com/tree-sitter/tree-sitter) | Install parsers for tree sitter                                          |
 | [**restic**](https://github.com/restic/restic)                    | Back-up utility with snapshots and backups                               |
 | [**ripgrep**](https://github.com/BurntSushi/ripgrep)              | Search tool like grep and The Silver Searcher                            |
 | [**sops**](https://github.com/getsops/sops)                       | Editor of encrypted files                                                |
+| [**starship**](https://starship.rs/)                              | Starship zsh theme (installed via `zsh/.zshrc`)                          |
 | [**stow**](https://www.gnu.org/software/stow/)                    | Organize software neatly under a single directory tree (e.g. /usr/local) |
 | [**stylua**](https://github.com/JohnnyMorganz/StyLua)             | Opinionated Lua code formatter                                           |
 | [**typst**](https://github.com/typst/typst)                       | LaTeX / Word alternative                                                 |
@@ -67,7 +69,7 @@ without it, feel free to pick and choose what you like.
 To install all essential software via [Homebrew](https://brew.sh/), run:
 
 ```bash
-brew install age agg argon2 asciinema bat bottom colima docker docker-compose docker-buildx docker-credential-helper duckdb entr eza fd fzf git git-delta hurl jq jj jjui lazydocker lazygit mise neovim opencode pandoc prek tree-sitter tree-sitter-cli restic ripgrep sops stow stylua typst uv yazi zoxide && brew install --cask ghostty
+brew install age agg argon2 asciinema atuin bat bottom colima docker docker-compose docker-buildx docker-credential-helper duckdb entr eza fd fzf git git-delta httpie jq jj jjui lazydocker lazygit mise neovim opencode pandoc prek tree-sitter tree-sitter-cli restic ripgrep sops stow stylua typst uv yazi zoxide && brew install --cask ghostty
 ```
 
 ### Fonts
