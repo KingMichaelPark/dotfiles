@@ -3,6 +3,9 @@
 ![Mastodon Follow](https://img.shields.io/mastodon/follow/109638370673707754?domain=https%3A%2F%2Ffosstodon.org&style=social)
 ![Bluesky Follow](https://img.shields.io/bluesky/followers/mhpark.me)
 
+
+![dotfiles](https://github.com/user-attachments/assets/896d95d5-3ea8-4e76-bf85-2fbbd02542e2)
+
 Dotfiles are managed via `gnu stow`. From `~/.dotfiles`, `stow <dir>` symlinks
 its contents to the parent directory. Tooling (Python, Node, etc.) is managed
 via [mise](https://github.com/jdxcode/mise).
