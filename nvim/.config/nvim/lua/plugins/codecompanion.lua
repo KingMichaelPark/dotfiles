@@ -105,7 +105,7 @@ return {
         vim.keymap.set({ "n", "v" }, "<leader>aA", "<cmd>CodeCompanionChat adapter=gemini_cli Toggle<cr>",
             { noremap = true, silent = true })
         vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat adapter=gemini Add<cr>", { noremap = true, silent = true })
-        vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat adapter=gemini_cli Add<cr>", { noremap = true, silent = true })
+        vim.keymap.set("v", "gA", "<cmd>CodeCompanionChat adapter=gemini_cli Add<cr>", { noremap = true, silent = true })
         vim.keymap.set("v", "<leader>ad", function() require("codecompanion").prompt("add_docs") end,
             { desc = "Add docstrings", noremap = true, silent = true })
         vim.keymap.set("v", "<leader>at", function() require("codecompanion").prompt("add_tests") end,
