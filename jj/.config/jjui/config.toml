@@ -1,8 +1,8 @@
 [ui]
 theme = "catppuccin-mocha"
 
-[revisions]
-revset = "present(@) | ancestors(immutable().., 10) | present(trunk())"               # overrides jj's revsets.log
+# [revisions]
+revset = "present(@) | ancestors(immutable().., 15) | present(trunk())"               # overrides jj's revsets.log
 
 [preview]
 file_command = ["diff", "--color", "always", "-r", "$change_id", "$file", "--config", "ui.diff-formatter=delta-catppuccin-mocha"]
