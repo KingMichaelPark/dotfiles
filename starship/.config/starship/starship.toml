@@ -24,6 +24,9 @@ style = 'bold surface2'
 [aws]
 symbol = "  "
 
+[bun]
+symbol = " "
+
 [buf]
 symbol = " "
 
