@@ -12,6 +12,13 @@ theme = "Catppuccin Mocha"
 window-height = 50
 window-width = 150
 
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 30s
+
+palette-generate = true
+
+
 # Keybinds
 keybind = ctrl+b>t=new_tab
 keybind = ctrl+b>n=next_tab
