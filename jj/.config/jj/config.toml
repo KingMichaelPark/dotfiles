@@ -32,26 +32,26 @@ gf = ["git", "fetch"]
 gp = ["git", "push"]
 rebase-trunk = ["rebase", "-r", "::@ ~ ::trunk()", "-d", "trunk()"]
 bt = ["util", "exec", "--", 'sh', '-euc', '''
-  B=$(jj bookmark list --all -T 'name ++ "\n"' | sort | uniq | fzf)
+  B=$(jj bookmark list --all -T 'name ++ "\n"' | sort | uniq | fzf -m)
   if [ -n "$B" ]; then
-    jj b track --remote=origin "$B" > /dev/null 2>&1
-    echo "Tracking: $B"
+    jj b track --remote=origin $B > /dev/null 2>&1
+    echo "Tracking: $(echo $B)"
     jj b l --tracked
   fi
 ''' ]
 bu = ["util", "exec", "--", 'sh', '-euc', '''
-  B=$(jj b l --tracked -T 'name ++ "\n"' | sort | uniq | fzf)
+  B=$(jj b l --tracked -T 'name ++ "\n"' | sort | uniq | fzf -m)
   if [ -n "$B" ]; then
-    jj b untrack --remote=origin "$B" > /dev/null 2>&1
-    echo "Untracked: $B"
+    jj b untrack --remote=origin $B > /dev/null 2>&1
+    echo "Untracked: $(echo $B)"
     jj b l --tracked
   fi
 ''' ]
 bf = ["util", "exec", "--", 'sh', '-euc', '''
-  B=$(jj b l --tracked -T 'name ++ "\n"' | sort | uniq | fzf)
+  B=$(jj b l --tracked -T 'name ++ "\n"' | sort | uniq | fzf -m)
   if [ -n "$B" ]; then
-    jj b forget "$B" > /dev/null 2>&1
-    echo "Forgot: $B"
+    jj b forget $B > /dev/null 2>&1
+    echo "Forgot: $(echo $B)"
     jj b l --tracked
   fi
 ''' ]
