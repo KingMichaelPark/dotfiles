@@ -78,11 +78,11 @@ vim.keymap.set("n", "<leader>fn", function()
         table.insert(items, string.format("%s  %s", item.char, item.name))
     end
     require("fzf-lua").fzf_exec(items, {
-        prompt = "Icons> ",
+        prompt = "  ",
         multiselect = true,
         winopts = {
-            height = 0.33,
-            width = 0.33,
+            height = 0.40,
+            width = 0.60,
         },
         actions = {
             ["default"] = function(selected)
