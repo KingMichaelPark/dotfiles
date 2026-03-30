@@ -26,5 +26,15 @@
 require("config.opts")
 require("config.keymaps")
 require("config.autocommands")
-require("config.lazy-setup")
+
+-- Load plugins
+local plugin_path = vim.fn.stdpath("config") .. "/lua/plugin"
+local plugins = vim.fn.glob(plugin_path .. "/*.lua", true, true)
+for _, file in ipairs(plugins) do
+    local name = vim.fn.fnamemodify(file, ":t:r")
+    if name ~= "init" then
+        require("plugin." .. name)
+    end
+end
+
 require("config.get_lsps")

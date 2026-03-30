@@ -52,8 +52,11 @@ vim.diagnostic.config({
 
 local lsps = get_lua_filenames_without_extension()
 
+-- Ensure blink.cmp is loaded so we can use its get_lsp_capabilities
+vim.cmd.packadd("blink.cmp")
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities({}, false))
+capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
 capabilities = vim.tbl_deep_extend('force', capabilities, {
     textDocument = {
         foldingRange = {
