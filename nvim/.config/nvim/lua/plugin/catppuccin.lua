@@ -1,6 +1,6 @@
 local gh = require("utils").gh
 
-vim.pack.add({{ src= gh("catppuccin/nvim"), name = "catppuccin" }})
+vim.pack.add({ { src = gh("catppuccin/nvim"), name = "catppuccin" } })
 
 require("catppuccin").setup({
     float = {
@@ -42,19 +42,18 @@ require("catppuccin").setup({
     custom_highlights = {},
     default_integrations = true,
     integrations = {
-        blink_cmp = true,
-        diffview = true,
+        blink_cmp = {
+            style = 'bordered',
+        },
+        diffview = false,
         gitsigns = true,
         harpoon = true,
         fzf = true,
-        treesitter = true,
+        grug_far = true,
         leap = true,
         mason = true,
+        treesitter = true,
         nvim_surround = true,
-        snacks = {
-            enabled = true,
-            indent_scope_color = "", -- catppuccin color (eg. `lavender`) Default: text
-        },
         telescope = { enabled = false },
         which_key = true,
     },

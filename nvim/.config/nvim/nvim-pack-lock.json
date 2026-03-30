@@ -26,11 +26,11 @@
       "src": "https://github.com/laytan/cloak.nvim"
     },
     "codecompanion": {
-      "rev": "af6f43c6af1dd18f01ad173b71bd58a6071edde0",
+      "rev": "4b3f17b558fc92a3e10c4310e562b1ca7458c6a9",
       "src": "https://github.com/olimorris/codecompanion.nvim"
     },
     "codecompanion.nvim": {
-      "rev": "af6f43c6af1dd18f01ad173b71bd58a6071edde0",
+      "rev": "4b3f17b558fc92a3e10c4310e562b1ca7458c6a9",
       "src": "https://github.com/olimorris/codecompanion.nvim"
     },
     "codediff": {

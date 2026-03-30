@@ -54,5 +54,5 @@ local opts = {
     },
 }
 
-local blink = require("blink.cmp")
-blink.setup(opts)
+local blink_cmp = require("blink.cmp")
+blink_cmp.setup(opts)
