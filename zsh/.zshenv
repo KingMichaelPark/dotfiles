@@ -53,7 +53,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 # Aliases
 ai() {
-    GEMINI_API_KEY=$(sops --decrypt access.json | jq -r .GEMINI_API_KEY) pi "$@"
+    GEMINI_API_KEY=$(sops --decrypt "$HOME/.dotfiles/access.json" | jq -r .GEMINI_API_KEY) pi "$@"
 }
 alias cat="bat -p"
 alias d="docker"
