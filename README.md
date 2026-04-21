@@ -3,7 +3,6 @@
 ![Mastodon Follow](https://img.shields.io/mastodon/follow/109638370673707754?domain=https%3A%2F%2Ffosstodon.org&style=social)
 ![Bluesky Follow](https://img.shields.io/bluesky/followers/mhpark.me)
 
-
 ![dotfiles](https://github.com/user-attachments/assets/896d95d5-3ea8-4e76-bf85-2fbbd02542e2)
 
 Dotfiles are managed via `gnu stow`. From `~/.dotfiles`, `stow <dir>` symlinks
@@ -40,7 +39,7 @@ without it, feel free to pick and choose what you like.
 | [**eza**](https://github.com/eza-community/eza)                   | Modern, maintained replacement for ls                                    |
 | [**fd**](https://github.com/sharkdp/fd)                           | Simple, fast and user-friendly alternative to find                       |
 | [**fzf**](https://github.com/junegunn/fzf)                        | Command-line fuzzy finder written in Go                                  |
-| [**gemini-cli**](https://github.com/google-gemini/gemini-cli)     | Google Gemini TUI for ai workflows                                       |
+| [**pi-coding-agent**](https://github.com/badlogic/pi-mono)        | 󰏿 TUI ai workflows                                                       |
 | [**ghostty**](https://github.com/ghostty-org/ghostty)             | Current terminal emulator                                                |
 | [**git**](https://github.com/git/git)                             | The apple system git is way too old                                      |
 | [**git-delta**](https://github.com/dandavison/delta)              | Syntax-highlighting pager for git and diff output                        |
@@ -73,6 +72,11 @@ To install all essential software via [Homebrew](https://brew.sh/), run:
 
 ```bash
 brew install age agg argon2 asciinema atuin bat bottom colima docker docker-compose docker-buildx docker-credential-helper duckdb entr eza fd fzf git git-delta httpie jq jj jjui lazydocker lazygit mise neovim opencode pandoc prek tree-sitter tree-sitter-cli restic ripgrep sops stow stylua typst uv yazi zoxide && brew install --cask ghostty
+```
+
+```bash
+mise use -g node@latest
+npm install -g @mariozechner/pi-coding-agent
 ```
 
 ### Fonts

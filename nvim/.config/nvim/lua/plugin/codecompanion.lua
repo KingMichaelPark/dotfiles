@@ -27,18 +27,6 @@ end
 require("codecompanion").setup({
     ignore_warnings = true,
     adapters = {
-        acp = {
-            gemini_cli = function()
-                return require("codecompanion.adapters").extend("gemini_cli", {
-                    defaults = {
-                        auth_method = "gemini-api-key",
-                    },
-                    env = {
-                        api_key = "GEMINI_API_KEY",
-                    },
-                })
-            end,
-        },
         http = {
             gemini = function()
                 return require("codecompanion.adapters").extend("gemini", {
@@ -50,7 +38,7 @@ require("codecompanion").setup({
                     },
                     schema = {
                         model = {
-                            default = "gemini-3-flash-preview",
+                            default = "gemini-flash-latest",
                         },
                     },
                 })
@@ -59,7 +47,7 @@ require("codecompanion").setup({
     },
     interactions = {
         chat = {
-            adapter = "gemini_cli",
+            adapter = "gemini",
         },
         inline = {
             adapter = "gemini",
@@ -98,14 +86,8 @@ vim.keymap.set(
     "<cmd>CodeCompanionChat adapter=gemini Toggle<cr>",
     { noremap = true, silent = true }
 )
-vim.keymap.set(
-    { "n", "v" },
-    "<leader>aA",
-    "<cmd>CodeCompanionChat adapter=gemini_cli Toggle<cr>",
-    { noremap = true, silent = true }
-)
+
 vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat adapter=gemini Add<cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "gA", "<cmd>CodeCompanionChat adapter=gemini_cli Add<cr>", { noremap = true, silent = true })
 vim.keymap.set(
     "v",
     "<leader>ad",

@@ -52,7 +52,9 @@ export FZF_DEFAULT_OPTS="--multi --reverse --info=hidden \
 export HOMEBREW_NO_ENV_HINTS=1
 
 # Aliases
-alias ai="sops exec-env ~/.dotfiles/access.json \"gemini\""
+ai() {
+    GEMINI_API_KEY=$(sops --decrypt access.json | jq -r .GEMINI_API_KEY) pi "$@"
+}
 alias cat="bat -p"
 alias d="docker"
 alias dc="docker-compose"
