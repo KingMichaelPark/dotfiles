@@ -53,7 +53,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 # Aliases
 ai() {
-    GEMINI_API_KEY=$(sops --decrypt "$HOME/.dotfiles/access.json" | jq -r .GEMINI_API_KEY) pi "$@"
+    GEMINI_API_KEY=$(sops --decrypt "$HOME/.dotfiles/access.age.json" | jq -r .GEMINI_API_KEY) pi "$@"
 }
 alias cat="bat -p"
 alias d="docker"
@@ -98,7 +98,6 @@ setopt SHARE_HISTORY # Cause all terminals to share the same history 'session'.
 # Starship
 export STARSHIP_LOG="error"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-export BIOME_CONFIG_PATH="$HOME/.dotfiles/biome.jsonc"
 
 goto_project() {
   cd "$(fd . ~/Projects -d 2 -t d | fzf)"
