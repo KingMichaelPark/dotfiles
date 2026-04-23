@@ -25,6 +25,7 @@ without it, feel free to pick and choose what you like.
 
 | Software                                                          | Description                                                              |
 | :---------------------------------------------------------------- | :----------------------------------------------------------------------- |
+| [**aerospace**](https://github.com/nikitabobko/AeroSpace)         | Tiling window manager for MacOS                                          |
 | [**age**](https://github.com/FiloSottile/age)                     | Simple, modern, secure file encryption                                   |
 | [**agg**](https://github.com/asciinema/agg)                       | Convert asciinema recordings to gif                                      |
 | [**argon2**](https://github.com/P-H-C/phc-winner-argon2)          | Password hashing library and CLI utility                                 |
@@ -71,13 +72,11 @@ without it, feel free to pick and choose what you like.
 To install all essential software via [Homebrew](https://brew.sh/), run:
 
 ```bash
-brew install age agg argon2 asciinema atuin bat bottom colima docker docker-compose docker-buildx docker-credential-helper duckdb entr eza fd fzf git git-delta httpie jq jj jjui lazydocker lazygit mise neovim opencode pandoc prek tree-sitter tree-sitter-cli restic ripgrep sops stow stylua typst uv yazi zoxide && brew install --cask ghostty
+brew install age agg argon2 asciinema atuin bat bottom colima docker docker-compose docker-buildx docker-credential-helper duckdb entr eza fd fzf git git-delta httpie jq jj jjui lazydocker lazygit mise neovim opencode pandoc pi-coding-agent prek tree-sitter tree-sitter-cli restic ripgrep sops stow stylua typst uv yazi zoxide && brew install --cask ghostty
+
+brew install --cask nikitabobko/tap/aerospace
 ```
 
-```bash
-mise use -g node@latest
-npm install -g @mariozechner/pi-coding-agent
-```
 
 ### Fonts
 
