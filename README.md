@@ -25,7 +25,6 @@ without it, feel free to pick and choose what you like.
 
 | Software                                                          | Description                                                              |
 | :---------------------------------------------------------------- | :----------------------------------------------------------------------- |
-| [**aerospace**](https://github.com/nikitabobko/AeroSpace)         | Tiling window manager for MacOS                                          |
 | [**age**](https://github.com/FiloSottile/age)                     | Simple, modern, secure file encryption                                   |
 | [**agg**](https://github.com/asciinema/agg)                       | Convert asciinema recordings to gif                                      |
 | [**argon2**](https://github.com/P-H-C/phc-winner-argon2)          | Password hashing library and CLI utility                                 |
