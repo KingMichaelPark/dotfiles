@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 local smart_close = require("config.smart-close")
-map("n", "<leader>U", function() vim.pack.update() end, { desc = "Update Packages" })
+map("n", "<leader>U", function() vim.pack.update(nil, { force = true }) end, { desc = "Update Packages" })
 
 map("n", "<C-s>", "<cmd>w<cr>", { desc = "Write/Save" })
 

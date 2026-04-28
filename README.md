@@ -83,8 +83,11 @@ Nerd Font Patched version of [Iosevka](https://typeof.net/Iosevka/)'s private
 build plans are in the font directory. The latest version I build, I just
 upload [here](https://drive.google.com/drive/folders/1UbV9Lk9jbUynyOmudZMBwd3Fygve76P2).
 
-I also have a narrow build of [Maple Mono](https://github.com/subframe7536/maple-font) there.
+I also have a narrow build of [Maple
+Mono](https://github.com/subframe7536/maple-font) there.
 
 ## Questions
 
-If you have any questions send me a message at [Mastodon](https://fosstodon.org/@mdawg) or [Bluesky](https://bsky.app/profile/mhpark.me)
+If you have any questions send me a message at
+[Mastodon](https://fosstodon.org/@mdawg) or
+[Bluesky](https://bsky.app/profile/mhpark.me)
