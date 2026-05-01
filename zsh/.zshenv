@@ -52,9 +52,6 @@ export FZF_DEFAULT_OPTS="--multi --reverse --info=hidden \
 export HOMEBREW_NO_ENV_HINTS=1
 
 # Aliases
-ai() {
-    sops exec-env "$HOME/.dotfiles/access.age.json" "pi --offline $@"
-}
 alias cat="bat -p"
 alias d="docker"
 alias dc="docker-compose"
@@ -70,13 +67,6 @@ alias v="nvim"
 alias vim="nvim"
 alias y="yazi"
 
-
-function record_session_() {
-  local filename="$(date +'%Y-%m-%d-%H-%M')"
-  asciinema rec "$filename.cast"
-  agg "$filename.cast" "$filename.gif"
-}
-alias rec='record_session'
 
 # ZSH Settings
 HISTSIZE=20000
@@ -99,25 +89,7 @@ setopt SHARE_HISTORY # Cause all terminals to share the same history 'session'.
 export STARSHIP_LOG="error"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
-goto_project() {
-  cd "$(fd . ~/Projects -d 2 -t d | fzf)"
-  zle reset-prompt
-}
-zle -N goto_project
-bindkey '^f' goto_project
-
-# Yazi
-function yy() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    IFS= read -r -d '' cwd < "$tmp"
-    [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-    rm -f -- "$tmp"
-}
-
-## Project Specific Helpers
-if [ -d "$HOME/Projects/oxford/toolbox/zsh_helpers" ]; then
-    for file in $HOME/Projects/oxford/toolbox/zsh_helpers/*.zsh; do
-        source $file;
-    done;
-fi
+# Functions
+for p in "$HOME/.local/share/zsh-functions"/*.sh(N); do
+    source "$p"
+done
