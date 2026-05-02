@@ -2,7 +2,6 @@
   "packages": [
     "npm:context-mode",
     "npm:pi-mcp-adapter",
-    "npm:@ollama/pi-web-search",
-    "npm:@plannotator/pi-extension"
+    "npm:@ollama/pi-web-search"
   ]
 }

@@ -78,7 +78,10 @@ export default function(pi: ExtensionAPI) {
         }
 
         // 1. Handle write and edit tools with delta diff
-        if (isToolCallEventType("write", event) || isToolCallEventType("edit", event)) {
+        if (
+            isToolCallEventType("write", event) ||
+            isToolCallEventType("edit", event)
+        ) {
             let path: string | undefined;
             let newContent: string | undefined;
             let oldContent: string = "";
@@ -183,6 +186,7 @@ export default function(pi: ExtensionAPI) {
                     } else if (choice === "Yes, once") {
                         return;
                     } else {
+                        ctx.abort?.();
                         return { block: true, reason: "Blocked by user" };
                     }
                 } catch (e: any) {
@@ -195,7 +199,7 @@ export default function(pi: ExtensionAPI) {
         }
 
         // 2. Handle other tools (from command-confirm)
-        
+
         // Check if it's an auto-allowed built-in read-only tool
         if (allowedTools.has(toolName)) {
             return;
@@ -217,7 +221,12 @@ export default function(pi: ExtensionAPI) {
 
         const choice = await ctx.ui.select(
             `The agent wants to ${description}\n\nDo you want to allow it?`,
-            ["Allow Once", "Allow Always (this call)", "Allow All for Session", "Deny"],
+            [
+                "Allow Once",
+                "Allow Always (this call)",
+                "Allow All for Session",
+                "Deny",
+            ],
         );
 
         if (choice === "Allow Once") {
@@ -229,6 +238,7 @@ export default function(pi: ExtensionAPI) {
             sessionConfirmed = true;
             return;
         } else {
+            ctx.abort?.();
             return { block: true, reason: "Execution denied by user." };
         }
     });
