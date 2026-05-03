@@ -1,10 +1,15 @@
 {
   "lastChangelogVersion": "0.72.0",
   "defaultProvider": "google",
-  "defaultModel": "gemini-flash-lite-latest",
+  "defaultModel": "gemini-flash-latest",
   "theme": "catppuccin-mocha-pink",
   "editorPaddingX": 2,
   "hideThinkingBlock": true,
-  "quietStartup": true,
-  "enableInstallTelemetry": false
+  "quietStartup": false,
+  "enableInstallTelemetry": false,
+  "packages": [
+    "npm:context-mode",
+    "npm:@ollama/pi-web-search",
+    "git:github.com/aliou/pi-guardrails"
+  ]
 }

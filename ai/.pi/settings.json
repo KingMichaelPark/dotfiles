@@ -1,7 +1,0 @@
-{
-  "packages": [
-    "npm:context-mode",
-    "npm:@ollama/pi-web-search",
-    "git:github.com/aliou/pi-guardrails"
-  ]
-}
