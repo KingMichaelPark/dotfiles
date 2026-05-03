@@ -1,3 +1,10 @@
 {
-  "lastChangelogVersion": "0.72.0"
+  "lastChangelogVersion": "0.72.0",
+  "defaultProvider": "google",
+  "defaultModel": "gemini-flash-lite-latest",
+  "theme": "catppuccin-mocha-pink",
+  "editorPaddingX": 2,
+  "hideThinkingBlock": true,
+  "quietStartup": true,
+  "enableInstallTelemetry": false
 }
