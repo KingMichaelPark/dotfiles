@@ -1,0 +1,93 @@
+{
+  "enabled": true,
+  "features": {
+    "policies": true,
+    "permissionGate": true,
+    "pathAccess": false
+  },
+  "pathAccess": {
+    "mode": "ask",
+    "allowedPaths": []
+  },
+  "policies": {
+    "rules": [
+      {
+        "id": "secret-files",
+        "description": "Files containing secrets",
+        "patterns": [
+          {
+            "pattern": ".env"
+          },
+          {
+            "pattern": ".mise.toml"
+          },
+          {
+            "pattern": "mise.*.toml"
+          },
+          {
+            "pattern": ".env.local"
+          },
+          {
+            "pattern": ".env.production"
+          },
+          {
+            "pattern": ".env.prod"
+          },
+          {
+            "pattern": ".dev.vars"
+          }
+        ],
+        "allowedPatterns": [
+          {
+            "pattern": ".env.example"
+          },
+          {
+            "pattern": ".env.sample"
+          },
+          {
+            "pattern": ".env.test"
+          },
+          {
+            "pattern": "*.example.env"
+          },
+          {
+            "pattern": "*.sample.env"
+          },
+          {
+            "pattern": "*.test.env"
+          }
+        ],
+        "protection": "noAccess",
+        "onlyIfExists": true
+      }
+    ]
+  },
+  "permissionGate": {
+    "patterns": [
+      {
+        "pattern": "rm -rf",
+        "description": "recursive force delete",
+        "regex": true
+      },
+      {
+        "pattern": "sudo",
+        "description": "superuser command",
+        "regex": true
+      }
+    ],
+    "customPatterns": [],
+    "requireConfirmation": true,
+    "allowedPatterns": [],
+    "autoDenyPatterns": [],
+    "explainCommands": false,
+    "explainModel": null,
+    "explainTimeout": 5000
+  },
+  "version": "0.9.0-20260327",
+  "applyBuiltinDefaults": true,
+  "onboarding": {
+    "completed": true,
+    "completedAt": "2026-05-03T06:50:32.753Z",
+    "version": "0.9.0-20260327"
+  }
+}

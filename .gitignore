@@ -28,3 +28,4 @@ nvim/.config/nvim/nvim-pack-lock.json
 packer_compiled.lua
 ai/.pi/agent/sessions
 ai/.pi/agent/sessions/*
+ai/.pi/agent/extensions/guardrails.*.json

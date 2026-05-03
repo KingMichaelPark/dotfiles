@@ -2,6 +2,7 @@
   "packages": [
     "npm:context-mode",
     "npm:pi-mcp-adapter",
-    "npm:@ollama/pi-web-search"
+    "npm:@ollama/pi-web-search",
+    "git:github.com/aliou/pi-guardrails"
   ]
 }
