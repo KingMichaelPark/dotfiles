@@ -1,10 +1,8 @@
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 local smart_close = require("config.smart-close")
-local pm = require("config.pack_manager")
 
-map("n", "<leader>P", pm.list, { desc = "Toggle PackList" })
-map("n", "<leader>U", pm.update, { desc = "Update Packages" })
+map("n", "<leader>U", vim.pack.update, { desc = "Update Packages" })
 
 map("n", "<C-s>", "<cmd>w<cr>", { desc = "Write/Save" })
 

@@ -131,3 +131,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    group = augroup("nvim_pack_confirm"),
+    pattern = "*nvim-pack://confirm*",
+    callback = function(event)
+        vim.keymap.set("n", "U", function()
+            vim.pack.update(nil, { force = true })
+        end, { buffer = event.buf, desc = "Force update packages" })
+        vim.keymap.set("n", "q", "<cmd>tabclose<cr>", { buffer = event.buf, desc = "Close tab" })
+    end,
+})
