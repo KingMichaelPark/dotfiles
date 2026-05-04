@@ -1,3 +1,3 @@
 ai() {
-    sops exec-env "$HOME/.dotfiles/access.age.json" "pi --offline $@"
+    sops exec-env "$HOME/.dotfiles/access.age.json" "gemini $@"
 }

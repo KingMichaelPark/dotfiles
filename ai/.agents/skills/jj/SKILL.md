@@ -1,3 +1,12 @@
+---
+name: jj
+description: Guidance and rules for working with Jujutsu (jj) version control repositories. Use this when you detect a `.jj` directory or are asked to perform version control tasks in a jj repository.
+license: MIT
+metadata:
+  author: mike
+  version: "1.0"
+---
+
 ## CRITICAL: VCS IDENTITY & SAFETY
 * **Detector:** If `.jj/` exists, this is a **Jujutsu** repository.
 * **Protocol:** **NEVER** use raw `git` commands (e.g., `git commit`, `git add`). Direct Git interaction in a `jj` repo can lead to state desynchronization or data corruption.
