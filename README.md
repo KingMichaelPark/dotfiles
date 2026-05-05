@@ -39,7 +39,6 @@ without it, feel free to pick and choose what you like.
 | [**eza**](https://github.com/eza-community/eza)                   | Modern, maintained replacement for ls                                    |
 | [**fd**](https://github.com/sharkdp/fd)                           | Simple, fast and user-friendly alternative to find                       |
 | [**fzf**](https://github.com/junegunn/fzf)                        | Command-line fuzzy finder written in Go                                  |
-| [**pi-coding-agent**](https://github.com/badlogic/pi-mono)        | 󰏿 TUI ai workflows                                                       |
 | [**ghostty**](https://github.com/ghostty-org/ghostty)             | Current terminal emulator                                                |
 | [**git**](https://github.com/git/git)                             | The apple system git is way too old                                      |
 | [**git-delta**](https://github.com/dandavison/delta)              | Syntax-highlighting pager for git and diff output                        |
@@ -50,6 +49,7 @@ without it, feel free to pick and choose what you like.
 | [**lazydocker**](https://github.com/jesseduffield/lazydocker)     | Simple terminal UI for docker commands                                   |
 | [**lazygit**](https://github.com/jesseduffield/lazygit)           | Simple terminal UI for git commands                                      |
 | [**mise**](https://github.com/jdx/mise)                           | Polyglot runtime manager (asdf rust clone)                               |
+| [**opencode**](https://github.com/anomalyco/opencode)             | CLI Coding agent                                                         |
 | [**neovim**](https://github.com/neovim/neovim)                    | Ambitious Vim-fork focused on extensibility and agility                  |
 | [**pandoc**](https://github.com/jgm/pandoc)                       | Swiss-army knife of markup format conversion (mostly markdown to jira)   |
 | [**prek**](https://github.com/j178/prek)                          | Pre-commit tool written in rust                                          |
@@ -71,7 +71,7 @@ without it, feel free to pick and choose what you like.
 To install all essential software via [Homebrew](https://brew.sh/), run:
 
 ```bash
-brew install age agg argon2 asciinema atuin bat bottom colima docker docker-compose docker-buildx docker-credential-helper duckdb entr eza fd fzf git git-delta httpie jq jj jjui lazydocker lazygit mise neovim opencode pandoc pi-coding-agent prek tree-sitter tree-sitter-cli restic ripgrep sops stow stylua typst uv yazi zoxide && brew install --cask ghostty
+brew install age agg argon2 asciinema atuin bat bottom colima docker docker-compose docker-buildx docker-credential-helper duckdb entr eza fd fzf git git-delta httpie jq jj jjui lazydocker lazygit mise neovim anomalyco/tap/opencode pandoc prek tree-sitter tree-sitter-cli restic ripgrep sops stow stylua typst uv yazi zoxide && brew install --cask ghostty
 ```
 
 

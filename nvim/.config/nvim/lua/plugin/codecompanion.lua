@@ -20,7 +20,7 @@ local gemini_key
 if vim.fn.filereadable(identity) == 1 then
     local secret = vim.fn.expand("$HOME/.dotfiles/access.age.json")
 
-    gemini_key = require("age").from_sops(secret)["GOOGLE"]
+    gemini_key = require("age").from_sops(secret)["GEMINI_API_KEY"]
     vim.fn.setenv("GEMINI_API_KEY", gemini_key)
 end
 
@@ -77,17 +77,17 @@ require("codecompanion").setup({
     },
 })
 
-vim.keymap.set({ "v" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true, expr = true })
+vim.keymap.set({ "v" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 vim.keymap.set(
     { "n", "v" },
     "<leader>aa",
-    "<cmd>CodeCompanionChat adapter=gemini Toggle<cr>",
+    "<cmd>CodeCompanionChat Toggle<cr>",
     { noremap = true, silent = true }
 )
 
-vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat adapter=gemini Add<cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 vim.keymap.set(
     "v",
     "<leader>ad",
