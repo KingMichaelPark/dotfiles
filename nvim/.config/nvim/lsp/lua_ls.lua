@@ -1,3 +1,4 @@
+-- Lua LSP
 return {
     settings = {
         Lua = {

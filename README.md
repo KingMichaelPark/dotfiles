@@ -19,7 +19,8 @@ stow nvim  # Symlinks ~/.config/nvim/
 ## Essential Software
 
 This is a list of software I use all the time and wouldn't be as productive
-without it, feel free to pick and choose what you like.
+without it, feel free to pick and choose what you like, and shoot me a message
+if you need help with anything!
 
 ### Software & Tools
 

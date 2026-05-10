@@ -1,3 +1,4 @@
+-- Python linting and formatting
 local selects = {
     "A",     -- https://docs.astral.sh/ruff/rules/#flake8-builtins-a
     "ANN",   -- https://docs.astral.sh/ruff/rules/#flake8-annotations-ann

@@ -1,1 +1,2 @@
+-- Svelte
 return {}
