@@ -25,4 +25,9 @@ require("conform").setup({
         typescriptreact    = { "biome" },
         yaml               = { "prettierd" },
     },
+    formatters = {
+        biome = {
+            append_args = { "--config-path", vim.fn.expand("$HOME/.dotfiles/code/.config/biome/biome.json") },
+        },
+    },
 })
