@@ -1,70 +1,92 @@
-local gh = require("utils").gh
-vim.pack.add({ gh("akinsho/toggleterm.nvim") })
+local M = {}
 
--- Basic setup for toggleterm
-require("toggleterm").setup({
-    open_mapping = [[<c-\>]], -- Main toggle key
-    direction = "float", -- Default direction for new terminals
-    start_in_insert = true, -- Start in insert mode
-    persist_size = true, -- Remember terminal size
-    close_on_exit = true, -- Close window when a process exits
-    float_opts = {
-        -- Options for floating windows
-        border = "curved",
-        winblend = 3,
-        highlights = {
-            border = "Normal",
-            background = "Normal",
-        },
-        -- Make it a large, centered float
-        width = function() -- CHANGED
-            return math.floor(vim.o.columns * 0.8)
-        end,
-        height = function() -- CHANGED
-            return math.floor(vim.o.lines * 0.8)
-        end,
-    },
-})
+-- Maintain the state of the buffer and window to allow toggling
+-- without killing the terminal process.
+local state = {
+    buf = -1,
+    win = -1,
+}
 
--- === Custom Terminal for jjui ===
--- Based on the lazygit example
+local function create_float()
+    -- Calculate dimensions for an 80% screen-size centered window
+    local width = math.floor(vim.o.columns * 0.8)
+    local height = math.floor(vim.o.lines * 0.8)
+    local col = math.floor((vim.o.columns - width) / 2)
+    local row = math.floor((vim.o.lines - height) / 2)
 
--- 1. Require the Terminal class
-local Terminal = require("toggleterm.terminal").Terminal
+    -- Use the existing buffer, or create a new scratch buffer if it doesn't exist
+    local buf = state.buf
+    if not vim.api.nvim_buf_is_valid(buf) then
+        buf = vim.api.nvim_create_buf(false, true)
+    end
 
--- 2. Create a new terminal instance for jjui
-local jjui_term = Terminal:new({
-    cmd = "jjui", -- The command to run
-    dir = "git_dir", -- Start in the repo root
-    direction = "float", -- Ensure it's always a float
-    hidden = false, -- Hide from default ToggleTerm commands
-    -- Set specific options for this float
-    float_opts = {
-        border = "double",
+    -- Utilizing Neovim 0.12 floating window features
+    local win_config = {
+        relative = "editor",
+        width = width,
+        height = height,
+        col = col,
+        row = row,
+        style = "minimal",
+        border = "rounded",
+        title = " jjui ",
         title_pos = "center",
-        width = function() -- CHANGED
-            return math.floor(vim.o.columns * 0.9)
-        end,
-        height = function() -- CHANGED
-            return math.floor(vim.o.lines * 0.9)
-        end,
-    },
-    -- Function to run when the terminal opens
-    on_open = function(term)
-        -- Enter insert mode automatically
-        -- vim.cmd("startinsert!")
-        -- Add keymaps to close the window with 'q' or '<esc>'
-        -- These are buffer-local to the terminal
-    end,
-})
+        footer = " Toggle with keymap ",
+        footer_pos = "right",
+    }
 
--- 3. Create a global function to toggle the terminal
-function _G.toggle_jjui() jjui_term:toggle() end
+    local win = vim.api.nvim_open_win(buf, true, win_config)
+    return buf, win
+end
 
--- 4. Map a key to toggle the jjui terminal
--- You can change '<leader>jj' to your preferred keymap
-vim.keymap.set("n", "<leader>jj", "<cmd>lua _G.toggle_jjui()<CR>", {
-    noremap = true,
-    silent = true,
-    desc = "Toggle jjui (Jujutsu)",
-})
+function M.toggle()
+    if vim.api.nvim_win_is_valid(state.win) then
+        -- Hide the window, keeping the terminal buffer alive
+        vim.api.nvim_win_close(state.win, false)
+        state.win = -1
+    else
+        local is_new_buf = not vim.api.nvim_buf_is_valid(state.buf)
+
+        state.buf, state.win = create_float()
+
+        if is_new_buf then
+            -- Run the interactive jjui command in a terminal buffer
+            vim.fn.termopen("jjui", {
+                on_exit = function(_, _, _)
+                    -- Clean up the state when the jjui process exits
+                    if vim.api.nvim_win_is_valid(state.win) then
+                        vim.api.nvim_win_close(state.win, true)
+                    end
+                    if vim.api.nvim_buf_is_valid(state.buf) then
+                        vim.api.nvim_buf_delete(state.buf, { force = true })
+                    end
+                    state.win = -1
+                    state.buf = -1
+                end
+            })
+        end
+
+        -- Automatically enter insert mode when the terminal opens
+        -- so you can start interacting with jjui immediately.
+        vim.cmd("startinsert")
+    end
+end
+
+function M.setup(opts)
+    opts = opts or {}
+    -- Alt/Option + j is often a good choice because it can be seamlessly
+    -- mapped in both Normal and Terminal modes without requiring <C-\><C-n>
+    local keymap = opts.keymap or "<A-j>"
+
+    -- Normal mode toggle
+    vim.keymap.set("n", keymap, M.toggle, { desc = "Toggle jjui floating terminal", noremap = true, silent = true })
+
+    -- Terminal mode toggle (allows closing from within the active terminal)
+    vim.keymap.set("t", keymap, M.toggle, { desc = "Toggle jjui floating terminal", noremap = true, silent = true })
+end
+
+return M
+
+-- require("jjui").setup({
+--   keymap = "<leader>j" -- Set to whichever keymap you prefer
+-- })

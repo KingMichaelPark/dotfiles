@@ -27,6 +27,7 @@ require("config.opts")
 require("config.keymaps")
 require("config.autocommands")
 require("config.ui")
+require("custom")
 
 -- Load plugins
 local plugin_path = vim.fn.stdpath("config") .. "/lua/plugin"
