@@ -58,6 +58,7 @@ if you need help with anything!
 | [**tree-sitter-cli**](https://github.com/tree-sitter/tree-sitter) | Install parsers for tree sitter                                          |
 | [**restic**](https://github.com/restic/restic)                    | Back-up utility with snapshots and backups                               |
 | [**ripgrep**](https://github.com/BurntSushi/ripgrep)              | Search tool like grep and The Silver Searcher                            |
+| [**rumdl**](https://github.com/rvben/rumdl)              |  Markdown formatter and linter                           |
 | [**sops**](https://github.com/getsops/sops)                       | Editor of encrypted files                                                |
 | [**starship**](https://starship.rs/)                              | Starship zsh theme (installed via `zsh/.zshrc`)                          |
 | [**stow**](https://www.gnu.org/software/stow/)                    | Organize software neatly under a single directory tree (e.g. /usr/local) |
@@ -72,15 +73,56 @@ if you need help with anything!
 To install all essential software via [Homebrew](https://brew.sh/), run:
 
 ```bash
-brew install age agg argon2 asciinema atuin bat bottom colima docker docker-compose docker-buildx docker-credential-helper duckdb entr eza fd fzf git git-delta httpie jq jj jjui lazydocker lazygit mise neovim anomalyco/tap/opencode pandoc prek tree-sitter tree-sitter-cli restic ripgrep sops stow stylua typst uv yazi zoxide && brew install --cask ghostty
+brew install --cask ghostty
+brew install /
+    age /
+    agg /
+    argon2 /
+    asciinema /
+    atuin /
+    bat /
+    bottom /
+    colima /
+    docker /
+    docker-compose /
+    docker-buildx /
+    docker-credential-helper /
+    duckdb /
+    entr /
+    eza /
+    fd /
+    fzf /
+    git /
+    git-delta /
+    httpie /
+    jq /
+    jj /
+    jjui /
+    lazydocker /
+    lazygit /
+    mise /
+    neovim /
+    anomalyco/tap/opencode /
+    pandoc /
+    prek /
+    tree-sitter /
+    tree-sitter-cli /
+    restic /
+    ripgrep /
+    sops /
+    stow /
+    stylua /
+    typst /
+    uv /
+    yazi /
+    zoxide
 ```
-
 
 ### Fonts
 
 Nerd Font Patched version of [Iosevka](https://typeof.net/Iosevka/)'s private
 build plans are in the font directory. The latest version I build, I just
-upload [here](https://drive.google.com/drive/folders/1UbV9Lk9jbUynyOmudZMBwd3Fygve76P2).
+upload [google-drive-link](https://drive.google.com/drive/folders/1UbV9Lk9jbUynyOmudZMBwd3Fygve76P2).
 
 I also have a narrow build of [Maple
 Mono](https://github.com/subframe7536/maple-font) there.
