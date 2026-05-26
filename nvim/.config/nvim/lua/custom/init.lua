@@ -6,3 +6,5 @@ require("custom.floaty").setup({
     height = 0.9,
     keymap = "<leader>j",
 })
+
+require("custom.dbt")
