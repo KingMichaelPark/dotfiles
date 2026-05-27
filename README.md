@@ -47,6 +47,7 @@ if you need help with anything!
 | [**jq**](https://github.com/jqlang/jq)                            | Lightweight and flexible command-line JSON processor                     |
 | [**jj**](https://github.com/martinvonz/jj)                        | VCS alternative to git but also git compatible (Jujutsu)                 |
 | [**jjui**](https://github.com/idursun/jjui)                       | TUI for Jujutsu                                                          |
+| [**jj-starship**](https://github.com/dmmulroy/jj-starship)        | Starship addition for Jujutsu                                            |
 | [**lazydocker**](https://github.com/jesseduffield/lazydocker)     | Simple terminal UI for docker commands                                   |
 | [**lazygit**](https://github.com/jesseduffield/lazygit)           | Simple terminal UI for git commands                                      |
 | [**mise**](https://github.com/jdx/mise)                           | Polyglot runtime manager (asdf rust clone)                               |
@@ -74,47 +75,48 @@ To install all essential software via [Homebrew](https://brew.sh/), run:
 
 ```bash
 brew install --cask ghostty
-brew install /
-    age /
-    agg /
-    argon2 /
-    asciinema /
-    atuin /
-    bat /
-    bottom /
-    colima /
-    docker /
-    docker-compose /
-    docker-buildx /
-    docker-credential-helper /
-    duckdb /
-    entr /
-    eza /
-    fd /
-    fzf /
-    git /
-    git-delta /
-    httpie /
-    jq /
-    jj /
-    jjui /
-    lazydocker /
-    lazygit /
-    mise /
-    neovim /
-    anomalyco/tap/opencode /
-    pandoc /
-    prek /
-    tree-sitter /
-    tree-sitter-cli /
-    restic /
-    ripgrep /
-    sops /
-    stow /
-    stylua /
-    typst /
-    uv /
-    yazi /
+brew install \
+    age \
+    agg \
+    argon2 \
+    asciinema \
+    atuin \
+    bat \
+    bottom \
+    colima \
+    docker \
+    docker-compose \
+    docker-buildx \
+    docker-credential-helper \
+    duckdb \
+    entr \
+    eza \
+    fd \
+    fzf \
+    git \
+    git-delta \
+    httpie \
+    jq \
+    jj \
+    jjui \
+    dmmulroy\tap\jj-starship \
+    lazydocker \
+    lazygit \
+    mise \
+    neovim \
+    anomalyco\tap\opencode \
+    pandoc \
+    prek \
+    tree-sitter \
+    tree-sitter-cli \
+    restic \
+    ripgrep \
+    sops \
+    stow \
+    stylua \
+    typst \
+    uv \
+    yazi \
     zoxide
 ```
 
