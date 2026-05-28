@@ -35,27 +35,27 @@ separator = " "
 
 [module.conflict]
 disabled = false
-text = "(CONFLICT)"
+text = "󰞇"
 color = "Red"
 
 [module.divergent]
 disabled = false
-text = "(DIVERGENT)"
+text = "󰤻"
 color = "Cyan"
 
 [module.empty]
 disabled = false
-text = "(EMPTY)"
+text = ""
 color = "Yellow"
 
 [module.immutable]
 disabled = false
-text = "(IMMUTABLE)"
+text = "󰌾"
 color = "Yellow"
 
 [module.hidden]
 disabled = false
-text = "(HIDDEN)"
+text = "󰗹"
 color = "Yellow"
 
 [[module]]
@@ -65,7 +65,7 @@ hide_if_empty = true
 color = "Magenta"
 
 [module.changed_files]
-prefix = ""
+prefix = "~"
 suffix = " "
 color = "Cyan"
 
