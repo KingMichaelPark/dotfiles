@@ -224,15 +224,18 @@ mantle = "#181825"
 crust = "#11111b"
 
 [custom.jj]
-when = "jj-starship detect"
-shell = ["jj-starship", "--no-git-status", "--no-jj-status"]
-format = "$output "
+command = "prompt"
+format = "$output"
+ignore_timeout = true
+shell = ["starship-jj", "--ignore-working-copy", "starship"]
+use_stdin = false
+when = true
 
 [git_branch]
 disabled = true
 
 [git_status]
-disabled = false
+disabled = true
 format = '([$all_status$ahead_behind]($style) )'
 conflicted='='
 ahead='󱦲'
