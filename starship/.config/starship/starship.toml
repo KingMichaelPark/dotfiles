@@ -225,14 +225,28 @@ crust = "#11111b"
 
 [custom.jj]
 when = "jj-starship detect"
-shell = ["jj-starship"]
+shell = ["jj-starship", "--no-git-status", "--no-jj-status"]
 format = "$output "
 
 [git_branch]
 disabled = true
 
 [git_status]
-disabled = true
+disabled = false
+format = '([$all_status$ahead_behind]($style) )'
+conflicted='='
+ahead='󱦲'
+behind='󱦳'
+diverged='󰃻'
+up_to_date=''
+untracked='󰍉'
+stashed=''
+modified='󰇂'
+staged=''
+renamed='󰪹'
+deleted='✘'
+typechanged=""
+style='bold sapphire'
 
 [git_state]
 disabled = true
