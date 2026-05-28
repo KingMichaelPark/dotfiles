@@ -15,7 +15,7 @@ type = "Bookmarks"
 separator = " "
 color = "Magenta"
 behind_symbol = "⇡"
-surround_with_quotes = true
+surround_with_quotes = false
 ignore_empty_commits = "None"
 
 [[module]]
@@ -24,7 +24,7 @@ previous_message_symbol = "⇣"
 max_length = 24
 show_previous_if_empty = false
 empty_text = ""
-surround_with_quotes = true
+surround_with_quotes = false
 
 [module.non_unique]
 color = "Black"
