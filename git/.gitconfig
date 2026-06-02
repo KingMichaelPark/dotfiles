@@ -68,3 +68,7 @@
 
 [mergetool "codediff"]
     cmd = nvim \"$MERGED\" -c \"CodeDiff merge \\\"$MERGED\\\"\"
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
