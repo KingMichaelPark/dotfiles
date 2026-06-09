@@ -7,7 +7,7 @@ require("codediff").setup({
     -- Highlight configuration
     highlights = {
         -- Line-level highlights: accepts highlight group names (e.g., "DiffAdd") or color values (e.g., "#2ea043")
-        line_insert = "DiffAdd", -- Line-level insertions (base color)
+        line_insert = "DiffAdd",    -- Line-level insertions (base color)
         line_delete = "DiffDelete", -- Line-level deletions (base color)
 
         -- Character-level highlights: accepts highlight group names or color values
@@ -23,7 +23,7 @@ require("codediff").setup({
         -- Conflict sign highlights (for merge conflict views)
         -- Accepts highlight group names (e.g., "DiagnosticWarn") or color values (e.g., "#f0883e")
         -- nil = use default fallback chain (GitSigns* -> DiagnosticSign* -> hardcoded colors)
-        conflict_sign = nil, -- Unresolved conflict sign (default: DiagnosticSignWarn -> #f0883e)
+        conflict_sign = nil,          -- Unresolved conflict sign (default: DiagnosticSignWarn -> #f0883e)
         conflict_sign_resolved = nil, -- Resolved conflict sign (default: Comment -> #6e7681)
         conflict_sign_accepted = nil, -- Accepted side sign (default: GitSignsAdd -> DiagnosticSignOk -> #3fb950)
         conflict_sign_rejected = nil, -- Rejected side sign (default: GitSignsDelete -> DiagnosticSignError -> #f85149)
@@ -31,24 +31,24 @@ require("codediff").setup({
 
     -- Diff view behavior
     diff = {
-        disable_inlay_hints = true, -- Disable inlay hints in diff windows for cleaner view
-        max_computation_time_ms = 5000, -- Maximum time for diff computation (5 seconds, VSCode default)
-        hide_merge_artifacts = false, -- Hide merge tool temp files (*.orig, *.BACKUP.*, *.BASE.*, *.LOCAL.*, *.REMOTE.*)
-        original_position = "left", -- Position of original (old) content: "left" or "right"
+        disable_inlay_hints = true,       -- Disable inlay hints in diff windows for cleaner view
+        max_computation_time_ms = 1000,   -- Maximum time for diff computation (5 seconds, VSCode default)
+        hide_merge_artifacts = false,     -- Hide merge tool temp files (*.orig, *.BACKUP.*, *.BASE.*, *.LOCAL.*, *.REMOTE.*)
+        original_position = "left",       -- Position of original (old) content: "left" or "right"
         conflict_ours_position = "right", -- Position of ours (:2) in conflict view: "left" or "right" (independent of original_position)
     },
 
     -- Explorer panel configuration
     explorer = {
-        position = "left", -- "left" or "bottom"
-        width = 40, -- Width when position is "left" (columns)
-        height = 15, -- Height when position is "bottom" (lines)
-        view_mode = "list", -- "list" (flat file list) or "tree" (directory tree)
-        indent_markers = true, -- Show indent markers in tree view (│, ├, └)
-        initial_focus = "explorer", -- Initial focus: "explorer", "original", or "modified"
+        position = "left",              -- "left" or "bottom"
+        width = 40,                     -- Width when position is "left" (columns)
+        height = 15,                    -- Height when position is "bottom" (lines)
+        view_mode = "list",             -- "list" (flat file list) or "tree" (directory tree)
+        indent_markers = true,          -- Show indent markers in tree view (│, ├, └)
+        initial_focus = "explorer",     -- Initial focus: "explorer", "original", or "modified"
         icons = {
             folder_closed = "\u{e5ff}", -- Nerd Font: folder
-            folder_open = "\u{e5fe}", -- Nerd Font: folder-open
+            folder_open = "\u{e5fe}",   -- Nerd Font: folder-open
         },
         file_filter = {
             ignore = {}, -- Glob patterns to hide (e.g., {"*.lock", "dist/*"})
@@ -57,24 +57,24 @@ require("codediff").setup({
 
     -- History panel configuration (for :CodeDiff history)
     history = {
-        position = "bottom", -- "left" or "bottom" (default: bottom)
-        width = 40, -- Width when position is "left" (columns)
-        height = 15, -- Height when position is "bottom" (lines)
+        position = "bottom",       -- "left" or "bottom" (default: bottom)
+        width = 40,                -- Width when position is "left" (columns)
+        height = 15,               -- Height when position is "bottom" (lines)
         initial_focus = "history", -- Initial focus: "history", "original", or "modified"
-        view_mode = "list", -- "list" or "tree" for files under commits
+        view_mode = "list",        -- "list" or "tree" for files under commits
     },
 
     -- Keymaps
     keymaps = {
         view = {
-            quit = "q", -- Close diff tab
+            quit = "q",                    -- Close diff tab
             toggle_explorer = "<leader>b", -- Toggle explorer visibility (explorer mode only)
             next_hunk = "]c",
             prev_hunk = "[c",
             next_file = "]f",
             prev_file = "[f",
-            diff_get = "do", -- Get change from other buffer (like vimdiff)
-            diff_put = "dp", -- Put change to other buffer (like vimdiff)
+            diff_get = "do",    -- Get change from other buffer (like vimdiff)
+            diff_put = "dp",    -- Put change to other buffer (like vimdiff)
             toggle_stage = "-", -- Stage/unstage current file (works in explorer and diff buffers)
         },
         explorer = {
@@ -82,30 +82,30 @@ require("codediff").setup({
             hover = "K",
             refresh = "R",
             toggle_view_mode = "i", -- Toggle between 'list' and 'tree' views
-            stage_all = "S", -- Stage all files
-            unstage_all = "U", -- Unstage all files
-            restore = "X", -- Discard changes to file (restore to index/HEAD)
+            stage_all = "S",        -- Stage all files
+            unstage_all = "U",      -- Unstage all files
+            restore = "X",          -- Discard changes to file (restore to index/HEAD)
         },
         history = {
-            select = "<CR>", -- Select commit/file or toggle expand
+            select = "<CR>",        -- Select commit/file or toggle expand
             toggle_view_mode = "i", -- Toggle between 'list' and 'tree' views
         },
         -- Conflict mode keymaps (only active in merge conflict views)
         conflict = {
-            accept_incoming = "<leader>cl", -- Accept incoming (theirs/left) change
-            accept_current = "<leader>cr", -- Accept current (ours/right) change
-            accept_both = "<leader>cb", -- Accept both changes (incoming first)
-            discard = "<leader>cx", -- Discard both, keep base
+            accept_incoming = "<leader>cl",     -- Accept incoming (theirs/left) change
+            accept_current = "<leader>cr",      -- Accept current (ours/right) change
+            accept_both = "<leader>cb",         -- Accept both changes (incoming first)
+            discard = "<leader>cx",             -- Discard both, keep base
             -- Accept all (whole file) - uppercase versions like diffview
             accept_all_incoming = "<leader>cL", -- Accept ALL incoming changes
-            accept_all_current = "<leader>cR", -- Accept ALL current changes
-            accept_all_both = "<leader>cB", -- Accept ALL both changes
-            discard_all = "<leader>cX", -- Discard ALL, reset to base
-            next_conflict = "]x", -- Jump to next conflict
-            prev_conflict = "[x", -- Jump to previous conflict
+            accept_all_current = "<leader>cR",  -- Accept ALL current changes
+            accept_all_both = "<leader>cB",     -- Accept ALL both changes
+            discard_all = "<leader>cX",         -- Discard ALL, reset to base
+            next_conflict = "]x",               -- Jump to next conflict
+            prev_conflict = "[x",               -- Jump to previous conflict
             -- Vimdiff-style numbered diffget (from result buffer)
-            diffget_incoming = "2do", -- Get hunk from incoming (left/theirs) buffer
-            diffget_current = "3do", -- Get hunk from current (right/ours) buffer
+            diffget_incoming = "2do",           -- Get hunk from incoming (left/theirs) buffer
+            diffget_current = "3do",            -- Get hunk from current (right/ours) buffer
         },
     },
 })

@@ -223,36 +223,37 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
-[custom.jj]
-command = "prompt"
-format = "$output"
-ignore_timeout = true
-shell = ["starship-jj", "--ignore-working-copy", "starship"]
-use_stdin = false
-when = true
+# [custom.jj]
+# command = "prompt"
+# format = "$output"
+# ignore_timeout = true
+# shell = ["starship-jj", "--ignore-working-copy", "starship"]
+# use_stdin = false
+# when = true
 
 [git_branch]
-disabled = true
+disabled = false
+style='green'
 
 [git_status]
-disabled = true
+disabled = false
 format = '([$all_status$ahead_behind]($style) )'
-conflicted='='
-ahead='󱦲'
-behind='󱦳'
-diverged='󰃻'
+conflicted='󰤼 '
+ahead='󱦲 '
+behind='󱦳 '
+diverged='󰃻 '
 up_to_date=''
-untracked='󰍉'
-stashed=''
-modified='󰇂'
+untracked='󰍉 '
+stashed='󰜦 '
+modified='󰔶 '
 staged=''
-renamed='󰪹'
-deleted='✘'
+renamed=' '
+deleted='✘ '
 typechanged=""
-style='bold sapphire'
+style='teal'
 
 [git_state]
-disabled = true
+disabled = false
 
 [git_commit]
-disabled = true
+disabled = false

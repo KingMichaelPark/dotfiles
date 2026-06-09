@@ -1,7 +1,7 @@
 [ui]
 theme = "catppuccin-mocha"
 
-# [revisions]
+[revisions]
 revset = "present(@) | ancestors(immutable().., 15) | present(trunk())"               # overrides jj's revsets.log
 
 [preview]
