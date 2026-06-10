@@ -63,3 +63,11 @@ map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 map("n", "<C-c>", smart_close.smart_buffer_close, { desc = "Smart close" })
+
+
+local function insertFullPath()
+    local filepath = vim.fn.expand('%')
+    vim.fn.setreg('+', filepath) -- write to clippoard
+end
+
+vim.keymap.set('n', '<leader>pc', insertFullPath, { noremap = true, silent = true, desc = "Copy path to clipboard" })
