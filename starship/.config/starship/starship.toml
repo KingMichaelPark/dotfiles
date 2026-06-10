@@ -223,20 +223,46 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
-# [custom.jj]
-# command = "prompt"
-# format = "$output"
-# ignore_timeout = true
-# shell = ["starship-jj", "--ignore-working-copy", "starship"]
-# use_stdin = false
-# when = true
-
 [git_branch]
-disabled = false
+disabled = true
 style='green'
 
+[custom.jj_bookmark]
+detect_folders = ["this_folder_does_not_exist_forcing_always_run"]
+# detect_folders = [".jj"]
+when = "true"
+command = '''
+if jj root >/dev/null 2>&1; then
+    # 1. Get the closest bookmark
+    bookmark=$(jj log -r "closest_bookmark(@)" --no-graph -T 'bookmarks' --ignore-working-copy --quiet | tr -d '\n')
+
+    # 2. Get the diff stats with colorized outputs
+    stats=$(jj diff --stat --ignore-working-copy --quiet | tail -n 1 | awk -F', ' '{
+        f = ($1 ~ /[0-9]+/) ? $1 : "0"; gsub(/[^0-9]/, "", f);
+        i = ($2 ~ /[0-9]+/) ? $2 : "0"; gsub(/[^0-9]/, "", i);
+        d = ($3 ~ /[0-9]+/) ? $3 : "0"; gsub(/[^0-9]/, "", d);
+
+        # ANSI color codes
+        cyan = "\033[36m"; green = "\033[32m"; red = "\033[31m"; reset = "\033[0m";
+
+        if (f > 0) {
+            printf "%s~%s%s %s+%s%s %s-%s%s", cyan, f, reset, green, i, reset, red, d, reset
+        }
+    }')
+
+    # 3. Output them together safely
+    if [ -n "$stats" ]; then
+        echo -e "$bookmark $stats"
+    else
+        echo -e "$bookmark"
+    fi
+fi
+'''
+format = "([󱗆 $output]($style)) "
+style = "sapphire"
+
 [git_status]
-disabled = false
+disabled = true
 format = '([$all_status$ahead_behind]($style) )'
 conflicted='󰤼 '
 ahead='󱦲 '
@@ -253,7 +279,7 @@ typechanged=""
 style='teal'
 
 [git_state]
-disabled = false
+disabled = true
 
 [git_commit]
-disabled = false
+disabled = true
