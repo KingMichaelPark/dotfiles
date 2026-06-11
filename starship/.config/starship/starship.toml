@@ -228,8 +228,8 @@ disabled = true
 style='green'
 
 [custom.jj_bookmark]
-detect_folders = ["this_folder_does_not_exist_forcing_always_run"]
-# detect_folders = [".jj"]
+# detect_folders = ["this_folder_does_not_exist_forcing_always_run"]
+detect_folders = [".jj"]
 when = "true"
 command = '''
 if jj root >/dev/null 2>&1; then
