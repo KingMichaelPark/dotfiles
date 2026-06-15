@@ -31,10 +31,10 @@ symbol = " "
 symbol = " "
 
 [c]
-symbol = " "
+symbol = "  "
 
 [cmake]
-symbol = " "
+symbol = "  "
 
 [conda]
 symbol = " "
@@ -46,7 +46,7 @@ symbol = " "
 symbol = " "
 
 [docker_context]
-symbol = " "
+symbol = "  "
 
 [elixir]
 symbol = " "

@@ -91,7 +91,7 @@ vim.keymap.set("n", "<leader>fn", function()
                     local icon = vim.fn.split(line, "  ")[1]
                     table.insert(icons, icon)
                 end
-                vim.api.nvim_put({ table.concat(icons, "") }, "c", true, true)
+                vim.api.nvim_put({ table.concat(icons, " ") }, "c", true, true)
             end,
         },
     })
