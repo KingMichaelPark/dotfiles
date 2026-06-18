@@ -1,0 +1,16 @@
+[global]
+line-length = 120
+flavor = "gfm"
+
+[MD004]
+style = "dash"  # List marker style
+
+[MD013]
+line-length = 120
+reflow = true
+reflow-mode = "normalize"
+
+[MD060]
+enabled =  true # Default: opt-in for conservative adoption
+style = "aligned"            # Options: "aligned", "aligned-no-space", "compact", "tight", "any"
+
