@@ -1,0 +1,18 @@
+[tools]
+go = "latest"
+node = "latest"
+python = "latest"
+rust = "latest"
+shfmt = "latest"
+
+[settings]
+legacy_version_file = false
+experimental = true
+
+[settings.python]
+compile = false
+uv_venv_auto = true
+
+[settings.pipx]
+uvx = true
+
