@@ -4,6 +4,7 @@ vim.pack.add({ gh("folke/which-key.nvim") })
 require("which-key").setup({
     preset = "modern",
     icons = { rules = false },
+    disable = { bt = { "terminal" } },
 })
 
 vim.keymap.set(

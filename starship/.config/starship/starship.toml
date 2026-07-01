@@ -5,7 +5,6 @@
 # Palettes must be defined _after_ this line
 palette = "catppuccin_mocha"
 
-
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
@@ -223,11 +222,8 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
-[git_branch]
-disabled = true
-style='green'
-
 [custom.jj_bookmark]
+disabled = true
 # detect_folders = ["this_folder_does_not_exist_forcing_always_run"]
 detect_folders = [".jj"]
 when = "true"
@@ -261,22 +257,26 @@ fi
 format = "([󱗆  $output]($style)) "
 style = "sapphire"
 
+[git_branch]
+disabled = true
+style='green'
+
 [git_status]
 disabled = true
 format = '([$all_status$ahead_behind]($style) )'
-conflicted='󰤼 '
+conflicted='⟺ '
 ahead='󱦲 '
 behind='󱦳 '
 diverged='󰃻 '
 up_to_date=''
-untracked='󰍉 '
-stashed='󰜦 '
-modified='󰔶 '
-staged=''
-renamed=' '
-deleted='✘ '
+untracked='? '
+stashed='󰼽 '
+modified='[!$count ](yellow)'
+staged='[+$count ](green)'
+deleted='[-$count ](red)'
+renamed='» '
 typechanged=""
-style='teal'
+style='sapphire'
 
 [git_state]
 disabled = true

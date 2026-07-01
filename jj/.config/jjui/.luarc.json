@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": [
+      "/Users/mike/.config/jjui/types.lua"
+    ]
+  },
+    "diagnostics.disable": [
+        "lowercase-global"
+    ]
+}
