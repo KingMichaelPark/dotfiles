@@ -24,7 +24,9 @@ local function create_float(instance_key)
         -- Map <Space> to itself so it resolves instantly instead of
         -- waiting `timeoutlen` for a possible <leader> sequence, which
         -- otherwise causes input lag while using the terminal.
-        vim.keymap.set({ "n", "t" }, "<Space>", "<Space>", { buffer = inst.buf })
+        if vim.g.mapleader == " " then
+            vim.keymap.set({ "n", "t" }, "<Space>", "<Space>", { buffer = inst.buf, nowait = true })
+        end
     end
 
     local win_config = {

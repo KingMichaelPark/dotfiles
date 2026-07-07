@@ -5,9 +5,8 @@
 
 ![dotfiles](https://github.com/user-attachments/assets/896d95d5-3ea8-4e76-bf85-2fbbd02542e2)
 
-Dotfiles are managed via `gnu stow`. From `~/.dotfiles`, `stow <dir>` symlinks
-its contents to the parent directory. Tooling (Python, Node, etc.) is managed
-via [mise](https://github.com/jdxcode/mise).
+Dotfiles are managed via `gnu stow`. From `~/.dotfiles`, `stow <dir>` symlinks its contents to the parent directory.
+Tooling (Python, Node, etc.) is managed via [mise](https://github.com/jdxcode/mise).
 
 **Example:**
 
@@ -18,117 +17,73 @@ stow nvim  # Symlinks ~/.config/nvim/
 
 ## Essential Software
 
-This is a list of software I use all the time and wouldn't be as productive
-without it, feel free to pick and choose what you like, and shoot me a message
-if you need help with anything!
+This is a list of software I use all the time and wouldn't be as productive without it, feel free to pick and choose
+what you like, and shoot me a message if you need help with anything!
 
 ### Software & Tools
 
-| Software                                                          | Description                                                              |
-| :---------------------------------------------------------------- | :----------------------------------------------------------------------- |
-| [**age**](https://github.com/FiloSottile/age)                     | Simple, modern, secure file encryption                                   |
-| [**agg**](https://github.com/asciinema/agg)                       | Convert asciinema recordings to gif                                      |
-| [**argon2**](https://github.com/P-H-C/phc-winner-argon2)          | Password hashing library and CLI utility                                 |
-| [**asciinema**](https://github.com/asciinema/asciinema)           | Terminal recording tool                                                  |
-| [**atuin**](https://github.com/atuinsh/atuin)                     | Magical shell history                                                    |
-| [**bat**](https://github.com/sharkdp/bat)                         | Clone of cat(1) with syntax highlighting and Git integration             |
-| [**bottom**](https://github.com/ClementTsang/bottom)              | Yet another cross-platform graphical process/system monitor              |
-| [**colima**](https://github.com/abiosoft/colima)                  | Docker cli free OSS                                                      |
-| [**docker**](https://github.com/docker/cli)                       | Docker and its related plugins/extensions (compose, buildx, etc.)        |
-| [**duckdb**](https://github.com/duckdb/duckdb)                    | Embeddable SQL OLAP Database Management System                           |
-| [**entr**](https://github.com/eradman/entr)                       | Run arbitrary commands when files change                                 |
-| [**eza**](https://github.com/eza-community/eza)                   | Modern, maintained replacement for ls                                    |
-| [**fd**](https://github.com/sharkdp/fd)                           | Simple, fast and user-friendly alternative to find                       |
-| [**fzf**](https://github.com/junegunn/fzf)                        | Command-line fuzzy finder written in Go                                  |
-| [**ghostty**](https://github.com/ghostty-org/ghostty)             | Current terminal emulator                                                |
-| [**git**](https://github.com/git/git)                             | The apple system git is way too old                                      |
-| [**git-delta**](https://github.com/dandavison/delta)              | Syntax-highlighting pager for git and diff output                        |
-| [**httpie**](https://github.com/httpie/cli)                       | HTTP Tool                                                                |
-| [**jq**](https://github.com/jqlang/jq)                            | Lightweight and flexible command-line JSON processor                     |
-| [**jj**](https://github.com/martinvonz/jj)                        | VCS alternative to git but also git compatible (Jujutsu)                 |
-| [**jjui**](https://github.com/idursun/jjui)                       | TUI for Jujutsu                                                          |
-| [**lazydocker**](https://github.com/jesseduffield/lazydocker)     | Simple terminal UI for docker commands                                   |
-| [**lazygit**](https://github.com/jesseduffield/lazygit)           | Simple terminal UI for git commands                                      |
-| [**mise**](https://github.com/jdx/mise)                           | Polyglot runtime manager (asdf rust clone)                               |
-| [**opencode**](https://github.com/anomalyco/opencode)             | CLI Coding agent                                                         |
-| [**neovim**](https://github.com/neovim/neovim)                    | Ambitious Vim-fork focused on extensibility and agility                  |
-| [**pandoc**](https://github.com/jgm/pandoc)                       | Swiss-army knife of markup format conversion (mostly markdown to jira)   |
-| [**prek**](https://github.com/j178/prek)                          | Pre-commit tool written in rust                                          |
-| [**tree-sitter**](https://github.com/tree-sitter/tree-sitter)     | Syntax tree based highlighting for neovim                                |
-| [**tree-sitter-cli**](https://github.com/tree-sitter/tree-sitter) | Install parsers for tree sitter                                          |
-| [**restic**](https://github.com/restic/restic)                    | Back-up utility with snapshots and backups                               |
-| [**ripgrep**](https://github.com/BurntSushi/ripgrep)              | Search tool like grep and The Silver Searcher                            |
-| [**rumdl**](https://github.com/rvben/rumdl)              |  Markdown formatter and linter                           |
-| [**sops**](https://github.com/getsops/sops)                       | Editor of encrypted files                                                |
-| [**starship**](https://starship.rs/)                              | Starship zsh theme (installed via `zsh/.zshrc`)                          |
-| [**stow**](https://www.gnu.org/software/stow/)                    | Organize software neatly under a single directory tree (e.g. /usr/local) |
-| [**stylua**](https://github.com/JohnnyMorganz/StyLua)             | Opinionated Lua code formatter                                           |
-| [**typst**](https://github.com/typst/typst)                       | LaTeX / Word alternative                                                 |
-| [**uv**](https://github.com/astral-sh/uv)                         | Extremely fast Python package installer and resolver, written in Rust    |
-| [**yazi**](https://github.com/sxyazi/yazi)                        | TUI file manager                                                         |
-| [**zoxide**](https://github.com/ajeetdsouza/zoxide)               | Shell extension to navigate your filesystem faster                       |
+| Software                                                      | Description                                                              |
+| :------------------------------------------------------------ | :----------------------------------------------------------------------- |
+| [**age**](https://github.com/FiloSottile/age)                 | Simple, modern, secure file encryption                                   |
+| [**atuin**](https://github.com/atuinsh/atuin)                 | Magical shell history                                                    |
+| [**bat**](https://github.com/sharkdp/bat)                     | Clone of cat(1) with syntax highlighting and Git integration             |
+| [**bottom**](https://github.com/ClementTsang/bottom)          | Yet another cross-platform graphical process/system monitor              |
+| [**colima**](https://github.com/abiosoft/colima)              | Docker cli free OSS                                                      |
+| [**docker**](https://github.com/docker/cli)                   | Docker and its related plugins/extensions (compose, buildx, etc.)        |
+| [**duckdb**](https://github.com/duckdb/duckdb)                | Embeddable SQL OLAP Database Management System                           |
+| [_entr_](https://github.com/eradman/entr)                     | Run arbitrary commands when files change                                 |
+| [**eza**](https://github.com/eza-community/eza)               | Modern, maintained replacement for ls                                    |
+| [**fd**](https://github.com/sharkdp/fd)                       | Simple, fast and user-friendly alternative to find                       |
+| [**fzf**](https://github.com/junegunn/fzf)                    | Command-line fuzzy finder written in Go                                  |
+| [_ghostty_](https://github.com/ghostty-org/ghostty)           | Current terminal emulator                                                |
+| [_git_](https://github.com/git/git)                           | The apple system git is way too old                                      |
+| [**git-delta**](https://github.com/dandavison/delta)          | Syntax-highlighting pager for git and diff output                        |
+| [**jq**](https://github.com/jqlang/jq)                        | Lightweight and flexible command-line JSON processor                     |
+| [**jj**](https://github.com/martinvonz/jj)                    | VCS alternative to git but also git compatible (Jujutsu)                 |
+| [**jjui**](https://github.com/idursun/jjui)                   | TUI for Jujutsu                                                          |
+| [**lazydocker**](https://github.com/jesseduffield/lazydocker) | Simple terminal UI for docker commands                                   |
+| [**lazygit**](https://github.com/jesseduffield/lazygit)       | Simple terminal UI for git commands                                      |
+| [_mise_](https://github.com/jdx/mise)                         | Polyglot runtime manager (asdf rust clone)                               |
+| [**neovim**](https://github.com/neovim/neovim)                | Ambitious Vim-fork focused on extensibility and agility                  |
+| [**pandoc**](https://github.com/jgm/pandoc)                   | Swiss-army knife of markup format conversion (mostly markdown to jira)   |
+| [**prek**](https://github.com/j178/prek)                      | Pre-commit tool written in rust                                          |
+| [**tree-sitter**](https://github.com/tree-sitter/tree-sitter) | Syntax tree based highlighting for neovim                                |
+| [**restic**](https://github.com/restic/restic)                | Back-up utility with snapshots and backups                               |
+| [**ripgrep**](https://github.com/BurntSushi/ripgrep)          | Search tool like grep and The Silver Searcher                            |
+| [**rumdl**](https://github.com/rvben/rumdl)                   | Markdown formatter and linter                                            |
+| [**sops**](https://github.com/getsops/sops)                   | Editor of encrypted files                                                |
+| [**starship**](https://starship.rs/)                          | Starship zsh theme (installed via `zsh/.zshrc`)                          |
+| [_stow_](https://www.gnu.org/software/stow/)                  | Organize software neatly under a single directory tree (e.g. /usr/local) |
+| [**stylua**](https://github.com/JohnnyMorganz/StyLua)         | Opinionated Lua code formatter                                           |
+| [**typst**](https://github.com/typst/typst)                   | LaTeX / Word alternative                                                 |
+| [**uv**](https://github.com/astral-sh/uv)                     | Extremely fast Python package installer and resolver, written in Rust    |
+| [**yazi**](https://github.com/sxyazi/yazi)                    | TUI file manager                                                         |
+| [**zoxide**](https://github.com/ajeetdsouza/zoxide)           | Shell extension to navigate your filesystem faster                       |
 
 ### Installation
 
-To install all essential software via [Homebrew](https://brew.sh/), run:
+To install all essential software via [Homebrew](https://brew.sh/) and [_mise_](https://github.com/jdx/mise) run:
 
 ```bash
 brew install --cask ghostty
 brew install \
-    age \
-    agg \
-    argon2 \
-    asciinema \
-    atuin \
-    bat \
-    bottom \
-    colima \
-    docker \
-    docker-compose \
-    docker-buildx \
-    docker-credential-helper \
-    duckdb \
     entr \
-    eza \
-    fd \
-    fzf \
     git \
-    git-delta \
-    httpie \
-    jq \
-    jj \
-    jjui \
-    lazydocker \
-    lazygit \
     mise \
-    neovim \
-    anomalyco/tap/opencode \
-    pandoc \
-    prek \
-    tree-sitter \
-    tree-sitter-cli \
-    restic \
-    ripgrep \
-    sops \
-    stow \
-    stylua \
-    typst \
-    uv \
-    yazi \
-    zoxide
+    stow
+stow mise
+mise i
 ```
 
 ### Fonts
 
-Nerd Font Patched version of [Iosevka](https://typeof.net/Iosevka/)'s private
-build plans are in the font directory. The latest version I build, I just
-upload [google-drive-link](https://drive.google.com/drive/folders/1UbV9Lk9jbUynyOmudZMBwd3Fygve76P2).
+Nerd Font Patched version of [Iosevka](https://typeof.net/Iosevka/)'s private build plans are in the font directory. The
+latest version I build, I just upload
+[google-drive-link](https://drive.google.com/drive/folders/1UbV9Lk9jbUynyOmudZMBwd3Fygve76P2).
 
-I also have a narrow build of [Maple
-Mono](https://github.com/subframe7536/maple-font) there.
+I also have a narrow build of [Maple Mono](https://github.com/subframe7536/maple-font) there.
 
 ## Questions
 
-If you have any questions send me a message at
-[Mastodon](https://fosstodon.org/@mdawg) or
+If you have any questions send me a message at [Mastodon](https://fosstodon.org/@mdawg) or
 [Bluesky](https://bsky.app/profile/mhpark.me)
