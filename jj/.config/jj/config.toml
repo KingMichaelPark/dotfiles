@@ -70,3 +70,8 @@ committer_date(after:"1 month ago")
 program = "delta"
 diff-args = ["--width", "$width", "--features", "catppuccin-mocha", "$left", "$right"]
 diff-expected-exit-codes = [0, 1]
+
+[[--scope]]
+--when.environments = ["JJUI"]
+[--scope.ui]
+diff-formatter = "delta"
