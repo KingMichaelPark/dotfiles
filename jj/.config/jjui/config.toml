@@ -2,7 +2,18 @@
 theme = "catppuccin-mocha"
 
 [revisions]
-revset = "present(@) | ancestors(immutable().., 30) | present(trunk())"               # overrides jj's revsets.log
+revset = "present(@) | ancestors(immutable_heads().., 10) | present(trunk())"
+
+# - present(@) — my current commit, always shown (the present() guards against
+#   resolving oddly in edge cases).
+# - ancestors(immutable_heads().., 2) — this is the workhorse:
+#   - immutable_heads().. = everything that isn't an ancestor of the immutable
+#     heads, i.e. all my mutable work (which is where my bookmarks live).
+#   - Wrapping it in ancestors(..., 2) walks 2 commits past each stack's base, so
+#     I see the fork point relative to trunk() — where my bookmark branched off
+#     main.
+# - present(trunk()) — anchors main/trunk() itself so there's always a reference
+#   point, even if I have no local work on top of it.
 
 [preview]
 file_command = ["diff", "--color", "always", "-r", "$change_id", "$file", "--config", "ui.diff-formatter=delta-catppuccin-mocha"]
@@ -12,4 +23,3 @@ position = "auto" # auto, bottom, or right
 width_percentage = 60.0
 height_percentage = 60.0
 show_at_start = false
-

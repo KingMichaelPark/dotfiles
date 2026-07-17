@@ -1,30 +1,4 @@
-[signing]
-behaviour = "own"
-backend = "ssh"
-key = "~/.ssh/id_ed25519.pub"
-
-[signing.backends]
-"ssh.allowed-signers" = "/home/mike/.ssh/allowed_signers"
-"ssh.program" = "/usr/bin/ssh-keygen"
-
-[user]
-name = "Michael Park"
-email = "me@mhpark.me"
-
-[ui]
-default-command = "log"
-diff-formatter = ":git"
-editor = "nvim"
-pager = "delta"
-conflict-marker-style = "git"
-# diff-editor = ["nvim", "-c", "CodeDiff", "merge", "$left", "$right"]
-
-[git]
-subprocess = true
-sign-on-push = true
-
 [aliases]
-log-recent = [ "log", "-r", "default()" ]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 init = ["git", "init", "--colocate"]
 cm = ["commit", "-m"]
@@ -56,15 +30,37 @@ bf = ["util", "exec", "--", 'sh', '-euc', '''
   fi
 ''' ]
 
+[git]
+subprocess = true
+sign-on-push = true
+
+[revsets]
+log = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
+
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
-"default()" = """
-coalesce(trunk(),root())::present(@) | ancestors(visible_heads() & recent(), 5)
-"""
-"recent()" = """
-committer_date(after:"1 month ago")
-"""
+"recent()" = 'committer_date(after:"1 month ago")'
+
+[signing]
+behaviour = "own"
+backend = "ssh"
+key = "~/.ssh/id_ed25519.pub"
+
+[signing.backends]
+"ssh.allowed-signers" = "/home/mike/.ssh/allowed_signers"
+"ssh.program" = "/usr/bin/ssh-keygen"
+
+[user]
+name = "Michael Park"
+email = "me@mhpark.me"
+
+[ui]
+default-command = "log"
+diff-formatter = ":git"
+editor = "nvim"
+pager = "delta"
+conflict-marker-style = "git"
 
 [merge-tools.delta-catppuccin-mocha]
 program = "delta"
