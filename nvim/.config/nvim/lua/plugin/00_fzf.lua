@@ -48,9 +48,6 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<leader>fp", function() require("fzf-lua").projects() end, { desc = "Projects" })
 -- git
-vim.keymap.set("n", "<leader>gl", function() require("fzf-lua").git_log() end, { desc = "Git Log" })
-vim.keymap.set("n", "<leader>gL", function() require("fzf-lua").git_log_line() end, { desc = "Git Log Line" })
-
 vim.keymap.set("n", "<leader>fa", function()
     -- The action handler to open the selected file
     local diff_edit_action = function(selected, _)
