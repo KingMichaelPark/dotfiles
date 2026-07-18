@@ -8,14 +8,15 @@ zmx-select() {
     printf "%-20s  pid:%-8s  clients:%-2s  %s\n" "$name" "$pid" "$clients" "$dir"
   done)
 
-  local output query key selected session_name
+  local output query key selected session_name action="attach"
   output=$({ [[ -n "$display" ]] && echo "$display"; } | fzf \
     --print-query \
-    --expect=ctrl-n \
+    --expect=ctrl-n,ctrl-x \
+    --no-multi \
     --height=80% \
     --reverse \
     --prompt="zmx> " \
-    --header="Enter: select | Ctrl-N: create new" \
+    --header="Enter: attach | Ctrl-N: create new | Ctrl-X: kill" \
     --preview='zmx history {1}' \
     --preview-window=right:60%:follow \
   )
@@ -27,19 +28,26 @@ zmx-select() {
 
   if [[ "$key" == "ctrl-n" && -n "$query" ]]; then
     session_name="$query"
+  elif [[ "$key" == "ctrl-x" && -n "$selected" ]]; then
+    session_name=$(echo "$selected" | awk '{print $1}')
+    action="kill"
   elif [[ $rc -eq 0 && -n "$selected" ]]; then
     session_name=$(echo "$selected" | awk '{print $1}')
-  elif [[ -n "$query" ]]; then
+  elif [[ $rc -eq 0 && -n "$query" ]]; then
     session_name="$query"
   else
+    if zle; then
+      zle reset-prompt
+      zle redisplay
+    fi
     return 130
   fi
 
   if zle; then
-    BUFFER="zmx attach ${(q)session_name}"
+    BUFFER="zmx $action ${(q)session_name}"
     zle accept-line
   else
-    zmx attach "$session_name"
+    zmx "$action" "$session_name"
   fi
 }
 
