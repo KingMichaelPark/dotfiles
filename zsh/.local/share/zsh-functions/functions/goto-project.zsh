@@ -1,7 +1,7 @@
 goto_project() {
   local dir
   dir=$(fd . ~/Projects -d 2 -t d | sed 's#/$##' | fzf --delimiter='/' --with-nth='-1')
-  
+
   if [[ -n "$dir" ]]; then
     cd "$dir"
     local session_name

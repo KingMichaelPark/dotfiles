@@ -1,3 +1,53 @@
+--- Prompt the user to ignore and untrack the currently active file.
+local function ignore_file()
+    local file = context.file()
+    if not file then
+        return
+    end
+
+    local confirm = choose({
+        title = "Are you sure you want to ignore " .. file .. "?",
+        options = { "Yes", "No" }
+    })
+
+    if confirm == "Yes" then
+        -- Add the file to .gitignore if it doesn't exist
+        exec_shell('rg --color never -Fxq "' .. file .. '" .gitignore 2>/dev/null || echo "' .. file .. '" >> .gitignore')
+        revisions.details.refresh()
+
+        -- Untrack the file in jj
+        local _, err = jj("file", "untrack", file)
+        if err then
+            flash({ text = "Failed to untrack: " .. err, error = true })
+        else
+            revisions.details.refresh()
+        end
+    end
+end
+
+--- Prompt the user and permanently delete the active file.
+---
+--- Retrieves the active file path, requests confirmation, and if confirmed,
+--- removes the file from the filesystem and refreshes the revisions list.
+local function abandon_file()
+    local file = context.file()
+    if not file then
+        return
+    end
+
+    -- Ask for confirmation before removing
+    local confirm = choose({
+        title = "Are you sure you want to completely remove " .. file .. "?",
+        options = { "Yes", "No" }
+    })
+
+    if confirm == "Yes" then
+        exec_shell('rm "' .. file .. '"')
+        revisions.details.refresh()
+    end
+end
+
+
 local function open_nvim()
     local file = context.file()
     if not file then
@@ -62,14 +112,26 @@ end
 
 function setup(config)
     config.action(
-        "[E]dit in nvim",
+        "edit in nvim",
         open_nvim,
         { key = "e", scope = "revisions.details", desc = "Edit the file" }
     )
 
     config.action(
-        "Open PR",
+        "open pr",
         open_pr,
-        { key = "O", scope = "revisions", desc = "Open or create PR in browser (Lazygit style)" }
+        { key = "o", scope = "revisions", desc = "Open or create PR in browser (Lazygit style)" }
+    )
+
+    config.action(
+        "abandon file",
+        abandon_file,
+        { key = "a", scope = "revisions.details", desc = "Abandon the current file" }
+    )
+
+    config.action(
+        "ignore file",
+        ignore_file,
+        { key = "i", scope = "revisions.details", desc = "Ignore the current file" }
     )
 end
