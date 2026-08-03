@@ -68,6 +68,10 @@ To install all essential software via [Homebrew](https://brew.sh/) and [_mise_](
 ```bash
 brew install --cask ghostty
 brew install \
+    colima \
+    docker \
+    docker-compose \
+    docker-credential-helper \
     entr \
     git \
     mise \
