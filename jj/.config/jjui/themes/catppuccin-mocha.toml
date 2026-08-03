@@ -15,7 +15,7 @@
 "shortcut"  = { fg = "#cba6f7" }
 "matched"   = { fg = "#f5e0dc" }
 "border"    = { fg = "#45475a" }
-"selected"  = { bg = "#181825", fg = "#1e1e2e", bold = true }
+"selected"  = { bg = "#181825", fg = "#cdd6f4", bold = true }
 
 "source_marker" = { bg = "#89dceb", fg = "#1e1e2e", bold = true }
 "target_marker" = { bg = "#a6e3a1", fg = "#1e1e2e", bold = true }

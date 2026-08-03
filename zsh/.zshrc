@@ -11,3 +11,6 @@ for p in "$HOME/.local/share/zsh-functions/functions/"*.zsh(N); do
     source "$p"
 done
 
+
+# Cortex CLI completion (disable via /settings in cortex)
+[[ -s ~/.zsh/completions/cortex.zsh ]] && source ~/.zsh/completions/cortex.zsh
