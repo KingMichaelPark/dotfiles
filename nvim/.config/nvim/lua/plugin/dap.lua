@@ -3,9 +3,63 @@ local gh = require("utils").gh
 vim.pack.add({ gh("mfussenegger/nvim-dap") })
 vim.pack.add({ gh("mfussenegger/nvim-dap-python") })
 vim.pack.add({ gh("theHamsta/nvim-dap-virtual-text") })
-vim.pack.add({ gh("igorlfs/nvim-dap-view") })
+vim.pack.add({ { src = gh("igorlfs/nvim-dap-view"), version = vim.version.range("1.*") } })
 
-require("dap-view").setup({ winbar = { controls = { enabled = true } }, auto_toggle = true, follow_tab = true })
+require("dap-view").setup({
+    winbar = {
+        controls = { enabled = true },
+        sections = { "scopes", "repl", "watches", "exceptions", "breakpoints" },
+        default_section = "scopes",
+        base_sections = {
+            -- Labels can be set dynamically with functions
+            -- Each function receives the window's width and the current section as arguments
+            breakpoints = { label = "", keymap = "B" },
+            scopes = { label = "󰭎", keymap = "S" },
+            exceptions = { label = "", keymap = "E" },
+            watches = { label = "󰖉", keymap = "W" },
+            threads = { label = "󱇫", keymap = "T" },
+            repl = { label = "", keymap = "R" },
+        },
+    },
+    virtual_text = { enabled = false },
+    auto_toggle = true,
+    follow_tab = true,
+    windows = {
+        -- `prev` is the last used position, might be nil
+        position = function(prev)
+            local wins = vim.api.nvim_tabpage_list_wins(0)
+
+            -- Restores previous position if terminal is visible
+            if
+                vim.iter(wins):find(function(win)
+                    return vim.w[win].dapview_win_term
+                end)
+            then
+                return prev
+            end
+
+            return vim.tbl_count(vim.iter(wins)
+                :filter(function(win)
+                    local buf = vim.api.nvim_win_get_buf(win)
+                    local valid_buftype =
+                        vim.tbl_contains({ "", "help", "prompt", "quickfix", "terminal" }, vim.bo[buf].buftype)
+                    local dapview_win = vim.w[win].dapview_win or vim.w[win].dapview_win_term
+                    return valid_buftype and not dapview_win
+                end)
+                :totable()) > 1 and "below" or "right"
+        end,
+        size = function(pos)
+            return pos == "below" and 0.25 or 0.5
+        end,
+        terminal = {
+            -- `pos` is the position for the regular window
+            position = function(pos)
+                return pos == "below" and "right" or "below"
+            end,
+            size = 0.5,
+        },
+    },
+})
 
 require("nvim-dap-virtual-text").setup()
 
