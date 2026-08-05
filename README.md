@@ -70,6 +70,7 @@ brew install --cask ghostty
 brew install \
     colima \
     docker \
+    docker-buildx \
     docker-compose \
     docker-credential-helper \
     entr \
