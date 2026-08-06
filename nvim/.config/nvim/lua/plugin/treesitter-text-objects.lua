@@ -12,7 +12,7 @@ require("nvim-treesitter-textobjects").setup({
 
         selection_modes = {
             ["@parameter.outer"] = "v", -- charwise
-            ["@function.outer"] = "V", -- linewise
+            ["@function.outer"] = "V",  -- linewise
         },
         include_surrounding_whitespace = false,
     },
@@ -34,8 +34,8 @@ vim.keymap.set({ "x", "o" }, "al", function() select.select_textobject("@loop.ou
 
 -- Swaps
 local swap = require("nvim-treesitter-textobjects.swap")
-vim.keymap.set("n", "<leader>a", function() swap.swap_next("@parameter.inner") end)
-vim.keymap.set("n", "<leader>A", function() swap.swap_previous("@parameter.outer") end)
+vim.keymap.set("n", "<leader>as", function() swap.swap_next("@parameter.inner") end)
+vim.keymap.set("n", "<leader>aS", function() swap.swap_previous("@parameter.inner") end)
 
 -- Functions
 local move = require("nvim-treesitter-textobjects.move")

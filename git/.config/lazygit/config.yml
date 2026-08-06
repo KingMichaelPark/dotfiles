@@ -1,7 +1,7 @@
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --paging=never
+      command: delta --paging=never
 customCommands:
   - key: "B"
     description: "Commitizen Tag Bump"
@@ -36,19 +36,19 @@ gui:
   spinner:
     # The frames of the spinner animation.
     frames:
-      - "🞌"
-      - "🞵"
-      - "🞶"
-      - "🞷"
-      - "🞸"
-      - "🞹"
-      - "🞺"
-      - "🞹"
-      - "🞸"
-      - "🞷"
-      - "🞶"
-      - "🞵"
-      - "🞌"
+      - "\U0001F78C"
+      - "\U0001F7B5"
+      - "\U0001F7B6"
+      - "\U0001F7B7"
+      - "\U0001F7B8"
+      - "\U0001F7B9"
+      - "\U0001F7BA"
+      - "\U0001F7B9"
+      - "\U0001F7B8"
+      - "\U0001F7B7"
+      - "\U0001F7B6"
+      - "\U0001F7B5"
+      - "\U0001F78C"
   nerdFontsVersion: ""
   # Status panel view.
   statusPanelView: allBranchesLog

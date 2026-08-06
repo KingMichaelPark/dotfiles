@@ -30,13 +30,7 @@ require("dap-view").setup({
             local wins = vim.api.nvim_tabpage_list_wins(0)
 
             -- Restores previous position if terminal is visible
-            if
-                vim.iter(wins):find(function(win)
-                    return vim.w[win].dapview_win_term
-                end)
-            then
-                return prev
-            end
+            if vim.iter(wins):find(function(win) return vim.w[win].dapview_win_term end) then return prev end
 
             return vim.tbl_count(vim.iter(wins)
                 :filter(function(win)
@@ -48,14 +42,10 @@ require("dap-view").setup({
                 end)
                 :totable()) > 1 and "below" or "right"
         end,
-        size = function(pos)
-            return pos == "below" and 0.25 or 0.5
-        end,
+        size = function(pos) return pos == "below" and 0.25 or 0.5 end,
         terminal = {
             -- `pos` is the position for the regular window
-            position = function(pos)
-                return pos == "below" and "right" or "below"
-            end,
+            position = function(pos) return pos == "below" and "right" or "below" end,
             size = 0.5,
         },
     },

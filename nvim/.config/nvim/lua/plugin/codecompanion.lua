@@ -27,6 +27,50 @@ end
 require("codecompanion").setup({
     ignore_warnings = true,
     adapters = {
+        acp = {
+            omp = function()
+                local helpers = require("codecompanion.adapters.acp.helpers")
+                return {
+                    name = "omp",
+                    formatted_name = "Oh My Pi",
+                    type = "acp",
+                    roles = {
+                        llm = "assistant",
+                        user = "user",
+                    },
+                    opts = {
+                        vision = true, -- agent advertises promptCapabilities.image
+                    },
+                    commands = {
+                        default = { "omp", "acp" },
+                    },
+                    defaults = {
+                        -- authMethods advertised by `omp acp`: uses local ~/.omp credentials
+                        auth_method = "agent",
+                        mcpServers = {}, -- omp loads its own MCP config
+                        timeout = 20000, -- 20 seconds
+                    },
+                    parameters = {
+                        protocolVersion = 1,
+                        clientCapabilities = {
+                            fs = { readTextFile = true, writeTextFile = true },
+                        },
+                        clientInfo = {
+                            name = "CodeCompanion.nvim",
+                            version = "1.0.0",
+                        },
+                    },
+                    handlers = {
+                        setup = function(self) return true end,
+                        auth = function(self) return true end,
+                        form_messages = function(self, messages, capabilities)
+                            return helpers.form_messages(self, messages, capabilities)
+                        end,
+                        on_exit = function(self, code) end,
+                    },
+                }
+            end,
+        },
         http = {
             gemini = function()
                 return require("codecompanion.adapters").extend("gemini", {
@@ -47,7 +91,17 @@ require("codecompanion").setup({
     },
     interactions = {
         chat = {
-            adapter = "gemini",
+            adapter = "omp",
+            keymaps = {
+                -- ACP-only: pick a previous agent session and load it into this buffer
+                acp_resume = {
+                    modes = { n = "gz" },
+                    description = "Resume an ACP session",
+                    callback = function(chat)
+                        return require("codecompanion.interactions.chat.slash_commands.keymaps").resume.callback(chat)
+                    end,
+                },
+            },
         },
         inline = {
             adapter = "gemini",
@@ -80,11 +134,20 @@ require("codecompanion").setup({
 vim.keymap.set({ "v" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "<leader>ai", prompt_codecompanion_gemini, { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
+
+-- Fresh chat pinned to a specific adapter (visual mode sends the selection as context)
 vim.keymap.set(
     { "n", "v" },
-    "<leader>aa",
-    "<cmd>CodeCompanionChat Toggle<cr>",
-    { noremap = true, silent = true }
+    "<leader>ao",
+    "<cmd>CodeCompanionChat adapter=omp<cr>",
+    { desc = "New omp (ACP) chat", noremap = true, silent = true }
+)
+vim.keymap.set(
+    { "n", "v" },
+    "<leader>ag",
+    "<cmd>CodeCompanionChat adapter=gemini<cr>",
+    { desc = "New Gemini chat", noremap = true, silent = true }
 )
 
 vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
