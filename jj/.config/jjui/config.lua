@@ -29,7 +29,7 @@ end
 ---
 --- Retrieves the active file path, requests confirmation, and if confirmed,
 --- removes the file from the filesystem and refreshes the revisions list.
-local function abandon_file()
+local function restore_file()
     local file = context.file()
     if not file then
         return
@@ -37,13 +37,17 @@ local function abandon_file()
 
     -- Ask for confirmation before removing
     local confirm = choose({
-        title = "Are you sure you want to completely remove " .. file .. "?",
+        title = "Are you sure you want to restore " .. file .. "?",
         options = { "Yes", "No" }
     })
 
     if confirm == "Yes" then
-        exec_shell('rm "' .. file .. '"')
+        local _, err = jj("restore", file)
         revisions.details.refresh()
+        if err then
+            flash({ text = "Could not restore file", error = true })
+            return
+        end
     end
 end
 
@@ -124,9 +128,9 @@ function setup(config)
     )
 
     config.action(
-        "abandon file",
-        abandon_file,
-        { key = "a", scope = "revisions.details", desc = "Abandon the current file" }
+        "restore file",
+        restore_file,
+        { key = "r", scope = "revisions.details", desc = "Abandon the current file" }
     )
 
     config.action(
