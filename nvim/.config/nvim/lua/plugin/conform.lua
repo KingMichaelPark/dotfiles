@@ -23,7 +23,7 @@ require("conform").setup({
         tsx = { "biome" },
         typescript = { "biome" },
         typescriptreact = { "biome" },
-        yaml = { "prettierd" },
+        -- yaml = { "prettierd" },
     },
     formatters = {
         biome = {

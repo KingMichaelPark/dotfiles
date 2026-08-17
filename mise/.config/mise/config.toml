@@ -43,9 +43,6 @@ uv = "latest"
 yazi = "latest"
 zola = "latest"
 zoxide = "latest"
-herdr = "latest"
-tokei = "latest"
-gh = "latest"
 
 [settings]
 legacy_version_file = false
