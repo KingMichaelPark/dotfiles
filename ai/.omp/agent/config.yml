@@ -1,0 +1,73 @@
+symbolPreset: nerd
+composer:
+  shape: claude
+theme:
+  dark: dark-catppuccin
+setupVersion: 2
+disabledExtensions:
+  []
+steeringMode: one-at-a-time
+tools:
+  approvalMode: write
+git:
+  enabled: false
+bash:
+  patterns:
+    - match: rm -rf /*
+      approval: deny
+    - match: rm -rf ~*
+      approval: deny
+    - match: jj
+      approval: allow
+    - match: jj *
+      approval: allow
+    - match: cat *
+      approval: allow
+    - match: bat *
+      approval: allow
+    - match: rg *
+      approval: allow
+    - match: grep *
+      approval: allow
+    - match: egrep *
+      approval: allow
+    - match: fgrep *
+      approval: allow
+    - match: fd *
+      approval: allow
+    - match: find *
+      approval: allow
+    - match: delta *
+      approval: allow
+    - match: diff *
+      approval: allow
+    - match: head *
+      approval: allow
+    - match: tail *
+      approval: allow
+    - match: less *
+      approval: allow
+    - match: more *
+      approval: allow
+    - match: ls *
+      approval: allow
+    - match: tree *
+      approval: allow
+    - match: stat *
+      approval: allow
+    - match: wc *
+      approval: allow
+    - match: file *
+      approval: allow
+    - match: uv sync
+      approval: allow
+    - match: uv sync *
+      approval: allow
+    - match: pytest
+      approval: allow
+    - match: pytest *
+      approval: allow
+    - match: "*"
+      approval: prompt
+modelRoles:
+  default: google/gemini-3.5-flash-lite

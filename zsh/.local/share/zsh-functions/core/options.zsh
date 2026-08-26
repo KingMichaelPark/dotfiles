@@ -13,3 +13,6 @@ setopt HIST_IGNORE_SPACE
 setopt INTERACTIVE_COMMENTS
 setopt NO_CLOBBER
 setopt SHARE_HISTORY
+
+# Disable the highlight formatting of pasted text (clashes with themes)
+zle_highlight+=(paste:none)
