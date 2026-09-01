@@ -18,12 +18,12 @@ require("conform").setup({
         json = { "biome" },
         jsonc = { "biome" },
         jsx = { "biome" },
-        -- markdown = { "prettierd" },
+        markdown = { "rumdl" },
         scss = { "biome" },
         tsx = { "biome" },
         typescript = { "biome" },
         typescriptreact = { "biome" },
-        -- yaml = { "prettierd" },
+        yaml = { "prettierd" },
     },
     formatters = {
         biome = {
