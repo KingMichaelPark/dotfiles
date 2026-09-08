@@ -1,5 +1,4 @@
 [tools]
-"github:can1357/oh-my-pi" = "latest"
 age = "latest"
 atuin = "latest"
 awscli = { version = "latest", symlink_bins = "true" }
@@ -43,6 +42,7 @@ uv = "latest"
 yazi = "latest"
 zola = "latest"
 zoxide = "latest"
+opencode = "latest"
 
 [settings]
 legacy_version_file = false
