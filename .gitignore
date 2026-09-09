@@ -31,3 +31,4 @@ ai/.pi/agent/sessions/*
 ai/.pi/agent/extensions/guardrails.*.json
 ai/.pi/context-mode
 ai/.omp/agent/config.yml.lock
+ai/.claude/settings.json

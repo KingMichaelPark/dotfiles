@@ -37,7 +37,7 @@ vim.keymap.set(
 vim.keymap.set(
     "n",
     "<leader><space>",
-    function() require("fzf-lua").jj_files({ untracked = false, hidden = true }) end,
+    function() require("fzf-lua").jj_files({ untracked = true, hidden = true }) end,
     { desc = "Find JJ Files" }
 )
 vim.keymap.set(
