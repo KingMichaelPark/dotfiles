@@ -47,22 +47,15 @@ vim.keymap.set(
     { desc = "Find Files" }
 )
 vim.keymap.set("n", "<leader>fp", function() require("fzf-lua").projects() end, { desc = "Projects" })
--- git
+-- jj
 vim.keymap.set("n", "<leader>fa", function()
-    -- The action handler to open the selected file
-    local diff_edit_action = function(selected, _)
-        local filepath = selected[1]
-        vim.cmd("edit " .. vim.fn.fnameescape(filepath))
-    end
-
-    require("fzf-lua").fzf_exec("git status --porcelain | cut -c 4-", {
+    require("fzf-lua").fzf_exec("jj diff --name-only --ignore-working-copy", {
         prompt = "󰜘 > ",
+        _type = "file",
         file_icons = true,
-        -- Use the 'builtin' previewer for Neovim's floating window
         previewer = "builtin",
-        -- Add the action to open the file on <CR>
         actions = {
-            ["default"] = diff_edit_action,
+            ["default"] = require("fzf-lua.actions").file_edit,
         },
         formatter = { "path.filename_first", 2 },
     })

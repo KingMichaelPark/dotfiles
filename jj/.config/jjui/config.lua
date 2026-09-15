@@ -114,33 +114,33 @@ local function open_pr()
     exec_shell(string.format("open '%s'", pr_url))
 end
 
-local function tug_commit()
-    local bookmark = input({ title = "Tug bookmark", prompt = "Bookmark name (leave empty to tug closest):" })
-    if not bookmark then
-        return
-    end
-
-    local output, err
-    if bookmark == "" then
-        output, err = jj("bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)")
-    else
-        output, err = jj("bookmark", "move", "--to", "closest_pushable(@)", bookmark)
-    end
-
-    if err then
-        flash({ text = "Tug failed: " .. err, error = true })
-    else
-        flash("Tugged successfully!")
-        revisions.refresh()
-    end
-end
+-- local function tug_commit()
+--     local bookmark = input({ title = "Tug bookmark", prompt = "Bookmark name (leave empty to tug closest):" })
+--     if not bookmark then
+--         return
+--     end
+--
+--     local output, err
+--     if bookmark == "" then
+--         output, err = jj("bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)")
+--     else
+--         output, err = jj("bookmark", "move", "--to", "closest_pushable(@)", bookmark)
+--     end
+--
+--     if err then
+--         flash({ text = "Tug failed: " .. err, error = true })
+--     else
+--         flash("Tugged successfully!")
+--         revisions.refresh()
+--     end
+-- end
 
 function setup(config)
-    config.action(
-        "tug",
-        tug_commit,
-        { seq = { "b", "t" }, scope = "revisions", desc = "Tug the current commit to the working copy" }
-    )
+    -- config.action(
+    --     "tug",
+    --     tug_commit,
+    --     { seq = { "b", "t" }, scope = "revisions", desc = "Tug the current commit to the working copy" }
+    -- )
 
     config.action(
         "edit in nvim",

@@ -7,6 +7,8 @@
 *.zwc
 fonts/Iosevka
 fonts/maple-font
+ai/.agents/skills/synced
+ai/.agents/skills/synced/*
 
 *HunterMono*
 
