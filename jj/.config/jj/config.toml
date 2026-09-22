@@ -64,7 +64,7 @@ conflict-marker-style = "git"
 
 [merge-tools.delta-catppuccin-mocha]
 program = "delta"
-diff-args = ["--width", "$width", "--features", "catppuccin-mocha", "$left", "$right"]
+diff-args = ["--width", "$width", "--features", "rose-pine", "$left", "$right"]
 diff-expected-exit-codes = [0, 1]
 
 [[--scope]]

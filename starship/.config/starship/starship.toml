@@ -3,7 +3,7 @@
 
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
-palette = "catppuccin_mocha"
+palette = "rose-pine"
 
 
 [env_var.ZMX_SESSION]
@@ -11,22 +11,22 @@ variable = "ZMX_SESSION"
 default = ""
 symbol = ""
 format = "[$symbol$env_value]($style) "
-style = "bold white"
+style = "bold rose"
 
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
-success_symbol = "[[](green) ❯](flamingo)"
-error_symbol = "[[](red) ❯](flamingo)"
-vimcmd_symbol = "[ ❮](subtext1)" # For use with zsh-vi-mode
+success_symbol = "[[](green) ❯](rose)"
+error_symbol = "[[](red) ❯](rose)"
+vimcmd_symbol = "[ ❮](iris)" # For use with zsh-vi-mode
 
 [directory]
 truncation_length = 4
-style = "bold lavender"
+style = "bold iris"
 
 [cmd_duration]
 format = '[$duration]($style) '
-style = 'bold surface2'
+style = 'bold overlay'
 
 [aws]
 symbol = "  "
@@ -230,6 +230,18 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
+[palettes.rose-pine]
+overlay = '#26233a'
+love = '#eb6f92'
+red = '#eb6f92'
+gold = '#f6c177'
+rose = '#ebbcba'
+pine = '#31748f'
+green = '#31748f'
+foam = '#9ccfd8'
+iris = '#c4a7e7'
+lavender = '#c4a7e7'
+
 [custom.jj_bookmark]
 disabled = false
 # detect_folders = ["this_folder_does_not_exist_forcing_always_run"]
@@ -263,11 +275,11 @@ if jj root >/dev/null 2>&1; then
 fi
 '''
 format = "([󱗆  $output]($style)) "
-style = "sapphire"
+style = "pine"
 
 [git_branch]
 disabled = true
-style='green'
+style='pine'
 
 [git_status]
 disabled = true

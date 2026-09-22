@@ -1,0 +1,21 @@
+[theme]
+name = "rose-pine"
+
+[colors]
+AlertInfo = "#9ccfd8"
+AlertWarn = "#f6c177"
+AlertError = "#eb6f92"
+
+Annotation = "#908caa"
+Base = "#e0def4"
+Guidance = "#908caa"
+Important = "#ebbcba"
+Title = "#c4a7e7"
+Muted = "#6e6a86"
+
+SyntaxCommand = "#31748f"
+SyntaxFlag = "#c4a7e7"
+SyntaxString = "#f6c177"
+SyntaxVariable = "#ebbcba"
+SyntaxOperator = "#908caa"
+SyntaxComment = "#6e6a86"

@@ -1,13 +1,42 @@
 local gh = require("utils").gh
 vim.pack.add({ gh("nvim-lualine/lualine.nvim") })
 
-local custom = require("lualine.themes.catppuccin-mocha")
-local modes = { "insert", "normal", "command", "visual", "replace", "terminal", "inactive" }
-for _, mode in ipairs(modes) do
-    custom[mode].a.bg = "NONE"
-    custom[mode].b.bg = "NONE"
-    if mode == "normal" or mode == "inactive" then custom[mode].c.bg = "NONE" end
-    custom[mode].a.fg = custom[mode].a.bg
+local ok, p = pcall(require, "rose-pine.palette")
+if not ok then
+    p = {
+        rose = "#ebbcba",
+        foam = "#9ccfd8",
+        iris = "#c4a7e7",
+        love = "#eb6f92",
+        pine = "#31748f",
+        leaf = "#95b1ac",
+        gold = "#f6c177",
+        text = "#e0def4",
+        subtle = "#908caa",
+        muted = "#6e6a86",
+    }
+end
+
+local mode_colors = {
+    normal = p.rose,
+    insert = p.foam,
+    visual = p.iris,
+    command = p.love,
+    replace = p.pine,
+    terminal = p.leaf,
+    inactive = p.muted,
+}
+
+local custom = {}
+for mode, color in pairs(mode_colors) do
+    custom[mode] = {
+        a = { fg = color, bg = "NONE", gui = "bold" },
+        b = { fg = mode == "inactive" and p.muted or p.text, bg = "NONE" },
+        c = { fg = mode == "inactive" and p.muted or p.subtle, bg = "NONE" },
+        x = { fg = mode == "inactive" and p.muted or p.foam, bg = "NONE" },
+        y = { fg = mode == "inactive" and p.muted or p.subtle, bg = "NONE" },
+        z = { fg = mode == "inactive" and p.muted or p.iris, bg = "NONE" },
+    }
 end
 
 local jj_cache = {}
@@ -46,7 +75,6 @@ local function get_jj_status()
     return (status ~= "") and ("󱗆  " .. status) or ""
 end
 
--- Change the background of lualine_c section for normal mode
 require("lualine").setup({
     options = {
         theme = custom,
@@ -60,10 +88,21 @@ require("lualine").setup({
         lualine_x = {
             {
                 get_jj_status,
-                color = { fg = "#89dceb", gui = "" }, -- Added custom color here (e.g., Catppuccin Peach)
+                color = { fg = p.foam, gui = "" },
             },
         },
         lualine_y = { "diff" },
         lualine_z = { "diagnostics" },
     },
+})
+
+-- Prevent rose-pine from making the statusline teal when a terminal/floating window is open
+local function set_transparent_term_statusline()
+    vim.api.nvim_set_hl(0, "StatusLineTerm", { bg = "NONE", fg = "NONE" })
+    vim.api.nvim_set_hl(0, "StatusLineTermNC", { bg = "NONE", fg = "NONE" })
+end
+
+set_transparent_term_statusline()
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = set_transparent_term_statusline,
 })
