@@ -55,6 +55,7 @@ what you like, and shoot me a message if you need help with anything!
 | [**starship**](https://starship.rs/)                          | Starship zsh theme (installed via `zsh/.zshrc`)                          |
 | [_stow_](https://www.gnu.org/software/stow/)                  | Organize software neatly under a single directory tree (e.g. /usr/local) |
 | [**stylua**](https://github.com/JohnnyMorganz/StyLua)         | Opinionated Lua code formatter                                           |
+| [**tinycast**](https://tinycast.dev/)                         | MacOS Spotlight Replacement                                              |
 | [**typst**](https://github.com/typst/typst)                   | LaTeX / Word alternative                                                 |
 | [**uv**](https://github.com/astral-sh/uv)                     | Extremely fast Python package installer and resolver, written in Rust    |
 | [**yazi**](https://github.com/sxyazi/yazi)                    | TUI file manager                                                         |
@@ -66,7 +67,9 @@ what you like, and shoot me a message if you need help with anything!
 To install all essential software via [Homebrew](https://brew.sh/) and [_mise_](https://github.com/jdx/mise) run:
 
 ```bash
+brew trust --tap abue-ammar/tinycast
 brew install --cask ghostty
+brew install --cask abue-ammar/tinycast/tinycast
 brew install \
     colima \
     docker \
