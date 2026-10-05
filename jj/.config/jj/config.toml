@@ -1,3 +1,25 @@
+[templates]
+log = '''
+separate(" ",
+  label("change_id", change_id.shortest(8)),
+  label("author", replace(regex:"^[0-9+]*(.*)", author.email().local(), |w| w.get(1) )),
+  format_timestamp(committer.timestamp()),
+  bookmarks,
+  tags,
+  working_copies,
+  if(conflict, label("conflict", "conflict"))
+) ++ "\n" ++
+separate("",
+  if(description && empty, separate(" ", "󱉍", description.first_line()), ""),
+  if(description && !empty, description.first_line(), ""),
+  if(!description && empty, "󱉍", ""),
+  if(!description && !empty, "󱉋", "")
+)
+'''
+[template-aliases]
+# Username part of the email address
+'username_signature(signature)' = 'signature.email().local()'
+
 [aliases]
 tug = ["bookmark", "move", "--from", "closest_bookmark(@)", "--to", "closest_pushable(@)"]
 init = ["git", "init", "--colocate"]

@@ -43,6 +43,7 @@ yazi = "latest"
 zola = "latest"
 zoxide = "latest"
 opencode = "latest"
+antigravity-cli = "latest"
 
 [settings]
 legacy_version_file = false
