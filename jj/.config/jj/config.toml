@@ -10,10 +10,10 @@ separate(" ",
   if(conflict, label("conflict", "conflict"))
 ) ++ "\n" ++
 separate("",
-  if(description && empty, separate(" ", "󱉍", description.first_line()), ""),
+  if(description && empty, separate(" ", "(empty)", description.first_line()), ""),
   if(description && !empty, description.first_line(), ""),
-  if(!description && empty, "󱉍", ""),
-  if(!description && !empty, "󱉋", "")
+  if(!description && empty, "(empty) (no description set)", ""),
+  if(!description && !empty, "(no description set)", "")
 )
 '''
 [template-aliases]
