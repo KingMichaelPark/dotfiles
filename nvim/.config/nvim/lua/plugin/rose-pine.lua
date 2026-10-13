@@ -22,6 +22,7 @@ require("rose-pine").setup({
     highlight_groups = {
         StatusLineTerm = { bg = "NONE", fg = "NONE", inherit = false },
         StatusLineTermNC = { bg = "NONE", fg = "NONE", inherit = false },
+        Leap = { bg = "NONE", fg = "highlight_med", inherit = true }
     },
 })
 

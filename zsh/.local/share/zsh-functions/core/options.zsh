@@ -16,3 +16,6 @@ setopt SHARE_HISTORY
 
 # Disable the highlight formatting of pasted text (clashes with themes)
 zle_highlight+=(paste:none)
+
+# Increase max open files (file descriptors)
+ulimit -n 8192

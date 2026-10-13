@@ -9,7 +9,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Plugins
 zinit light Aloxaf/fzf-tab
 zinit light zdharma-continuum/fast-syntax-highlighting
-fast-theme XDG:catppuccin-mocha -q
 zinit light zsh-users/zsh-autosuggestions
 
 # Starship

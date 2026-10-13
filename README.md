@@ -28,8 +28,7 @@ what you like, and shoot me a message if you need help with anything!
 | [**atuin**](https://github.com/atuinsh/atuin)                 | Magical shell history                                                    |
 | [**bat**](https://github.com/sharkdp/bat)                     | Clone of cat(1) with syntax highlighting and Git integration             |
 | [**bottom**](https://github.com/ClementTsang/bottom)          | Yet another cross-platform graphical process/system monitor              |
-| [**colima**](https://github.com/abiosoft/colima)              | Docker cli free OSS                                                      |
-| [**docker**](https://github.com/docker/cli)                   | Docker and its related plugins/extensions (compose, buildx, etc.)        |
+| [**chafa**](https://github.com/hpjansson/chafa)          | Terminal rendering of media              |
 | [**duckdb**](https://github.com/duckdb/duckdb)                | Embeddable SQL OLAP Database Management System                           |
 | [_entr_](https://github.com/eradman/entr)                     | Run arbitrary commands when files change                                 |
 | [**eza**](https://github.com/eza-community/eza)               | Modern, maintained replacement for ls                                    |
@@ -41,7 +40,6 @@ what you like, and shoot me a message if you need help with anything!
 | [**jq**](https://github.com/jqlang/jq)                        | Lightweight and flexible command-line JSON processor                     |
 | [**jj**](https://github.com/martinvonz/jj)                    | VCS alternative to git but also git compatible (Jujutsu)                 |
 | [**jjui**](https://github.com/idursun/jjui)                   | TUI for Jujutsu                                                          |
-| [**lazydocker**](https://github.com/jesseduffield/lazydocker) | Simple terminal UI for docker commands                                   |
 | [**lazygit**](https://github.com/jesseduffield/lazygit)       | Simple terminal UI for git commands                                      |
 | [_mise_](https://github.com/jdx/mise)                         | Polyglot runtime manager (asdf rust clone)                               |
 | [**neovim**](https://github.com/neovim/neovim)                | Ambitious Vim-fork focused on extensibility and agility                  |
@@ -68,16 +66,13 @@ To install all essential software via [Homebrew](https://brew.sh/) and [_mise_](
 
 ```bash
 brew trust --tap abue-ammar/tinycast
-brew install --cask ghostty
 brew install --cask abue-ammar/tinycast/tinycast
+brew install --cask ghostty
 brew install \
-    colima \
-    docker \
-    docker-buildx \
-    docker-compose \
-    docker-credential-helper \
+    chafa \
     entr \
     git \
+    jj \
     mise \
     stow \
     neurosnap/tap/zmx

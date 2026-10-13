@@ -1,241 +1,235 @@
 ---
 name: finishing-a-development-branch
-description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup
+description: Use when implementation is complete, all tests pass, and you need to decide how to integrate the work
 ---
 
 # Finishing a Development Branch
 
 ## Overview
 
-Guide completion of development work by presenting clear options and handling chosen workflow.
+Your human partner uses Jujutsu (jj). The work is a stack of described changes under one bookmark (see superpowers:using-git-worktrees). Your human partner pushes, and squashes when they choose. You prepare the stack and offer local options only.
 
-**Core principle:** Verify tests → Detect environment → Present options → Execute choice → Clean up.
+**Core principle:** Verify tests → Detect the stack → Present options → Execute choice → Clean up.
+
+**REQUIRED:** Use the jj skill for all VCS commands. Always pass `--no-pager` and `-m`. **Never push.** Never use `git` commands to change state in a jj repo.
 
 **Announce at start:** "I'm using the finishing-a-development-branch skill to complete this work."
 
-## The Process
+## Step 1: Verify Tests
 
-### Step 1: Verify Tests
+Run the project's full test suite (`npm test` / `cargo test` / `pytest` / `go test ./...`).
 
-**Before presenting options, verify tests pass:**
+**If tests fail**, report the failures and stop — the menu comes after a green suite:
 
-```bash
-# Run project's test suite
-npm test / cargo test / pytest / go test ./...
-```
-
-**If tests fail:**
 ```
 Tests failing (<N> failures). Must fix before completing:
 
 [Show failures]
-
-Cannot proceed with merge/PR until tests pass.
 ```
 
-Stop. Don't proceed to Step 2.
+**If tests pass:** continue to Step 2.
 
-**If tests pass:** Continue to Step 2.
-
-### Step 2: Detect Environment
-
-**Determine workspace state before presenting options:**
+## Step 2: Detect the Stack
 
 ```bash
-GIT_DIR=$(cd "$(git rev-parse --git-dir)" 2>/dev/null && pwd -P)
-GIT_COMMON=$(cd "$(git rev-parse --git-common-dir)" 2>/dev/null && pwd -P)
+jj workspace root                     # Capture now — Step 6 may run from elsewhere
+jj --no-pager workspace list
+jj --no-pager bookmark list
+jj --no-pager st
 ```
 
-This determines which menu to show and how cleanup works:
+Find the bookmark for this work: from the plan, the conversation, or the bookmark nearest `@`. If you cannot tell, ask.
 
-| State | Menu | Cleanup |
-|-------|------|---------|
-| `GIT_DIR == GIT_COMMON` (normal repo) | Standard 4 options | No worktree to clean up |
-| `GIT_DIR != GIT_COMMON`, named branch | Standard 4 options | Provenance-based (see Step 6) |
-| `GIT_DIR != GIT_COMMON`, detached HEAD | Reduced 3 options (no merge) | No cleanup (externally managed) |
-
-### Step 3: Determine Base Branch
+Then check the stack. Use the base from Step 3 for `<base>`.
 
 ```bash
-# Try common base branches
-git merge-base HEAD main 2>/dev/null || git merge-base HEAD master 2>/dev/null
+jj --no-pager log -r '<base>..<bookmark>'
+jj --no-pager log -r 'conflicts() & <base>..<bookmark>'   # Must be empty
+jj --no-pager log -r '(<base>..<bookmark>) & description(exact:"")'   # Must be empty
 ```
 
-Or ask: "This branch split from main - is that correct?"
+| Finding | Action |
+|---------|--------|
+| `@` has changes and is not on the bookmark | Finish it as a task: describe it, `jj new`, `jj bookmark move <bookmark> --to @-`. Ask first if you did not make those changes. |
+| A change in the stack has conflicts | Resolve them by editing files, then re-run Step 1 |
+| A change in the stack has no description | Describe it with `jj desc -r <change-id> -m "..."` |
+| Divergent change (`xyz??` in `jj log`) | Stop and show your human partner |
+| `@` is in a workspace other than `default` | Note the workspace for Step 6 |
 
-### Step 4: Present Options
+## Step 3: Determine the Base
 
-**Normal repo and named-branch worktree — present exactly these 4 options:**
+The base is the change the stack started from — usually named in the plan, the conversation, or as the trunk bookmark (`main`, `master`, `trunk`). Name it explicitly. Do not rely on `trunk()` alone:
+
+```bash
+jj --no-pager log -r 'trunk()' --no-graph -T 'change_id.short() ++ " " ++ bookmarks ++ "\n"'
+```
+
+If this prints the root change (`zzzzzzzz…`) with no bookmark, the repo has no remote trunk and `trunk()` is the root commit. Any revset like `trunk()..<bookmark>` then includes the whole history. Use the local bookmark (e.g. `main`) as `<base>` instead.
+
+If the base is not already known, ask: "This stack starts from <your best guess> - is that correct?" Confirm before you rebase or squash: a wrong base is expensive to undo.
+
+## Step 4: Present Options
+
+**Present exactly these 4 options:**
 
 ```
-Implementation complete. What would you like to do?
+Implementation complete on bookmark <bookmark> (<N> changes on <base>). What would you like to do?
 
-1. Merge back to <base-branch> locally
-2. Push and create a Pull Request
-3. Keep the branch as-is (I'll handle it later)
-4. Discard this work
+1. Keep the stack as-is (you review, squash and push)
+2. Rebase the stack onto the latest <base> and re-run tests
+3. Squash the stack into one change on <bookmark>
+4. Move <base> to <bookmark> locally (no push)
 
 Which option?
 ```
 
-**Detached HEAD — present exactly these 3 options:**
+Present the menu exactly as written — concise, with every option coming
+from the list above. Discarding the work happens only in response to your
+human partner explicitly asking for it (see "If your human partner asks to
+discard the work" below). Wait for their answer; the integration decision
+is theirs.
+
+## Step 5: Execute Choice
+
+### Option 1: Keep As-Is
+
+Report:
 
 ```
-Implementation complete. You're on a detached HEAD (externally managed workspace).
-
-1. Push as new branch and create a Pull Request
-2. Keep as-is (I'll handle it later)
-3. Discard this work
-
-Which option?
+Keeping bookmark <bookmark> at <change-id>: <N> changes on <base>.
+Follow it with: jj --no-pager log -r '<base>..<bookmark>'
 ```
 
-**Don't add explanation** - keep options concise.
+Offer once: "Shall I draft a PR title and description for when you push?" If yes, write them in your reply. Do not push or create the PR.
 
-### Step 5: Execute Choice
-
-#### Option 1: Merge Locally
+### Option 2: Rebase onto Latest Base
 
 ```bash
-# Get main repo root for CWD safety
-MAIN_ROOT=$(git -C "$(git rev-parse --git-common-dir)/.." rev-parse --show-toplevel)
-cd "$MAIN_ROOT"
-
-# Merge first — verify success before removing anything
-git checkout <base-branch>
-git pull
-git merge <feature-branch>
-
-# Verify tests on merged result
-<test command>
-
-# Only after merge succeeds: cleanup worktree (Step 6), then delete branch
+jj git fetch                       # Only if <base> tracks a remote; this does not push
+jj rebase -b <bookmark> -d <base>
+jj --no-pager st
+jj --no-pager log -r 'conflicts() & <base>..<bookmark>'
 ```
 
-Then: Cleanup worktree (Step 6), then delete branch:
+Then run the full test suite on the rebased stack.
+
+**If there are conflicts or tests fail:** stop and report. Nothing has been pushed. `jj undo` restores the stack as it was before the rebase. Ask before you fix or undo.
+
+**If clean and green:** report the new base and change count. Keep the bookmark. Nothing to clean up.
+
+### Option 3: Squash the Stack
+
+Ask for the message if your human partner has not given one. Suggest one from the plan:
+
+```
+Squash <N> changes into one with message "<type>: <summary>"?
+```
+
+Then:
 
 ```bash
-git branch -d <feature-branch>
+jj squash --from '<base>..<bookmark> ~ roots(<base>..<bookmark>)' \
+          --into 'roots(<base>..<bookmark>)' -m "<message>"
+jj --no-pager log -r '<base>::<bookmark>'     # One change on <base>, bookmark on it
+jj --no-pager diff --stat -r <bookmark>
 ```
 
-#### Option 2: Push and Create PR
+Run the full test suite on the squashed change. If the result looks wrong, `jj undo` restores the stack.
+
+### Option 4: Move Base Locally
+
+This is a local fast-forward. The bookmark for `<base>` moves; nothing is pushed.
 
 ```bash
-# Push branch
-git push -u origin <feature-branch>
+jj --no-pager log -r '<base> & ::<bookmark>'   # Must print <base>; else rebase first (Option 2)
+jj bookmark move <base> --to <bookmark>
+jj --no-pager log -r '<base>'
 ```
 
-**Do NOT clean up worktree** — user needs it alive to iterate on PR feedback.
+If `<base>` is not an ancestor of `<bookmark>`, stop and offer Option 2 first. Never use `--allow-backwards`.
 
-#### Option 3: Keep As-Is
+Run the full test suite. When it is green, ask before you delete the feature bookmark (`jj bookmark delete <bookmark>`). Then clean up (Step 6). Tell your human partner that `<base>` now differs from its remote and that pushing is theirs to do.
 
-Report: "Keeping branch <name>. Worktree preserved at <path>."
+### If your human partner asks to discard the work
 
-**Don't cleanup worktree.**
+This path exists only as a response to an explicit request to throw the
+work away. Confirm first:
 
-#### Option 4: Discard
-
-**Confirm first:**
 ```
-This will permanently delete:
-- Branch <name>
-- All commits: <commit-list>
-- Worktree at <path>
+This will abandon:
+- Bookmark <bookmark>
+- All changes: <change-list>
+- Workspace <ws> at <path> (if any)
 
 Type 'discard' to confirm.
 ```
 
-Wait for exact confirmation.
-
-If confirmed:
-```bash
-MAIN_ROOT=$(git -C "$(git rev-parse --git-common-dir)/.." rev-parse --show-toplevel)
-cd "$MAIN_ROOT"
-```
-
-Then: Cleanup worktree (Step 6), then force-delete branch:
-```bash
-git branch -D <feature-branch>
-```
-
-### Step 6: Cleanup Workspace
-
-**Only runs for Options 1 and 4.** Options 2 and 3 always preserve the worktree.
+Wait for that exact confirmation. When it arrives, clean up workspaces first (Step 6), then:
 
 ```bash
-GIT_DIR=$(cd "$(git rev-parse --git-dir)" 2>/dev/null && pwd -P)
-GIT_COMMON=$(cd "$(git rev-parse --git-common-dir)" 2>/dev/null && pwd -P)
-WORKTREE_PATH=$(git rev-parse --show-toplevel)
+jj abandon '<base>..<bookmark>'        # Also deletes the bookmark
+jj --no-pager bookmark list <bookmark> # Confirm it is gone
+jj --no-pager st
 ```
 
-**If `GIT_DIR == GIT_COMMON`:** Normal repo, no worktree to clean up. Done.
+Tell your human partner that `jj op log` and `jj undo` can still restore it.
 
-**If worktree path is under `.worktrees/` or `worktrees/`:** Superpowers created this worktree — we own cleanup.
+## Step 6: Cleanup Workspaces
+
+**Runs for Option 4 and confirmed discards.** Options 1, 2 and 3 keep everything in place — your human partner may iterate on the stack.
+
+In the default sequential flow there is no extra workspace. If `jj --no-pager workspace list` shows only `default`, there is nothing to clean up. Done.
+
+**If a workspace has a path next to the repo named `<repo>-<ws>`:** superpowers:using-git-worktrees created it — we own cleanup. Run from the `default` workspace:
 
 ```bash
-MAIN_ROOT=$(git -C "$(git rev-parse --git-common-dir)/.." rev-parse --show-toplevel)
-cd "$MAIN_ROOT"
-git worktree remove "$WORKTREE_PATH"
-git worktree prune  # Self-healing: clean up any stale registrations
+cd "$(jj workspace root --name default)"
+jj --no-pager -R "$(jj workspace root --name <ws>)" st   # Check what is left
+jj --no-pager log -r '<ws>@'                             # Its @ must be empty or already on the bookmark
+jj workspace remove <ws>
 ```
 
-**Otherwise:** The host environment (harness) owns this workspace. Do NOT remove it. If your platform provides a workspace-exit tool, use it. Otherwise, leave the workspace in place.
+`jj workspace remove` snapshots tracked files into `<ws>@` before it deletes the directory. Ignored files in the directory are lost.
+
+**If the workspace has unsaved work or ignored files that matter** (notes, plans, `.superpowers/` ledgers): never remove it on your own initiative. Show your human partner what is at stake and ask:
+
+```
+Workspace <ws> holds work that is not on <bookmark>:
+
+<change or file list>
+
+1. Rebase it onto <bookmark> before cleanup
+2. Move the files into <default workspace root>
+3. Remove it anyway (ignored files are unrecoverable)
+
+Which?
+```
+
+Carry out the choice, then remove the workspace.
+
+**Otherwise:** The host environment owns this workspace — leave it in place. If your platform provides a workspace-exit tool, use it.
 
 ## Quick Reference
 
-| Option | Merge | Push | Keep Worktree | Cleanup Branch |
-|--------|-------|------|---------------|----------------|
-| 1. Merge locally | yes | - | - | yes |
-| 2. Create PR | - | yes | yes | - |
-| 3. Keep as-is | - | - | yes | - |
-| 4. Discard | - | - | - | yes (force) |
+| Option | Rewrites stack | Moves base | Push | Cleanup |
+|--------|----------------|------------|------|---------|
+| 1. Keep as-is | - | - | - | - |
+| 2. Rebase onto base | yes (rebase) | - | - | - |
+| 3. Squash | yes (squash) | - | - | - |
+| 4. Move base locally | - | yes | - | yes |
+| Discard (explicit request only) | yes (abandon) | - | - | yes |
 
-## Common Mistakes
+## Common Rationalizations
 
-**Skipping test verification**
-- **Problem:** Merge broken code, create failing PR
-- **Fix:** Always verify tests before offering options
-
-**Open-ended questions**
-- **Problem:** "What should I do next?" is ambiguous
-- **Fix:** Present exactly 4 structured options (or 3 for detached HEAD)
-
-**Cleaning up worktree for Option 2**
-- **Problem:** Remove worktree user needs for PR iteration
-- **Fix:** Only cleanup for Options 1 and 4
-
-**Deleting branch before removing worktree**
-- **Problem:** `git branch -d` fails because worktree still references the branch
-- **Fix:** Merge first, remove worktree, then delete branch
-
-**Running git worktree remove from inside the worktree**
-- **Problem:** Command fails silently when CWD is inside the worktree being removed
-- **Fix:** Always `cd` to main repo root before `git worktree remove`
-
-**Cleaning up harness-owned worktrees**
-- **Problem:** Removing a worktree the harness created causes phantom state
-- **Fix:** Only clean up worktrees under `.worktrees/` or `worktrees/`
-
-**No confirmation for discard**
-- **Problem:** Accidentally delete work
-- **Fix:** Require typed "discard" confirmation
-
-## Red Flags
-
-**Never:**
-- Proceed with failing tests
-- Merge without verifying tests on result
-- Delete work without confirmation
-- Force-push without explicit request
-- Remove a worktree before confirming merge success
-- Clean up worktrees you didn't create (provenance check)
-- Run `git worktree remove` from inside the worktree
-
-**Always:**
-- Verify tests before offering options
-- Detect environment before presenting menu
-- Present exactly 4 options (or 3 for detached HEAD)
-- Get typed confirmation for Option 4
-- Clean up worktree for Options 1 & 4 only
-- `cd` to main repo root before worktree removal
-- Run `git worktree prune` after removal
+| Excuse | Reality |
+|--------|---------|
+| "Tests passed earlier this session" | Run the suite on the stack you are about to integrate. A green run only proves the tree it ran on. |
+| "They obviously want it squashed" | Squashing is your human partner's decision. Present the menu and wait. |
+| "I'll just push it so the PR is ready" | Never push. Your human partner always pushes. Offer to draft the PR text instead. |
+| "`trunk()` is the base" | Check it. With no remote, `trunk()` is the root commit and `trunk()..<bookmark>` is the whole history. |
+| "They seem done with this feature — I'll offer to discard it" | The menu is complete as written. Discard happens only when your human partner asks for it in so many words. |
+| "'Yeah, get rid of it' counts as confirmation" | Only the typed word `discard` authorizes abandoning the work. |
+| "This other workspace looks stale — I'll remove it too" | Remove only `<repo>-<ws>` workspaces that superpowers created. Everything else belongs to the host. |
+| "`rm -rf` the workspace directory is quicker" | Use `jj workspace remove`. A deleted directory without `forget` leaves a phantom workspace. |
+| "The rebased-result failure is probably flaky" | A failing result stops everything. The stack stays put while you investigate. |
+| "`<base>` is behind — `--allow-backwards` will fix it" | It never needs to go backwards in a fast-forward. Rebase first (Option 2). |
