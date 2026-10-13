@@ -56,13 +56,16 @@ bf = ["util", "exec", "--", 'sh', '-euc', '''
 subprocess = true
 sign-on-push = true
 
-[revsets]
-log = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
-
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 "recent()" = 'committer_date(after:"1 month ago")'
+'tracked_bookmarks()' = 'bookmarks() | tracked_remote_bookmarks()'
+'bookmark_work()' = 'immutable_heads()..(tracked_bookmarks() | @)'
+'recent_trunk()' = 'ancestors(trunk(), 10)'
+
+[revsets]
+log = 'recent_trunk() | bookmark_work() | bookmark_work()- | present(@)'
 
 [signing]
 behaviour = "own"
@@ -84,7 +87,7 @@ editor = "nvim"
 pager = "delta"
 conflict-marker-style = "git"
 
-[merge-tools.delta-catppuccin-mocha]
+[merge-tools.delta]
 program = "delta"
 diff-args = ["--width", "$width", "--features", "rose-pine", "$left", "$right"]
 diff-expected-exit-codes = [0, 1]
