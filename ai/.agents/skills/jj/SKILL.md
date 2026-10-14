@@ -9,8 +9,7 @@ allowed-tools: Bash(jj *)
 
 # Jujutsu (jj) Version Control System
 
-This skill helps you work with Jujutsu, a Git-compatible VCS with mutable
-commits and automatic rebasing.
+This skill helps you work with Jujutsu, a Git-compatible VCS with mutable commits and automatic rebasing.
 
 **Tested with jj v0.37.0** - Commands may differ in other versions.
 
@@ -18,8 +17,8 @@ commits and automatic rebasing.
 
 When running as an agent:
 
-1. **Always use `--no-pager`** to prevent commands from opening an interactive
-   pager (like `less`), which will hang the agent:
+1. **Always use `--no-pager`** to prevent commands from opening an interactive pager (like `less`), which will hang the
+   agent:
 
 ```bash
 # Always use --no-pager on commands that produce output
@@ -28,8 +27,7 @@ jj --no-pager diff         # NOT: jj diff
 jj --no-pager show <id>    # NOT: jj show <id>
 ```
 
-2. **Always use `-m` flags** to provide messages inline rather than relying on
-   editor prompts:
+2. **Always use `-m` flags** to provide messages inline rather than relying on editor prompts:
 
 ```bash
 # Always use -m to avoid editor prompts
@@ -39,32 +37,29 @@ jj squash -m "message"    # NOT: jj squash (which opens editor)
 
 Editor-based commands will fail in non-interactive environments.
 
-3. **Verify operations with `jj st`** after mutations (`squash`, `abandon`,
-   `rebase`, `restore`) to confirm the operation succeeded.
+3. **Verify operations with `jj st`** after mutations (`squash`, `abandon`, `rebase`, `restore`) to confirm the
+   operation succeeded.
 
 ## Core Concepts
 
 ### The Working Copy is a Commit
 
-In jj, your working directory is always a commit (referenced as `@`). Changes
-are automatically snapshotted when you run any jj command. There is no staging
-area.
+In jj, your working directory is always a commit (referenced as `@`). Changes are automatically snapshotted when you run
+any jj command. There is no staging area.
 
 There is no need to run `jj commit`.
 
 ### Commits Are Mutable
 
-**CRITICAL**: Unlike git, jj commits can be freely modified after creation. You
-can update descriptions, squash changes, rebase, and absorb — all without
-creating new commits. See "Essential Workflow" below for the recommended
-working pattern.
+**CRITICAL**: Unlike git, jj commits can be freely modified after creation. You can update descriptions, squash changes,
+rebase, and absorb — all without creating new commits. See "Essential Workflow" below for the recommended working
+pattern.
 
 ### Change IDs vs Commit IDs
 
-- **Change ID**: A stable identifier (like `tqpwlqmp`) that persists when a
-  commit is rewritten — prefer these when referencing commits
-- **Commit ID**: A content hash (like `3ccf7581`) that changes when commit
-  content changes
+- **Change ID**: A stable identifier (like `tqpwlqmp`) that persists when a commit is rewritten — prefer these when
+  referencing commits
+- **Commit ID**: A content hash (like `3ccf7581`) that changes when commit content changes
 
 ### Revsets
 
@@ -85,8 +80,7 @@ Use revsets with `-r` flags: `jj log -r 'trunk()..@'`
 
 **Always create your commit message before writing code:**
 
-Validate that you're on a blank revision with `jj st`. If you are not, you
-should type:
+Validate that you're on a blank revision with `jj st`. If you are not, you should type:
 
 ```bash
 jj new
@@ -105,26 +99,20 @@ jj st
 
 ### Creating Atomic Commits
 
-Each commit should represent ONE logical change. Use conventional commits
-for the style.
+Each commit should represent ONE logical change. Use conventional commits for the style.
 
 - feat: Commits that add, adjust or remove a feature
 - fix: Commits that fix an API or UI bug of a preceded feat commit
-- refactor: Commits that rewrite or restructure code without altering API or UI
-  behavior
-- perf: Commits are special type of refactor commits that specifically improve
-  performance
-- style: Commits that address code style (e.g., white-space, formatting,
-  missing semi-colons) and do not affect application behavior
+- refactor: Commits that rewrite or restructure code without altering API or UI behavior
+- perf: Commits are special type of refactor commits that specifically improve performance
+- style: Commits that address code style (e.g., white-space, formatting, missing semi-colons) and do not affect
+  application behavior
 - test: Commits that add missing tests or correct existing ones
 - docs: Commits that exclusively affect documentation
-- build: Commits that affect build-related components such as build tools,
-  dependencies, project version, ...
-- ops: Commits that affect operational aspects like infrastructure (IaC),
-  deployment scripts, CI/CD pipelines, backups, monitoring, or recovery
-  procedures, ...
-- chore: Commits that represent tasks like initial commit, modifying
-  .gitignore, ...
+- build: Commits that affect build-related components such as build tools, dependencies, project version, ...
+- ops: Commits that affect operational aspects like infrastructure (IaC), deployment scripts, CI/CD pipelines, backups,
+  monitoring, or recovery procedures, ...
+- chore: Commits that represent tasks like initial commit, modifying .gitignore, ...
 
 ### Viewing History
 
@@ -142,13 +130,11 @@ jj --no-pager show <change-id>
 jj --no-pager diff --git
 ```
 
-**IMPORTANT: `jj diff` output format**: The default `jj diff` output uses a
-side-by-side line number format (e.g. `26   26:`) that looks very different
-from git's `+`/`-` prefix format. This is **normal and correct** — it is NOT
-corrupted or showing stale content. However, to avoid confusion, **always use
-`jj diff --git`** to get standard unified diff format with `+`/`-` lines.
-If is currently configured to use + and - but if you see the side by side number
-format consider the above.
+**IMPORTANT: `jj diff` output format**: The default `jj diff` output uses a side-by-side line number format (e.g.
+`26   26:`) that looks very different from git's `+`/`-` prefix format. This is **normal and correct** — it is NOT
+corrupted or showing stale content. However, to avoid confusion, **always use `jj diff --git`** to get standard unified
+diff format with `+`/`-` lines. If is currently configured to use + and - but if you see the side by side number format
+consider the above.
 
 ### Moving Between Commits
 
@@ -180,14 +166,12 @@ Move changes from current commit into its parent:
 jj squash
 ```
 
-**Note**: `jj squash -i` opens an interactive UI and will hang in agent
-environments. Avoid it.
+**Note**: `jj squash -i` opens an interactive UI and will hang in agent environments. Avoid it.
 
 ### Splitting Commits
 
-**Warning**: `jj split` is interactive and will hang in agent environments. To
-divide a commit, use `jj restore` to move changes out, then create separate
-commits manually.
+**Warning**: `jj split` is interactive and will hang in agent environments. To divide a commit, use `jj restore` to move
+changes out, then create separate commits manually.
 
 ### Absorbing Changes
 
@@ -214,8 +198,8 @@ Reverse the last jj operation:
 jj undo
 ```
 
-This reverts the repository to its state before the previous command. Useful
-for recovering from mistakes like accidental `abandon`, `squash`, or `rebase`.
+This reverts the repository to its state before the previous command. Useful for recovering from mistakes like
+accidental `abandon`, `squash`, or `rebase`.
 
 ### Rebasing Commits
 
@@ -270,15 +254,13 @@ jj bookmark delete my-feature
 
 ## Workspaces
 
-A **workspace** is a working copy plus its associated repo. One repo can have
-multiple workspaces — each with its own working directory and working-copy
-commit (`@`) — all sharing the same commits, operations, and bookmarks. This is
-jj's equivalent of `git worktree`.
+A **workspace** is a working copy plus its associated repo. One repo can have multiple workspaces — each with its own
+working directory and working-copy commit (`@`) — all sharing the same commits, operations, and bookmarks. This is jj's
+equivalent of `git worktree`.
 
-Useful for running a long build or test in one workspace while editing in
-another. Workspaces are a rarely-needed feature; consult the [official
-docs](https://docs.jj-vcs.dev/latest/working-copy/#workspaces) for anything
-beyond the basics below.
+Useful for running a long build or test in one workspace while editing in another. Workspaces are a rarely-needed
+feature; consult the [official docs](https://docs.jj-vcs.dev/latest/working-copy/#workspaces) for anything beyond the
+basics below.
 
 ### Common commands
 
@@ -302,29 +284,23 @@ In `jj log`, each workspace's `@` appears as `<workspace-name>@`.
 
 ### Key semantics
 
-- **Isolation by default.** `jj workspace add` gives the new workspace its own
-  fresh empty commit; workspaces don't start out sharing `@`, and on-disk files
-  are never live-mirrored between them.
-- **Propagation at command boundaries.** Each jj command snapshots the current
-  workspace's files and reads the op log, so it sees commits/bookmarks made by
-  other workspaces. There is no filesystem watcher.
-- **Stale working copy.** If another workspace rewrites this workspace's `@`
-  (e.g. via `jj squash`, `rebase`, `abandon`), jj refuses commands here until
-  you run `jj workspace update-stale`. Same recovery path if a command was
+- **Isolation by default.** `jj workspace add` gives the new workspace its own fresh empty commit; workspaces don't
+  start out sharing `@`, and on-disk files are never live-mirrored between them.
+- **Propagation at command boundaries.** Each jj command snapshots the current workspace's files and reads the op log,
+  so it sees commits/bookmarks made by other workspaces. There is no filesystem watcher.
+- **Stale working copy.** If another workspace rewrites this workspace's `@` (e.g. via `jj squash`, `rebase`,
+  `abandon`), jj refuses commands here until you run `jj workspace update-stale`. Same recovery path if a command was
   interrupted mid-update.
-- **Shared `@` is sharp-edged.** `jj edit <id>` lets two workspaces point at
-  the same change without warning. When one mutates it, the other goes stale;
-  if the stale one had un-snapshotted edits, `update-stale` preserves them as a
-      **divergent commit** (same change ID, shown as `xyz??` in `jj log`) that
-      you must resolve. Avoid sharing `@` unless both workspaces are read-only.
+- **Shared `@` is sharp-edged.** `jj edit <id>` lets two workspaces point at the same change without warning. When one
+  mutates it, the other goes stale; if the stale one had un-snapshotted edits, `update-stale` preserves them as a
+  **divergent commit** (same change ID, shown as `xyz??` in `jj log`) that you must resolve. Avoid sharing `@` unless
+  both workspaces are read-only.
 
 ### Agent guidance
 
 - Always pass `--no-pager` to `jj workspace list`.
-- Don't `jj edit` a change another workspace already has as its `@` — main
-  cause of accidental divergence.
-- Don't `rm -rf` a workspace directory without also running `jj workspace
-  forget <name>`.
+- Don't `jj edit` a change another workspace already has as its `@` — main cause of accidental divergence.
+- Don't `rm -rf` a workspace directory without also running `jj workspace forget <name>`.
 
 ## Git Integration
 
@@ -355,20 +331,17 @@ After fetching, rebase your work onto the updated trunk: `jj rebase -d main`
 
 ### Switching Between jj and git (Colocated Repos Only)
 
-**This section only applies to colocated repos** (where both `.jj/` and `.git/`
-exist). In non-colocated repos, do not use git commands — they will corrupt jj
-state.
+**This section only applies to colocated repos** (where both `.jj/` and `.git/` exist). In non-colocated repos, do not
+use git commands — they will corrupt jj state.
 
-In a colocated repository, still just use jj commands, NEVER use git if there
-is a `.jj` directory
-
+In a colocated repository, still just use jj commands, NEVER use git if there is a `.jj` directory
 
 ### Pushing Changes
 
 NEVER PUSH CHANGES, THE USER WILL ALWAYS DO IT
 
-**IMPORTANT**: Unlike git branches, jj bookmarks do not automatically move when
-you create new commits. You must manually update them before pushing:
+**IMPORTANT**: Unlike git branches, jj bookmarks do not automatically move when you create new commits. You must
+manually update them before pushing:
 
 ```bash
 # Move an existing bookmark to the current commit
@@ -397,9 +370,8 @@ jj allows committing conflicts — you can resolve them later:
 jj st
 ```
 
-**Agent conflict resolution**: Do not use `jj resolve` (interactive). Instead,
-edit the conflicted files directly to remove conflict markers, then run `jj st`
-to verify resolution.
+**Agent conflict resolution**: Do not use `jj resolve` (interactive). Instead, edit the conflicted files directly to
+remove conflict markers, then run `jj st` to verify resolution.
 
 ## Preserving Commit Quality
 
@@ -407,35 +379,34 @@ to verify resolution.
 
 1. **Review your commit**: `jj --no-pager show @` or `jj --no-pager diff --git`
 2. **Is it atomic?** One logical change per commit
-3. **Is the message clear?** Use imperative verb phrase in sentence case format
-   with no full stop: e.g. "Add login endpoint", "Fix null pointer in payment
-   processor", "Remove deprecated API endpoints"
+3. **Is the message clear?** Use imperative verb phrase in sentence case format with no full stop: e.g. "Add login
+   endpoint", "Fix null pointer in payment processor", "Remove deprecated API endpoints"
 4. **Are there unrelated changes?** Use `jj restore` to move changes out, then create separate commits
 5. **Should changes be elsewhere?** Use `jj squash` or `jj absorb`
 
 ## Quick Reference
 
-| Action | Command |
-|--------|---------|
-| Describe commit | `jj desc -m "message"` |
-| View status | `jj st` |
-| View log | `jj --no-pager log` |
-| View diff | `jj --no-pager diff --git` |
-| New commit | `jj new -m "message"` (use `jj st` first; skip if `@` is empty) |
-| Edit commit | `jj edit <id>` |
-| Squash to parent | `jj squash` |
-| Auto-distribute | `jj absorb` |
-| Rebase | `jj rebase -d <destination>` |
-| Abandon commit | `jj abandon <id>` |
-| Undo last operation | `jj undo` |
-| Restore files | `jj restore [paths]` |
-| Create bookmark | `jj bookmark create <name>` |
-| Fetch remote | `jj git fetch` |
-| Push bookmark | `jj git push -b <name>` |
-| Add workspace | `jj workspace add <path>` |
-| List workspaces | `jj --no-pager workspace list` |
-| Forget workspace | `jj workspace forget [name]` |
-| Fix stale working copy | `jj workspace update-stale` |
+| Action                 | Command                                                         |
+| ---------------------- | --------------------------------------------------------------- |
+| Describe commit        | `jj desc -m "message"`                                          |
+| View status            | `jj st`                                                         |
+| View log               | `jj --no-pager log`                                             |
+| View diff              | `jj --no-pager diff --git`                                      |
+| New commit             | `jj new -m "message"` (use `jj st` first; skip if `@` is empty) |
+| Edit commit            | `jj edit <id>`                                                  |
+| Squash to parent       | `jj squash`                                                     |
+| Auto-distribute        | `jj absorb`                                                     |
+| Rebase                 | `jj rebase -d <destination>`                                    |
+| Abandon commit         | `jj abandon <id>`                                               |
+| Undo last operation    | `jj undo`                                                       |
+| Restore files          | `jj restore [paths]`                                            |
+| Create bookmark        | `jj bookmark create <name>`                                     |
+| Fetch remote           | `jj git fetch`                                                  |
+| Push bookmark          | `jj git push -b <name>`                                         |
+| Add workspace          | `jj workspace add <path>`                                       |
+| List workspaces        | `jj --no-pager workspace list`                                  |
+| Forget workspace       | `jj workspace forget [name]`                                    |
+| Fix stale working copy | `jj workspace update-stale`                                     |
 
 ## Best Practices Summary
 
