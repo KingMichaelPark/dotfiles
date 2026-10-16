@@ -1,17 +1,5 @@
 local gh = require("utils").gh
-vim.pack.add({ gh("KingMichaelPark/mason.nvim") })
-vim.pack.add({ gh("mason-org/mason-lspconfig.nvim") })
 vim.pack.add({ gh("neovim/nvim-lspconfig") })
-
-require("mason").setup({
-    pip = {
-        use_uv = true,
-    },
-})
-require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "ruff" },
-})
-vim.keymap.set("n", "<leader>M", ":Mason<CR>", { desc = "Open Mason", noremap = true, silent = true })
 
 -- Nvim 0.12 ships a builtin `:lsp enable|disable|restart|stop`, and because it
 -- exists nvim-lspconfig bails before creating any `Lsp*` command of its own

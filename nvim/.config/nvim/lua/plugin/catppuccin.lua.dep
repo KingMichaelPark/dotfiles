@@ -51,7 +51,7 @@ require("catppuccin").setup({
         fzf = true,
         grug_far = true,
         leap = true,
-        mason = true,
+        mason = false,
         treesitter = true,
         nvim_surround = true,
         telescope = { enabled = false },

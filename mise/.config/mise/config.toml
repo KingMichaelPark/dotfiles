@@ -1,5 +1,6 @@
 [tools]
 age = "latest"
+antigravity-cli = "latest"
 atuin = "latest"
 awscli = { version = "latest", symlink_bins = "true" }
 bat = "latest"
@@ -21,14 +22,17 @@ jq = "latest"
 just = "latest"
 lazydocker = "latest"
 lazygit = "latest"
+lua-language-server = "latest"
 minisign = "latest"
 neovim = "latest"
 node = "latest"
+opencode = "latest"
 pandoc = "latest"
 prek = "latest"
 python = "latest"
 restic = "latest"
 ripgrep = "latest"
+ruff = "latest"
 rumdl = "latest"
 rust = "latest"
 sd = "latest"
@@ -42,8 +46,6 @@ uv = "latest"
 yazi = "latest"
 zola = "latest"
 zoxide = "latest"
-opencode = "latest"
-antigravity-cli = "latest"
 
 [settings]
 legacy_version_file = false
