@@ -78,6 +78,7 @@ brew install \
     docker-credential-helper \
     entr \
     git \
+    jj \
     mise \
     stow \
     neurosnap/tap/zmx
