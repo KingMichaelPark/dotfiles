@@ -1,2 +1,0 @@
--- Python Type Checking
-return {}
