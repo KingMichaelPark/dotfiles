@@ -2,7 +2,6 @@ local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 local smart_close = require("config.smart-close")
 
-map("n", "<C-s>", "<cmd>w<cr>", { desc = "Write/Save" })
 
 -- buffers
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
@@ -30,10 +29,8 @@ map({ "n", "v" }, "<C-k>", ":m '<-2<CR>gv=gv", { desc = "Move highlighted lines 
 map("n", "J", "mzJ`z", { desc = "Combine line below keep cursor" })
 map({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 map({ "n", "v" }, "<leader>Y", '"+Y', { desc = "Yank to system clipboard" })
-map("n", "Q", "<nop>", { desc = "Unbind" })
 
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
-map("n", "<C-l>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlight" })
 
 -- Location and QuickFix
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })

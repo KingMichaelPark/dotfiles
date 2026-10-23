@@ -28,6 +28,7 @@ what you like, and shoot me a message if you need help with anything!
 | [**atuin**](https://github.com/atuinsh/atuin)                 | Magical shell history                                                    |
 | [**bat**](https://github.com/sharkdp/bat)                     | Clone of cat(1) with syntax highlighting and Git integration             |
 | [**bottom**](https://github.com/ClementTsang/bottom)          | Yet another cross-platform graphical process/system monitor              |
+| [**chafa**](https://github.com/hpjansson/chafa)          | Terminal rendering of media              |
 | [**duckdb**](https://github.com/duckdb/duckdb)                | Embeddable SQL OLAP Database Management System                           |
 | [_entr_](https://github.com/eradman/entr)                     | Run arbitrary commands when files change                                 |
 | [**eza**](https://github.com/eza-community/eza)               | Modern, maintained replacement for ls                                    |
@@ -68,6 +69,7 @@ brew trust --tap abue-ammar/tinycast
 brew install --cask abue-ammar/tinycast/tinycast
 brew install --cask ghostty
 brew install \
+    chafa \
     entr \
     git \
     jj \

@@ -1,4 +1,6 @@
 local gh = require("utils").gh
+
+vim.lsp.log.set_level(vim.log.levels.OFF)
 vim.pack.add({ gh("neovim/nvim-lspconfig") })
 
 -- Nvim 0.12 ships a builtin `:lsp enable|disable|restart|stop`, and because it
