@@ -60,7 +60,7 @@ sign-on-push = true
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
 'closest_pushable(to)' = 'heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))'
 "recent()" = 'committer_date(after:"1 month ago")'
-'tracked_bookmarks()' = 'bookmarks() | tracked_remote_bookmarks()'
+'tracked_bookmarks()' = 'bookmarks() | tracked_remote_bookmarks()::'
 'bookmark_work()' = 'immutable_heads()..(tracked_bookmarks() | @)'
 'recent_trunk()' = 'ancestors(trunk(), 10)'
 
