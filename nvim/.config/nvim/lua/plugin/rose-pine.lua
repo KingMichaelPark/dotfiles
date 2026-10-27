@@ -19,10 +19,12 @@ require("rose-pine").setup({
         italic = true,
         transparency = true,
     },
+    disable_italics = true,
     highlight_groups = {
         StatusLineTerm = { bg = "NONE", fg = "NONE", inherit = false },
         StatusLineTermNC = { bg = "NONE", fg = "NONE", inherit = false },
-        Leap = { bg = "NONE", fg = "highlight_med", inherit = true }
+        Leap = { bg = "NONE", fg = "highlight_med", inherit = true },
+        Comment = { italic = true }
     },
 })
 

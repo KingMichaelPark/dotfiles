@@ -10,11 +10,11 @@ exportGlyphNames = false
 
     [buildPlans.HunterMono.variants.design]
     four = "closed-serifless"
-    six = "straight-bar"
+    six = "open-contour"
     seven = "curly-serifless"
     eight = "crossing-asymmetric"
-    nine = "straight-bar"
-    zero = "oval-slashed"
+    nine = "open-contour"
+    zero = "slashed"
     capital-a = "curly-serifless"
     capital-m = "hanging-serifless"
     capital-n = "standard-serifless"
@@ -29,18 +29,18 @@ exportGlyphNames = false
     d = "toothed-serifless"
     f = "serifless"
     g = "single-storey-serifless"
-    i = "serifless"
+    i = "hooky"
     j = "serifed"
     k = "curly-serifless"
-    l = "serifed-flat-tailed"
+    l = "zshaped"
     m = "serifless"
     q = "tailed-serifless"
     r = "serifless"
     t = "bent-hook-short-neck"
     u = "toothed-serifless"
     x = "curly-serifless"
-    y = "curly-turn-serifless"
-    z = "straight-serifless"
+    y = "curly-serifless"
+    z = "curly-serifless"
     cyrl-a = "double-storey-serifless"
     caret = "medium"
     brace = "straight"
@@ -58,15 +58,16 @@ exportGlyphNames = false
     lig-single-arrow-bar = "without-notch"
 
     [buildPlans.HunterMono.variants.italic]
-    six = "straight-bar"
+    four = "closed-serifless"
+    six = "open-contour"
     seven = "curly-serifless"
     eight = "crossing-asymmetric"
-    nine = "straight-bar"
-    zero = "oval-slashed"
+    nine = "open-contour"
+    zero = "slashed"
     capital-a = "curly-serifless"
     capital-m = "hanging-serifless"
     capital-n = "standard-serifless"
-    capital-q = "curly-tailed"
+    capital-q = "crossing"
     capital-r = "curly-serifless"
     capital-v = "curly-serifless"
     capital-x = "curly-serifless"
@@ -77,22 +78,23 @@ exportGlyphNames = false
     d = "toothed-serifless"
     f = "serifless"
     g = "single-storey-serifless"
-    i = "serifed-flat-tailed"
-    j = "serifless"
+    i = "serifed-diagonal-tailed"
+    j = "serifed"
     k = "curly-serifless"
-    l = "tailed-serifed"
+    l = "serifed-flat-tailed"
     m = "serifless"
-    n = "straight-serifless"
     q = "tailed-serifless"
     r = "serifless"
     t = "bent-hook-short-neck"
     u = "toothed-serifless"
     x = "curly-serifless"
-    y = "curly-turn-serifless"
-    z = "straight-serifless"
+    y = "curly-serifless"
+    z = "curly-serifless"
     cyrl-a = "double-storey-serifless"
     caret = "medium"
+    brace = "straight"
     number-sign = "upright"
+    ampersand = "lower-open"
     at = "compact"
     dollar = "open"
     percent = "rings-continuous-slash"
@@ -116,6 +118,21 @@ css = 400
 shape = 700
 menu = 700
 css = 700
+
+[buildPlans.HunterMono.weights.Light]
+shape = 300
+menu = 300
+css = 300
+
+[buildPlans.HunterMono.weights.Medium]
+shape = 500
+menu = 500
+css = 500
+
+[buildPlans.HunterMono.weights.SemiBold]
+shape = 600
+menu = 600
+css = 600
 
 [buildPlans.HunterMono.widths.Normal]
 shape = 500
