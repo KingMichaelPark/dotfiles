@@ -9,6 +9,7 @@ alias lj=jjui
 alias ls='eza'
 alias mdf='rumdl fmt -c ~/.dotfiles/rumbdl.toml'
 alias mdc='rumdl check -c ~/.dotfiles/rumbdl.toml'
+alias ssh='ghostty +ssh --'
 alias tf=terraform
 alias v="nvim"
 alias vim="nvim"

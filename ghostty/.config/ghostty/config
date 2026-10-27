@@ -3,7 +3,7 @@ background = "#0c0b12"
 # background = "#000000"
 #
 background-blur = macos-glass-regular
-background-opacity = 0.90
+background-opacity = 0.92
 
 copy-on-select = clipboard
 font-family = "HunterMono Nerd Font"
