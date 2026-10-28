@@ -18,7 +18,7 @@ vim.pack.add({ gh("olimorris/codecompanion.nvim") })
 local identity = vim.fn.expand("$HOME/.config/sops/age/keys.txt")
 local gemini_key
 if vim.fn.filereadable(identity) == 1 then
-    local secret = vim.fn.expand("$HOME/.dotfiles/access.age.json")
+    local secret = vim.fn.expand("$HOME/.dotfiles/a.age.json")
 
     gemini_key = require("age").from_sops(secret)["GEMINI_API_KEY"]
     vim.fn.setenv("GEMINI_API_KEY", gemini_key)

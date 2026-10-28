@@ -1,4 +1,5 @@
 [tools]
+acli = "latest"
 age = "latest"
 antigravity-cli = "latest"
 atuin = "latest"

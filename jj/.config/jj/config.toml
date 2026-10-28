@@ -63,9 +63,10 @@ sign-on-push = true
 'tracked_bookmarks()' = 'bookmarks() | tracked_remote_bookmarks()::'
 'bookmark_work()' = 'immutable_heads()..(tracked_bookmarks() | @)'
 'recent_trunk()' = 'ancestors(trunk(), 10)'
+'work()' = 'ancestors(immutable_heads().., 2)'
 
 [revsets]
-log = 'recent_trunk() | bookmark_work() | bookmark_work()- | present(@)'
+log = 'present(@) | work() | recent_trunk()'
 
 [signing]
 behaviour = "own"

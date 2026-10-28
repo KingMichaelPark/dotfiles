@@ -1,4 +1,4 @@
 ji() {
     local args="$*"
-    sops exec-env "$HOME/.dotfiles/access.age.json" "jira $args"
+    sops exec-env "$HOME/.dotfiles/a.age.json" "jira $args"
 }

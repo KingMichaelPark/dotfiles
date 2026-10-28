@@ -8,5 +8,5 @@ ai() {
     else
         cmd="opencode"
     fi
-    sops exec-env "$HOME/.dotfiles/access.age.json" "$cmd $args"
+    sops exec-env "$HOME/.dotfiles/a.age.json" "$cmd $args"
 }
