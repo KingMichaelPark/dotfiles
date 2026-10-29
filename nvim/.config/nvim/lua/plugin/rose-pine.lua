@@ -24,7 +24,11 @@ require("rose-pine").setup({
         StatusLineTerm = { bg = "NONE", fg = "NONE", inherit = false },
         StatusLineTermNC = { bg = "NONE", fg = "NONE", inherit = false },
         Leap = { bg = "NONE", fg = "highlight_med", inherit = true },
-        Comment = { italic = true }
+        Comment = { italic = true },
+        ["@keyword.exception"] = { italic = true },
+        ["@keyword.conditional"] = { italic = true },
+        ["@keyword.return"] = { bold = true },
+        ["@keyword"] = { bold = true }
     },
 })
 
