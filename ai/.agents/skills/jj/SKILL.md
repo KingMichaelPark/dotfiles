@@ -2,7 +2,7 @@
 name: jujutsu
 description: >-
   **REQUIRED** - Always activate FIRST on any git/VCS/source control operations.
-  In opencode, always use Jujutsu (jj) commands instead of git. Essential git
+  Always use Jujutsu (jj) commands instead of git. Essential git
   safety instructions inside. DO NOT IGNORE.
 allowed-tools: Bash(jj *)
 ---

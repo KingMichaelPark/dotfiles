@@ -11,9 +11,12 @@ pathmunge() {
 }
 
 ### Add custom paths
-for p in "$HOME/.local/bin" "/opt/homebrew/bin" "$HOME/.cargo/bin"; do
+for p in "$HOME/.local/bin" "/opt/homebrew/bin" "$HOME/.cargo/bin" "$HOME/.local/share/mise/shims"; do
     pathmunge "$p"
 done
 
-# Load environment variables that should be available to non-interactive shells
-source "$HOME/.local/share/zsh-functions/core/env.zsh"
+export XDG_CONFIG_HOME="$HOME/.config"
+export SUDO_EDITOR=nvim
+export EDITOR=nvim
+export VISUAL=nvim
+export HOMEBREW_NO_ENV_HINTS=1

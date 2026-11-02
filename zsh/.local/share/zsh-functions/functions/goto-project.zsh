@@ -1,11 +1,11 @@
 goto_project() {
   local dir
-  dir=$(fd . ~/Projects -d 2 -t d | sed 's#/$##' | fzf --delimiter='/' --with-nth='-1')
+  dir=$(fd . ~/Projects -d 2 -t d | fzf --delimiter='/' --with-nth='-2')
+  dir="${dir%/}"
 
   if [[ -n "$dir" ]]; then
-    cd "$dir"
-    local session_name
-    session_name=$(basename "$dir")
+    builtin cd -- "$dir" || return
+    local session_name="${dir:t}"
     if zle; then
       BUFFER="zmx a ${(q)session_name}"
       zle accept-line

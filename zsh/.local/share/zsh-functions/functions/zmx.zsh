@@ -22,17 +22,18 @@ zmx-select() {
   )
   local rc=$?
 
-  query=$(echo "$output" | sed -n '1p')
-  key=$(echo "$output" | sed -n '2p')
-  selected=$(echo "$output" | sed -n '3p')
+  local -a lines=("${(@f)output}")
+  query="${lines[1]}"
+  key="${lines[2]}"
+  selected="${lines[3]}"
 
   if [[ "$key" == "ctrl-n" && -n "$query" ]]; then
     session_name="$query"
   elif [[ "$key" == "ctrl-x" && -n "$selected" ]]; then
-    session_name=$(echo "$selected" | awk '{print $1}')
+    session_name="${selected%% *}"
     action="kill"
   elif [[ $rc -eq 0 && -n "$selected" ]]; then
-    session_name=$(echo "$selected" | awk '{print $1}')
+    session_name="${selected%% *}"
   elif [[ $rc -eq 0 && -n "$query" ]]; then
     session_name="$query"
   else

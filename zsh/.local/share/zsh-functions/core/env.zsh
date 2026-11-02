@@ -7,13 +7,6 @@ export BAT_THEME="Rose-Pine"
 
 # Config Mac OS
 export EZA_CONFIG_DIR="$HOME/.config/eza"
-export XDG_CONFIG_HOME="$HOME/.config"
-
-# Editors
-export SUDO_EDITOR=nvim
-export EDITOR=nvim
-export VISUAL=nvim
-
 # FZF
 export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix --hidden --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -24,8 +17,6 @@ export FZF_DEFAULT_OPTS="--multi --reverse --info=hidden \
 	--color=border:#403d52,header:#31748f,gutter:#191724
 	--color=spinner:#f6c177,info:#9ccfd8
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
-
-export HOMEBREW_NO_ENV_HINTS=1
 
 # Starship
 export STARSHIP_LOG="error"

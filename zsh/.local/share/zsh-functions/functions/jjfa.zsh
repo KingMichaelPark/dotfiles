@@ -1,8 +1,8 @@
 jjfa() {
-  for dir in */; do
-    if [ -d "$dir/.jj" ]; then
+  for dir in */(N); do
+    if [[ -d "$dir/.jj" ]]; then
       echo "==> $dir"
-      (cd "$dir" && jj git fetch)
+      (builtin cd -q -- "$dir" && jj git fetch)
     fi
   done
 }
