@@ -6,13 +6,6 @@
 palette = "rose-pine"
 
 
-[env_var.ZMX_SESSION]
-variable = "ZMX_SESSION"
-default = ""
-symbol = ""
-format = "[$symbol$env_value]($style) "
-style = "bold rose"
-
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'

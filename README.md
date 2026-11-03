@@ -57,7 +57,6 @@ what you like, and shoot me a message if you need help with anything!
 | [**typst**](https://github.com/typst/typst)                   | LaTeX / Word alternative                                                 |
 | [**uv**](https://github.com/astral-sh/uv)                     | Extremely fast Python package installer and resolver, written in Rust    |
 | [**yazi**](https://github.com/sxyazi/yazi)                    | TUI file manager                                                         |
-| [**zmx**](https://zmx.sh)                     | Session management like tmux without overriding ghostty UI for splits and tabs    |
 | [**zoxide**](https://github.com/ajeetdsouza/zoxide)           | Shell extension to navigate your filesystem faster                       |
 
 ### Installation
@@ -75,7 +74,6 @@ brew install \
     jj \
     mise \
     stow \
-    neurosnap/tap/zmx
 stow mise
 mise i
 ```

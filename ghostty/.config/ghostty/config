@@ -1,7 +1,6 @@
 # Appearance
 background = "#0c0b12"
-# background = "#000000"
-#
+
 background-blur = macos-glass-regular
 background-opacity = 0.92
 

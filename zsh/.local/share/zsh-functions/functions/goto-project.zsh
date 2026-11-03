@@ -4,19 +4,23 @@ goto_project() {
   dir="${dir%/}"
 
   if [[ -n "$dir" ]]; then
-    builtin cd -- "$dir" || return
     local session_name="${dir:t}"
-    if zle; then
-      BUFFER="zmx a ${(q)session_name}"
-      zle accept-line
-    else
-      zmx a "$session_name"
+    local session_id
+    session_id=$(rex session list --json | jq -r --arg label "$session_name" 'first(.sessions[] | select(.label == $label) | .session_id) // empty')
+
+    if [[ -z "$session_id" ]]; then
+      session_id=$(rex session new "$session_name" -c "$dir" --json | jq -r '.session_id')
     fi
-  else
-    if zle; then
-      zle reset-prompt
+
+    if [[ -n "$session_id" ]]; then
+      rex do session.select "session_id=$session_id" >/dev/null
     fi
+  fi
+
+  if zle; then
+    zle reset-prompt
   fi
 }
 zle -N goto_project
 bindkey '^f' goto_project
+bindkey -M vicmd '^f' goto_project
