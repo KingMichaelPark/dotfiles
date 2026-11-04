@@ -54,7 +54,6 @@ bf = ["util", "exec", "--", 'sh', '-euc', '''
 
 [git]
 subprocess = true
-sign-on-push = true
 
 [revset-aliases]
 'closest_bookmark(to)' = 'heads(::to & bookmarks())'
@@ -67,6 +66,7 @@ sign-on-push = true
 
 [revsets]
 log = 'present(@) | work() | recent_trunk()'
+git-sign-on-push = "~signed() & mine()"
 
 [signing]
 behaviour = "own"
