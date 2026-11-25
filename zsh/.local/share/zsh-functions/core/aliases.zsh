@@ -10,6 +10,7 @@ alias ls='eza'
 alias mdf='rumdl fmt -c ~/.dotfiles/rumbdl.toml'
 alias mdc='rumdl check -c ~/.dotfiles/rumbdl.toml'
 # alias ssh='ghostty +ssh --'
+alias jr=jj-rex
 alias tf=terraform
 alias v="nvim"
 alias vim="nvim"

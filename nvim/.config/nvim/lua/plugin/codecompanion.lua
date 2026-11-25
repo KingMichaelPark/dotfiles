@@ -38,7 +38,7 @@ require("codecompanion").setup({
                     },
                     schema = {
                         model = {
-                            default = "gemini-flash-latest",
+                            default = "gemini-4-hydrogen",
                         },
                     },
                 })
